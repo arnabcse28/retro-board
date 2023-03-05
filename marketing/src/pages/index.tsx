@@ -40,12 +40,13 @@ export default function HomePage({ legals, blogs }: HomePageProps) {
       <Dashboard />
       <CombinedSection>
         <Integrations />
+        <CornerPattern />
       </CombinedSection>
       <NewsFeed articles={blogs} />
       <CombinedSection>
         <Pricing />
+        <CornerPattern />
       </CombinedSection>
-      <CornerPattern />
       <Faq />
       <CallToAction />
     </Layout>
