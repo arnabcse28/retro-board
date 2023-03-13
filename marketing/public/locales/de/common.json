@@ -9,7 +9,7 @@
 		"link": "Zurück!"
 	},
 	"Banner": {
-		"heading": "Du wirst deinen ersten **Retro** **nie vergessen**.",
+		"heading": "Deine erste **Retro** wirst du **nie vergessen**.",
 		"text": "Bieten Sie Ihrem Team **kontinuierliche Verbesserungen** mit einem **modernen** und **einfach zu bedienenden** Retrospektiv-Tool.",
 		"tagline": "*Keine Kreditkarte nötig",
 		"subscribeToday": "Kostenlos probieren",
@@ -26,7 +26,7 @@
 		"login": "Login"
 	},
 	"Clients": {
-		"main": "Werden auch Sie Mitglied der Hunderten Unternehmen, die Retrospected bereits nutzen"
+		"main": "Werden auch Sie Mitglied der Hunderten von Unternehmen, die Retrospected bereits nutzen"
 	},
 	"HowItWorks": {
 		"heading": "Unsere Nutzer lieben...",
@@ -130,11 +130,11 @@
 		"description": "Ein Retro zu starten oder zu betreten ist kinderleicht.",
 		"1": {
 			"title": "Reaktionsfähig",
-			"description": "Retrospected funktioniert auf Geräten aller Größen, vom iPhone bis hin zu einem 4K-Monitor."
+			"description": "Retrospected funktioniert auf Geräten aller Größen, von einem iPhone bis hin zu einem 4K-Monitor."
 		},
 		"2": {
 			"title": "Anpassbar",
-			"description": "Retrospected ist sehr anpassbar. Sie können z. B. die Spalten, das Abstimmungssystem, den Timer ändern."
+			"description": "Retrospected lässt sich leicht anpassen. Sie können z. B. die Spalten, das Abstimmungssystem, den Timer ändern."
 		},
 		"3": {
 			"title": "Sicher",
@@ -179,7 +179,7 @@
 	},
 	"CTA": {
 		"heading": "Jetzt eine Retrospektive starten",
-		"description": "Werden Sie Teil der Tausenden Nutzern, die Retrospected bereits verwenden",
+		"description": "Werden Sie Teil der Tausenden von Nutzern, die Retrospected bereits verwenden",
 		"button": "Eine Retrospektive starten",
 		"hint": "Das wird Ihr Leben ändern!"
 	},
