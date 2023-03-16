@@ -38,10 +38,11 @@ export function middleware(request: NextRequest) {
       domain:
         host.includes('localhost') || host.split('.').length < 3
           ? undefined
-          : host.split('.').slice(1).join('.'),
+          : '.' + host.split('.').slice(1).join('.'),
     };
 
-    console.log('tracking', tracking);
+    console.log('tracking', cookie);
+    console.log('host', host);
 
     response.cookies.set(cookie);
   }
