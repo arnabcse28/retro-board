@@ -33,7 +33,6 @@ export function middleware(request: NextRequest) {
     const cookie: ResponseCookie = {
       name: COOKIE_NAME,
       value: JSON.stringify(tracking),
-      sameSite: 'lax',
       expires: addYears(new Date(), 1),
       domain: host.includes('localhost') ? undefined : '.retrospected.com',
     };
