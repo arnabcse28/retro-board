@@ -35,10 +35,7 @@ export function middleware(request: NextRequest) {
       value: JSON.stringify(tracking),
       sameSite: 'lax',
       expires: addYears(new Date(), 1),
-      domain:
-        host.includes('localhost') || host.split('.').length < 3
-          ? undefined
-          : '.' + host.split('.').slice(1).join('.'),
+      domain: host.includes('localhost') ? undefined : '.retrospected.com',
     };
 
     console.log('tracking', cookie);
