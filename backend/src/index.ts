@@ -59,6 +59,7 @@ import {
   getIdentityByUsername,
   associateUserWithAdWordsCampaign,
   TrackingInfo,
+  registerAnonymousUser,
 } from './db/actions/users.js';
 import { isLicenced } from './security/is-licenced.js';
 import rateLimit from 'express-rate-limit';
@@ -70,6 +71,7 @@ import { deleteAccount } from './db/actions/delete.js';
 import { noop } from 'lodash-es';
 import { createDemoSession } from './db/actions/demo.js';
 import cookieParser from 'cookie-parser';
+import { generateUsername } from './common/random-username.js';
 
 const realIpHeader = 'X-Forwarded-For';
 const sessionSecret = `${config.SESSION_SECRET!}-4.11.5`; // Increment to force re-auth
@@ -331,7 +333,17 @@ db().then(() => {
     if (user) {
       res.status(200).send(user.toJson());
     } else {
-      res.status(401).send('Not logged in');
+      const anonUser = await registerAnonymousUser(
+        generateUsername() + '^' + v4(),
+        v4()
+      );
+      if (anonUser) {
+        req.logIn({ userId: anonUser.user.id, identityId: anonUser.id }, () => {
+          res.status(200).send(anonUser.user.toJson());
+        });
+      } else {
+        res.status(401).send('Not logged in');
+      }
     }
   });
 
