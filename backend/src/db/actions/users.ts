@@ -201,7 +201,7 @@ export type TrackingInfo = {
   gclid: string;
 };
 
-export async function trackUser(
+export async function associateUserWithAdWordsCampaign(
   user: UserView,
   tracking: Partial<TrackingInfo>
 ) {

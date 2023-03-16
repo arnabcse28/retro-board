@@ -57,7 +57,7 @@ import {
   getPasswordIdentity,
   updateIdentity,
   getIdentityByUsername,
-  trackUser,
+  associateUserWithAdWordsCampaign,
   TrackingInfo,
 } from './db/actions/users.js';
 import { isLicenced } from './security/is-licenced.js';
@@ -325,7 +325,7 @@ db().then(() => {
     if (trackingString && user) {
       const tracking: Partial<TrackingInfo> = JSON.parse(trackingString);
       // We don't await this because we don't want to block the response
-      trackUser(user, tracking);
+      associateUserWithAdWordsCampaign(user, tracking);
     }
 
     if (user) {
