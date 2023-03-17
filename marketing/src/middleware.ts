@@ -5,7 +5,7 @@ import parse from 'url-parse';
 
 // https://www.retrospected.com/?campaignid=19686942887&creative=648178043912&device=c&keyword=retro
 
-const COOKIE_NAME = 'retro-aw-tracking';
+const COOKIE_NAME = 'retro_aw';
 
 export type TrackingInfo = {
   campaignId: string;
