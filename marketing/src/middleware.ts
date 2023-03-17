@@ -34,7 +34,9 @@ export function middleware(request: NextRequest) {
       name: COOKIE_NAME,
       value: JSON.stringify(tracking),
       expires: addYears(new Date(), 1),
-      domain: host.includes('localhost') ? undefined : '.retrospected.com',
+      domain: host.includes('localhost')
+        ? undefined
+        : process.env.NEXT_PUBLIC_COOKIE_DOMAIN,
     };
 
     console.log('tracking', cookie);
