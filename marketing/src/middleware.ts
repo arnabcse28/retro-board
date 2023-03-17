@@ -39,9 +39,6 @@ export function middleware(request: NextRequest) {
         : process.env.NEXT_PUBLIC_COOKIE_DOMAIN,
     };
 
-    console.log('tracking', cookie);
-    console.log('host', host);
-
     response.cookies.set(cookie);
   }
 
