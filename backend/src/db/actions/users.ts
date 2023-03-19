@@ -16,6 +16,7 @@ import { v4 } from 'uuid';
 import { hashPassword, comparePassword } from '../../encryption.js';
 import { saveAndReload } from '../repositories/BaseRepository.js';
 import TrackingEntity from '../entities/TrackingEntity.js';
+import { mergeUsers } from './merge.js';
 
 export async function getUser(userId: string): Promise<UserEntity | null> {
   return await transaction(async (manager) => {
@@ -228,6 +229,16 @@ export async function associateUserWithAdWordsCampaign(
       await userRepository.save(userEntity);
     }
   });
+}
+
+export async function registerUserFromAnonymousUser(
+  anonUser: UserView,
+  registration: UserRegistration
+) {
+  const newUser = await registerUser(registration);
+  await mergeUsers(newUser.id, [anonUser.identityId]);
+
+  return newUser;
 }
 
 export async function registerUser(

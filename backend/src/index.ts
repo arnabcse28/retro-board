@@ -337,10 +337,19 @@ db().then(() => {
         generateUsername() + '^' + v4(),
         v4()
       );
+
       if (anonUser) {
-        req.logIn({ userId: anonUser.user.id, identityId: anonUser.id }, () => {
-          res.status(200).send(anonUser.user.toJson());
-        });
+        const view = await getUserView(anonUser.id);
+        if (view) {
+          req.logIn(
+            { userId: anonUser.user.id, identityId: anonUser.id },
+            () => {
+              res.status(200).send(view.toJson());
+            }
+          );
+        } else {
+          res.status(500).send('Could not get user view');
+        }
       } else {
         res.status(401).send('Not logged in');
       }

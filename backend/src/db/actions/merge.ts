@@ -13,8 +13,6 @@ export async function mergeUsers(
   mainUserId: string,
   mergedUserIds: string[]
 ): Promise<boolean> {
-  console.log('Merging users', mainUserId, mergedUserIds);
-
   for (const target of mergedUserIds) {
     await mergeOne(mainUserId, target);
   }
@@ -23,7 +21,6 @@ export async function mergeUsers(
 }
 
 async function mergeOne(main: string, target: string) {
-  console.log('Merge ', main, target);
   const mainUser = await getUserView(main);
   const targetUser = await getUserView(target);
 

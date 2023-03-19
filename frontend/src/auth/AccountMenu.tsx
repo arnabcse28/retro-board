@@ -94,14 +94,12 @@ const AccountMenu = () => {
                 <ListItemText>Go Pro!</ListItemText>
               </MenuItem>
             ) : null}
-            {isNotAnon ? (
-              <MenuItem onClick={handleAccount} data-cy="account-menu-account">
-                <ListItemIcon>
-                  <AccountCircle />
-                </ListItemIcon>
-                <ListItemText>{t('Header.account')}</ListItemText>
-              </MenuItem>
-            ) : null}
+            <MenuItem onClick={handleAccount} data-cy="account-menu-account">
+              <ListItemIcon>
+                <AccountCircle />
+              </ListItemIcon>
+              <ListItemText>{t('Header.account')}</ListItemText>
+            </MenuItem>
             {isAdmin ? (
               <MenuItem onClick={handleAdmin} data-cy="account-menu-admin">
                 <ListItemIcon>

@@ -30,9 +30,19 @@ import {
   SlackProfile,
   OktaProfile,
 } from './types.js';
-import { registerUser, UserRegistration } from '../db/actions/users.js';
-import { serialiseIds, UserIds, deserialiseIds } from '../utils.js';
+import {
+  registerUser,
+  registerUserFromAnonymousUser,
+  UserRegistration,
+} from '../db/actions/users.js';
+import {
+  serialiseIds,
+  UserIds,
+  deserialiseIds,
+  getUserViewFromRequest,
+} from '../utils.js';
 import config from '../config.js';
+import { Request } from 'express';
 
 export default () => {
   passport.serializeUser<string>((user, cb) => {
@@ -46,6 +56,7 @@ export default () => {
 
   function callback<TProfile, TCallback>(type: AccountType) {
     return async (
+      req: Request,
       _accessToken: string,
       _refreshToken: string,
       anyProfile: TProfile,
@@ -85,10 +96,20 @@ export default () => {
         callback('Cannot build a user profile', null);
         return;
       }
+      const currentUser = await getUserViewFromRequest(req);
 
-      const dbIdentity = await registerUser(user);
+      if (currentUser && currentUser.accountType === 'anonymous') {
+        console.log('Current user: ', currentUser.username);
+        const dbIdentity = await registerUserFromAnonymousUser(
+          currentUser,
+          user
+        );
+        callback(null, dbIdentity.toIds());
+      } else {
+        const dbIdentity = await registerUser(user);
 
-      callback(null, dbIdentity.toIds());
+        callback(null, dbIdentity.toIds());
+      }
     };
   }
 
@@ -219,7 +240,8 @@ export default () => {
   }
 
   if (OKTA_CONFIG) {
-    passport.use(new OktaStrategy(OKTA_CONFIG, callback('okta')));
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    passport.use(new OktaStrategy(OKTA_CONFIG, callback('okta') as any));
     logSuccess('Okta');
   }
 

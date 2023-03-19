@@ -1,17 +1,16 @@
 import {
   uniqueNamesGenerator,
   adjectives,
-  colors,
   animals,
 } from 'unique-names-generator';
 import { v4 } from 'uuid';
 
 export function generateUsername() {
   const shortName: string = uniqueNamesGenerator({
-    dictionaries: [colors, adjectives, animals],
+    dictionaries: [adjectives, animals],
     separator: ' ',
     style: 'capital',
-    length: 3,
+    length: 2,
     seed: v4(),
   });
 

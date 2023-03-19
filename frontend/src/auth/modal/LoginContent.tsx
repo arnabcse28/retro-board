@@ -13,12 +13,16 @@ import useBackendCapabilities from '../../global/useBackendCapabilities';
 import { Alert } from '@mui/material';
 
 interface LoginContentProps {
+  allowAnonymous?: boolean;
   onClose: () => void;
 }
 
 type TabType = 'account' | 'social' | 'anon' | null;
 
-export default function LoginContent({ onClose }: LoginContentProps) {
+export default function LoginContent({
+  onClose,
+  allowAnonymous = true,
+}: LoginContentProps) {
   const { any } = useOAuthAvailabilities();
   const { disableAnonymous, disablePasswords } = useBackendCapabilities();
   const hasNoSocialMediaAuth = !any;
@@ -66,7 +70,7 @@ export default function LoginContent({ onClose }: LoginContentProps) {
                   data-cy="account-tab"
                 />
               ) : null}
-              {!disableAnonymous ? (
+              {!disableAnonymous && allowAnonymous ? (
                 <Tab
                   label={t('AnonymousLogin.anonymousAuthHeader')}
                   value="anon"
