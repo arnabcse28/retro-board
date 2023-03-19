@@ -11,6 +11,7 @@ import AccountAuth from './AccountAuth';
 import useOAuthAvailabilities from '../../global/useOAuthAvailabilities';
 import useBackendCapabilities from '../../global/useBackendCapabilities';
 import { Alert } from '@mui/material';
+import styled from '@emotion/styled';
 
 interface LoginContentProps {
   allowAnonymous?: boolean;
@@ -46,55 +47,33 @@ export default function LoginContent({
         </Alert>
       ) : (
         <>
-          <AppBar position="static" color="default">
-            <Tabs
-              value={currentTab}
-              onChange={handleTab}
-              indicatorColor="primary"
-              textColor="primary"
-              variant="scrollable"
-              scrollButtons="auto"
-              aria-label="Login types"
-            >
+          <DialogContent>
+            <Container>
               {!hasNoSocialMediaAuth ? (
-                <Tab
-                  label={t('SocialMediaLogin.header')}
-                  value="social"
-                  data-cy="social-tab"
-                />
+                <SocialAuth onClose={onClose} onUser={setUser} />
               ) : null}
               {!disablePasswords ? (
-                <Tab
-                  label={t('AccountLogin.header')}
-                  value="account"
-                  data-cy="account-tab"
-                />
+                <AccountAuth onClose={onClose} onUser={setUser} />
               ) : null}
-              {!disableAnonymous && allowAnonymous ? (
-                <Tab
-                  label={t('AnonymousLogin.anonymousAuthHeader')}
-                  value="anon"
-                  data-cy="anon-tab"
-                />
-              ) : null}
-            </Tabs>
-          </AppBar>
-          <DialogContent>
-            {currentTab === 'social' ? (
-              <SocialAuth onClose={onClose} onUser={setUser} />
-            ) : null}
-            {currentTab === 'account' ? (
-              <AccountAuth onClose={onClose} onUser={setUser} />
-            ) : null}
-            {currentTab === 'anon' ? (
-              <AnonAuth onClose={onClose} onUser={setUser} />
-            ) : null}
+            </Container>
           </DialogContent>
         </>
       )}
     </>
   );
 }
+
+const Container = styled.div`
+  display: flex;
+  gap: 20px;
+  > * {
+    flex: 1;
+  }
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+  }
+`;
 
 function getDefaultMode(
   oauth: boolean,
