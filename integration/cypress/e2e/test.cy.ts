@@ -4,7 +4,7 @@ describe('Home Page', () => {
   it('Should load correctly', () => {
     cy.visit('/');
 
-    cy.get('#content').get('h1', { timeout }).should('contain', 'Welcome!');
+    cy.get('#content').get('h1', { timeout }).should('contain', 'Welcome,');
   });
 });
 
