@@ -31,4 +31,5 @@ const Actions = styled.div`
   display: flex;
   justify-content: flex-end;
   margin: 20px 0 5px 0;
+  gap: 10px;
 `;

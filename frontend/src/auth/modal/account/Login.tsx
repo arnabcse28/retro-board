@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 import { FullUser } from 'common';
 import Wrapper from './../Wrapper';
 import Input from '../../../components/Input';
-import Link from '../../../components/Link';
 import { Email, VpnKey } from '@mui/icons-material';
 import { accountLogin } from '../../../api';
 import styled from '@emotion/styled';
@@ -70,6 +69,18 @@ const Login = ({
           {error}
         </Alert>
       ) : null}
+      <Links>
+        <Button data-cy="register" color="primary" onClick={onAskRegistration}>
+          {t('AccountLogin.registerLink')}
+        </Button>
+        <Button
+          data-cy="forgot-password"
+          color="secondary"
+          onClick={onAskPasswordReset}
+        >
+          {t('AccountLogin.forgotPasswordLink')}
+        </Button>
+      </Links>
       <Input
         value={loginEmail}
         onChangeValue={setLoginEmail}
@@ -94,31 +105,18 @@ const Login = ({
         leftIcon={<VpnKey />}
         inputProps={{ 'data-cy': 'account-password-input' }}
       />
-      <div style={{ marginTop: 20 }} />
-      <Links>
-        <Link data-cy="register" onClick={onAskRegistration}>
-          {t('AccountLogin.registerLink')}
-        </Link>
-        <Link data-cy="forgot-password" onClick={onAskPasswordReset}>
-          {t('AccountLogin.forgotPasswordLink')}
-        </Link>
-      </Links>
     </Wrapper>
   );
 };
 
 const Links = styled.div`
+  margin: 20px 0;
   display: flex;
-  > :first-of-type {
-    margin-right: 20px;
-  }
+  gap: 20px;
 
   @media (max-width: 400px) {
     flex-direction: column;
-    > :first-of-type {
-      margin-right: 0px;
-      margin-bottom: 5px;
-    }
+    gap: 5px;
   }
 `;
 

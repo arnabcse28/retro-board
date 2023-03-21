@@ -98,13 +98,7 @@ function AccountPage() {
 
         {user.accountType === 'anonymous' ? (
           <Section title="Convert your anonymous account">
-            <Alert severity="info">
-              Don't loose your data and convert your anonymous account to a real
-              account now. Login with your Google, GitHub, Twitter account, or
-              create a password account, and it will automatically merge your
-              data.
-            </Alert>
-
+            <Alert severity="success">{t('AccountPage.convertWarning')}</Alert>
             <LoginContent allowAnonymous={false} onClose={noop} />
           </Section>
         ) : (
