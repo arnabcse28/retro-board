@@ -73,6 +73,7 @@ const AccountMenu = () => {
         >
           <Avatar user={user} />
           <DisplayName>{user.name}</DisplayName>
+          <AccountCircle fontSize={'large'} />
         </AvatarContainer>
         {menuAnchor.current ? (
           <Menu
@@ -145,10 +146,7 @@ const AvatarContainer = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-
-  > :first-of-type {
-    margin-right: 10px;
-  }
+  gap: 15px;
 `;
 
 const DisplayName = styled.div`
