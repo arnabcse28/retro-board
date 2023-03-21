@@ -292,9 +292,10 @@
     "cancelButton": "No thanks"
   },
   "AccountPage": {
+    "convertTitle": "Convert to a real account",
     "noEmptyNameError": "You cannot choose an empty display name. Please try again.",
     "anonymousError": "Anonymous accounts cannot have access to their profile (because they don't have one).",
-    "convertWarning": "Don't loose your data and convert your anonymous account to a real account now. Login with your Google, GitHub, Twitter account, or create a password account, and it will automatically merge your data.",
+    "convertWarning": "You are using an anonymous account. Don't lose your data and convert your anonymous account to a real account now. Login with your Google, GitHub, Twitter account, or create a password account, and it will automatically merge your data.",
     "details": {
       "header": "Your Details",
       "username": "Username",

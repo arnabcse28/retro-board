@@ -97,8 +97,8 @@ function AccountPage() {
         </Name>
 
         {user.accountType === 'anonymous' ? (
-          <Section title="Convert your anonymous account">
-            <Alert severity="success">{t('AccountPage.convertWarning')}</Alert>
+          <Section title={t('AccountPage.convertTitle')!}>
+            <Alert severity="warning">{t('AccountPage.convertWarning')}</Alert>
             <LoginContent allowAnonymous={false} onClose={noop} />
           </Section>
         ) : (
@@ -287,6 +287,7 @@ const Name = styled.h1`
   gap: 10px;
   font-weight: 100;
   font-size: 3em;
+  margin-left: 20px;
   @media screen and (max-width: 500px) {
     font-size: 1.5em;
   }

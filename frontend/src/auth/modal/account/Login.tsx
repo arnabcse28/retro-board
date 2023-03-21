@@ -50,6 +50,7 @@ const Login = ({
   return (
     <Wrapper
       header={t('AccountLogin.header')!}
+      help={t('AccountLogin.info')}
       actions={
         <Button
           onClick={handleAccountogin}
@@ -63,7 +64,6 @@ const Login = ({
         </Button>
       }
     >
-      <Alert severity="info">{t('AccountLogin.info')}</Alert>
       {error ? (
         <Alert severity="error" style={{ marginTop: 10 }}>
           {error}
