@@ -46,6 +46,7 @@ const AccountMenu = () => {
   const handleLogout = useCallback(() => {
     logout();
     setUser(null);
+    setMenuOpen(false);
   }, [setUser]);
 
   const handleAccount = useCallback(() => {
