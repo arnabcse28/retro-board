@@ -38,7 +38,7 @@ export default function LoginContent({
                 <SocialAuth onClose={onClose} onUser={setUser} />
               ) : null}
               <Separator>
-                <span>or</span>
+                <span>{t('AuthCommon.or')}</span>
               </Separator>
               {!disablePasswords ? (
                 <AccountAuth onClose={onClose} onUser={setUser} />

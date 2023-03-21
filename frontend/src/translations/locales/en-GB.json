@@ -210,6 +210,7 @@
     "passwordField": "Password",
     "nameField": "Your name (for display purposes)",
     "noAuthWarning": "Your administrator disabled all login possibilities (OAuth, password). Ask your administrator to re-enable at least one.",
+    "or": "or",
     "passwordScoreWords": [
       "weak",
       "weak",
