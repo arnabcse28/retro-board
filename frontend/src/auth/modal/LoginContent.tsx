@@ -31,13 +31,7 @@ export default function LoginContent({
     hasNoSocialMediaAuth && disableAnonymous && disablePasswords;
   const { t } = useTranslation();
   const { setUser } = useContext(UserContext);
-  const [currentTab, setCurrentTab] = useState<TabType>(
-    getDefaultMode(any, !disablePasswords, !disableAnonymous)
-  );
 
-  const handleTab = useCallback((_: React.ChangeEvent<{}>, value: string) => {
-    setCurrentTab(value as TabType);
-  }, []);
   return (
     <>
       {hasNoWayOfLoggingIn ? (
@@ -52,6 +46,7 @@ export default function LoginContent({
               {!hasNoSocialMediaAuth ? (
                 <SocialAuth onClose={onClose} onUser={setUser} />
               ) : null}
+              <Separator />
               {!disablePasswords ? (
                 <AccountAuth onClose={onClose} onUser={setUser} />
               ) : null}
@@ -62,6 +57,22 @@ export default function LoginContent({
     </>
   );
 }
+
+const Separator = styled.div`
+  height: 200px;
+  margin: 0 20px;
+  border-left: 1px solid #ccc;
+  background-color: #ccc;
+  flex: 0;
+  align-self: center;
+
+  @media screen and (max-width: 1000px) {
+    width: 80%;
+    height: 1px;
+    margin: 10px 0;
+    border-top: 1px solid #ccc;
+  }
+`;
 
 const Container = styled.div`
   display: flex;
