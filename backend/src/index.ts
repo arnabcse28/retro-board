@@ -335,7 +335,7 @@ db().then(() => {
     }
 
     if (user) {
-      res.status(200).send(user.toJson());
+      res.status(200).send(user.toJson()).end();
     } else {
       console.log('==> creating anonymous user');
       const anonUser = await registerAnonymousUser(
@@ -345,19 +345,19 @@ db().then(() => {
 
       if (anonUser) {
         console.log('==> created anonymous user', anonUser.id);
-        const view = await getUserView(anonUser.id);
-        if (view) {
-          console.log('==> got user view', view.identityId);
-          req.logIn(
-            { userId: anonUser.user.id, identityId: anonUser.id },
-            () => {
-              console.log('==> logged in', view.identityId);
-              res.status(200).send(view.toJson());
+        req.logIn(
+          { userId: anonUser.user.id, identityId: anonUser.id },
+          async () => {
+            console.log('==> logged in', anonUser.id);
+            const view = await getUserView(anonUser.id);
+            if (view) {
+              console.log('==> got user view', view.identityId);
+              res.status(200).send(view.toJson()).end();
+            } else {
+              res.status(500).send('Could not get the user');
             }
-          );
-        } else {
-          res.status(500).send('Could not get user view');
-        }
+          }
+        );
       } else {
         res.status(401).send('Not logged in');
       }
