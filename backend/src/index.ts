@@ -264,6 +264,7 @@ db().then(() => {
   // Create session
   app.post('/api/create', heavyLoadLimiter, async (req, res) => {
     const identity = await getIdentityFromRequest(req);
+    console.log(' --> create session', identity?.id);
     const payload: CreateSessionPayload = req.body;
     setScope(async (scope) => {
       if (identity) {
@@ -281,6 +282,7 @@ db().then(() => {
           throw err;
         }
       } else {
+        console.log(' --> NO IDENTITY', identity);
         res
           .status(401)
           .send('You must be logged in in order to create a session');
@@ -333,17 +335,21 @@ db().then(() => {
     if (user) {
       res.status(200).send(user.toJson());
     } else {
+      console.log('==> creating anonymous user');
       const anonUser = await registerAnonymousUser(
         generateUsername() + '^' + v4(),
         v4()
       );
 
       if (anonUser) {
+        console.log('==> created anonymous user', anonUser.id);
         const view = await getUserView(anonUser.id);
         if (view) {
+          console.log('==> got user view', view.identityId);
           req.logIn(
             { userId: anonUser.user.id, identityId: anonUser.id },
             () => {
+              console.log('==> logged in', view.identityId);
               res.status(200).send(view.toJson());
             }
           );
