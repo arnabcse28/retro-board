@@ -268,6 +268,7 @@ db().then(() => {
     const identity = await getIdentityFromRequest(req);
     console.log(' --> create session', identity?.id);
     console.log('Cookies: ', req.cookies, req.cookies['connect.sid']);
+    console.log('User: ', req.user);
     const payload: CreateSessionPayload = req.body;
     setScope(async (scope) => {
       if (identity) {
@@ -353,6 +354,8 @@ db().then(() => {
             const view = await getUserView(anonUser.id);
             if (view) {
               console.log('==> got user view', view.identityId);
+              console.log('Cookies: ', req.cookies, req.cookies['connect.sid']);
+              console.log('User: ', req.user);
               res.status(200).send(view.toJson()).end();
             } else {
               res.status(500).send('Could not get the user');
