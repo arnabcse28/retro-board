@@ -267,6 +267,7 @@ db().then(() => {
   app.post('/api/create', heavyLoadLimiter, async (req, res) => {
     const identity = await getIdentityFromRequest(req);
     console.log(' --> create session', identity?.id);
+    console.log('Cookies: ', req.cookies, req.cookies['connect.sid']);
     const payload: CreateSessionPayload = req.body;
     setScope(async (scope) => {
       if (identity) {
