@@ -325,7 +325,7 @@ db().then(() => {
     });
   });
 
-  app.get('/api/me', async (req, res) => {
+  app.post('/api/me', async (req, res) => {
     const user = await getUserViewFromRequest(req);
     const trackingString: string = req.cookies['retro_aw'];
     if (trackingString && user) {

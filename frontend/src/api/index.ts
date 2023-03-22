@@ -45,7 +45,7 @@ export async function createEncryptedGame(
 }
 
 export async function me(): Promise<FullUser | null> {
-  return await fetchGet<FullUser | null>('/api/me', null);
+  return await fetchPostGet<unknown, FullUser | null>('/api/me', null);
 }
 
 export async function getProducts(): Promise<Product[] | null> {
