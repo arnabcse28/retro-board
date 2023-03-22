@@ -178,6 +178,7 @@ if (config.REDIS_ENABLED) {
     store: new RedisStore({ client: redisClient }),
     cookie: {
       secure: config.SECURE_COOKIES,
+      maxAge: 1000 * 60 * 60 * 24 * 365, // 1 year
     },
   });
 
@@ -199,6 +200,7 @@ if (config.REDIS_ENABLED) {
     saveUninitialized: true,
     cookie: {
       secure: config.SECURE_COOKIES,
+      maxAge: 1000 * 60 * 60 * 24 * 365, // 1 year
     },
   });
 }
