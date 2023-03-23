@@ -31,6 +31,10 @@ describe('Post workflow', () => {
     // Home page should display the user name
     cy.get('#content', { timeout }).should('contain', 'Welcome,');
 
+    get('account-menu').click();
+    get('account-menu-account').click();
+    get('header-home-button').click();
+
     displayCookies();
 
     // And then allow creating a new session
