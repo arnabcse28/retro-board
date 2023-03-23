@@ -112,9 +112,7 @@ if (config.SELF_HOSTED) {
 initSentry();
 
 const app = express();
-
-// _____
-app.use(cookieParser('abcdefg'));
+app.use(cookieParser(sessionSecret));
 app.use(
   express.json({
     // This is a trick to get the raw buffer on the request, for Stripe
@@ -125,18 +123,6 @@ app.use(
   })
 );
 app.use(express.urlencoded({ extended: true }));
-app.use(
-  session({
-    secret: 'abcdefg',
-    resave: true,
-    saveUninitialized: false,
-  })
-);
-app.use(passport.initialize());
-app.use(passport.session());
-// _____
-
-// app.use(cookieParser(sessionSecret));
 
 function getActualIp(req: express.Request): string {
   const headerValue = req.header(realIpHeader);
@@ -167,18 +153,6 @@ const heavyLoadLimiter = rateLimit({
 // Sentry
 setupSentryRequestHandler(app);
 
-// Stripe
-// app.use(
-//   express.json({
-//     // This is a trick to get the raw buffer on the request, for Stripe
-//     verify: (req, _, buf) => {
-//       const request = req as express.Request;
-//       request.buf = buf;
-//     },
-//   })
-// );
-// app.use(express.urlencoded({ extended: true }));
-
 // saveUninitialized: true allows us to attach the socket id to the session
 // before we have athenticated the user
 let sessionMiddleware: express.RequestHandler;
@@ -188,71 +162,69 @@ const io = new socketIo.Server(httpServer, {
   maxHttpBufferSize: config.WS_MAX_BUFFER_SIZE,
 });
 
-// if (config.REDIS_ENABLED) {
-//   const RedisStore = connectRedis(session);
-//   const redisClient = createClient({
-//     host: config.REDIS_HOST,
-//     port: config.REDIS_PORT,
-//   });
+if (config.REDIS_ENABLED) {
+  const RedisStore = connectRedis(session);
+  const redisClient = createClient({
+    host: config.REDIS_HOST,
+    port: config.REDIS_PORT,
+  });
 
-//   sessionMiddleware = session({
-//     secret: sessionSecret,
-//     resave: true,
-//     saveUninitialized: true,
-//     store: new RedisStore({ client: redisClient }),
-//     cookie: {
-//       secure: config.SECURE_COOKIES,
-//       maxAge: 1000 * 60 * 60 * 24 * 365, // 1 year
-//     },
-//   });
+  sessionMiddleware = session({
+    secret: sessionSecret,
+    resave: true,
+    saveUninitialized: false,
+    store: new RedisStore({ client: redisClient }),
+    // cookie: {
+    //   secure: config.SECURE_COOKIES,
+    // },
+  });
 
-//   if (config.REDIS_FOR_SOCKETIO_ENABLED) {
-//     const subClient = redisClient.duplicate();
-//     io.adapter(createAdapter({ pubClient: redisClient, subClient }));
-//     console.log(
-//       chalk`💾  {red Redis} for {yellow Socket.IO} was properly activated`
-//     );
-//   }
+  if (config.REDIS_FOR_SOCKETIO_ENABLED) {
+    const subClient = redisClient.duplicate();
+    io.adapter(createAdapter({ pubClient: redisClient, subClient }));
+    console.log(
+      chalk`💾  {red Redis} for {yellow Socket.IO} was properly activated`
+    );
+  }
 
-//   console.log(
-//     chalk`💾  {red Redis} for {yellow Express} was properly activated`
-//   );
-// } else {
-//   sessionMiddleware = session({
-//     secret: sessionSecret,
-//     resave: true,
-//     saveUninitialized: true,
-//     // cookie: {
-//     //   secure: config.SECURE_COOKIES,
-//     //   maxAge: 1000 * 60 * 60 * 24 * 365, // 1 year
-//     // },
-//   });
-// }
+  console.log(
+    chalk`💾  {red Redis} for {yellow Express} was properly activated`
+  );
+} else {
+  sessionMiddleware = session({
+    secret: sessionSecret,
+    resave: true,
+    saveUninitialized: false,
+    // cookie: {
+    //   secure: config.SECURE_COOKIES,
+    // },
+  });
+}
 
-// app.use(sessionMiddleware);
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(sessionMiddleware);
+app.use(passport.initialize());
+app.use(passport.session());
 
-// if (process.env.NODE_ENV !== 'production') {
-//   app.use(
-//     mung.json((body) => {
-//       if (body) {
-//         const hasPassword = hasField('password', body);
-//         if (hasPassword) {
-//           console.error('The following object has a password property: ', body);
-//         }
-//         const hasStripeId =
-//           hasField('stripeId', body) && !hasField('identityId', body);
-//         if (hasStripeId) {
-//           console.error(
-//             'The following object has a stripe ID property: ',
-//             body
-//           );
-//         }
-//       }
-//     })
-//   );
-// }
+if (process.env.NODE_ENV !== 'production') {
+  app.use(
+    mung.json((body) => {
+      if (body) {
+        const hasPassword = hasField('password', body);
+        if (hasPassword) {
+          console.error('The following object has a password property: ', body);
+        }
+        const hasStripeId =
+          hasField('stripeId', body) && !hasField('identityId', body);
+        if (hasStripeId) {
+          console.error(
+            'The following object has a stripe ID property: ',
+            body
+          );
+        }
+      }
+    })
+  );
+}
 
 app.get('/api/ping', (req, res) => {
   res.send('pong');
@@ -290,9 +262,6 @@ db().then(() => {
   // Create session
   app.post('/api/create', heavyLoadLimiter, async (req, res) => {
     const identity = await getIdentityFromRequest(req);
-    console.log(' --> create session', identity?.id);
-    console.log('Cookies: ', req.cookies, req.cookies['connect.sid']);
-    console.log('User: ', req.user);
     const payload: CreateSessionPayload = req.body;
     setScope(async (scope) => {
       if (identity) {
@@ -310,7 +279,6 @@ db().then(() => {
           throw err;
         }
       } else {
-        console.log(' --> NO IDENTITY', identity);
         res
           .status(401)
           .send('You must be logged in in order to create a session');
@@ -351,7 +319,7 @@ db().then(() => {
     });
   });
 
-  app.post('/api/me', async (req, res) => {
+  app.get('/api/me', async (req, res) => {
     const user = await getUserViewFromRequest(req);
     const trackingString: string = req.cookies['retro_aw'];
     if (trackingString && user) {
@@ -361,31 +329,16 @@ db().then(() => {
     }
 
     if (user) {
-      res.status(200).send(user.toJson()).end();
+      res.status(200).send(user.toJson());
     } else {
-      console.log('==> creating anonymous user');
       const anonUser = await registerAnonymousUser(
         generateUsername() + '^' + v4(),
         v4()
       );
-
       if (anonUser) {
-        console.log('==> created anonymous user', anonUser.id);
-        req.logIn(
-          { userId: anonUser.user.id, identityId: anonUser.id },
-          async () => {
-            console.log('==> logged in', anonUser.id);
-            const view = await getUserView(anonUser.id);
-            if (view) {
-              console.log('==> got user view', view.identityId);
-              console.log('Cookies: ', req.cookies, req.cookies['connect.sid']);
-              console.log('User: ', req.user);
-              res.status(200).send(view.toJson()).end();
-            } else {
-              res.status(500).send('Could not get the user');
-            }
-          }
-        );
+        req.logIn({ userId: anonUser.user.id, identityId: anonUser.id }, () => {
+          res.status(200).send(anonUser.user.toJson());
+        });
       } else {
         res.status(401).send('Not logged in');
       }
