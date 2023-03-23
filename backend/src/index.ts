@@ -112,7 +112,17 @@ if (config.SELF_HOSTED) {
 initSentry();
 
 const app = express();
-app.use(cookieParser());
+app.use(cookieParser(sessionSecret));
+app.use(
+  express.json({
+    // This is a trick to get the raw buffer on the request, for Stripe
+    verify: (req, _, buf) => {
+      const request = req as express.Request;
+      request.buf = buf;
+    },
+  })
+);
+app.use(express.urlencoded({ extended: true }));
 
 function getActualIp(req: express.Request): string {
   const headerValue = req.header(realIpHeader);
@@ -143,18 +153,6 @@ const heavyLoadLimiter = rateLimit({
 // Sentry
 setupSentryRequestHandler(app);
 
-// Stripe
-app.use(
-  express.json({
-    // This is a trick to get the raw buffer on the request, for Stripe
-    verify: (req, _, buf) => {
-      const request = req as express.Request;
-      request.buf = buf;
-    },
-  })
-);
-app.use(express.urlencoded({ extended: true }));
-
 // saveUninitialized: true allows us to attach the socket id to the session
 // before we have athenticated the user
 let sessionMiddleware: express.RequestHandler;
@@ -174,7 +172,7 @@ if (config.REDIS_ENABLED) {
   sessionMiddleware = session({
     secret: sessionSecret,
     resave: true,
-    saveUninitialized: true,
+    saveUninitialized: false,
     store: new RedisStore({ client: redisClient }),
     cookie: {
       secure: config.SECURE_COOKIES,
@@ -197,7 +195,7 @@ if (config.REDIS_ENABLED) {
   sessionMiddleware = session({
     secret: sessionSecret,
     resave: true,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: {
       secure: config.SECURE_COOKIES,
       maxAge: 1000 * 60 * 60 * 24 * 365, // 1 year
@@ -266,7 +264,6 @@ db().then(() => {
   // Create session
   app.post('/api/create', heavyLoadLimiter, async (req, res) => {
     const identity = await getIdentityFromRequest(req);
-    console.log(' --> create session', identity?.id);
     const payload: CreateSessionPayload = req.body;
     setScope(async (scope) => {
       if (identity) {
@@ -284,7 +281,6 @@ db().then(() => {
           throw err;
         }
       } else {
-        console.log(' --> NO IDENTITY', identity);
         res
           .status(401)
           .send('You must be logged in in order to create a session');
@@ -337,21 +333,16 @@ db().then(() => {
     if (user) {
       res.status(200).send(user.toJson());
     } else {
-      console.log('==> creating anonymous user');
       const anonUser = await registerAnonymousUser(
         generateUsername() + '^' + v4(),
         v4()
       );
-
       if (anonUser) {
-        console.log('==> created anonymous user', anonUser.id);
         const view = await getUserView(anonUser.id);
         if (view) {
-          console.log('==> got user view', view.identityId);
           req.logIn(
             { userId: anonUser.user.id, identityId: anonUser.id },
             () => {
-              console.log('==> logged in', view.identityId);
               res.status(200).send(view.toJson());
             }
           );
