@@ -174,9 +174,6 @@ if (config.REDIS_ENABLED) {
     resave: true,
     saveUninitialized: false,
     store: new RedisStore({ client: redisClient }),
-    // cookie: {
-    //   secure: config.SECURE_COOKIES,
-    // },
   });
 
   if (config.REDIS_FOR_SOCKETIO_ENABLED) {
@@ -195,9 +192,6 @@ if (config.REDIS_ENABLED) {
     secret: sessionSecret,
     resave: true,
     saveUninitialized: false,
-    // cookie: {
-    //   secure: config.SECURE_COOKIES,
-    // },
   });
 }
 
@@ -336,9 +330,17 @@ db().then(() => {
         v4()
       );
       if (anonUser) {
-        req.logIn({ userId: anonUser.user.id, identityId: anonUser.id }, () => {
-          res.status(200).send(anonUser.user.toJson());
-        });
+        const view = await getUserView(anonUser.id);
+        if (view) {
+          req.logIn(
+            { userId: anonUser.user.id, identityId: anonUser.id },
+            () => {
+              res.status(200).send(view.toJson());
+            }
+          );
+        } else {
+          res.status(500).send('Could not get user view');
+        }
       } else {
         res.status(401).send('Not logged in');
       }
