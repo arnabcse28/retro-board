@@ -198,10 +198,10 @@ if (config.REDIS_ENABLED) {
     secret: sessionSecret,
     resave: true,
     saveUninitialized: true,
-    cookie: {
-      secure: config.SECURE_COOKIES,
-      maxAge: 1000 * 60 * 60 * 24 * 365, // 1 year
-    },
+    // cookie: {
+    //   secure: config.SECURE_COOKIES,
+    //   maxAge: 1000 * 60 * 60 * 24 * 365, // 1 year
+    // },
   });
 }
 
