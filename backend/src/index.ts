@@ -112,7 +112,7 @@ if (config.SELF_HOSTED) {
 initSentry();
 
 const app = express();
-app.use(cookieParser());
+app.use(cookieParser(sessionSecret));
 
 function getActualIp(req: express.Request): string {
   const headerValue = req.header(realIpHeader);
