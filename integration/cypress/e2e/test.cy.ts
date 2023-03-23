@@ -1,7 +1,5 @@
 const timeout = +Cypress.env('backend_delay');
 
-Cypress.Cookies.debug(true, { verbose: true });
-
 describe('Home Page', () => {
   it('Should load correctly', () => {
     cy.visit('/');
@@ -14,10 +12,6 @@ function get(name: string, rest?: string) {
   return cy.get(`[data-cy=${name}]${rest ?? ''}`, { timeout });
 }
 
-function displayCookies() {
-  cy.getAllCookies({ log: true });
-}
-
 describe('Post workflow', () => {
   beforeEach(() => {
     cy.setCookie('wpcc', 'dismiss');
@@ -26,16 +20,8 @@ describe('Post workflow', () => {
   it('Should login automatically as anonymous and write a post', () => {
     cy.visit('/');
 
-    displayCookies();
-
     // Home page should display the user name
     cy.get('#content', { timeout }).should('contain', 'Welcome,');
-
-    get('account-menu').click();
-    get('account-menu-account').click();
-    get('header-home-button').click();
-
-    displayCookies();
 
     // And then allow creating a new session
     get('new-session-button').click();
@@ -77,8 +63,6 @@ describe('Post workflow', () => {
 
     cy.visit('/');
 
-    displayCookies();
-
     // Should be logged as anonymous
     // Logout
     get('account-menu').click();
@@ -94,8 +78,6 @@ describe('Post workflow', () => {
 
     // Register
     get('register-button').click();
-
-    displayCookies();
 
     // Create a new session, and add some messages
     get('new-session-button').click();
