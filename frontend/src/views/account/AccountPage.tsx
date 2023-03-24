@@ -99,7 +99,7 @@ function AccountPage() {
         {user.accountType === 'anonymous' ? (
           <Section title={t('AccountPage.convertTitle')!}>
             <Alert severity="warning">{t('AccountPage.convertWarning')}</Alert>
-            <LoginContent allowAnonymous={false} onClose={noop} />
+            <LoginContent onClose={noop} />
           </Section>
         ) : (
           <Section title={t('AccountPage.details.header')!}>
