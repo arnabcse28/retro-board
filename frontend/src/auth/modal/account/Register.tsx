@@ -42,7 +42,7 @@ const Register = ({ onClose, onCancel }: RegisterProps) => {
     return validate(registerEmail);
   }, [registerEmail]);
 
-  const validName = registerName.length > 3;
+  const validName = registerName.length > 0;
 
   const handleRegistration = useCallback(async () => {
     const response = await register(
