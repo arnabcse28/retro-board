@@ -60,7 +60,6 @@ import {
   associateUserWithAdWordsCampaign,
   TrackingInfo,
   registerAnonymousUser,
-  registerPasswordUserFromAnonymousUser,
 } from './db/actions/users.js';
 import { isLicenced } from './security/is-licenced.js';
 import rateLimit from 'express-rate-limit';
@@ -73,7 +72,7 @@ import { noop } from 'lodash-es';
 import { createDemoSession } from './db/actions/demo.js';
 import cookieParser from 'cookie-parser';
 import { generateUsername } from './common/random-username.js';
-import { UserIdentityEntity } from 'db/entities/UserIdentity.js';
+import { mergeAnonymous } from './db/actions/merge.js';
 
 const realIpHeader = 'X-Forwarded-For';
 const sessionSecret = `${config.SESSION_SECRET!}-4.11.5`; // Increment to force re-auth
@@ -474,19 +473,12 @@ db().then(() => {
       res.status(403).send('User already exists');
       return;
     }
-    let identity: UserIdentityEntity | null;
-    if (!previousUser) {
-      identity = await registerPasswordUser(registerPayload);
-    } else {
-      identity = await registerPasswordUserFromAnonymousUser(
-        previousUser,
-        registerPayload
-      );
-    }
+    const identity = await registerPasswordUser(registerPayload);
 
     if (!identity) {
       res.status(500).send();
     } else {
+      await mergeAnonymous(req, identity.id);
       if (identity.emailVerification) {
         await sendVerificationEmail(
           registerPayload.username,
@@ -509,7 +501,7 @@ db().then(() => {
             console.log('Cannot login Error: ', err);
             res.status(500).send('Cannot login');
           }
-          const userView = await getUserView(identity!.id);
+          const userView = await getUserView(identity.id);
           if (userView) {
             res.status(200).send({
               loggedIn: true,

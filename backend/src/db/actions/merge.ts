@@ -8,6 +8,17 @@ import {
   VoteRepository,
 } from '../repositories/index.js';
 import { deleteAccount } from './delete.js';
+import { getUserViewFromRequest } from '../../utils.js';
+import { Request } from 'express';
+
+export async function mergeAnonymous(req: Request, newUserIdentityId: string) {
+  const anonymousUser = await getUserViewFromRequest(req);
+  const user = await getUserView(newUserIdentityId);
+  if (user && anonymousUser && anonymousUser.accountType === 'anonymous') {
+    await migrateOne(user, anonymousUser);
+    await deleteOne(anonymousUser);
+  }
+}
 
 export async function mergeUsers(
   mainUserIdentityId: string,

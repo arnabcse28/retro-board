@@ -1,8 +1,7 @@
-import { mergeUsers } from '../db/actions/merge.js';
-import { getUserView } from '../db/actions/users.js';
+import { mergeAnonymous } from '../db/actions/merge.js';
 import express, { NextFunction, Request, Response } from 'express';
 import passport from 'passport';
-import { getUserViewFromRequest, UserIds } from '../utils.js';
+import { UserIds } from '../utils.js';
 
 const router = express.Router();
 // Setting up the passport middleware for each of the OAuth providers
@@ -27,12 +26,7 @@ function anonAuth(req: Request, res: Response, next: NextFunction) {
       return res.status(403).send().end();
     }
 
-    const previousUser = await getUserViewFromRequest(req);
-    const newUser = await getUserView(user.identityId);
-
-    if (previousUser && previousUser.accountType === 'anonymous' && newUser) {
-      mergeUsers(newUser.identityId, [previousUser.identityId]);
-    }
+    await mergeAnonymous(req, user.identityId);
 
     req.logIn(user, function (err) {
       if (err) {

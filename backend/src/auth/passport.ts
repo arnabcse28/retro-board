@@ -30,19 +30,11 @@ import {
   SlackProfile,
   OktaProfile,
 } from './types.js';
-import {
-  registerUser,
-  registerUserFromAnonymousUser,
-  UserRegistration,
-} from '../db/actions/users.js';
-import {
-  serialiseIds,
-  UserIds,
-  deserialiseIds,
-  getUserViewFromRequest,
-} from '../utils.js';
+import { registerUser, UserRegistration } from '../db/actions/users.js';
+import { serialiseIds, UserIds, deserialiseIds } from '../utils.js';
 import config from '../config.js';
 import { Request } from 'express';
+import { mergeAnonymous } from '../db/actions/merge.js';
 
 export default () => {
   passport.serializeUser<string>((user, cb) => {
@@ -96,18 +88,14 @@ export default () => {
         callback('Cannot build a user profile', null);
         return;
       }
-      const currentUser = await getUserViewFromRequest(req);
 
-      if (currentUser && currentUser.accountType === 'anonymous') {
-        const dbIdentity = await registerUserFromAnonymousUser(
-          currentUser,
-          user
-        );
+      const newUser = await registerUser(user);
 
-        callback(null, dbIdentity.toIds());
+      if (newUser) {
+        await mergeAnonymous(req, newUser.id);
+        callback(null, newUser.toIds());
       } else {
-        const dbIdentity = await registerUser(user);
-        callback(null, dbIdentity.toIds());
+        callback('Cannot register user', null);
       }
     };
   }
