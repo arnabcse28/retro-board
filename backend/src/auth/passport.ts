@@ -99,15 +99,14 @@ export default () => {
       const currentUser = await getUserViewFromRequest(req);
 
       if (currentUser && currentUser.accountType === 'anonymous') {
-        console.log('Current user: ', currentUser.username);
         const dbIdentity = await registerUserFromAnonymousUser(
           currentUser,
           user
         );
+
         callback(null, dbIdentity.toIds());
       } else {
         const dbIdentity = await registerUser(user);
-
         callback(null, dbIdentity.toIds());
       }
     };
