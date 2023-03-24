@@ -138,7 +138,7 @@ const AccountMenu = () => {
       >
         {t('AnonymousLogin.header')}
       </Button>
-      {modalOpened && <LoginModal onClose={handleModalClose} />}
+      {modalOpened && <LoginModal onClose={handleModalClose} large />}
     </>
   );
 };

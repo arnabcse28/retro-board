@@ -10,11 +10,11 @@ import {
 import { deleteAccount } from './delete.js';
 
 export async function mergeUsers(
-  mainUserId: string,
-  mergedUserIds: string[]
+  mainUserIdentityId: string,
+  mergedUserIdentityIds: string[]
 ): Promise<boolean> {
-  for (const target of mergedUserIds) {
-    await mergeOne(mainUserId, target);
+  for (const target of mergedUserIdentityIds) {
+    await mergeOne(mainUserIdentityId, target);
   }
 
   return true;

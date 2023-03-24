@@ -60,6 +60,7 @@ import {
   associateUserWithAdWordsCampaign,
   TrackingInfo,
   registerAnonymousUser,
+  registerPasswordUserFromAnonymousUser,
 } from './db/actions/users.js';
 import { isLicenced } from './security/is-licenced.js';
 import rateLimit from 'express-rate-limit';
@@ -72,6 +73,7 @@ import { noop } from 'lodash-es';
 import { createDemoSession } from './db/actions/demo.js';
 import cookieParser from 'cookie-parser';
 import { generateUsername } from './common/random-username.js';
+import { UserIdentityEntity } from 'db/entities/UserIdentity.js';
 
 const realIpHeader = 'X-Forwarded-For';
 const sessionSecret = `${config.SESSION_SECRET!}-4.11.5`; // Increment to force re-auth
@@ -453,9 +455,12 @@ db().then(() => {
   });
 
   app.post('/api/register', heavyLoadLimiter, async (req, res) => {
-    if (req.user) {
-      res.status(500).send('You are already logged in');
-      return;
+    const previousUser = await getUserViewFromRequest(req);
+    if (previousUser) {
+      if (previousUser?.accountType !== 'anonymous') {
+        res.status(500).send('You are already logged in');
+        return;
+      }
     }
     if (config.DISABLE_PASSWORD_REGISTRATION) {
       res.status(403).send('Password accounts registration is disabled.');
@@ -469,7 +474,16 @@ db().then(() => {
       res.status(403).send('User already exists');
       return;
     }
-    const identity = await registerPasswordUser(registerPayload);
+    let identity: UserIdentityEntity | null;
+    if (!previousUser) {
+      identity = await registerPasswordUser(registerPayload);
+    } else {
+      identity = await registerPasswordUserFromAnonymousUser(
+        previousUser,
+        registerPayload
+      );
+    }
+
     if (!identity) {
       res.status(500).send();
     } else {
@@ -495,7 +509,7 @@ db().then(() => {
             console.log('Cannot login Error: ', err);
             res.status(500).send('Cannot login');
           }
-          const userView = await getUserView(identity.id);
+          const userView = await getUserView(identity!.id);
           if (userView) {
             res.status(200).send({
               loggedIn: true,

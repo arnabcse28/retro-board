@@ -10,13 +10,14 @@ import {
   UserIdentityEntity,
 } from '../entities/UserIdentity.js';
 import { transaction } from './transaction.js';
-import { AccountType, FullUser } from '../../common/index.js';
+import { AccountType, FullUser, RegisterPayload } from '../../common/index.js';
 import { isSelfHostedAndLicenced } from '../../security/is-licenced.js';
 import { v4 } from 'uuid';
 import { hashPassword, comparePassword } from '../../encryption.js';
 import { saveAndReload } from '../repositories/BaseRepository.js';
 import TrackingEntity from '../entities/TrackingEntity.js';
 import { mergeUsers } from './merge.js';
+import registerPasswordUser from '../../auth/register/register-user.js';
 
 export async function getUser(userId: string): Promise<UserEntity | null> {
   return await transaction(async (manager) => {
@@ -237,6 +238,18 @@ export async function registerUserFromAnonymousUser(
 ) {
   const newUser = await registerUser(registration);
   await mergeUsers(newUser.id, [anonUser.identityId]);
+
+  return newUser;
+}
+
+export async function registerPasswordUserFromAnonymousUser(
+  anonUser: UserView,
+  registration: RegisterPayload
+) {
+  const newUser = await registerPasswordUser(registration);
+  if (newUser) {
+    await mergeUsers(newUser.id, [anonUser.identityId]);
+  }
 
   return newUser;
 }
