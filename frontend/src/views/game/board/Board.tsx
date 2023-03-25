@@ -5,7 +5,7 @@ import {
   DragDropContext,
   DropResult,
   ResponderProvided,
-} from 'react-beautiful-dnd';
+} from '@hello-pangea/dnd';
 import Column from './Column';
 import { Page } from '../../../components/Page';
 import { ColumnContent } from '../types';
@@ -187,7 +187,8 @@ const Columns = styled.div<{ numberOfColumns: number }>`
   display: flex;
   margin-top: 30px;
 
-  @media screen and (max-width: ${(props) => props.numberOfColumns * 320 + 100}px) {
+  @media screen and (max-width: ${(props) =>
+      props.numberOfColumns * 320 + 100}px) {
     margin-top: 10px;
     flex-direction: column;
 
