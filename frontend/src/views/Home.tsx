@@ -112,7 +112,7 @@ function Home() {
                   <Typography
                     variant="body2"
                     color="text.secondary"
-                    paddingLeft={2}
+                    paddingLeft={5}
                   >
                     Pro
                   </Typography>

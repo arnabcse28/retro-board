@@ -182,7 +182,7 @@
     "standardTab": {
       "header": "Create",
       "text": "Click below and start retrospecting:",
-      "button": "Create a new session",
+      "button": "Start a Retro",
       "customizeButton": "Customise"
     },
     "optionsTab": {
@@ -433,7 +433,7 @@
     "wantToPayYearly": "I want to pay annually (every 12 months), and get one month free per year!"
   },
   "Encryption": {
-    "createEncryptedSession": "Encrypted Session",
+    "createEncryptedSession": "Start an Encrypted Retro",
     "sessionNotEncrypted": "This session is not encrypted.",
     "sessionEncryptedHaveKeyTooltip": "This session is encrypted, and the key is stored in your browser. You can open this session without having to provide the password again.",
     "sessionEncryptedNoKeyTooltip": "This session is encrypted, and the key is not stored in your browser. You will be asked for the decryption key when opening this session.",
