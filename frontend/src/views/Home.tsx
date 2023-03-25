@@ -1,10 +1,13 @@
 import { useCallback } from 'react';
 import styled from '@emotion/styled';
 import { Link, useNavigate } from 'react-router-dom';
-import Fab from '@mui/material/Fab';
-import { makeStyles } from '@mui/styles';
-import { colors } from '@mui/material';
-import { Lock, ThumbUpAlt } from '@mui/icons-material';
+import {
+  ListItemIcon,
+  ListItemText,
+  MenuItem,
+  Typography,
+} from '@mui/material';
+import { Dashboard, Key } from '@mui/icons-material';
 import PreviousGames from './home/PreviousGames';
 import { SessionMetadata } from 'common';
 import { trackAdWordsConversion, trackEvent } from './../track';
@@ -17,23 +20,9 @@ import { storeEncryptionKeyLocally } from '../crypto/crypto';
 import ProButton from '../components/ProButton';
 import { useSnackbar } from 'notistack';
 import TrialPrompt from './home/TrialPrompt';
-import HowDoesItWorkButton from '../components/HowDoesItWorkButton';
 import { useTranslation } from 'react-i18next';
 import ClosableAlert from 'components/ClosableAlert';
-
-const useStyles = makeStyles({
-  media: {
-    objectFit: 'cover',
-    backgroundColor: colors.grey[200],
-  },
-  actions: {
-    justifyContent: 'center',
-    margin: 20,
-  },
-  buttonIcon: {
-    marginRight: 10,
-  },
-});
+import SplitButton from 'components/SplitButton/SplitButton';
 
 function Home() {
   const navigate = useNavigate();
@@ -43,7 +32,6 @@ function Home() {
   const { enqueueSnackbar } = useSnackbar();
   const [previousSessions, refreshPreviousSessions] = usePreviousSessions();
   const hasPreviousSessions = previousSessions.length > 0;
-  const classes = useStyles();
 
   const createDefaultSession = useCallback(async () => {
     const session = await createGame();
@@ -85,44 +73,53 @@ function Home() {
   return (
     <>
       <TrialPrompt />
-      <ClosableAlert severity="info" closable>
-        <span>{t('Home.anonWarning')}</span>&nbsp;&nbsp;&nbsp;
-        <Link style={{ textDecoration: 'none' }} to="/account">
-          {t('Home.login')}
-        </Link>
-      </ClosableAlert>
+      {user && user.accountType === 'anonymous' ? (
+        <ClosableAlert severity="info" closable>
+          <span>{t('Home.anonWarning')}</span>&nbsp;&nbsp;&nbsp;
+          <Link style={{ textDecoration: 'none' }} to="/account">
+            {t('Home.login')}
+          </Link>
+        </ClosableAlert>
+      ) : null}
       <Page>
         <MainHeader>{t('Home.welcome', { name: user?.name || '' })}</MainHeader>
 
         <LaunchButtons>
           <ProButton quota>
-            <Fab
-              variant="extended"
-              onClick={createDefaultSession}
-              size="large"
-              color="secondary"
-              disabled={!isLoggedIn}
+            <SplitButton
               data-cy="new-session-button"
+              disabled={!isLoggedIn}
+              icon={<Dashboard fontSize="large" />}
+              onClick={createDefaultSession}
+              label={t('Join.standardTab.button')!}
+              secondary
+              large
             >
-              <ThumbUpAlt className={classes.buttonIcon} />
-              {t('Join.standardTab.button')}
-            </Fab>
+              <MenuItem onClick={createDefaultSession}>
+                <ListItemIcon>
+                  <Dashboard fontSize="small" />
+                </ListItemIcon>
+                <ListItemText>{t('Join.standardTab.button')}</ListItemText>
+              </MenuItem>
+              <ProButton>
+                <MenuItem onClick={createEncryptedSession}>
+                  <ListItemIcon>
+                    <Key fontSize="small" />
+                  </ListItemIcon>
+                  <ListItemText>
+                    {t('Encryption.createEncryptedSession')}
+                  </ListItemText>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    paddingLeft={2}
+                  >
+                    Pro
+                  </Typography>
+                </MenuItem>
+              </ProButton>
+            </SplitButton>
           </ProButton>
-          <div style={{ width: 30 }} />
-          <HowDoesItWorkButton url="/how-does-encryption-work">
-            <ProButton>
-              <Fab
-                variant="extended"
-                onClick={createEncryptedSession}
-                size="large"
-                color="secondary"
-                disabled={!isLoggedIn}
-              >
-                <Lock className={classes.buttonIcon} />
-                {t('Encryption.createEncryptedSession')}
-              </Fab>
-            </ProButton>
-          </HowDoesItWorkButton>
         </LaunchButtons>
 
         {hasPreviousSessions ? (
@@ -157,7 +154,7 @@ const SubHeader = styled.h2`
 
 const LaunchButtons = styled.div`
   display: flex;
-  margin: 30px 30px 60px;
+  margin: 30px 0px 60px;
   > button {
     margin: 0 10px;
   }
