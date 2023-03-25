@@ -26,7 +26,8 @@
     "welcome": "Welcome, {{name}}",
     "anonWarning": "You are using an Anonymous account. You might want to login to make sure your data can be retrieved when using another device.",
     "howDoesThatWork": "How does that work?",
-    "login": "Login"
+    "login": "Login",
+    "searchNoMatch": "We could not find a retrospective matching your search ({{search}})."
   },
   "PreviousGame": {
     "createdBy": "Created by",

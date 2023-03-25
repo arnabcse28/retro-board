@@ -1,7 +1,8 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import styled from '@emotion/styled';
 import { Link, useNavigate } from 'react-router-dom';
 import {
+  Alert,
   ListItemIcon,
   ListItemText,
   MenuItem,
@@ -23,6 +24,7 @@ import TrialPrompt from './home/TrialPrompt';
 import { useTranslation } from 'react-i18next';
 import ClosableAlert from 'components/ClosableAlert';
 import SplitButton from 'components/SplitButton/SplitButton';
+import SearchBar from './game/SearchBar';
 
 function Home() {
   const navigate = useNavigate();
@@ -30,8 +32,20 @@ function Home() {
   const isLoggedIn = !!user;
   const { t } = useTranslation();
   const { enqueueSnackbar } = useSnackbar();
+  const [search, setSearch] = useState('');
   const [previousSessions, refreshPreviousSessions] = usePreviousSessions();
   const hasPreviousSessions = previousSessions.length > 0;
+
+  const filteredSessions = useMemo(() => {
+    if (!search) {
+      return previousSessions;
+    }
+    return previousSessions.filter((session) =>
+      (session.name || t('SessionName.defaultSessionName')!)
+        .toLowerCase()
+        .includes(search.toLowerCase())
+    );
+  }, [search, previousSessions, t]);
 
   const createDefaultSession = useCallback(async () => {
     const session = await createGame();
@@ -124,11 +138,21 @@ function Home() {
 
         {hasPreviousSessions ? (
           <>
-            <SubHeader>{t('Join.previousTab.header')}</SubHeader>
+            <PreviousContainer>
+              <SubHeader>{t('Join.previousTab.header')}</SubHeader>
+              <SearchBar value={search} onChange={setSearch} />
+            </PreviousContainer>
+
             <PreviousGames
-              games={previousSessions}
+              games={filteredSessions}
               onDelete={handleDeleteSession}
             />
+
+            {!!search && filteredSessions.length === 0 ? (
+              <Alert severity="info">
+                {t('Home.searchNoMatch', { search })}
+              </Alert>
+            ) : null}
           </>
         ) : null}
       </Page>
@@ -145,11 +169,21 @@ const MainHeader = styled.h1`
 `;
 
 const SubHeader = styled.h2`
+  display: flex;
+  align-items: center;
+  gap: 30px;
   font-weight: 100;
   font-size: 3em;
   @media screen and (max-width: 500px) {
     font-size: 1.5em;
   }
+`;
+
+const PreviousContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
 `;
 
 const LaunchButtons = styled.div`
