@@ -73,6 +73,7 @@ import { createDemoSession } from './db/actions/demo.js';
 import cookieParser from 'cookie-parser';
 import { generateUsername } from './common/random-username.js';
 import { mergeAnonymous } from './db/actions/merge.js';
+import aiRouter from './ai/router.js';
 
 const realIpHeader = 'X-Forwarded-For';
 const sessionSecret = `${config.SESSION_SECRET!}-4.11.5`; // Increment to force re-auth
@@ -261,6 +262,9 @@ db().then(() => {
 
   // Slack
   app.use('/api/slack', slackRouter());
+
+  // AI
+  app.use('/api/ai', aiRouter());
 
   // Create session
   app.post('/api/create', heavyLoadLimiter, async (req, res) => {
