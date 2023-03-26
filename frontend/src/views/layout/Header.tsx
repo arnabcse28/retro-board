@@ -17,6 +17,7 @@ import Invite from './Invite';
 import AccountMenu from 'auth/AccountMenu';
 import { useTranslation } from 'react-i18next';
 import ProPill from 'components/ProPill';
+import { AiButton } from './ai/AiButton';
 
 const Title = styled(Typography)`
   color: white;
@@ -77,6 +78,7 @@ export function Header() {
           </Hidden>
         ) : null}
         <Spacer />
+        <AiButton />
         {isOnGamePage ? <Invite /> : null}
         {isInitialised ? (
           <AccountMenu />

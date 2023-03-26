@@ -5,9 +5,16 @@ export async function dialog(messages: ChatCompletionRequestMessage[]) {
   const api = new OpenAIApi(configure());
   const response = await api.createChatCompletion({
     model: 'gpt-3.5-turbo',
-    messages,
+    messages: [
+      {
+        role: 'system',
+        content:
+          'You are an agile coach, helping a team to improve their retrospectives',
+      },
+      ...messages,
+    ],
   });
-  return response.data;
+  return [...messages, response.data.choices[0].message];
 }
 
 export function configure(): Configuration {
