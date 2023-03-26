@@ -79,6 +79,7 @@ export function Header() {
         ) : null}
         <Spacer />
         <AiButton />
+        <Spacer />
         {isOnGamePage ? <Invite /> : null}
         {isInitialised ? (
           <AccountMenu />

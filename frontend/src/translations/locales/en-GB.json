@@ -416,6 +416,10 @@
       "unlimitedPosts": {
         "title": "Unlimited Posts",
         "description": "With a Pro subscription, get unlimited posts."
+      },
+      "ai": {
+        "title": "AI Agile Coach",
+        "description": "Get AI-powered insights on your retrospectives thanks to our AI Agile Coach."
       }
     },
     "subscribeButton": "Subscribe",
@@ -482,7 +486,7 @@
   },
   "Ai": {
     "title": "AI Coach",
-    "info": "This is your personal AI Coach. Feel free to ask it questions about retrospectives, and it will try to answer you.",
+    "info": "Hi! I'm your personal AI Coach. Feel free to ask me questions about retrospectives, and I will do my best to answer you.",
     "close": "Close",
     "paidLimitWarning": "You have reached your limit for today. Please try again tomorrow.",
     "freeLimitWarning": "You have reached your free limit for this month. Please subscribe to Retrospected Pro to get unlimited AI Coaching.",
