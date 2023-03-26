@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { Psychology } from '@mui/icons-material';
 import {
+  Alert,
   Button,
   Dialog,
   DialogActions,
@@ -8,8 +9,10 @@ import {
   DialogTitle,
 } from '@mui/material';
 import { requestConfig } from 'api/fetch';
+import useUser from 'auth/useUser';
 import { CoachMessage, CoachRole } from 'common';
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { v4 } from 'uuid';
 import { Chat } from './Chat';
 
@@ -22,6 +25,8 @@ export function AiCoach({ open, onClose }: AiCoachProps) {
   const [messages, setMessages] = useState<CoachMessage[]>([]);
   const [thinking, setThinking] = useState(false);
   const [id] = useState(v4());
+  const { t } = useTranslation();
+  const user = useUser();
 
   const handleMessage = useCallback(
     async (content: string) => {
@@ -45,7 +50,9 @@ export function AiCoach({ open, onClose }: AiCoachProps) {
             {
               role: 'assistant' as CoachRole,
               content:
-                'You have reached your limit for today. Please try again tomorrow.',
+                user && user.pro
+                  ? t('Ai.paidLimitWarning')
+                  : t('Ai.freeLimitWarning'),
             },
           ]);
         } else {
@@ -54,8 +61,7 @@ export function AiCoach({ open, onClose }: AiCoachProps) {
             ...newMessages,
             {
               role: 'assistant' as CoachRole,
-              content:
-                'Something went wrong with the AI. Please try again later.',
+              content: t('Ai.genericError'),
             },
           ]);
         }
@@ -64,7 +70,7 @@ export function AiCoach({ open, onClose }: AiCoachProps) {
         console.error(ex);
       }
     },
-    [messages, id]
+    [messages, id, t, user]
   );
 
   return (
@@ -72,10 +78,11 @@ export function AiCoach({ open, onClose }: AiCoachProps) {
       <DialogTitle>
         <HeaderContainer>
           <Psychology />
-          AI Coach
+          {t('Ai.title')}&nbsp;(beta)
         </HeaderContainer>
       </DialogTitle>
       <DialogContent>
+        <Alert>{t('Ai.info')}</Alert>
         <Chat
           messages={messages}
           onMessage={handleMessage}
@@ -83,7 +90,7 @@ export function AiCoach({ open, onClose }: AiCoachProps) {
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>Close</Button>
+        <Button onClick={onClose}>{t('Ai.close')}</Button>
       </DialogActions>
     </Dialog>
   );

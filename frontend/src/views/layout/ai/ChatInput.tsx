@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { Send } from '@mui/icons-material';
 import { Button, Input } from '@mui/material';
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 type ChatInputProps = {
   onMessage: (content: string) => void;
@@ -13,6 +14,7 @@ function isEnter(code: string) {
 
 export default function ChatInput({ onMessage }: ChatInputProps) {
   const [input, setInput] = useState('');
+  const { t } = useTranslation();
 
   const handleSend = useCallback(() => {
     onMessage(input);
@@ -34,13 +36,13 @@ export default function ChatInput({ onMessage }: ChatInputProps) {
     <Container>
       <Input
         fullWidth
-        placeholder="Ask me a question"
+        placeholder={t('Ai.inputPrompt')!}
         value={input}
         onChange={(evt) => setInput(evt.target.value)}
         onKeyPress={handleKeyPress}
       />
       <Button endIcon={<Send />} onClick={handleSend}>
-        Send
+        {t('Ai.send')}
       </Button>
     </Container>
   );

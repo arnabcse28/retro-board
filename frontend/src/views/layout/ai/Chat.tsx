@@ -47,7 +47,7 @@ const UserInput = styled.div`
 `;
 
 const ScrollContainer = styled(ScrollToBottom)`
-  height: calc(100vh - 300px);
+  height: calc(100vh - 380px);
   flex: 1 1 auto;
 `;
 
