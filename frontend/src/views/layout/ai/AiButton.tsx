@@ -9,7 +9,7 @@ export function AiButton() {
       <Button onClick={open} variant="contained" color="secondary">
         AI Coach
       </Button>
-      {opened ? <AiCoach onClose={close} /> : null}
+      <AiCoach onClose={close} open={opened} />
     </>
   );
 }

@@ -4,48 +4,46 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
-  Input,
 } from '@mui/material';
 import { fetchPostGet } from 'api/fetch';
 import { useCallback, useState } from 'react';
+import { Chat } from './Chat';
+import { CoachMessage, CoachRole } from './types';
 
 type AiCoachProps = {
+  open: boolean;
   onClose: () => void;
 };
 
-type Message = {
-  role: string;
-  content: string;
-};
+export function AiCoach({ open, onClose }: AiCoachProps) {
+  const [messages, setMessages] = useState<CoachMessage[]>([]);
+  const [thinking, setThinking] = useState(false);
 
-export function AiCoach({ onClose }: AiCoachProps) {
-  const [input, setInput] = useState('');
-  const [messages, setMessages] = useState<Message[]>([]);
-
-  const handleMessage = useCallback(async () => {
-    const newMessages = [...messages, { role: 'user', content: input }];
-    setMessages(newMessages);
-    const response = await fetchPostGet<Message[], Message[]>(
-      '/api/ai/chat',
-      [],
-      newMessages
-    );
-    setMessages(response);
-  }, [input, messages]);
+  const handleMessage = useCallback(
+    async (content: string) => {
+      setThinking(true);
+      const newMessages = [...messages, { role: 'user' as CoachRole, content }];
+      setMessages(newMessages);
+      const response = await fetchPostGet<CoachMessage[], CoachMessage[]>(
+        '/api/ai/chat',
+        [],
+        newMessages
+      );
+      setThinking(false);
+      setMessages(response);
+    },
+    [messages]
+  );
 
   return (
-    <Dialog open onClose={onClose} maxWidth="md" fullWidth>
+    <Dialog open={open} onClose={onClose} maxWidth="md" fullWidth>
       <DialogTitle>AI Coach</DialogTitle>
       <DialogContent>
-        <Input value={input} onChange={(evt) => setInput(evt.target.value)} />
-        <Button onClick={handleMessage}>Send</Button>
-        <ul>
-          {messages.map((message, index) => (
-            <li key={index}>
-              {message.role}: {message.content}
-            </li>
-          ))}
-        </ul>
+        <Chat
+          messages={messages}
+          onMessage={handleMessage}
+          thinking={thinking}
+        />
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Close</Button>
@@ -53,5 +51,3 @@ export function AiCoach({ onClose }: AiCoachProps) {
     </Dialog>
   );
 }
-
-// const MessageContainer = styled.div``,
