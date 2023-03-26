@@ -9,7 +9,7 @@ export async function dialog(messages: ChatCompletionRequestMessage[]) {
       {
         role: 'system',
         content:
-          'You are an agile coach, helping a team to improve their retrospectives',
+          'You are an online agile coach, helping a team to improve their online retrospectives, using Retrospected. The team is a remote team and is not physically in the same room.',
       },
       ...messages,
     ],

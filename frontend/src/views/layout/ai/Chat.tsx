@@ -4,6 +4,8 @@ import styled from '@emotion/styled';
 import ChatMessage from './ChatMessage';
 import ChatInput from './ChatInput';
 
+import { keyframes } from '@emotion/react';
+
 type ChatProps = {
   messages: CoachMessage[];
   thinking: boolean;
@@ -15,16 +17,13 @@ export function Chat({ messages, thinking, onMessage }: ChatProps) {
     <Container>
       <ScrollContainer>
         {messages.map((m, index) => (
-          <ChatMessage message={m} key={index} />
-        ))}
-        {thinking ? (
           <ChatMessage
-            message={{
-              role: 'assistant',
-              content: '(let me think for a few seconds...)',
-            }}
+            message={m.content}
+            own={m.role === 'user'}
+            key={index}
           />
-        ) : null}
+        ))}
+        {thinking ? <ChatMessage message={<Ellipsis />} /> : null}
       </ScrollContainer>
       <UserInput>
         <ChatInput onMessage={onMessage} />
@@ -32,6 +31,14 @@ export function Chat({ messages, thinking, onMessage }: ChatProps) {
     </Container>
   );
 }
+
+const ellipsis = keyframes`
+  0%   { content: ''; }
+	25%  { content: '.'; }
+	50%  { content: '..'; }
+	75%  { content: '...'; }
+	100% { content: ''; }
+`;
 
 const Container = styled.div``;
 
@@ -42,4 +49,17 @@ const UserInput = styled.div`
 const ScrollContainer = styled(ScrollToBottom)`
   height: calc(100vh - 300px);
   flex: 1 1 auto;
+`;
+
+const Ellipsis = styled.div`
+  min-width: 50px;
+  font-size: 2.5rem;
+  height: 10px;
+  position: relative;
+  top: -25px;
+  ::after {
+    display: inline-block;
+    animation: ${ellipsis} steps(1, end) 1s infinite;
+    content: '';
+  }
 `;

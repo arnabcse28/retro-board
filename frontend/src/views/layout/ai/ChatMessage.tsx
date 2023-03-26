@@ -1,16 +1,18 @@
 import styled from '@emotion/styled';
 import { colors } from '@mui/material';
-import { CoachMessage } from './types';
 
 type ChatMessageProps = {
-  message: CoachMessage;
+  message: React.ReactNode;
+  own?: boolean;
 };
 
-export default function ChatMessage({ message }: ChatMessageProps) {
-  const own = message.role === 'user';
+export default function ChatMessage({
+  message,
+  own = false,
+}: ChatMessageProps) {
   return (
     <MessageContainer own={own}>
-      <MessageContent own={own}>{message.content}</MessageContent>
+      <MessageContent own={own}>{message}</MessageContent>
     </MessageContainer>
   );
 }
