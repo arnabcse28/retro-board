@@ -479,5 +479,15 @@
     "stopTimerDescription": "Se você parar o temporizador, ele será redefinido para a sua duração original.",
     "stopTimerButton": "Parar Temporizador",
     "stopTimerCancelButton": "cancelar"
+  },
+  "Ai": {
+    "title": "Treinador IA",
+    "info": "Este é o seu AI Coach. Sinta-se à vontade para fazer perguntas sobre retrospectivos, e tentará lhe responder.",
+    "close": "FECHAR",
+    "paidLimitWarning": "Você atingiu seu limite de hoje. Por favor, tente novamente amanhã.",
+    "freeLimitWarning": "Você atingiu seu limite gratuito para este mês. Inscreva-se no Retrospected Pro para obter tutela IA ilimitada.",
+    "genericError": "Algo deu errado com AI. Por favor, tente novamente mais tarde.",
+    "inputPrompt": "Faça uma pergunta para mim",
+    "send": "Mandar"
   }
 }

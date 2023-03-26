@@ -479,5 +479,15 @@
     "stopTimerDescription": "Si vous arrêtez le minuteur, il sera réinitialisé à sa durée initiale.",
     "stopTimerButton": "Arrêter le minuteur",
     "stopTimerCancelButton": "Annuler"
+  },
+  "Ai": {
+    "title": "Coach Agile AI",
+    "info": "Je suis votre accompagnateur agile. N'hésitez-pas à me poser des questions sur les rétrospectives, and je vais faire de mon mieux pour y répondre.",
+    "close": "Fermer",
+    "paidLimitWarning": "Vous avez atteint votre quota aujourd'hui. Merci de revenir plus tard.",
+    "freeLimitWarning": "Vous avez atteint votre limite gratuite ce mois-ci. En vous abonnant à Retrospected Pro, vous aurez accès au Coach Agile de manière illimitée.",
+    "genericError": "Il y a quelque-chose qui cloche. Merci de recommencer plus tard.",
+    "inputPrompt": "Posez-moi une question",
+    "send": "Envoyer"
   }
 }

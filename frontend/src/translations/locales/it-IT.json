@@ -479,5 +479,15 @@
     "stopTimerDescription": "Se si ferma il timer, verrà ripristinato alla sua durata originale.",
     "stopTimerButton": "Ferma Timer",
     "stopTimerCancelButton": "Annulla"
+  },
+  "Ai": {
+    "title": "AI Coach",
+    "info": "Questo è il tuo personale AI Coach. Sentitevi liberi di porre domande sulle retrospettive, e cercherà di rispondervi.",
+    "close": "Chiudi",
+    "paidLimitWarning": "Hai raggiunto il limite per oggi. Per favore riprova domani.",
+    "freeLimitWarning": "Hai raggiunto il tuo limite gratuito per questo mese. Per favore iscriviti a Retrospected Pro per ottenere un allenamento AI illimitato.",
+    "genericError": "Qualcosa è andato storto con l'IA. Riprova più tardi.",
+    "inputPrompt": "Mi faccia una domanda",
+    "send": "Invia"
   }
 }

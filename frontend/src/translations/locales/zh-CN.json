@@ -479,5 +479,15 @@
     "stopTimerDescription": "如果您停止计时器，它将被重置为其原始持续时间。",
     "stopTimerButton": "停止计时器",
     "stopTimerCancelButton": "取消"
+  },
+  "Ai": {
+    "title": "AI 指导",
+    "info": "这是你个人的 AI Coach. 请随时问问问追溯问题，它会试着回答你的问题。",
+    "close": "关闭",
+    "paidLimitWarning": "您已经达到今天的极限。请明天再试。",
+    "freeLimitWarning": "您已达到本月的免费上限。请订阅Retroscripted Pro 以获得无限的 AI Coaching。",
+    "genericError": "AI出了错。请稍后再试。",
+    "inputPrompt": "问我一个问题",
+    "send": "发送"
   }
 }

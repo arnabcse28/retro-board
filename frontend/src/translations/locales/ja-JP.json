@@ -479,5 +479,15 @@
     "stopTimerDescription": "タイマーを停止すると、タイマーは元の時間にリセットされます。",
     "stopTimerButton": "停止タイマー",
     "stopTimerCancelButton": "キャンセル"
+  },
+  "Ai": {
+    "title": "人工知能のコーチ。",
+    "info": "これはあなたの個人的なAIコーチです。レトロスペクティブについて質問してください。それはあなたに答えることを試みます。",
+    "close": "閉じる",
+    "paidLimitWarning": "本日の上限に達しました。明日もう一度お試しください。",
+    "freeLimitWarning": "今月限度額に達しました。無制限のAIコーチングを受け取るには、Retrospected Proに登録してください。",
+    "genericError": "AIに問題が発生しました。後でもう一度お試しください。",
+    "inputPrompt": "質問してください",
+    "send": "送信"
   }
 }
