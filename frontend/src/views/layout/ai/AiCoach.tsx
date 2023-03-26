@@ -1,3 +1,5 @@
+import styled from '@emotion/styled';
+import { Psychology } from '@mui/icons-material';
 import {
   Button,
   Dialog,
@@ -37,7 +39,12 @@ export function AiCoach({ open, onClose }: AiCoachProps) {
 
   return (
     <Dialog open={open} onClose={onClose} maxWidth="md" fullWidth>
-      <DialogTitle>AI Coach</DialogTitle>
+      <DialogTitle>
+        <HeaderContainer>
+          <Psychology />
+          AI Coach
+        </HeaderContainer>
+      </DialogTitle>
       <DialogContent>
         <Chat
           messages={messages}
@@ -51,3 +58,9 @@ export function AiCoach({ open, onClose }: AiCoachProps) {
     </Dialog>
   );
 }
+
+const HeaderContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+`;
