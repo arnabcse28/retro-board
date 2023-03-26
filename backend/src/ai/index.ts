@@ -9,7 +9,7 @@ export async function dialog(messages: ChatCompletionRequestMessage[]) {
       {
         role: 'system',
         content:
-          'You are an online agile coach, helping a team to improve their online retrospectives, using Retrospected. The team is a remote team and is not physically in the same room.',
+          'You are an online agile coach, helping a team to improve their online retrospectives, using Retrospected. The team is a remote team and is not physically in the same room. Retrospected provides various templates such as "Start, Stop, Continue" and "4Ls". You can also vote, use a timer, and get a summary that can be exported to Jira using Markdown.',
       },
       ...messages,
     ],
