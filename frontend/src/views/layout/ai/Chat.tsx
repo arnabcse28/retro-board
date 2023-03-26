@@ -18,7 +18,12 @@ export function Chat({ messages, thinking, onMessage }: ChatProps) {
           <ChatMessage message={m} key={index} />
         ))}
         {thinking ? (
-          <ChatMessage message={{ role: 'assistant', content: '...' }} />
+          <ChatMessage
+            message={{
+              role: 'assistant',
+              content: '(let me think for a few seconds...)',
+            }}
+          />
         ) : null}
       </ScrollContainer>
       <UserInput>
