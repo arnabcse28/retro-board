@@ -8,9 +8,10 @@ import {
   DialogTitle,
 } from '@mui/material';
 import { fetchPostGet } from 'api/fetch';
+import { AiChatPayload, CoachMessage, CoachRole } from 'common';
 import { useCallback, useState } from 'react';
+import { v4 } from 'uuid';
 import { Chat } from './Chat';
-import { CoachMessage, CoachRole } from './types';
 
 type AiCoachProps = {
   open: boolean;
@@ -20,21 +21,22 @@ type AiCoachProps = {
 export function AiCoach({ open, onClose }: AiCoachProps) {
   const [messages, setMessages] = useState<CoachMessage[]>([]);
   const [thinking, setThinking] = useState(false);
+  const [id] = useState(v4());
 
   const handleMessage = useCallback(
     async (content: string) => {
       setThinking(true);
       const newMessages = [...messages, { role: 'user' as CoachRole, content }];
       setMessages(newMessages);
-      const response = await fetchPostGet<CoachMessage[], CoachMessage[]>(
+      const response = await fetchPostGet<AiChatPayload, CoachMessage[]>(
         '/api/ai/chat',
         [],
-        newMessages
+        { id, messages: newMessages }
       );
       setThinking(false);
       setMessages(response);
     },
-    [messages]
+    [messages, id]
   );
 
   return (

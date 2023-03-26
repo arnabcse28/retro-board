@@ -1,10 +1,10 @@
-import { CoachMessage } from './types';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import styled from '@emotion/styled';
 import ChatMessage from './ChatMessage';
 import ChatInput from './ChatInput';
 
 import { keyframes } from '@emotion/react';
+import { CoachMessage } from 'common';
 
 type ChatProps = {
   messages: CoachMessage[];

@@ -1,4 +1,10 @@
-import { Plan, Currency, StripeLocales, AccessErrorType } from './types.js';
+import {
+  Plan,
+  Currency,
+  StripeLocales,
+  AccessErrorType,
+  CoachMessage,
+} from './types.js';
 
 export interface RegisterPayload {
   name: string;
@@ -89,4 +95,9 @@ export interface ChangeUserNamePayload {
 export interface MergeUsersPayload {
   main: string;
   merged: string[];
+}
+
+export interface AiChatPayload {
+  id: string;
+  messages: CoachMessage[];
 }
