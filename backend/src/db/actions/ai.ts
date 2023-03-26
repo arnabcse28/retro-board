@@ -7,6 +7,9 @@ import { CoachMessage, CoachRole } from 'common/types.js';
 import AiChatMessageRepository from '../repositories/AiChatMessageRepository.js';
 import AiChatMessageEntity from '../entities/AiChatMessage.js';
 import { v4 } from 'uuid';
+import { MoreThanOrEqual } from 'typeorm';
+import { addDays } from 'date-fns';
+import config from '../../config.js';
 
 export async function getAiChatSession(
   id: string,
@@ -49,5 +52,27 @@ export async function recordAiChatMessage(
   return await transaction(async (manager) => {
     const repository = manager.withRepository(AiChatMessageRepository);
     await repository.save(new AiChatMessageEntity(v4(), chat, content, role));
+  });
+}
+
+export async function getAllowance(user: UserView) {
+  return await transaction(async (manager) => {
+    const repository = manager.withRepository(AiChatMessageRepository);
+    const count = await repository.count({
+      where: {
+        role: 'user',
+        chat: {
+          created: MoreThanOrEqual(addDays(new Date(), -30)),
+          createdBy: {
+            id: user.id,
+          },
+        },
+      },
+    });
+    const allowance = user.pro
+      ? config.OPEN_AI_PAID_LIMIT
+      : config.OPEN_AI_FREE_LIMIT;
+
+    return count / allowance;
   });
 }

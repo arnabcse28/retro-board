@@ -7,8 +7,8 @@ import {
   DialogContent,
   DialogTitle,
 } from '@mui/material';
-import { fetchPostGet } from 'api/fetch';
-import { AiChatPayload, CoachMessage, CoachRole } from 'common';
+import { requestConfig } from 'api/fetch';
+import { CoachMessage, CoachRole } from 'common';
 import { useCallback, useState } from 'react';
 import { v4 } from 'uuid';
 import { Chat } from './Chat';
@@ -28,13 +28,41 @@ export function AiCoach({ open, onClose }: AiCoachProps) {
       setThinking(true);
       const newMessages = [...messages, { role: 'user' as CoachRole, content }];
       setMessages(newMessages);
-      const response = await fetchPostGet<AiChatPayload, CoachMessage[]>(
-        '/api/ai/chat',
-        [],
-        { id, messages: newMessages }
-      );
-      setThinking(false);
-      setMessages(response);
+      try {
+        const response = await fetch('/api/ai/chat', {
+          method: 'POST',
+          body: JSON.stringify({ id, messages: newMessages }),
+          ...requestConfig(),
+        });
+        if (response.ok) {
+          const msgs = (await response.json()) as CoachMessage[];
+          setThinking(false);
+          setMessages(msgs);
+        } else if (response.status === 402) {
+          setThinking(false);
+          setMessages([
+            ...newMessages,
+            {
+              role: 'assistant' as CoachRole,
+              content:
+                'You have reached your limit for today. Please try again tomorrow.',
+            },
+          ]);
+        } else {
+          setThinking(false);
+          setMessages([
+            ...newMessages,
+            {
+              role: 'assistant' as CoachRole,
+              content:
+                'Something went wrong with the AI. Please try again later.',
+            },
+          ]);
+        }
+      } catch (ex) {
+        setThinking(false);
+        console.error(ex);
+      }
     },
     [messages, id]
   );
