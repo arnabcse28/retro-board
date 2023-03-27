@@ -5,6 +5,7 @@ import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 type ChatInputProps = {
+  disabled: boolean;
   onMessage: (content: string) => void;
 };
 
@@ -12,13 +13,15 @@ function isEnter(code: string) {
   return code === 'Enter' || code === 'NumpadEnter';
 }
 
-export default function ChatInput({ onMessage }: ChatInputProps) {
+export default function ChatInput({ disabled, onMessage }: ChatInputProps) {
   const [input, setInput] = useState('');
   const { t } = useTranslation();
 
   const handleSend = useCallback(() => {
-    onMessage(input);
-    setInput('');
+    if (input.length) {
+      onMessage(input);
+      setInput('');
+    }
   }, [input, onMessage]);
 
   const handleKeyPress = useCallback(
@@ -36,12 +39,17 @@ export default function ChatInput({ onMessage }: ChatInputProps) {
     <Container>
       <Input
         fullWidth
+        disabled={disabled}
         placeholder={t('Ai.inputPrompt')!}
         value={input}
         onChange={(evt) => setInput(evt.target.value)}
         onKeyPress={handleKeyPress}
       />
-      <Button endIcon={<Send />} onClick={handleSend}>
+      <Button
+        disabled={disabled || !input.length}
+        endIcon={<Send />}
+        onClick={handleSend}
+      >
         {t('Ai.send')}
       </Button>
     </Container>

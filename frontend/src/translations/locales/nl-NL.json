@@ -416,6 +416,10 @@
       "unlimitedPosts": {
         "title": "Onbeperkt aantal berichten",
         "description": "Met een Pro-abonnement krijg je onbeperkt berichten."
+      },
+      "ai": {
+        "title": "",
+        "description": ""
       }
     },
     "subscribeButton": "Abonneren",
@@ -482,7 +486,8 @@
   },
   "Ai": {
     "title": "AI Coach",
-    "info": "Dit is jouw persoonlijke AI Coach. Voel je vrij om vragen te stellen over retrospectieven, en zal proberen je antwoord te geven.",
+    "info": "",
+    "disabledAnonymous": "",
     "close": "Afsluiten",
     "paidLimitWarning": "Je hebt vandaag je limiet bereikt. Probeer het alstublieft morgen opnieuw.",
     "freeLimitWarning": "U heeft uw gratis limiet voor deze maand bereikt. Abonneer u alstublieft op Retrospected Pro om een onbeperkte AI coaching te krijgen.",

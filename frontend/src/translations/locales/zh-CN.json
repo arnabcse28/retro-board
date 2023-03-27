@@ -416,6 +416,10 @@
       "unlimitedPosts": {
         "title": "无限帖子",
         "description": "通过专业版订阅，获得无限的帖子。"
+      },
+      "ai": {
+        "title": "",
+        "description": ""
       }
     },
     "subscribeButton": "订阅",
@@ -482,7 +486,8 @@
   },
   "Ai": {
     "title": "AI 指导",
-    "info": "这是你个人的 AI Coach. 请随时问问问追溯问题，它会试着回答你的问题。",
+    "info": "",
+    "disabledAnonymous": "",
     "close": "关闭",
     "paidLimitWarning": "您已经达到今天的极限。请明天再试。",
     "freeLimitWarning": "您已达到本月的免费上限。请订阅Retroscripted Pro 以获得无限的 AI Coaching。",

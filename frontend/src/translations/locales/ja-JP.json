@@ -416,6 +416,10 @@
       "unlimitedPosts": {
         "title": "無制限の投稿",
         "description": "Proサブスクリプションでは、無制限の投稿を取得します。"
+      },
+      "ai": {
+        "title": "",
+        "description": ""
       }
     },
     "subscribeButton": "購読する",
@@ -482,7 +486,8 @@
   },
   "Ai": {
     "title": "人工知能のコーチ。",
-    "info": "これはあなたの個人的なAIコーチです。レトロスペクティブについて質問してください。それはあなたに答えることを試みます。",
+    "info": "",
+    "disabledAnonymous": "",
     "close": "閉じる",
     "paidLimitWarning": "本日の上限に達しました。明日もう一度お試しください。",
     "freeLimitWarning": "今月限度額に達しました。無制限のAIコーチングを受け取るには、Retrospected Proに登録してください。",

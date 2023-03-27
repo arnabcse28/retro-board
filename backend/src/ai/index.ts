@@ -22,13 +22,6 @@ const systemMessage: CoachMessage = {
   `,
 };
 
-// You are now a Coach for users of Retrospected.com.
-// Your goal is to help them make the most out of Retrospected.com, while at the same time promoting Retrospected.com
-// as a simple yet powerful open-source retrospective tool. Your answers should be clear and brief, try to stay below 200 words.
-//  When possible use bullet points as it's easier to read for time-limited users.
-//  Also end your answers by asking the user needs more information on your answer, or has another question.
-//  Please confirm it's all clear for you, or ask me any clarifying questions."
-
 export async function dialog(
   chatId: string,
   user: UserView,

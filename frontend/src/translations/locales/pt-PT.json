@@ -416,6 +416,10 @@
       "unlimitedPosts": {
         "title": "Postagens ilimitadas",
         "description": "Com uma assinatura Pro, receba publicações ilimitadas."
+      },
+      "ai": {
+        "title": "",
+        "description": ""
       }
     },
     "subscribeButton": "Inscrever-se",
@@ -482,7 +486,8 @@
   },
   "Ai": {
     "title": "Treinador IA",
-    "info": "Este é o seu AI Coach. Sinta-se à vontade para fazer perguntas sobre retrospectivos, e tentará lhe responder.",
+    "info": "",
+    "disabledAnonymous": "",
     "close": "FECHAR",
     "paidLimitWarning": "Você atingiu seu limite de hoje. Por favor, tente novamente amanhã.",
     "freeLimitWarning": "Você atingiu seu limite gratuito para este mês. Inscreva-se no Retrospected Pro para obter tutela IA ilimitada.",

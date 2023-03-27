@@ -78,7 +78,7 @@ export function Header() {
           </Hidden>
         ) : null}
         <Spacer />
-        <AiButton />
+        {user ? <AiButton /> : null}
         <Spacer />
         {isOnGamePage ? <Invite /> : null}
         {isInitialised ? (

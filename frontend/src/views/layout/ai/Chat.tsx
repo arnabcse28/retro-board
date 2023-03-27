@@ -9,10 +9,11 @@ import { CoachMessage } from 'common';
 type ChatProps = {
   messages: CoachMessage[];
   thinking: boolean;
+  disabled: boolean;
   onMessage: (content: string) => void;
 };
 
-export function Chat({ messages, thinking, onMessage }: ChatProps) {
+export function Chat({ messages, disabled, thinking, onMessage }: ChatProps) {
   return (
     <Container>
       <ScrollContainer>
@@ -26,7 +27,7 @@ export function Chat({ messages, thinking, onMessage }: ChatProps) {
         {thinking ? <ChatMessage message={<Ellipsis />} /> : null}
       </ScrollContainer>
       <UserInput>
-        <ChatInput onMessage={onMessage} />
+        <ChatInput disabled={disabled} onMessage={onMessage} />
       </UserInput>
     </Container>
   );

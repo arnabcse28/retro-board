@@ -416,6 +416,10 @@
       "unlimitedPosts": {
         "title": "Post Illimitati",
         "description": "Con un abbonamento Pro, ottieni messaggi illimitati."
+      },
+      "ai": {
+        "title": "",
+        "description": ""
       }
     },
     "subscribeButton": "Abbonati",
@@ -482,7 +486,8 @@
   },
   "Ai": {
     "title": "AI Coach",
-    "info": "Questo è il tuo personale AI Coach. Sentitevi liberi di porre domande sulle retrospettive, e cercherà di rispondervi.",
+    "info": "",
+    "disabledAnonymous": "",
     "close": "Chiudi",
     "paidLimitWarning": "Hai raggiunto il limite per oggi. Per favore riprova domani.",
     "freeLimitWarning": "Hai raggiunto il tuo limite gratuito per questo mese. Per favore iscriviti a Retrospected Pro per ottenere un allenamento AI illimitato.",

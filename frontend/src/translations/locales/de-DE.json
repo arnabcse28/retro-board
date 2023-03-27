@@ -416,6 +416,10 @@
       "unlimitedPosts": {
         "title": "Unbegrenzte Beiträge",
         "description": "Mit einem Pro-Abonnement erhalten Sie unbegrenzte Beiträge."
+      },
+      "ai": {
+        "title": "",
+        "description": ""
       }
     },
     "subscribeButton": "Abonnieren",
@@ -482,7 +486,8 @@
   },
   "Ai": {
     "title": "AI-Trainer",
-    "info": "Dies ist Ihr persönlicher KI Coach. Zögern Sie nicht, Fragen zu Retrospektiven zu stellen und es wird versuchen, Ihnen zu antworten.",
+    "info": "",
+    "disabledAnonymous": "",
     "close": "Schließen",
     "paidLimitWarning": "Du hast dein Limit für heute erreicht. Bitte versuche es morgen erneut.",
     "freeLimitWarning": "Sie haben Ihr Gratislimit für diesen Monat erreicht. Bitte abonnieren Sie Retrospected Pro um unbegrenzte KI-Coaching zu erhalten.",

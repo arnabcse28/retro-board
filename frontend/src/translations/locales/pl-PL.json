@@ -416,6 +416,10 @@
       "unlimitedPosts": {
         "title": "Nielimitowane posty",
         "description": "Z subskrypcją Pro, uzyskaj nieograniczone posty."
+      },
+      "ai": {
+        "title": "",
+        "description": ""
       }
     },
     "subscribeButton": "Subskrybuj",
@@ -482,7 +486,8 @@
   },
   "Ai": {
     "title": "AI trener",
-    "info": "To twój osobisty autokar AI. Możesz zadać mu pytania dotyczące retrospektywności i postara się odpowiedzieć na cię.",
+    "info": "",
+    "disabledAnonymous": "",
     "close": "Zamknij",
     "paidLimitWarning": "Osiągnąłeś swój limit na dziś. Spróbuj ponownie jutro.",
     "freeLimitWarning": "Osiągnąłeś swój darmowy limit na ten miesiąc. Proszę subskrybuj Retrospected Pro, aby uzyskać nieograniczoną liczbę trenerów AI.",

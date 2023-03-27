@@ -27,6 +27,7 @@ export function AiCoach({ open, onClose }: AiCoachProps) {
   const [id] = useState(v4());
   const { t } = useTranslation();
   const user = useUser();
+  const disabled = !user || user.accountType === 'anonymous';
 
   const handleMessage = useCallback(
     async (content: string) => {
@@ -82,8 +83,13 @@ export function AiCoach({ open, onClose }: AiCoachProps) {
         </HeaderContainer>
       </DialogTitle>
       <DialogContent>
-        <Alert>{t('Ai.info')}</Alert>
+        {disabled ? (
+          <Alert severity="error">{t('Ai.disabledAnonymous')}</Alert>
+        ) : (
+          <Alert>{t('Ai.info')}</Alert>
+        )}
         <Chat
+          disabled={disabled}
           messages={messages}
           onMessage={handleMessage}
           thinking={thinking}
