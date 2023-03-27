@@ -156,7 +156,7 @@ const heavyLoadLimiter = rateLimit({
 setupSentryRequestHandler(app);
 
 // saveUninitialized: true allows us to attach the socket id to the session
-// before we have athenticated the user
+// before we have authenticated the user
 let sessionMiddleware: express.RequestHandler;
 
 const httpServer = new http.Server(app);
@@ -186,13 +186,11 @@ if (config.REDIS_ENABLED) {
     const subClient = redisClient.duplicate();
     io.adapter(createAdapter({ pubClient: redisClient, subClient }));
     console.log(
-      chalk`💾  {red Redis} for {yellow Socket.IO} was properly activated`
+      chalk`💾  {red Redis} for {yellow Socket.IO} was {blue activated}`
     );
   }
 
-  console.log(
-    chalk`💾  {red Redis} for {yellow Express} was properly activated`
-  );
+  console.log(chalk`💾  {red Redis} for {yellow Express} was {blue activated}`);
 } else {
   sessionMiddleware = session({
     secret: sessionSecret,
@@ -203,6 +201,12 @@ if (config.REDIS_ENABLED) {
       maxAge: 1000 * 60 * 60 * 24 * 365, // 1 year
     },
   });
+}
+
+if (config.OPEN_AI_API_KEY) {
+  console.log(
+    chalk`🤖  {red AI / ChatGPT} from {yellow OpenAI} has been {blue activated}`
+  );
 }
 
 app.use(sessionMiddleware);
