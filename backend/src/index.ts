@@ -207,6 +207,10 @@ if (config.OPEN_AI_API_KEY) {
   console.log(
     chalk`🤖  {red AI / ChatGPT} from {yellow OpenAI} has been {blue activated}`
   );
+} else {
+  console.log(
+    chalk`🤖  {red AI / ChatGPT} from {yellow OpenAI} was {red not activated}.\n    Please set the {yellow OPEN_AI_API_KEY} environment variable.`
+  );
 }
 
 app.use(sessionMiddleware);
