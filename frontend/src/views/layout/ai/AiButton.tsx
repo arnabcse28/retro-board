@@ -10,6 +10,9 @@ export function AiButton() {
   const { t } = useTranslation();
   const small = useMediaQuery('(max-width:600px)');
   const { ai } = useBackendCapabilities();
+  if (!ai) {
+    return null;
+  }
   return (
     <>
       {small ? (
