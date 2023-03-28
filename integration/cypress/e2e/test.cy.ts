@@ -63,7 +63,7 @@ describe('Post workflow', () => {
 
     cy.visit('/');
 
-    // // Select register
+    // Select register
     get('register').click();
 
     // Add some data
