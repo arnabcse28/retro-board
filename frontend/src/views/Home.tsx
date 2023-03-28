@@ -166,10 +166,11 @@ function Home() {
 
 const MainHeader = styled.h1`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   font-weight: 100;
   font-size: 4em;
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 800px) {
     font-size: 2em;
   }
 `;
