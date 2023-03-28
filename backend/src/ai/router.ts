@@ -17,7 +17,6 @@ export default function aiRouter(): Router {
     }
 
     const allowance = await getAllowance(user);
-    console.log('Allowance', allowance);
     if (allowance <= 1) {
       const payload = req.body as AiChatPayload;
       const response = await dialog(payload.id, user, payload.messages);
