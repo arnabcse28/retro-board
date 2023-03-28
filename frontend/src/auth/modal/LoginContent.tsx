@@ -81,6 +81,7 @@ export default function LoginContent({
                   variant="text"
                   color="secondary"
                   startIcon={<Login />}
+                  data-cy="login-anonymous"
                 >
                   {t('AuthCommon.skipAndAnonLogin')}
                 </Button>
