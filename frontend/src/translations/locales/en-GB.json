@@ -221,7 +221,8 @@
       "not quite",
       "good",
       "strong"
-    ]
+    ],
+    "skipAndAnonLogin": "Skip and log me in Anonymously"
   },
   "AccountLogin": {
     "header": "Password",
