@@ -34,11 +34,11 @@ export function Chat({ messages, disabled, thinking, onMessage }: ChatProps) {
 }
 
 const ellipsis = keyframes`
-  0%   { content: ''; }
-	25%  { content: '.'; }
-	50%  { content: '..'; }
-	75%  { content: '...'; }
-	100% { content: ''; }
+  0%    { content: ''; }
+  25%   { content: '.'; }
+  50%   { content: '..'; }
+  75%   { content: '...'; }
+  100%  { content: ''; }
 `;
 
 const Container = styled.div``;

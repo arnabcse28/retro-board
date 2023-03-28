@@ -418,8 +418,8 @@
         "description": "Con una suscripción Pro, obtén mensajes ilimitados."
       },
       "ai": {
-        "title": "",
-        "description": ""
+        "title": "Coach Ágil de IA",
+        "description": "Obtén información sobre tus retrospectivas, gracias a nuestro AI Agile Coach."
       }
     },
     "subscribeButton": "Suscribirse",
@@ -486,8 +486,8 @@
   },
   "Ai": {
     "title": "Coach de IA",
-    "info": "",
-    "disabledAnonymous": "",
+    "info": "¡Hola! Soy tu tutor personal de IA. No dudes en hacerme preguntas sobre retrospectives, y haré todo lo posible por responderte.",
+    "disabledAnonymous": "El tutor de IA sólo está disponible para usuarios no anónimos. Ve a tu perfil e inicia sesión con una cuenta de OAuth o Contraseña.",
     "close": "Cerrar",
     "paidLimitWarning": "Has alcanzado tu límite para hoy. Por favor, inténtalo de nuevo mañana.",
     "freeLimitWarning": "Has alcanzado tu límite gratuito para este mes. Por favor, suscríbete a Retrospected Pro para obtener un entrenamiento de IA ilimitado.",

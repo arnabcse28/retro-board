@@ -418,8 +418,8 @@
         "description": "Z subskrypcją Pro, uzyskaj nieograniczone posty."
       },
       "ai": {
-        "title": "",
-        "description": ""
+        "title": "AI Agile Coach",
+        "description": "Uzyskaj wgląd w swoje retrospektywy w oparciu o AI Agile Coach."
       }
     },
     "subscribeButton": "Subskrybuj",
@@ -486,8 +486,8 @@
   },
   "Ai": {
     "title": "AI trener",
-    "info": "",
-    "disabledAnonymous": "",
+    "info": "Cześć! Jestem twoim osobistym AI Coache. Zapraszam, aby zadać mi pytania dotyczące retrospektywności i zrobię wszystko, co w mojej mocy, aby ci odpowiedzieć.",
+    "disabledAnonymous": "AI Coach jest dostępny tylko dla użytkowników nieanonimowych. Przejdź do swojego profilu i zaloguj się na konto OAuth lub Hasło.",
     "close": "Zamknij",
     "paidLimitWarning": "Osiągnąłeś swój limit na dziś. Spróbuj ponownie jutro.",
     "freeLimitWarning": "Osiągnąłeś swój darmowy limit na ten miesiąc. Proszę subskrybuj Retrospected Pro, aby uzyskać nieograniczoną liczbę trenerów AI.",
