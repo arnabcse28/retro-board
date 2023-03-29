@@ -132,6 +132,9 @@
     "islandQuestion": "Island",
     "windQuestion": "Wind",
     "rockQuestion": "Rock",
+    "madQuestion": "Mad",
+    "sadQuestion": "Sad",
+    "gladQuestion": "Glad",
     "disconnected": "You have been disconnected from the current session.",
     "reconnect": "Reconnect",
     "notLoggedIn": "You are not logged in. You can view this session as a spectator, but must login to participate.",
@@ -171,7 +174,8 @@
     "wellNotWell": "Well / Not Well",
     "startStopContinue": "Start / Stop / Continue",
     "fourLs": "Four Ls",
-    "sailboat": "Sailboat"
+    "sailboat": "Sailboat",
+    "madSadGlad": "Mad / Sad / Glad"
   },
   "Clients": {
     "header": "Participants:",

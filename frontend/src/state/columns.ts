@@ -153,6 +153,24 @@ export const getTemplateColumnByType =
           label: t('PostBoard.rockQuestion'),
           type: 'rock',
         },
+        {
+          color: '#FFCDD2',
+          icon: 'rage',
+          label: t('PostBoard.madQuestion'),
+          type: 'mad',
+        },
+        {
+          color: '#FFECB3',
+          icon: 'disappointed',
+          label: t('PostBoard.sadQuestion'),
+          type: 'sad',
+        },
+        {
+          color: '#C8E6C9',
+          icon: 'blush',
+          label: t('PostBoard.gladQuestion'),
+          type: 'glad',
+        },
       ] as ColumnSettings[],
       (x) => x.type
     );

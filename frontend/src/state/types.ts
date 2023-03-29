@@ -13,7 +13,8 @@ export type Template =
   | 'well-not-well'
   | 'start-stop-continue'
   | 'four-l'
-  | 'sailboat';
+  | 'sailboat'
+  | 'mad-sad-glad';
 
 export interface TemplateDefinition {
   type: Template;

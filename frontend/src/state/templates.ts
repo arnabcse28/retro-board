@@ -17,6 +17,10 @@ export function getAllTemplates(t: TranslationFunction): TemplateDefinition[] {
       name: t('Template.wellNotWell')!,
     },
     {
+      type: 'mad-sad-glad',
+      name: t('Template.madSadGlad')!,
+    },
+    {
       type: 'start-stop-continue',
       name: t('Template.startStopContinue')!,
     },
@@ -37,6 +41,8 @@ export function getTemplate(
       return [dic('well'), dic('notWell')];
     case 'start-stop-continue':
       return [dic('start'), dic('stop'), dic('continue')];
+    case 'mad-sad-glad':
+      return [dic('mad'), dic('sad'), dic('glad')];
     case 'four-l':
       return [dic('liked'), dic('learned'), dic('lacked'), dic('longedFor')];
     case 'sailboat':
