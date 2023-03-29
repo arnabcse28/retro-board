@@ -172,6 +172,7 @@
   "Template": {
     "default": "Default",
     "wellNotWell": "Well / Not Well",
+    "wellNotWellIdeas": "Well / Not Well / Ideas",
     "startStopContinue": "Start / Stop / Continue",
     "fourLs": "Four Ls",
     "sailboat": "Sailboat",

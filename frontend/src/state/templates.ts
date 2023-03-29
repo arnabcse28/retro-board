@@ -13,6 +13,10 @@ export function getAllTemplates(t: TranslationFunction): TemplateDefinition[] {
       name: t('Template.default')!,
     },
     {
+      type: 'well-not-well-ideas',
+      name: t('Template.wellNotWellIdeas')!,
+    },
+    {
       type: 'well-not-well',
       name: t('Template.wellNotWell')!,
     },
@@ -36,6 +40,8 @@ export function getTemplate(
   const dic = getTemplateColumnByType(translations);
   switch (template) {
     case 'default':
+      return [dic('well'), dic('notWell'), dic('ideas')];
+    case 'well-not-well-ideas':
       return [dic('well'), dic('notWell'), dic('ideas')];
     case 'well-not-well':
       return [dic('well'), dic('notWell')];

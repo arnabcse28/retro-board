@@ -11,6 +11,7 @@ export interface ColumnSettings {
 export type Template =
   | 'default'
   | 'well-not-well'
+  | 'well-not-well-ideas'
   | 'start-stop-continue'
   | 'four-l'
   | 'sailboat'
