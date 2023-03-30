@@ -8,6 +8,7 @@ interface Config {
   DEFAULT_LANGUAGE: string;
   VERSION: string;
   MARKETING_ROOT: string;
+  AI_FEEDBACK_URL: string;
 }
 
 const ALL_KEYS: (keyof Config)[] = [
@@ -20,6 +21,7 @@ const ALL_KEYS: (keyof Config)[] = [
   'DEFAULT_LANGUAGE',
   'VERSION',
   'MARKETING_ROOT',
+  'AI_FEEDBACK_URL',
 ];
 
 declare global {
