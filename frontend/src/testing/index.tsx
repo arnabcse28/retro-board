@@ -11,36 +11,6 @@ import useSession from '../views/game/useSession';
 import { RecoilRoot } from 'recoil';
 import { userState } from 'state/user/user-state';
 
-export const initialSession: Session = {
-  id: 'test-session',
-  name: 'My Retro',
-  posts: [],
-  groups: [],
-  columns: [],
-  messages: [],
-  encrypted: null,
-  locked: false,
-  createdBy: {
-    id: 'John Doe',
-    name: 'John Doe',
-    photo: null,
-  },
-  options: {
-    ...defaultOptions,
-  },
-  ready: [],
-  timer: null,
-  demo: false,
-};
-
-export function AllTheProviders({ children }: PropsWithChildren<{}>) {
-  return (
-    <RecoilRoot>
-      <Inner>{children}</Inner>
-    </RecoilRoot>
-  );
-}
-
 const user: FullUser = {
   id: 'John Doe',
   name: 'John Doe',
@@ -65,6 +35,36 @@ const user: FullUser = {
   identityId: 'John Doe Identity',
 };
 
+export const initialSession: Session = {
+  id: 'test-session',
+  name: 'My Retro',
+  posts: [],
+  groups: [],
+  columns: [],
+  messages: [],
+  encrypted: null,
+  locked: false,
+  createdBy: {
+    id: 'John Doe',
+    name: 'John Doe',
+    photo: null,
+  },
+  options: {
+    ...defaultOptions,
+  },
+  ready: [],
+  timer: null,
+  demo: false,
+};
+
+export function AllTheProviders({ children }: PropsWithChildren<{}>) {
+  return (
+    <RecoilRoot initializeState={(snap) => snap.set(userState, user)}>
+      <Inner>{children}</Inner>
+    </RecoilRoot>
+  );
+}
+
 export default function Inner({ children }: PropsWithChildren<{}>) {
   const { receiveBoard } = useSession();
 
@@ -72,15 +72,13 @@ export default function Inner({ children }: PropsWithChildren<{}>) {
     receiveBoard(initialSession);
   }, [receiveBoard]);
   return (
-    <RecoilRoot initializeState={(snap) => snap.set(userState, user)}>
-      <DragDropContext onDragEnd={() => {}}>
-        <Droppable droppableId="test">
-          {(dropProvided: DroppableProvided, _: DroppableStateSnapshot) => (
-            <div ref={dropProvided.innerRef}>{children}</div>
-          )}
-        </Droppable>
-      </DragDropContext>
-    </RecoilRoot>
+    <DragDropContext onDragEnd={() => {}}>
+      <Droppable droppableId="test">
+        {(dropProvided: DroppableProvided, _: DroppableStateSnapshot) => (
+          <div ref={dropProvided.innerRef}>{children}</div>
+        )}
+      </Droppable>
+    </DragDropContext>
   );
 }
 
