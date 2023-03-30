@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { getTemplateColumns } from 'state';
 import { Template, TemplateDefinition } from 'state/types';
 import Icon from 'components/Icon/Icon';
+import { colors } from '@mui/material';
 
 type TemplateItemProps = {
   definition: TemplateDefinition;
@@ -42,13 +43,15 @@ const Item = styled.div<{ selected: boolean }>`
   padding: 10px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  background-color: ${(p) => (p.selected ? '#0D47A1' : '#e3f2fd')};
-  color: ${(p) => (p.selected ? '#e3f2fd' : '#0d47a1')};
+  background-color: ${(p) => (p.selected ? colors.blue[900] : colors.grey[50])};
+  color: ${(p) => (p.selected ? colors.grey[50] : colors.blue[900])};
+  min-width: 150px;
 `;
 
 const ItemIcon = styled.div`
+  width: 100%;
   display: flex;
-  gap: 4px;
+  justify-content: space-around;
 `;
 
 const ItemTitle = styled.div`

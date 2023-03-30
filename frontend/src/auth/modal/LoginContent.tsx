@@ -11,7 +11,7 @@ import styled from '@emotion/styled';
 import { anonymousLogin, me, updateLanguage } from 'api';
 import { trackEvent } from 'track';
 import { useLanguage } from 'translations';
-import { Login } from '@mui/icons-material';
+import { NoAccounts } from '@mui/icons-material';
 
 interface LoginContentProps {
   anonymous: boolean;
@@ -80,7 +80,7 @@ export default function LoginContent({
                   onClick={handleAnonLogin}
                   variant="text"
                   color="secondary"
-                  startIcon={<Login />}
+                  startIcon={<NoAccounts />}
                   data-cy="login-anonymous"
                 >
                   {t('AuthCommon.skipAndAnonLogin')}

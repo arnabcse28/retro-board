@@ -80,7 +80,7 @@
     "postCategory": "Post settings",
     "postCategorySub": "Set the rules about what a user can do when creating or viewing a post",
     "customTemplateCategory": "Column Template",
-    "customTemplateCategorySub": "Set the number of columns and their characteristics",
+    "customTemplateCategorySub": "Select a template and customize your columns",
     "customTemplateAddColumn": "Add a new column",
     "startButton": "Start the session",
     "editButton": "Update",
@@ -228,7 +228,7 @@
       "good",
       "strong"
     ],
-    "skipAndAnonLogin": "Skip and log me in Anonymously"
+    "skipAndAnonLogin": "Use Anonymously"
   },
   "AccountLogin": {
     "header": "Password",

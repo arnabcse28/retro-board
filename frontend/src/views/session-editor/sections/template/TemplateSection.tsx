@@ -1,6 +1,5 @@
 import { useCallback } from 'react';
 import SettingCategory from '../SettingCategory';
-import OptionItem from '../OptionItem';
 import { TemplatePicker } from './TemplatePicker';
 import { useTranslation } from 'react-i18next';
 import { ColumnSettings, Template } from '../../../../state/types';
@@ -30,13 +29,7 @@ function TemplateSection({ columns, onChange }: TemplateSectionProps) {
       title={t('Customize.customTemplateCategory')!}
       subtitle={t('Customize.customTemplateCategorySub')!}
     >
-      <OptionItem
-        label={t('Customize.template')!}
-        help={t('Customize.templateHelp')!}
-        wide
-      >
-        <TemplatePicker onSelect={handleTemplateChange} />
-      </OptionItem>
+      <TemplatePicker onSelect={handleTemplateChange} />
       <TemplateEditor columns={columns} onChange={onChange} />
     </SettingCategory>
   );
