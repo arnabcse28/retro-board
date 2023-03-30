@@ -81,6 +81,7 @@
     "postCategorySub": "Set the rules about what a user can do when creating or viewing a post",
     "customTemplateCategory": "Column Template",
     "customTemplateCategorySub": "Set the number of columns and their characteristics",
+    "customTemplateAddColumn": "Add a new column",
     "startButton": "Start the session",
     "editButton": "Update",
     "maxUpVotes": "Max Up-Votes",

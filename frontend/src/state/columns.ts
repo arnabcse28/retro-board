@@ -2,14 +2,14 @@ import { ColumnDefinition, ColumnDefinitionType } from 'common';
 import { v4 } from 'uuid';
 import keyBy from 'lodash/keyBy';
 import { ColumnSettings, Template, TranslationFunction } from './types';
-import { getTemplate } from './templates';
+import { getTemplateColumns } from './templates';
 import isEqual from 'lodash/isEqual';
 
 export function buildDefaults(
   template: Template,
   translations: TranslationFunction
 ): ColumnSettings[] {
-  const base = getTemplate(template, translations);
+  const base = getTemplateColumns(template, translations);
   return base;
 }
 

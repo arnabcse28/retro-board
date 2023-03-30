@@ -2,10 +2,10 @@ import { useCallback } from 'react';
 import { ColumnSettings } from '../../../../state/types';
 import ColumnEditor from './ColumnEditor';
 import { getTemplateColumnByType } from '../../../../state/columns';
-import IconButton from '@mui/material/IconButton';
 import { trackEvent } from '../../../../track';
 import { Add } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
+import { Button } from '@mui/material';
 
 const MAX_NUMBER_OF_COLUMNS = 5;
 
@@ -47,9 +47,14 @@ function TemplateEditor({ columns, onChange }: TemplateEditorProps) {
         />
       ))}
       {columns.length < MAX_NUMBER_OF_COLUMNS ? (
-        <IconButton onClick={handleAddColumn} size="large">
-          <Add />
-        </IconButton>
+        <Button
+          onClick={handleAddColumn}
+          color="secondary"
+          startIcon={<Add />}
+          style={{ marginTop: 10 }}
+        >
+          {t('Customize.customTemplateAddColumn')}
+        </Button>
       ) : null}
     </>
   );

@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import SettingCategory from '../SettingCategory';
 import OptionItem from '../OptionItem';
-import TemplatePicker from './TemplatePicker';
+import { TemplatePicker } from './TemplatePicker';
 import { useTranslation } from 'react-i18next';
 import { ColumnSettings, Template } from '../../../../state/types';
 import TemplateEditor from './TemplateEditor';

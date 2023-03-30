@@ -5,35 +5,41 @@ import {
   TranslationFunction,
 } from './types';
 import { getTemplateColumnByType } from './columns';
+import { Bookmark } from '@mui/icons-material';
 
 export function getAllTemplates(t: TranslationFunction): TemplateDefinition[] {
   return [
     {
       type: 'default',
       name: t('Template.default')!,
+      icon: <Bookmark />,
     },
     {
       type: 'well-not-well-ideas',
       name: t('Template.wellNotWellIdeas')!,
+      icon: <Bookmark />,
     },
     {
       type: 'well-not-well',
       name: t('Template.wellNotWell')!,
+      icon: <Bookmark />,
     },
     {
       type: 'mad-sad-glad',
       name: t('Template.madSadGlad')!,
+      icon: <Bookmark />,
     },
     {
       type: 'start-stop-continue',
       name: t('Template.startStopContinue')!,
+      icon: <Bookmark />,
     },
-    { type: 'four-l', name: t('Template.fourLs')! },
-    { type: 'sailboat', name: t('Template.sailboat')! },
+    { type: 'four-l', name: t('Template.fourLs')!, icon: <Bookmark /> },
+    { type: 'sailboat', name: t('Template.sailboat')!, icon: <Bookmark /> },
   ];
 }
 
-export function getTemplate(
+export function getTemplateColumns(
   template: Template,
   translations: TranslationFunction
 ): ColumnSettings[] {

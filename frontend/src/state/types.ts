@@ -20,6 +20,7 @@ export type Template =
 export interface TemplateDefinition {
   type: Template;
   name: string;
+  icon: React.ReactNode;
 }
 
 export type TranslationFunction = TFunction<Namespace<'ns1'>, undefined>;
