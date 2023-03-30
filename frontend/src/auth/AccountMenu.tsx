@@ -79,20 +79,18 @@ const AccountMenu = () => {
           ref={menuAnchor}
           data-cy="account-menu"
         >
-          <Avatar user={user} />
           <DisplayName>{user.name}</DisplayName>
           <ChipContainer>
             {user.accountType === 'anonymous' ? (
               <Chip color="secondary" label={t('Header.anonymous')} />
             ) : null}
           </ChipContainer>
-          <AccountCircleContainer>
-            <AccountCircle fontSize={'large'} />
-          </AccountCircleContainer>
+          <Avatar user={user} />
         </AvatarContainer>
         {menuAnchor.current ? (
           <Menu
             anchorEl={menuAnchor.current}
+            anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             open={menuOpen}
             onClose={closeMenu}
           >
@@ -176,12 +174,6 @@ const DisplayName = styled.div`
 
 const ChipContainer = styled.div`
   @media screen and (max-width: 900px) {
-    display: none;
-  }
-`;
-
-const AccountCircleContainer = styled.div`
-  @media screen and (max-width: 800px) {
     display: none;
   }
 `;
