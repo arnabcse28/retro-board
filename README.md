@@ -94,6 +94,8 @@ This will run a demo version, which you can turn into a fully licenced version b
 
 ## Versions History
 
+### Version 5.1.0
+
 ### Version 5.0.3
 
 - 🇩🇪 Adding the German version of our marketing website
