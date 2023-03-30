@@ -45,7 +45,7 @@ const Item = styled.div<{ selected: boolean }>`
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   background-color: ${(p) => (p.selected ? colors.blue[900] : colors.grey[50])};
   color: ${(p) => (p.selected ? colors.grey[50] : colors.blue[900])};
-  min-width: 150px;
+  min-width: 185px;
 `;
 
 const ItemIcon = styled.div`
@@ -55,6 +55,6 @@ const ItemIcon = styled.div`
 `;
 
 const ItemTitle = styled.div`
-  margin-top: 10px;
+  margin-top: 15px;
   font-size: 0.8rem;
 `;

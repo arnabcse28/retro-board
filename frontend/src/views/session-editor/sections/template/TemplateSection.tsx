@@ -3,7 +3,7 @@ import SettingCategory from '../SettingCategory';
 import { TemplatePicker } from './TemplatePicker';
 import { useTranslation } from 'react-i18next';
 import { ColumnSettings, Template } from '../../../../state/types';
-import TemplateEditor from './TemplateEditor';
+import { TemplateEditor } from './TemplateEditor';
 import { buildDefaults } from '../../../../state/columns';
 import { trackEvent } from '../../../../track';
 

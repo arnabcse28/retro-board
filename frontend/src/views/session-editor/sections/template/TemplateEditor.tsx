@@ -6,15 +6,16 @@ import { trackEvent } from '../../../../track';
 import { Add } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@mui/material';
+import styled from '@emotion/styled';
 
 const MAX_NUMBER_OF_COLUMNS = 5;
 
-interface TemplateEditorProps {
+type TemplateEditorProps = {
   columns: ColumnSettings[];
   onChange: (columns: ColumnSettings[]) => void;
-}
+};
 
-function TemplateEditor({ columns, onChange }: TemplateEditorProps) {
+export function TemplateEditor({ columns, onChange }: TemplateEditorProps) {
   const { t } = useTranslation();
   const handleColumnChange = useCallback(
     (value: ColumnSettings, index: number) => {
@@ -36,7 +37,7 @@ function TemplateEditor({ columns, onChange }: TemplateEditorProps) {
     [onChange, columns]
   );
   return (
-    <>
+    <Container>
       {columns.map((def, index) => (
         <ColumnEditor
           key={index}
@@ -56,8 +57,12 @@ function TemplateEditor({ columns, onChange }: TemplateEditorProps) {
           {t('Customize.customTemplateAddColumn')}
         </Button>
       ) : null}
-    </>
+    </Container>
   );
 }
 
-export default TemplateEditor;
+const Container = styled.div`
+  @media screen and (min-width: 600px) {
+    min-height: 340px;
+  }
+`;
