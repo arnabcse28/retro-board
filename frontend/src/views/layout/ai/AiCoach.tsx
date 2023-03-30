@@ -83,16 +83,13 @@ export function AiCoach({ open, onClose }: AiCoachProps) {
         </HeaderContainer>
       </DialogTitle>
       <DialogContent>
-        {disabled ? (
-          <Alert severity="error">{t('Ai.disabledAnonymous')}</Alert>
-        ) : (
-          <Alert>{t('Ai.info')}</Alert>
-        )}
+        {!disabled ? <Alert>{t('Ai.info')}</Alert> : null}
         <Chat
           disabled={disabled}
           messages={messages}
-          onMessage={handleMessage}
           thinking={thinking}
+          onClose={onClose}
+          onMessage={handleMessage}
         />
       </DialogContent>
       <DialogActions>
