@@ -38,7 +38,6 @@ export function Chat({
               key={index}
             />
           ))}
-          <ChatMessage message={<Ellipsis />} />
           {thinking ? <ChatMessage message={<Ellipsis />} /> : null}
           {disabled ? (
             <AlertContainer>
