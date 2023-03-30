@@ -60,7 +60,7 @@ export function Chat({
         </ScrollContainer>
       </Main>
       <UserInput>
-        <ChatInput disabled={disabled} onMessage={onMessage} />
+        <ChatInput disabled={disabled || thinking} onMessage={onMessage} />
       </UserInput>
     </Container>
   );
