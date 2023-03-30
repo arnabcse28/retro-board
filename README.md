@@ -100,6 +100,7 @@ This will run a demo version, which you can turn into a fully licenced version b
 - Improve the login workflow
 - Improve the template selection
 - Improve the home page, with search on past retrospectives and nicer button
+- Allow a user to convert their Anonymous account to a regular account and migrate their data
 - Bug fix: fix bug where multiple demos were created
 
 ### Version 5.0.3
