@@ -27,7 +27,7 @@ export function TemplateItem({
     >
       <ItemIcon>
         {columns.map((col) => (
-          <Icon icon={col.icon} />
+          <Icon key={col.type} icon={col.icon} />
         ))}
       </ItemIcon>
       <ItemTitle>{definition.name}</ItemTitle>
