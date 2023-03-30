@@ -24,6 +24,12 @@ Users can also use the "Copy to clipboard" button to copy the summary to the cli
 Users can make posts anonymous or not, change voting rules, customize the columns, encrypt sessions and make them private.
 Users can create groups of posts, to categorize posts into different topics, and count votes at the group level.
 Users can add animated images using Giphy to make their retrospective more fun.
+The free version of Retrospected is limited to 40 posts per user.
+There are 2 paid plans: "Pro Team" and "Pro Unlimited".
+"Pro Team" can be used by up to 20 users, while the "Pro Unlimited" plan doesn't have a limit.
+"Pro Team" cost 12.90 USD/month, "Pro Unlimited" cost 49.95 USD/month.
+Users can also pay for the self-hosted version: unlimited updates, one-time fee, 649.00 USD.
+There is a 30-day trial version of the Pro version.
 
 When you are responding to questions:
 - Use bullet points
