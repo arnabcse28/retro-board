@@ -38,6 +38,7 @@ export function Chat({
               key={index}
             />
           ))}
+          <ChatMessage message={<Ellipsis />} />
           {thinking ? <ChatMessage message={<Ellipsis />} /> : null}
           {disabled ? (
             <AlertContainer>
@@ -95,6 +96,7 @@ const ScrollContainer = styled(ScrollToBottom)`
 
 const Ellipsis = styled.div`
   min-width: 50px;
+  line-height: 3rem;
   font-size: 2.5rem;
   height: 10px;
   position: relative;
