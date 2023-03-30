@@ -42,10 +42,15 @@ const Item = styled.div<{ selected: boolean }>`
   align-items: center;
   padding: 10px;
   border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  background-color: ${(p) => (p.selected ? colors.blue[900] : colors.grey[50])};
-  color: ${(p) => (p.selected ? colors.grey[50] : colors.blue[900])};
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: ${(p) => (p.selected ? colors.deepPurple[700] : null)};
+  color: ${(p) => (p.selected ? colors.grey[50] : colors.grey[500])};
   min-width: 185px;
+
+  :hover {
+    background-color: ${colors.deepPurple[50]};
+    color: ${colors.grey[700]};
+  }
 `;
 
 const ItemIcon = styled.div`
