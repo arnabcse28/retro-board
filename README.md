@@ -96,6 +96,12 @@ This will run a demo version, which you can turn into a fully licenced version b
 
 ### Version 5.1.0
 
+- [⭐️ Pro Feature] 🤖 AI Coach, powered by Chat GPT. Limited access to non-paid users.
+- Improve the login workflow
+- Improve the template selection
+- Improve the home page, with search on past retrospectives and nicer button
+- Bug fix: fix bug where multiple demos were created
+
 ### Version 5.0.3
 
 - 🇩🇪 Adding the German version of our marketing website
