@@ -29,7 +29,7 @@ function TemplateSection({ columns, onChange }: TemplateSectionProps) {
       title={t('Customize.customTemplateCategory')!}
       subtitle={t('Customize.customTemplateCategorySub')!}
     >
-      <TemplatePicker onSelect={handleTemplateChange} />
+      <TemplatePicker current={columns} onSelect={handleTemplateChange} />
       <TemplateEditor columns={columns} onChange={onChange} />
     </SettingCategory>
   );
