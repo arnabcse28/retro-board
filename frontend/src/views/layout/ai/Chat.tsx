@@ -6,7 +6,7 @@ import ChatInput from './ChatInput';
 import { keyframes } from '@emotion/react';
 import { CoachMessage } from 'common';
 import { Examples } from './Examples';
-import { Alert, Button } from '@mui/material';
+import { Alert, Button, colors } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
@@ -30,7 +30,7 @@ export function Chat({
   return (
     <Container>
       <Main>
-        <ScrollContainer>
+        <ScrollContainer followButtonClassName="follow">
           {messages.map((m, index) => (
             <ChatMessage
               message={m.content}
@@ -91,6 +91,16 @@ const UserInput = styled.div`
 const ScrollContainer = styled(ScrollToBottom)`
   height: calc(100vh - 380px);
   flex: 1 1 auto;
+  .follow {
+    background-color: ${colors.grey[200]};
+    color: ${colors.grey[900]};
+  }
+  .follow::after {
+    content: '↓';
+    font-size: 0.8rem;
+    position: relative;
+    left: 0px;
+  }
 `;
 
 const Ellipsis = styled.div`
