@@ -1,13 +1,12 @@
-import { useCallback, useState, useRef, useContext } from 'react';
+import { useCallback, useState, useRef } from 'react';
 import styled from '@emotion/styled';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import AccountIcon from '@mui/icons-material/AccountCircle';
-import useUser from './useUser';
+import useUser from '../state/user/useUser';
 import LoginModal from './modal/LoginModal';
 import { logout } from '../api';
-import UserContext from './Context';
 import Avatar from '../components/Avatar';
 import { useMatch, useNavigate } from 'react-router-dom';
 import { Key, Logout, Star } from '@mui/icons-material';
@@ -21,10 +20,11 @@ import {
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import useIsAdmin from './useIsAdmin';
 import { useTranslation } from 'react-i18next';
+import { useSetUser } from 'state/user/useSetUser';
 
 const AccountMenu = () => {
   const { t } = useTranslation();
-  const { setUser } = useContext(UserContext);
+  const setUser = useSetUser();
   const [modalOpened, setModalOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuAnchor = useRef<HTMLDivElement>(null);

@@ -9,7 +9,7 @@ import {
   DialogTitle,
 } from '@mui/material';
 import { requestConfig } from 'api/fetch';
-import useUser from 'auth/useUser';
+import useUser from 'state/user/useUser';
 import { CoachMessage, CoachRole } from 'common';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';

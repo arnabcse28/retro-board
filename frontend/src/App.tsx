@@ -17,7 +17,7 @@ import { ConfirmProvider } from 'material-ui-confirm';
 
 function App() {
   return (
-    <Suspense fallback>
+    <Suspense fallback={<span>Loading...</span>}>
       <RecoilRoot>
         <Helmet>
           <meta property="og:title" content="Retrospected.com" />

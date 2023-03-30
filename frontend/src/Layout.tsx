@@ -3,7 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { trackPageView } from './track';
 import useIsCompatibleBrowser from './hooks/useIsCompatibleBrowser';
 import OutdatedBrowser from './components/OutdatedBrowser';
-import useUser from './auth/useUser';
+import useUser from './state/user/useUser';
 import { CodeSplitLoader } from './CodeSplitLoader';
 import { Alert, AlertTitle } from '@mui/material';
 import useBackendCapabilities from './global/useBackendCapabilities';

@@ -1,4 +1,4 @@
-import { PropsWithChildren, useEffect, useState } from 'react';
+import { PropsWithChildren, useEffect } from 'react';
 import { render, RenderOptions, RenderResult } from '@testing-library/react';
 import { FullUser, Session, defaultOptions } from 'common';
 import {
@@ -7,9 +7,9 @@ import {
   DroppableProvided,
   DroppableStateSnapshot,
 } from '@hello-pangea/dnd';
-import UserContext from '../auth/Context';
 import useSession from '../views/game/useSession';
 import { RecoilRoot } from 'recoil';
+import { userState } from 'state/user/user-state';
 
 export const initialSession: Session = {
   id: 'test-session',
@@ -41,69 +41,46 @@ export function AllTheProviders({ children }: PropsWithChildren<{}>) {
   );
 }
 
+const user: FullUser = {
+  id: 'John Doe',
+  name: 'John Doe',
+  photo: null,
+  accountType: 'anonymous',
+  language: 'en-GB',
+  username: 'johndoe',
+  email: 'john@doe.com',
+  pro: false,
+  stripeId: null,
+  subscriptionsId: null,
+  currency: null,
+  plan: null,
+  planOwner: null,
+  planOwnerEmail: null,
+  planAdmins: null,
+  domain: null,
+  ownPlan: null,
+  ownSubscriptionsId: null,
+  trial: null,
+  canDeleteSession: false,
+  identityId: 'John Doe Identity',
+};
+
 export default function Inner({ children }: PropsWithChildren<{}>) {
   const { receiveBoard } = useSession();
-  const [user, setUser] = useState<FullUser | null>({
-    id: 'John Doe',
-    name: 'John Doe',
-    photo: null,
-    accountType: 'anonymous',
-    language: 'en-GB',
-    username: 'johndoe',
-    email: 'john@doe.com',
-    pro: false,
-    stripeId: null,
-    subscriptionsId: null,
-    currency: null,
-    plan: null,
-    planOwner: null,
-    planOwnerEmail: null,
-    planAdmins: null,
-    domain: null,
-    ownPlan: null,
-    ownSubscriptionsId: null,
-    trial: null,
-    canDeleteSession: false,
-    identityId: 'John Doe Identity',
-  });
+
   useEffect(() => {
     receiveBoard(initialSession);
-    setUser({
-      id: 'John Doe',
-      name: 'John Doe',
-      photo: null,
-      accountType: 'anonymous',
-      language: 'en-GB',
-      username: 'johndoe',
-      email: 'john@doe.com',
-      pro: false,
-      stripeId: null,
-      subscriptionsId: null,
-      currency: null,
-      plan: null,
-      planOwner: null,
-      planOwnerEmail: null,
-      planAdmins: null,
-      domain: null,
-      ownPlan: null,
-      ownSubscriptionsId: null,
-      trial: null,
-      canDeleteSession: false,
-      identityId: 'John Doe Identity',
-    });
   }, [receiveBoard]);
   return (
-    <DragDropContext onDragEnd={() => {}}>
-      <Droppable droppableId="test">
-        {(dropProvided: DroppableProvided, _: DroppableStateSnapshot) => (
-          <div ref={dropProvided.innerRef}>
-            <UserContext.Provider value={{ user, setUser, initialised: true }}>
-              {children}
-            </UserContext.Provider>
-          </div>
-        )}
-      </Droppable>
-    </DragDropContext>
+    <RecoilRoot initializeState={(snap) => snap.set(userState, user)}>
+      <DragDropContext onDragEnd={() => {}}>
+        <Droppable droppableId="test">
+          {(dropProvided: DroppableProvided, _: DroppableStateSnapshot) => (
+            <div ref={dropProvided.innerRef}>{children}</div>
+          )}
+        </Droppable>
+      </DragDropContext>
+    </RecoilRoot>
   );
 }
 

@@ -7,7 +7,7 @@ import useIsPro from 'auth/useIsPro';
 import ProButton from 'components/ProButton';
 import styled from '@emotion/styled';
 import { useCallback } from 'react';
-import useUser from 'auth/useUser';
+import useUser from 'state/user/useUser';
 import { useMatch, useNavigate } from 'react-router-dom';
 import useSidePanel from 'views/panel/useSidePanel';
 import useIsInitialised from 'auth/useIsInitialised';

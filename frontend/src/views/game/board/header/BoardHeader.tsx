@@ -8,7 +8,7 @@ import useRemainingVotes from './useRemainingVotes';
 import useCanReveal from './useCanReveal';
 import EditableLabel from '../../../../components/EditableLabel';
 import RemainingVotes from './RemainingVotes';
-import useUser from '../../../../auth/useUser';
+import useUser from '../../../../state/user/useUser';
 import RevealButton from './RevealButton';
 import ModifyOptions from './ModifyOptions';
 import useCanModifyOptions from './useCanModifyOptions';
