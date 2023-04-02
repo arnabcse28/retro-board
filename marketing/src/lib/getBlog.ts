@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { join } from 'path';
+import { join, basename } from 'path';
 import matter from 'gray-matter';
 
 export type BlogMetadata = {
@@ -15,16 +15,20 @@ export type BlogDocument = BlogMetadata & {
   content: string;
 };
 
-const legalDirectory = join(process.cwd(), 'src/common/documents/blog');
+const blogDirectory = join(process.cwd(), 'src/common/documents/blog');
 
 export function getBlogSlugs() {
-  return fs.readdirSync(legalDirectory);
+  const allFiles = fs.readdirSync(blogDirectory);
+  return allFiles.filter((file) => basename(file).split('.').length === 2);
 }
 
-export function getBlogBySlug(slug: string): BlogDocument {
+export function getBlogBySlug(slug: string, lang: string): BlogDocument {
   const realSlug = slug.replace(/\.md$/, '');
-  const fullPath = join(legalDirectory, `${realSlug}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const englishPath = join(blogDirectory, `${realSlug}.md`);
+  const localePath = join(blogDirectory, `${realSlug}.${lang}.md`);
+  const actualPath =
+    lang !== 'en' && fs.existsSync(localePath) ? localePath : englishPath;
+  const fileContents = fs.readFileSync(actualPath, 'utf8');
   const { data, content } = matter(fileContents);
 
   const document = { ...data, slug: realSlug, content } as BlogDocument;
@@ -32,10 +36,26 @@ export function getBlogBySlug(slug: string): BlogDocument {
   return document;
 }
 
+function getBlogMetadataBySlug(inputSlug: string): BlogMetadata {
+  const { title, subtitle, cover, author, date, slug } = getBlogBySlug(
+    inputSlug,
+    'en'
+  );
+
+  return {
+    title,
+    subtitle,
+    cover,
+    author,
+    date,
+    slug,
+  };
+}
+
 export function getAllBlogs(): BlogMetadata[] {
   const slugs = getBlogSlugs();
   const posts = slugs
-    .map(getBlogBySlug)
+    .map(getBlogMetadataBySlug)
     .map(({ title, subtitle, cover, author, date, slug }) => ({
       title,
       subtitle,

@@ -82,19 +82,14 @@ function ImageRenderer({ src, alt }: ImageElement) {
 
 const ImageContainer = styled.div`
   display: block;
-  // position: relative;
   margin: 0 auto;
-  // outline: 1px solid red;
   display: flex;
   justify-content: center;
   max-width: 100%;
-  // height: 300px;
-  // aspect-ratio: 4/3;
   padding: 0;
 
   > img {
     padding: 20px;
-    // outline: 1px solid blue;
     object-fit: contain;
     aspect-ratio: unset;
     max-width: 100%;
@@ -104,7 +99,6 @@ const ImageContainer = styled.div`
 `;
 
 const Article = styled.article`
-  // position: relative;
   margin: 0 20%;
   color: rgb(41, 41, 41);
   font-size: 1.25rem;
@@ -113,9 +107,11 @@ const Article = styled.article`
     margin: 0 10px;
   }
 
-  > p:first-of-type::first-letter {
-    initial-letter: 2;
-    margin-right: 0.5rem;
+  @supports (initial-letter: 2) {
+    > p:first-of-type::first-letter {
+      initial-letter: 2;
+      margin-right: 0.5rem;
+    }
   }
 
   p {
