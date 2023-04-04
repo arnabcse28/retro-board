@@ -1,4 +1,6 @@
 ---
+slug: 'encrypted-sessions'
+lang: 'en'
 title: 'Encrypted Sessions'
 subtitle: 'What are encrypted sessions, and why should you use them?'
 author: 'Antoine Jaussoin'

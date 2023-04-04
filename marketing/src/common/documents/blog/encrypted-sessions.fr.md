@@ -1,4 +1,6 @@
 ---
+slug: 'encrypted-sessions'
+lang: 'fr'
 title: 'Sessions cryptées'
 subtitle: 'Que sont les sessions cryptées, et pourquoi les utiliser ?'
 author: 'Antoine Jaussoin'

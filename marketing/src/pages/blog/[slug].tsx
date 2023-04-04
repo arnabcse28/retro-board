@@ -1,13 +1,18 @@
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
-import { BlogDocument, BlogMetadata } from '@/lib/getBlog';
+import {
+  BlogDocument,
+  BlogMetadata,
+  getAllBlogsForLocale,
+  getBlogBySlug,
+} from '@/lib/getBlog';
 import Layout from '@/containers/Layout/Layout';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { MenuItem } from '@/types';
-import { getAllBlogs, getBlogBySlug } from '@/lib/getBlog';
 import BlogContent from '@/containers/blog/BlogContent';
 import styled from 'styled-components';
+import { getAllLegalDocuments } from '@/lib/getLegal';
 
 type Props = {
   document: BlogDocument;
@@ -55,8 +60,9 @@ type Params = {
 };
 
 export async function getStaticProps({ params, locale }: Params) {
-  const legals = getAllBlogs();
   const document = getBlogBySlug(params.slug, locale || 'en');
+  console.log('Document: ', document);
+  const legals = getAllLegalDocuments();
 
   return {
     props: {
@@ -70,12 +76,10 @@ export async function getStaticProps({ params, locale }: Params) {
 }
 
 export async function getStaticPaths({ locales }: { locales: string[] }) {
-  const posts = getAllBlogs();
-
   const paths = {
     paths: locales
       .map((locale) => {
-        return posts.map((post) => {
+        return getAllBlogsForLocale(locale).map((post) => {
           return {
             params: {
               slug: post.slug,

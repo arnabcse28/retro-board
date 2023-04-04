@@ -19,7 +19,7 @@ import { useTranslation } from 'next-i18next';
 import { getAllLegalDocuments, LegalDocumentMetadata } from '@/lib/getLegal';
 import { MenuItem } from '@/types';
 import Layout from '@/containers/Layout/Layout';
-import { BlogMetadata, getAllBlogs } from '@/lib/getBlog';
+import { BlogMetadata, getAllBlogs, getAllBlogsForLocale } from '@/lib/getBlog';
 
 type HomePageProps = {
   legals: LegalDocumentMetadata[];
@@ -78,7 +78,9 @@ export const menuItems: MenuItem[] = [
 
 export async function getStaticProps({ locale }: { locale?: string }) {
   const legals = getAllLegalDocuments();
-  const blogs = getAllBlogs();
+
+  const blogs = getAllBlogsForLocale(locale || 'en');
+  console.log('All blogs for ', locale, blogs);
 
   return {
     props: {
