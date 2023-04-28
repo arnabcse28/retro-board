@@ -35,16 +35,33 @@ export default function Blog({ document, legals }: Props) {
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <Layout legals={legals} menuItems={menuItems}>
-      <article>
-        <Head>
-          <title>{title}</title>
-        </Head>
-        <Content>
-          <BlogContent document={document} />
-        </Content>
-      </article>
-    </Layout>
+    <>
+      <Head>
+        <title>{document.title}</title>
+        <meta name="description" content={document.subtitle} />
+        <meta name="author" content={document.author} />
+        <meta name="date" content={document.date} />
+
+        <meta property="og:title" content={document.title} key="og:title" />
+        <meta property="og:type" content="article" key="og:type" />
+        <meta
+          property="article:author"
+          content={document.author}
+          key="article:author"
+        />
+        <meta property="og:image" content={document.cover} key="og:image" />
+      </Head>
+      <Layout legals={legals} menuItems={menuItems}>
+        <article>
+          <Head>
+            <title>{title}</title>
+          </Head>
+          <Content>
+            <BlogContent document={document} />
+          </Content>
+        </article>
+      </Layout>
+    </>
   );
 }
 
