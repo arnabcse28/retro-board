@@ -61,7 +61,6 @@ type Params = {
 
 export async function getStaticProps({ params, locale }: Params) {
   const document = getBlogBySlug(params.slug, locale || 'en');
-  console.log('Document: ', document);
   const legals = getAllLegalDocuments();
 
   return {

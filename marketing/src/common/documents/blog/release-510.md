@@ -5,7 +5,7 @@ title: "Retrospected 5.1.0 is out!"
 subtitle: "What's new in Retrospected 5.1.0?"
 author: 'Antoine Jaussoin'
 date: '2023-04-02'
-keywords: 'blog,release,5.1.0'
+keywords: 'blog,release,5.1.0,ai-coach,chat gpt'
 cover: '/assets/blog/ai-coach/modal-before-question.png'
 ---
 

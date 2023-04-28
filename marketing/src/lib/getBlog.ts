@@ -1,7 +1,7 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import { join, basename } from 'path';
-import { groupBy, values } from 'lodash-es';
+import { groupBy, values, sortBy } from 'lodash-es';
 
 export type BlogMetadataGroup = {
   slug: string;
@@ -119,9 +119,10 @@ export function getBlogBySlug(slug: string, lang: string): BlogDocument {
  */
 export function getAllBlogsForLocale(locale: string): BlogMetadata[] {
   const groups = getAllBlogs();
-  const blogsForLocale = groups
-    .map((group) => findBlogForLocale(group, locale))
-    .filter(Boolean);
+  const blogsForLocale = sortBy(
+    groups.map((group) => findBlogForLocale(group, locale)).filter(Boolean),
+    (g) => g.date
+  ).reverse();
 
   return blogsForLocale;
 }

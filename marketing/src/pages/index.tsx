@@ -24,9 +24,10 @@ import { BlogMetadata, getAllBlogs, getAllBlogsForLocale } from '@/lib/getBlog';
 type HomePageProps = {
   legals: LegalDocumentMetadata[];
   blogs: BlogMetadata[];
+  locale: string;
 };
 
-export default function HomePage({ legals, blogs }: HomePageProps) {
+export default function HomePage({ legals, blogs, locale }: HomePageProps) {
   const { t } = useTranslation();
   return (
     <Layout menuItems={menuItems} legals={legals}>
@@ -42,7 +43,7 @@ export default function HomePage({ legals, blogs }: HomePageProps) {
         <Integrations />
         <CornerPattern />
       </CombinedSection>
-      <NewsFeed articles={blogs} />
+      <NewsFeed articles={blogs} locale={locale} />
       <CombinedSection>
         <Pricing />
         <CornerPattern />
@@ -78,14 +79,13 @@ export const menuItems: MenuItem[] = [
 
 export async function getStaticProps({ locale }: { locale?: string }) {
   const legals = getAllLegalDocuments();
-
   const blogs = getAllBlogsForLocale(locale || 'en');
-  console.log('All blogs for ', locale, blogs);
 
   return {
     props: {
       legals,
       blogs,
+      locale,
       ...(await serverSideTranslations(locale ?? 'en', ['common'])),
     },
   };

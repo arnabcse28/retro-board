@@ -117,6 +117,7 @@ const Article = styled.article`
   p {
     line-height: 32px;
     color: rgb(41, 41, 41);
+    text-align: justify;
   }
 
   h1,
