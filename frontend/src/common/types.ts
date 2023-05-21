@@ -141,7 +141,6 @@ export interface FullUser extends User {
   canDeleteSession: boolean;
   stripeId: string | null;
   pro: boolean;
-  subscriptionsId: string | null;
   currency: Currency | null;
   plan: Plan | null;
   planOwner: string | null;

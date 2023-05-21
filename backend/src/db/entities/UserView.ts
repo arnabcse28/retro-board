@@ -18,7 +18,6 @@ select
   u.trial,
   s1.id as "own_subscriptions_id",
   s1.plan as "own_plan",
-  coalesce(s1.id, s2.id, s3.id) as "subscriptions_id",
   coalesce(s1.active, s2.active, s3.active, false) as "pro", /* s4 should not be taken into account for Pro */
   coalesce(s1.plan, s2.plan, s3.plan, s4.plan) as "plan",
   coalesce(s1.domain, s2.domain, s3.domain, s4.domain) as "domain",
@@ -73,8 +72,6 @@ export default class UserView {
   @ViewColumn()
   public planMembers: string[] | null;
   @ViewColumn()
-  public subscriptionsId: string | null;
-  @ViewColumn()
   public plan: Plan | null;
   @ViewColumn()
   public domain: string | null;
@@ -94,7 +91,6 @@ export default class UserView {
     this.username = null;
     this.photo = null;
     this.stripeId = null;
-    this.subscriptionsId = null;
     this.pro = false;
     this.email = null;
     this.canDeleteSession = false;
@@ -119,7 +115,6 @@ export default class UserView {
       email: this.email,
       canDeleteSession: this.canDeleteSession,
       pro: this.pro,
-      subscriptionsId: this.subscriptionsId,
       accountType: this.accountType,
       language: this.language,
       username: this.username,

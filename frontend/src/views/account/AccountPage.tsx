@@ -47,15 +47,8 @@ function AccountPage() {
     updateAdmins(admins);
   }, []);
 
-  const ownsThePlan =
-    user &&
-    !!user.ownSubscriptionsId &&
-    user.ownSubscriptionsId === user.subscriptionsId;
-
-  const onSomebodysPlan =
-    user &&
-    !!user.subscriptionsId &&
-    user.ownSubscriptionsId !== user.subscriptionsId;
+  const ownsThePlan = user && !!user.ownSubscriptionsId;
+  const onSomebodysPlan = user && !!user.plan && !user.ownSubscriptionsId;
 
   const isPlanAdmin =
     user &&
