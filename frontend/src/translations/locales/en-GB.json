@@ -27,7 +27,9 @@
     "anonWarning": "You are using an Anonymous account. You might want to login to make sure your data can be retrieved when using another device.",
     "howDoesThatWork": "How does that work?",
     "login": "Login",
-    "searchNoMatch": "We could not find a retrospective matching your search ({{search}})."
+    "searchNoMatch": "We could not find a retrospective matching your search ({{search}}).",
+    "proNotSetupWarning": "You are using a Pro account, but you have not added other users to your subscription so they can become Pro as well. You can do so in the Account page.",
+    "proNotSetupWarningAction": "Go to Account page"
   },
   "PreviousGame": {
     "createdBy": "Created by",
@@ -160,7 +162,7 @@
     "userIsReady": "{{user}} is ready!",
     "deleteConfirmation": {
       "title": "Delete this post?",
-      "description":"This will delete the post and all its votes. This action cannot be undone.",
+      "description": "This will delete the post and all its votes. This action cannot be undone.",
       "confirm": "Delete this post",
       "cancel": "I have changed my mind"
     },
@@ -221,13 +223,7 @@
     "nameField": "Your name (for display purposes)",
     "noAuthWarning": "Your administrator disabled all login possibilities (OAuth, password). Ask your administrator to re-enable at least one.",
     "or": "or",
-    "passwordScoreWords": [
-      "weak",
-      "weak",
-      "not quite",
-      "good",
-      "strong"
-    ],
+    "passwordScoreWords": ["weak", "weak", "not quite", "good", "strong"],
     "skipAndAnonLogin": "Use Anonymously"
   },
   "AccountLogin": {

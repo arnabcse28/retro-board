@@ -147,6 +147,7 @@ export interface FullUser extends User {
   planOwner: string | null;
   planOwnerEmail: string | null;
   planAdmins: string[] | null;
+  planMembers: string[] | null;
   domain: string | null;
   ownPlan: Plan | null;
   ownSubscriptionsId: string | null;
