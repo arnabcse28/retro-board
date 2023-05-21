@@ -135,6 +135,19 @@ function AccountPage() {
               <Value>{user.plan}</Value>
             </Data>
 
+            {onSomebodysPlan ? (
+              <Data>
+                <Title>{t('AccountPage.plan.members')}</Title>
+                <Value>
+                  {[user.planOwnerEmail, ...(user.planMembers || [])]
+                    .filter(Boolean)
+                    .map((email, i) => (
+                      <Tag key={i} value={email} />
+                    ))}
+                </Value>
+              </Data>
+            ) : null}
+
             <Data>
               <Title>{t('AccountPage.plan.admins')}</Title>
               <Value>
