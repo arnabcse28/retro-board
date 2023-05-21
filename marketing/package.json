@@ -13,7 +13,6 @@
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@next/font": "13.4.3",
     "@styled-system/theme-get": "^5.1.2",
     "@total-typescript/ts-reset": "^0.4.2",
     "@types/date-fns": "^2.6.0",
