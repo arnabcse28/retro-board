@@ -16,7 +16,7 @@ import { useTranslation } from 'next-i18next';
 const AnalyticsTool = () => {
   const { t } = useTranslation();
   return (
-    <Section id="self-hosted">
+    <Section id="self-hosting">
       <Container width="1400px">
         <Grid>
           <Fade up>

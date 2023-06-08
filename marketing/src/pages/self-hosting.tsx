@@ -1,7 +1,6 @@
 import React from 'react';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import AnalyticsTool from '@/containers/AnalyticsTool';
 import { getAllLegalDocuments, LegalDocumentMetadata } from '@/lib/getLegal';
 import Layout from '@/containers/Layout/Layout';
 import { MenuItem } from '@/types';
@@ -18,7 +17,6 @@ export default function SelfHostingPage({
       <Head>
         <title>{t('SelfHosted.title')}</title>
       </Head>
-      <AnalyticsTool />
     </Layout>
   );
 }

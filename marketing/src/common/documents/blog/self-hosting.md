@@ -1,0 +1,58 @@
+---
+slug: 'self-hosting'
+lang: 'en'
+title: 'Self-Hosting Edition'
+subtitle: 'Retrospected on your premises'
+author: 'Antoine Jaussoin'
+date: '2023-06-07'
+keywords: 'self-hosting,self-hosted,security'
+cover: '/assets/blog/ai-coach/modal-before-question.png'
+---
+
+Host your retrospective data on your own premises for ultimate privacy and control.
+
+# Own hosting, own servers, own privacy
+
+_Retrospected Self-Hosting Edition_ allows you to **host your retrospective data on your servers**. With our self-hosted solution, you can enjoy complete control, privacy, and security while leveraging the power of Retrospected.
+
+![Your own private cloud](/assets/blog/self-hosting/server.svg,1024x768)
+
+# Why Self-Hosting?
+
+Take charge of your retrospectives data with _Retrospected Self-Hosting Edition_. By hosting on your own infrastructure, you ensure complete control, security, and privacy. With Retrospected's self-hosting option, you establish a robust and private environment tailored to your unique requirements.
+
+# Key Features
+
+_Retrospected Self-Hosting Edition_ offers a comprehensive set of features, empowering you to maintain data privacy and security while running your retrospectives.
+
+Here are some key features:
+
+- **Data Control**: Retain full control over your retrospective data, ensuring it remains within your organization's boundaries.
+- **Enhanced Security**: Leverage your existing security measures and infrastructure, reinforcing the security of your retrospective data.
+- **Customization Options**: Tailor Retrospected to align with your specific security and privacy policies, ensuring compliance with regulations.
+- **Lifetime updates**: You will be receiving updates at the same time as the online version.
+  Dedicated Admin Panel: Manage your users via a dedicated Admin Panel
+
+# Benefits for Enterprises
+
+Choose Retrospected Self-Hosting Edition and unlock a range of benefits for your enterprise:
+
+- **Ultimate Data Privacy**: Safeguard sensitive information by hosting your retrospective data on your own premises, maintaining complete privacy.
+- **Unmatched Control**: Enjoy unparalleled control over your data, allowing you to implement custom security measures and access policies.
+- **Enhanced Security**: Leverage your organization's robust security infrastructure to protect your retrospective data effectively.
+
+# Seamless Installation and Setup
+
+Deploying Retrospected Self-Hosting Edition cannot be more simple:
+
+- **Easy Installation**: Our [interactive documentation](https://docs.retrospected.com/docs/self-hosting/quick-start/) will help you configure Retrospect on your own servers in 5 minutes, using Docker Compose.
+- **Technical Support** for your installation: We offer an optional 30-minute call with our expert support team to assist you during the installation.
+  State of the art documentation: Our world-class documentation is also here to help you along the way.
+
+# Pricing and Licensing
+
+**One-time cost of $649, unlimited, life-time updates**.
+
+You can try Retrospected Self-Hosting Edition today, for free, no payment required. Simply follow the steps on our [documentation](https://docs.retrospected.com/docs/self-hosting/quick-start/).
+
+Once you are happy with the installation and the product, you can simply [subscribe](https://app.retrospected.com/subscribe) to get your licence key.

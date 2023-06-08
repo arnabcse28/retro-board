@@ -71,6 +71,11 @@ export const menuItems: MenuItem[] = [
     offset: '70',
   },
   {
+    label: 'Nav.selfhosting',
+    path: '#self-hosting',
+    offset: '70',
+  },
+  {
     label: 'Nav.faq',
     path: '#faq',
     offset: '70',

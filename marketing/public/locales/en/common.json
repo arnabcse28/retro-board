@@ -23,7 +23,8 @@
     "pricing": "Pricing",
     "faq": "FAQ",
     "subscribe": "Subscribe",
-    "login": "Login"
+    "login": "Login",
+    "selfhosting": "Self-Hosting"
   },
   "Clients": {
     "main": "Join the hundreds of companies using Retrospected"
@@ -123,8 +124,8 @@
       "Free updates, forever"
     ],
     "button": {
-      "link": "https://docs.retrospected.com",
-      "label": "Discover our documentation"
+      "link": "/blog/self-hosting",
+      "label": "Learn more"
     }
   },
   "Features": {
