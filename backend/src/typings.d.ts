@@ -1,13 +1,16 @@
 import { UserIds } from './utils.js';
+import { Profile } from '@node-saml/passport-saml';
 
 declare module 'express-serve-static-core' {
   interface Request {
-    user?: UserIds | undefined;
+    user: UserIds & Profile;
     // These declarations are merged into express's Request type
     login(user: UserIds, done: (err: string) => void): void;
     login(user: UserIds, options: unknown, done: (err: string) => void): void;
     logIn(user: UserIds, done: (err: string) => void): void;
     logIn(user: UserIds, options: unknown, done: (err: string) => void): void;
+
+    samlLogoutRequest: Profile;
   }
 
   // That, unfortunately, doesn't quite work.

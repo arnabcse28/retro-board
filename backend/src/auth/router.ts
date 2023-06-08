@@ -14,6 +14,8 @@ const githubAuth = passport.authenticate('github', { scope: ['user:email'] });
 const slackAuth = passport.authenticate('Slack');
 const microsoftAuth = passport.authenticate('microsoft');
 const oktaAuth = passport.authenticate('okta');
+const oneloginAuth = passport.authenticate('onelogin');
+const samlAuth = passport.authenticate('saml');
 
 function anonAuth(req: Request, res: Response, next: NextFunction) {
   passport.authenticate('local', async function (err, user: UserIds | null) {
@@ -63,6 +65,8 @@ router.get('/github/callback', githubAuth, endOAuthHandler);
 router.get('/slack/callback', slackAuth, endOAuthHandler);
 router.get('/microsoft/callback', microsoftAuth, endOAuthHandler);
 router.get('/okta/callback', oktaAuth, endOAuthHandler);
+router.get('/onelogin/callback', oneloginAuth, endOAuthHandler);
+router.post('/saml/callback', samlAuth, endOAuthHandler);
 router.post('/anonymous/login', anonAuth, endAnonHandler);
 router.post('/login', anonAuth, endAnonHandler);
 
@@ -85,5 +89,7 @@ router.get('/github', githubAuth);
 router.get('/slack', slackAuth);
 router.get('/microsoft', microsoftAuth);
 router.get('/okta', oktaAuth);
+router.get('/onelogin', oneloginAuth);
+router.get('/saml', samlAuth);
 
 export default router;

@@ -21,6 +21,8 @@
     "copy-templates": "copyfiles -u 0 src/**/*.html dist/"
   },
   "dependencies": {
+    "@boxyhq/saml-jackson": "^1.9.10",
+    "@node-saml/passport-saml": "^4.0.3",
     "@sendgrid/mail": "7.7.0",
     "@sentry/node": "7.52.1",
     "@types/bcryptjs": "2.4.2",

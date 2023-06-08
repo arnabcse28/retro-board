@@ -6,9 +6,10 @@ import { Strategy as GithubStrategy } from 'passport-github2';
 import { Strategy as SlackStrategy } from 'passport-slack-oauth2';
 import { Strategy as MicrosoftStrategy } from 'passport-microsoft';
 import passportOkta from 'passport-okta-oauth20';
-
-const { Strategy: OktaStrategy } = passportOkta;
-
+import {
+  MultiSamlStrategy,
+  Strategy as SamlStrategy,
+} from '@node-saml/passport-saml';
 import {
   TWITTER_CONFIG,
   GOOGLE_CONFIG,
@@ -35,6 +36,9 @@ import { serialiseIds, UserIds, deserialiseIds } from '../utils.js';
 import config from '../config.js';
 import { Request } from 'express';
 import { mergeAnonymous } from '../db/actions/merge.js';
+import { noop } from 'lodash-es';
+
+const { Strategy: OktaStrategy } = passportOkta;
 
 export default () => {
   passport.serializeUser<string>((user, cb) => {
@@ -231,6 +235,71 @@ export default () => {
     passport.use(new OktaStrategy(OKTA_CONFIG, callback('okta') as any));
     logSuccess('Okta');
   }
+
+  passport.use(
+    new SamlStrategy(
+      {
+        passReqToCallback: true,
+        path: '/login/callback',
+        entryPoint:
+          'https://openidp.feide.no/simplesaml/saml2/idp/SSOService.php',
+        issuer: 'passport-saml',
+        cert: 'fake cert', // cert must be provided
+      },
+      function (req, profile, done) {
+        return done(null, profile as any);
+      },
+      noop
+    )
+  );
+
+  passport.use(
+    new MultiSamlStrategy(
+      {
+        passReqToCallback: true, // makes req available in callback
+        getSamlOptions: function (request, done) {
+          console.log('Getting options');
+          done(null, {
+            path: 'http://localhost:3000/api/auth/onelogin/callback',
+            audience: 'https://saml.boxyhq.com',
+            entryPoint: 'https://mocksaml.com/api/saml/sso',
+            cert: `MIIC4jCCAcoCCQC33wnybT5QZDANBgkqhkiG9w0BAQsFADAyMQswCQYDVQQGEwJVSzEPMA0GA1UECgwGQm94eUhRMRIwEAYDVQQDDAlNb2NrIFNBTUwwIBcNMjIwMjI4MjE0NjM4WhgPMzAyMTA3MDEyMTQ2MzhaMDIxCzAJBgNVBAYTAlVLMQ8wDQYDVQQKDAZCb3h5SFExEjAQBgNVBAMMCU1vY2sgU0FNTDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALGfYettMsct1T6tVUwTudNJH5Pnb9GGnkXi9Zw/e6x45DD0RuRONbFlJ2T4RjAE/uG+AjXxXQ8o2SZfb9+GgmCHuTJFNgHoZ1nFVXCmb/Hg8Hpd4vOAGXndixaReOiq3EH5XvpMjMkJ3+8+9VYMzMZOjkgQtAqO36eAFFfNKX7dTj3VpwLkvz6/KFCq8OAwY+AUi4eZm5J57D31GzjHwfjH9WTeX0MyndmnNB1qV75qQR3b2/W5sGHRv+9AarggJkF+ptUkXoLtVA51wcfYm6hILptpde5FQC8RWY1YrswBWAEZNfyrR4JeSweElNHg4NVOs4TwGjOPwWGqzTfgTlECAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAAYRlYflSXAWoZpFfwNiCQVE5d9zZ0DPzNdWhAybXcTyMf0z5mDf6FWBW5Gyoi9u3EMEDnzLcJNkwJAAc39Apa4I2/tml+Jy29dk8bTyX6m93ngmCgdLh5Za4khuU3AM3L63g7VexCuO7kwkjh/+LqdcIXsVGO6XDfu2QOs1Xpe9zIzLpwm/RNYeXUjbSj5ce/jekpAw7qyVVL4xOyh8AtUW1ek3wIw1MJvEgEPt0d16oshWJpoS1OT8Lr/22SvYEo3EmSGdTVGgk3x3s+A0qWAqTcyjr7Q4s/GKYRFfomGwz0TZ4Iw1ZN99Mm0eo2USlSRTVl7QHRTuiuSThHpLKQQ==`,
+            callbackUrl: 'http://localhost:3000/api/auth/saml/callback',
+            issuer: 'Retrospected',
+          });
+          // findProvider(request, function (err, provider) {
+          //   if (err) {
+          //     return done(err);
+          //   }
+          //   return done(null, provider.configuration);
+          // });
+        },
+      },
+      function (req, profile, done) {
+        console.log('profile', profile);
+        done(null, undefined);
+        // for signon
+        // findByEmail(profile.email, function (err, user) {
+        //   if (err) {
+        //     return done(err);
+        //   }
+        //   return done(null, user);
+        // });
+      },
+      function (req, profile, done) {
+        console.log('profile 2', profile);
+        done(null, undefined);
+        // for logout
+        // findByNameID(profile.nameID, function (err, user) {
+        //   if (err) {
+        //     return done(err);
+        //   }
+        //   return done(null, user);
+        // });
+      }
+    )
+  );
+  logSuccess('OneLogin');
 
   passport.use(
     new LocalStrategy(

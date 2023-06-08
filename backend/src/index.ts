@@ -72,6 +72,7 @@ import { createDemoSession } from './db/actions/demo.js';
 import cookieParser from 'cookie-parser';
 import { mergeAnonymous } from './db/actions/merge.js';
 import aiRouter from './ai/router.js';
+import { sso } from './auth/sso.js';
 
 const realIpHeader = 'X-Forwarded-For';
 const sessionSecret = `${config.SESSION_SECRET!}-4.11.5`; // Increment to force re-auth
@@ -253,9 +254,12 @@ io.use(function (socket, next) {
 app.set('io', io);
 const port = config.BACKEND_PORT || 8081;
 
-db().then(() => {
+db().then(async () => {
   passportInit();
   game(io);
+
+  const ssoRouter = await sso();
+  app.use('/api/sso', ssoRouter);
 
   // Auth
   app.use('/api/auth', heavyLoadLimiter, authRouter);
