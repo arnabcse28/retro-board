@@ -2,7 +2,7 @@ name: 'Marketing Build'
 
 on:
   push:
-    branches: [v520/blog]
+    branches: [v520/self-hosting]
 
 jobs:
   marketing:
