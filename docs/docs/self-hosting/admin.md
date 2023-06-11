@@ -14,4 +14,4 @@ Only the admin user set under `SELF_HOSTED_ADMIN` in your `docker-compose.yml` f
 
 The admin panel should look like this:
 
-![Retrospected Admin Panel](/img/self-hosting/admin-panel.png)
+![Retrospected Admin Panel](/img/self-hosting/admin-panel-2.png)

@@ -41,7 +41,7 @@ const renderers = {
 export default function BlogContent({ document }: BlogContentProps) {
   return (
     <>
-      <Article className={sourceSerifPro.className}>
+      <Article className={sourceSerifPro.className} dropcap={document.dropcap}>
         <BlogTitle document={document} />
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
@@ -98,7 +98,7 @@ const ImageContainer = styled.div`
   }
 `;
 
-const Article = styled.article`
+const Article = styled.article<{ dropcap: boolean }>`
   margin: 0 20%;
   color: rgb(41, 41, 41);
   font-size: 1.25rem;
@@ -107,12 +107,16 @@ const Article = styled.article`
     margin: 0 10px;
   }
 
+  ${(p) =>
+    p.dropcap
+      ? `
   @supports (initial-letter: 2) {
     > p:first-of-type::first-letter {
       initial-letter: 2;
       margin-right: 0.5rem;
     }
-  }
+  }`
+      : null}
 
   p {
     line-height: 32px;
