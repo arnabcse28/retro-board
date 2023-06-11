@@ -83,17 +83,19 @@ function toOriginalPrice(currency: string, price: string) {
 
 function toPrice(
   currency: string,
-  price: string,
+  priceStr: string,
   yearly: boolean,
   recurrent: boolean,
-  recurrentWord: string
+  recurrentWord: string,
+  freeWord: string
 ): React.ReactNode {
-  let p = (
-    <>
-      {currency +
-        (parseFloat(price) * (yearly && recurrent ? 11 : 1)).toFixed(2)}
-    </>
-  );
+  const price = parseFloat(priceStr);
+
+  if (price === 0) {
+    return <>{freeWord}</>;
+  }
+
+  let p = <>{currency + (price * (yearly && recurrent ? 11 : 1)).toFixed(2)}</>;
 
   if (recurrent) {
     p = (
@@ -169,7 +171,8 @@ const Pricing = () => {
                       t(`${key}.price`),
                       !isMonthly,
                       priceTable.recurrent,
-                      isMonthly ? t(`Pricing.perMonth`) : t(`Pricing.perYear`)
+                      isMonthly ? t(`Pricing.perMonth`) : t(`Pricing.perYear`),
+                      t(`Pricing.free`)
                     )}
                   />
                   {!isMonthly &&

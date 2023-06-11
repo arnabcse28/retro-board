@@ -1,206 +1,207 @@
 {
-	"SEO": {
-		"title": "Retrospected",
-		"description": "Retrospectives gratuites et temps-réel pour équipes agiles"
-	},
-	"404": {
-		"heading": "404",
-		"text": "Houston, on a un problème. Cette page n'existe pas, plus, et n'existera probablement jamais.",
-		"link": "Tirez-moi de là !"
-	},
-	"Banner": {
-		"heading": "Vous n'**oublierez jamais** votre première **rétro**.",
-		"text": "Soutenez la **collaboration** et l'**amélioration continue** de vos équipes avec une plateforme **moderne** et **intuitive**.",
-		"tagline": "*Aucune carte bancaire demandée",
-		"subscribeToday": "Essayez gratuitement",
-		"demo": "Démo en 1 clic"
-	},
-	"Nav": {
-		"home": "Accueil",
-		"howTo": "Pourquoi nous?",
-		"features": "Fonctionnalités",
-		"testimonial": "Témoignages",
-		"pricing": "Tarifs",
-		"faq": "FAQ",
-		"subscribe": "S'abonner",
-		"login": "Connexion"
-	},
-	"Clients": {
-		"main": "Des centaines d'entreprises utilisent Retrospected"
-	},
-	"HowItWorks": {
-		"heading": "Nos utilisateurs aiment ...",
-		"1": {
-			"title": "Notre app intuitive et rapide",
-			"text": "Commencez une rétrospective en un clic."
-		},
-		"2": {
-			"title": "Notre interface multilingue",
-			"text": "Utilisez Retrospected dans l'une des 15 langues disponibles (dont le Français)."
-		},
-		"3": {
-			"title": "Notre app personnalisable",
-			"text": "Personnalisez l'application à vos besoins : colonnes, votes, émoticônes, etc."
-		},
-		"4": {
-			"title": "Héberger Retrospected sur vos serveurs (ou les nôtres)",
-			"text": "Si vous voulez un contrôle total de vos données, vous pouvez héberger Retrospected."
-		}
-	},
-	"Testimonials": {
-		"heading": "Nos utilisateurs aiment Retrospected",
-		"1": {
-			"author": "Frank Becker",
-			"designation": "Delivery Team Group & Holding/Transport - Deutsche Bahn",
-			"quote": "La façon la plus simple de gérer de nombreuses rétrospectives avec de nombreuses équipes pour une amélioration continue. Intégration parfaite avec AzureAD et migration facile des utilisateurs locaux vers les utilisateurs AzureAD. Fonctionnalités simples et faciles d'emploi."
-		}
-	},
-	"Pricing": {
-		"heading": "Nos tarifs",
-		"weAccept": "Nous acceptons également les livres sterling et dollars américains",
-		"monthly": "Par mois",
-		"yearly": "Par an",
-		"perMonth": " / mois",
-		"perYear": " / an",
-		"currency": "€",
-		"subscribe": "Je m'abonne",
-		"switchToYearly": "Obtenez un mois gratuit par an en prenant un abonnement annuel !",
-		"switchedToYearly": "Bravo, vous recevrez un mois gratuit chaque année",
-		"login": "Connectez-vous",
-		"basic": {
-			"title": "Basique",
-			"price": 0,
-			"plus": "Votre option gratuite",
-			"features": [
-				"Retrospectives illimitées",
-				"Personnalisation totale",
-				"Intégration à Giphy",
-				"Comptes anonymes",
-				"40 publications"
-			]
-		},
-		"pro": {
-			"title": "Pro",
-			"price": "11.9",
-			"plus": "Plan Basique, plus:",
-			"features": [
-				"Posts illimités",
-				"Chiffrement des données",
-				"Sessions privées",
-				"20 utilisateurs"
-			]
-		},
-		"unlimited": {
-			"title": "Illimité",
-			"price": "49.95",
-			"plus": "Plan Pro, plus :",
-			"features": [
-				"Comptes Pro illimités",
-				"Tous les utilisateurs de votre domaine sont automatiquement Pro"
-			]
-		},
-		"hosted": {
-			"title": "Hébergé",
-			"price": 599,
-			"plus": "Plan Illimité, plus :",
-			"features": [
-				"Outil de gestion des utilisateurs",
-				"Tous les utilisateurs sont des utilisateurs Pro",
-				"Mises à jour à vie",
-				"Une documentation géniale"
-			]
-		}
-	},
-	"SelfHosted": {
-		"slogan": "Auto-hébergement",
-		"title": "Retrospected sur votre serveur",
-		"desc": "Gardez un contrôle complet de vos données en auto-hébergeant Retrospected. Un seul paiement, des mises à jour illimitées. Installez Retrospected avec notre documentation en un rien de temps.",
-		"features": [
-			"Contrôle complet : vos données restent dans vos serveurs",
-			"Facile à installer",
-			"Panneau d'Administration",
-			"Tous les utilisateurs sont Pro",
-			"Mises à jour gratuites, pour toujours"
-		],
-		"button": {
-			"link": "https://docs.retrospected.com",
-			"label": "Découvrez notre documentation"
-		}
-	},
-	"Features": {
-		"heading": "Commencez une rétro en quelques secondes",
-		"description": "Créer ou rejoindre une rétro se fait en 2 clics.",
-		"1": {
-			"title": "Adaptatif",
-			"description": "Retrospected fonctionne sur toutes les tailles d'appareil, de votre iPhone à un moniteur 4K."
-		},
-		"2": {
-			"title": "Personnalisable",
-			"description": "Retrospected est hautement personnalisable. Vous pouvez changer les colonnes, modifier le système de vote, le minuteur, etc."
-		},
-		"3": {
-			"title": "Sécurisé",
-			"description": "Il y a 2 fonctionnalités de sécurité pour les utilisateurs Pro : la possibilité de chiffrer le contenu localement (dans le navigateur), et la possibilité de verrouiller une session pour qu'elle ne soit visible que par des utilisateurs spécifiques."
-		},
-		"4": {
-			"title": "Multilingue",
-			"description": "Retrospected est traduit en 15 langues."
-		}
-	},
-	"Newsfeed": {
-		"heading": "Quoi de neuf à Retrospected ?"
-	},
-	"FAQ": {
-		"heading": "Vos Questions",
-		"data": [
-			{
-				"question": "Comment les paiements sont-ils gérés ?",
-				"answer": "Les paiements sont traités par notre partenaire, Stripe. Aucune information de paiement n'est stockée par Retrospected."
-			},
-			{
-				"question": "Est-ce que vous donnez des licences Pro gratuitement dans certains cas ?",
-				"answer": "Si vous utilisez ce produit dans le cadre d'un organisme caritatif, ou si vous êtes dans le domaine de l'éducation, envoyez-nous un courriel et nous vous enverrons une licence gratuite."
-			},
-			{
-				"question": "Vais-je payer plus cher pour certaines fonctionnalités?",
-				"answer": "Nous n'avons que 2 niveaux : Gratuit et Pro. Toutes les fonctionnalités sont débloquées lorsque vous vous abonnez à un compte Pro."
-			},
-			{
-				"question": "Est-il possible de payer annuellement ?",
-				"answer": "Vous pouvez ! Il suffit de sélectionner cette option au moment du paiement et vous obtiendrez un mois gratuit par an."
-			},
-			{
-				"question": "Puis-je annuler mon abonnement ?",
-				"answer": "Oui. L'abonnement peut être arrêté à tout moment, et prendra fin à la fin de votre mois de facturation en cours."
-			},
-			{
-				"question": "Y a-t-il une limite?",
-				"answer": "Il n'y a pas de limite sur le nombre de données stockées, sous réserve d'une politique d'utilisation équitable. Sur les comptes gratuits, vous êtes limité à 40 postes."
-			}
-		]
-	},
-	"CTA": {
-		"heading": "Commencez une Retrospective maintenant",
-		"description": "Rejoignez les milliers d'utilisateurs qui utilisent déjà Retrospected",
-		"button": "Démarrez une rétrospective",
-		"hint": "Cela va changer votre vie !"
-	},
-	"Footer": {
-		"legal": "Mentions légales",
-		"copyright": "Copyright © 2023 - Retrospected Ltd. Tout droits réservés.",
-		"about": "Nos logiciels sont développés avec amour par Retrospected Ltd à Londres",
-		"various": "Divers",
-		"documentation": "Documentation"
-	},
-	"Contact": {
-		"title": "Contactez-nous",
-		"address": "Retrospected Ltd, Londres, Royaume-Uni",
-		"phone": "+44 (non utilisé pour le moment)",
-		"openingTime": "7j/7 - 8h - 22h",
-		"email": "support@retrospected.com"
-	},
-	"Integration": {
-		"heading": "Intégrations",
-		"description": "Retrospected s'intègre avec les outils que vous utilisez déjà."
-	}
+  "SEO": {
+    "title": "Retrospected",
+    "description": "Retrospectives gratuites et temps-réel pour équipes agiles"
+  },
+  "404": {
+    "heading": "404",
+    "text": "Houston, on a un problème. Cette page n'existe pas, plus, et n'existera probablement jamais.",
+    "link": "Tirez-moi de là !"
+  },
+  "Banner": {
+    "heading": "Vous n'**oublierez jamais** votre première **rétro**.",
+    "text": "Soutenez la **collaboration** et l'**amélioration continue** de vos équipes avec une plateforme **moderne** et **intuitive**.",
+    "tagline": "*Aucune carte bancaire demandée",
+    "subscribeToday": "Essayez gratuitement",
+    "demo": "Démo en 1 clic"
+  },
+  "Nav": {
+    "home": "Accueil",
+    "howTo": "Pourquoi nous?",
+    "features": "Fonctionnalités",
+    "testimonial": "Témoignages",
+    "pricing": "Tarifs",
+    "faq": "FAQ",
+    "subscribe": "S'abonner",
+    "login": "Connexion"
+  },
+  "Clients": {
+    "main": "Des centaines d'entreprises utilisent Retrospected"
+  },
+  "HowItWorks": {
+    "heading": "Nos utilisateurs aiment ...",
+    "1": {
+      "title": "Notre app intuitive et rapide",
+      "text": "Commencez une rétrospective en un clic."
+    },
+    "2": {
+      "title": "Notre interface multilingue",
+      "text": "Utilisez Retrospected dans l'une des 15 langues disponibles (dont le Français)."
+    },
+    "3": {
+      "title": "Notre app personnalisable",
+      "text": "Personnalisez l'application à vos besoins : colonnes, votes, émoticônes, etc."
+    },
+    "4": {
+      "title": "Héberger Retrospected sur vos serveurs (ou les nôtres)",
+      "text": "Si vous voulez un contrôle total de vos données, vous pouvez héberger Retrospected."
+    }
+  },
+  "Testimonials": {
+    "heading": "Nos utilisateurs aiment Retrospected",
+    "1": {
+      "author": "Frank Becker",
+      "designation": "Delivery Team Group & Holding/Transport - Deutsche Bahn",
+      "quote": "La façon la plus simple de gérer de nombreuses rétrospectives avec de nombreuses équipes pour une amélioration continue. Intégration parfaite avec AzureAD et migration facile des utilisateurs locaux vers les utilisateurs AzureAD. Fonctionnalités simples et faciles d'emploi."
+    }
+  },
+  "Pricing": {
+    "heading": "Nos tarifs",
+    "weAccept": "Nous acceptons également les livres sterling et dollars américains",
+    "monthly": "Par mois",
+    "yearly": "Par an",
+    "perMonth": " / mois",
+    "perYear": " / an",
+    "currency": "€",
+    "subscribe": "Je m'abonne",
+    "switchToYearly": "Obtenez un mois gratuit par an en prenant un abonnement annuel !",
+    "switchedToYearly": "Bravo, vous recevrez un mois gratuit chaque année",
+    "login": "Connectez-vous",
+    "free": "Gratuit",
+    "basic": {
+      "title": "Basique",
+      "price": 0,
+      "plus": "Votre option gratuite",
+      "features": [
+        "Retrospectives illimitées",
+        "Personnalisation totale",
+        "Intégration à Giphy",
+        "Comptes anonymes",
+        "40 publications"
+      ]
+    },
+    "pro": {
+      "title": "Pro",
+      "price": "11.9",
+      "plus": "Plan Basique, plus:",
+      "features": [
+        "Posts illimités",
+        "Chiffrement des données",
+        "Sessions privées",
+        "20 utilisateurs"
+      ]
+    },
+    "unlimited": {
+      "title": "Illimité",
+      "price": "49.95",
+      "plus": "Plan Pro, plus :",
+      "features": [
+        "Comptes Pro illimités",
+        "Tous les utilisateurs de votre domaine sont automatiquement Pro"
+      ]
+    },
+    "hosted": {
+      "title": "Hébergé",
+      "price": 599,
+      "plus": "Plan Illimité, plus :",
+      "features": [
+        "Outil de gestion des utilisateurs",
+        "Tous les utilisateurs sont des utilisateurs Pro",
+        "Mises à jour à vie",
+        "Une documentation géniale"
+      ]
+    }
+  },
+  "SelfHosted": {
+    "slogan": "Auto-hébergement",
+    "title": "Retrospected sur votre serveur",
+    "desc": "Gardez un contrôle complet de vos données en auto-hébergeant Retrospected. Un seul paiement, des mises à jour illimitées. Installez Retrospected avec notre documentation en un rien de temps.",
+    "features": [
+      "Contrôle complet : vos données restent dans vos serveurs",
+      "Facile à installer",
+      "Panneau d'Administration",
+      "Tous les utilisateurs sont Pro",
+      "Mises à jour gratuites, pour toujours"
+    ],
+    "button": {
+      "link": "https://docs.retrospected.com",
+      "label": "Découvrez notre documentation"
+    }
+  },
+  "Features": {
+    "heading": "Commencez une rétro en quelques secondes",
+    "description": "Créer ou rejoindre une rétro se fait en 2 clics.",
+    "1": {
+      "title": "Adaptatif",
+      "description": "Retrospected fonctionne sur toutes les tailles d'appareil, de votre iPhone à un moniteur 4K."
+    },
+    "2": {
+      "title": "Personnalisable",
+      "description": "Retrospected est hautement personnalisable. Vous pouvez changer les colonnes, modifier le système de vote, le minuteur, etc."
+    },
+    "3": {
+      "title": "Sécurisé",
+      "description": "Il y a 2 fonctionnalités de sécurité pour les utilisateurs Pro : la possibilité de chiffrer le contenu localement (dans le navigateur), et la possibilité de verrouiller une session pour qu'elle ne soit visible que par des utilisateurs spécifiques."
+    },
+    "4": {
+      "title": "Multilingue",
+      "description": "Retrospected est traduit en 15 langues."
+    }
+  },
+  "Newsfeed": {
+    "heading": "Quoi de neuf à Retrospected ?"
+  },
+  "FAQ": {
+    "heading": "Vos Questions",
+    "data": [
+      {
+        "question": "Comment les paiements sont-ils gérés ?",
+        "answer": "Les paiements sont traités par notre partenaire, Stripe. Aucune information de paiement n'est stockée par Retrospected."
+      },
+      {
+        "question": "Est-ce que vous donnez des licences Pro gratuitement dans certains cas ?",
+        "answer": "Si vous utilisez ce produit dans le cadre d'un organisme caritatif, ou si vous êtes dans le domaine de l'éducation, envoyez-nous un courriel et nous vous enverrons une licence gratuite."
+      },
+      {
+        "question": "Vais-je payer plus cher pour certaines fonctionnalités?",
+        "answer": "Nous n'avons que 2 niveaux : Gratuit et Pro. Toutes les fonctionnalités sont débloquées lorsque vous vous abonnez à un compte Pro."
+      },
+      {
+        "question": "Est-il possible de payer annuellement ?",
+        "answer": "Vous pouvez ! Il suffit de sélectionner cette option au moment du paiement et vous obtiendrez un mois gratuit par an."
+      },
+      {
+        "question": "Puis-je annuler mon abonnement ?",
+        "answer": "Oui. L'abonnement peut être arrêté à tout moment, et prendra fin à la fin de votre mois de facturation en cours."
+      },
+      {
+        "question": "Y a-t-il une limite?",
+        "answer": "Il n'y a pas de limite sur le nombre de données stockées, sous réserve d'une politique d'utilisation équitable. Sur les comptes gratuits, vous êtes limité à 40 postes."
+      }
+    ]
+  },
+  "CTA": {
+    "heading": "Commencez une Retrospective maintenant",
+    "description": "Rejoignez les milliers d'utilisateurs qui utilisent déjà Retrospected",
+    "button": "Démarrez une rétrospective",
+    "hint": "Cela va changer votre vie !"
+  },
+  "Footer": {
+    "legal": "Mentions légales",
+    "copyright": "Copyright © 2023 - Retrospected Ltd. Tout droits réservés.",
+    "about": "Nos logiciels sont développés avec amour par Retrospected Ltd à Londres",
+    "various": "Divers",
+    "documentation": "Documentation"
+  },
+  "Contact": {
+    "title": "Contactez-nous",
+    "address": "Retrospected Ltd, Londres, Royaume-Uni",
+    "phone": "+44 (non utilisé pour le moment)",
+    "openingTime": "7j/7 - 8h - 22h",
+    "email": "support@retrospected.com"
+  },
+  "Integration": {
+    "heading": "Intégrations",
+    "description": "Retrospected s'intègre avec les outils que vous utilisez déjà."
+  }
 }
