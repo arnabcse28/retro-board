@@ -10,11 +10,9 @@ cover: '/assets/blog/self-hosting/private-cloud.svg'
 dropcap: 'false'
 ---
 
-Host your retrospective data on your own premises for ultimate privacy and control.
-
 # Own hosting, own servers, own privacy
 
-_Retrospected Self-Hosting Edition_ allows you to **host your retrospective data on your servers**. With our self-hosted solution, you can enjoy complete control, privacy, and security while leveraging the power of Retrospected.
+_Retrospected Self-Hosting Edition_ allows you to **host your retrospective data on your servers** for ultimate privacy and control. With our self-hosted solution, you can enjoy complete control, privacy, and security while leveraging the power of Retrospected.
 
 ![Your own private cloud](/assets/blog/self-hosting/private-cloud.svg,1024x768)
 
@@ -64,12 +62,12 @@ Deploying Retrospected Self-Hosting Edition cannot be more simple:
 
 - **Easy Installation**: Our [interactive documentation](https://docs.retrospected.com/docs/self-hosting/quick-start/) will help you configure Retrospect on your own servers in 5 minutes, using Docker Compose.
 - **Technical Support** for your installation: We offer an optional 30-minute call with our expert support team to assist you during the installation.
-  State of the art documentation: Our world-class documentation is also here to help you along the way.
+- **State of the art documentation**: Our world-class [documentation](https://docs.retrospected.com) is also here to help you along the way.
 
 # Pricing and Licensing
 
-**One-time cost of $649, unlimited, life-time updates**.
+**One-time cost of $649, free updates forever**.
 
-You can try Retrospected Self-Hosting Edition today, for free, no payment required. Simply follow the steps on our [documentation](https://docs.retrospected.com/docs/self-hosting/quick-start/).
+You can try Retrospected Self-Hosting Edition today, for free, no payment required. Simply follow the setup steps on our [documentation](https://docs.retrospected.com/docs/self-hosting/quick-start/).
 
-Once you are happy with the installation and the product, you can simply [subscribe](https://app.retrospected.com/subscribe) to get your licence key.
+After the evaluation period, simply [subscribe](https://app.retrospected.com/subscribe) to get your licence key.
