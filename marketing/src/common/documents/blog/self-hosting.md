@@ -62,7 +62,7 @@ Deploying Retrospected Self-Hosting Edition cannot be more simple:
 
 - **Easy Installation**: Our [interactive documentation](https://docs.retrospected.com/docs/self-hosting/quick-start/) will help you configure Retrospect on your own servers in 5 minutes, using Docker Compose.
 - **Technical Support** for your installation: We offer an optional 30-minute call with our expert support team to assist you during the installation.
-- **State of the art documentation**: Our world-class [documentation](https://docs.retrospected.com) is also here to help you along the way.
+- **Documentation**: Our world-class [documentation](https://docs.retrospected.com) is also here to help you along the way.
 
 # Pricing and Licensing
 
