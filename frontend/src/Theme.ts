@@ -1,10 +1,11 @@
-import { createTheme } from '@mui/material/styles';
+import { PaletteColorOptions, createTheme } from '@mui/material/styles';
 import { colors } from '@mui/material';
+import config from './utils/getConfig';
 
 const theme = createTheme({
   palette: {
-    primary: colors.deepPurple,
-    secondary: colors.pink,
+    primary: convertToColor(config.PRIMARY_COLOR, colors.deepPurple),
+    secondary: convertToColor(config.SECONDARY_COLOR, colors.pink),
   },
   components: {
     MuiDrawer: {
@@ -23,3 +24,30 @@ export const Palette = {
 };
 
 export default theme;
+
+function convertToColor(
+  value: string,
+  defaultColor: PaletteColorOptions
+): PaletteColorOptions {
+  console.log('COnverting', value);
+  const parts = value.split(',');
+  if (parts.length !== 14) {
+    return defaultColor;
+  }
+  return {
+    '50': parts[0],
+    '100': parts[1],
+    '200': parts[2],
+    '300': parts[3],
+    '400': parts[4],
+    '500': parts[5],
+    '600': parts[6],
+    '700': parts[7],
+    '800': parts[8],
+    '900': parts[9],
+    A100: parts[10],
+    A200: parts[11],
+    A400: parts[12],
+    A700: parts[13],
+  };
+}

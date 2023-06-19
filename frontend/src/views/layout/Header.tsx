@@ -16,6 +16,7 @@ import ProPill from 'components/ProPill';
 import { AiButton } from './ai/AiButton';
 import logoIcon from './logo-white.png';
 import logoText from './text-white.png';
+import config from 'utils/getConfig';
 
 export function Header() {
   const user = useUser();
@@ -26,7 +27,10 @@ export function Header() {
   const { toggle: togglePanel } = useSidePanel();
   const isOnGamePage = !!useMatch('game/:gameId/*');
   return (
-    <AppBar position="sticky">
+    <AppBar
+      position="sticky"
+      style={{ backgroundColor: config.HEADER_COLOR || undefined }}
+    >
       <Toolbar>
         <IconButton
           color="inherit"
@@ -38,8 +42,14 @@ export function Header() {
           <MenuIcon />
         </IconButton>
         <MainTitle onClick={goToHome} data-cy="header-home-button">
-          <img src={logoIcon} alt="Retrospected Icon" height="30" />
-          <img src={logoText} alt="Retrospected" height="30" />
+          <img
+            src={config ? config.LOGO : logoIcon}
+            alt="Retrospected Icon"
+            height="30"
+          />
+          {!config.LOGO ? (
+            <img src={logoText} alt="Retrospected" height="30" />
+          ) : null}
         </MainTitle>
         <ProPillContainer>
           <ProPill small />

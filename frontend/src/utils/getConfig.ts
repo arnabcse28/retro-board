@@ -9,6 +9,10 @@ interface Config {
   VERSION: string;
   MARKETING_ROOT: string;
   AI_FEEDBACK_URL: string;
+  PRIMARY_COLOR: string;
+  SECONDARY_COLOR: string;
+  HEADER_COLOR: string;
+  LOGO: string;
 }
 
 const ALL_KEYS: (keyof Config)[] = [
@@ -22,6 +26,10 @@ const ALL_KEYS: (keyof Config)[] = [
   'VERSION',
   'MARKETING_ROOT',
   'AI_FEEDBACK_URL',
+  'PRIMARY_COLOR',
+  'SECONDARY_COLOR',
+  'HEADER_COLOR',
+  'LOGO',
 ];
 
 declare global {
@@ -59,6 +67,8 @@ function getConfig(): Config {
     );
     config.DEFAULT_LANGUAGE = 'en-GB';
   }
+
+  console.log('Config', config);
 
   return config;
 }
