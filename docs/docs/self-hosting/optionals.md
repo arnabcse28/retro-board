@@ -122,7 +122,8 @@ services:
       FRONTEND_AI_FEEDBACK_URL: 'http://' # URL of a freeform feedback form for AI feedback
       FRONTEND_PRIMARY_COLOR: # List of 14 colours representing the primary color. See documentation.
       FRONTEND_SECONDARY_COLOR: # List of 14 colours representing the primary color. See documentation.
-      FRONTEND_HEADER_COLOR: # Colour of the header. If not set, the Primary color will be used. See Documentation.
+      FRONTEND_HEADER_PRIMARY_COLOR: # Colour of the header. If not set, the Primary color will be used. See Documentation.
+      FRONTEND_HEADER_SECONDARY_COLOR: # Secondary Colour of the header. See Documentation.
       FRONTEND_LOGO: # image data URL representation of the logo. See documentation.
 
       # -- Do Not Change --

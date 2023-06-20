@@ -29,7 +29,10 @@ export function Header() {
   return (
     <AppBar
       position="sticky"
-      style={{ backgroundColor: config.HEADER_COLOR || undefined }}
+      style={{
+        backgroundColor: config.HEADER_PRIMARY_COLOR || undefined,
+        color: config.HEADER_SECONDARY_COLOR || undefined,
+      }}
     >
       <Toolbar>
         <IconButton

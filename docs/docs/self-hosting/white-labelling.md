@@ -31,29 +31,44 @@ This is an example with a red-ish colour, as seen in the Red Cross example above
 
 You will notice that the list of 14 colours is a list of 14 HEX RGB colours, separated by commas.
 
-`FRONTEND_PRIMARY_COLOR='#ffebee,#ffcdd2,#ef9a9a,#e57373,#ef5350,#f44336,#e53935,#d32f2f,#c62828,#b71c1c,#ff8a80,#ff5252,#ff1744,#d50000'`
+```yaml
+FRONTEND_PRIMARY_COLOR: '#ffebee,#ffcdd2,#ef9a9a,#e57373,#ef5350,#f44336,#e53935,#d32f2f,#c62828,#b71c1c,#ff8a80,#ff5252,#ff1744,#d50000'
+```
 
 Do the same for the secondary colour, with 14 other colours.
 
 Example:
 
-`FRONTEND_SECONDARY_COLOR='#e0f2f1,#b2dfdb,#80cbc4,#4db6ac,#26a69a,#009688,#00897b,#00796b,#00695c,#004d40,#a7ffeb,#64ffda,#1de9b6,#00bfa5'`
+```yaml
+FRONTEND_SECONDARY_COLOR: '#e0f2f1,#b2dfdb,#80cbc4,#4db6ac,#26a69a,#009688,#00897b,#00796b,#00695c,#004d40,#a7ffeb,#64ffda,#1de9b6,#00bfa5'
+```
 
-### Configure the Header colour
+### Configure the Header colours
 
-The header colour is simpler: it is just one colour, to be defined this way:
+The header colour is simpler: it is just two colours, to be defined this way:
 
-`FRONTEND_HEADER_COLOR='#FFFFFF'`
+```yaml
+FRONTEND_HEADER_PRIMARY_COLOR: '#FFFFFF'
+FRONTEND_HEADER_SECONDARY_COLOR: '#000000'
+```
 
 ### Configure the Logo
 
-The logo must be in a [Image URI format](https://en.wikipedia.org/wiki/Data_URI_scheme).
+The logo can either be a URL (the URL needs to be accessible from your app), or in the [Image URI format](https://en.wikipedia.org/wiki/Data_URI_scheme) (recommanded).
 
-In order to get this Image URI, you can use the following service: [https://ezgif.com/image-to-datauri](https://ezgif.com/image-to-datauri).
+In order to get an Image URI, you can use the following service: [https://ezgif.com/image-to-datauri](https://ezgif.com/image-to-datauri).
 
 You'll be able to transform any JPEG, PNG or SVG image into this text format, and then set it that way:
 
-`FRONTEND_LOGO='data:image/svg+xml;base64,PD94bWwgdmVyc[...]+Cg=='`
+```yaml
+FRONTEND_LOGO: 'data:image/svg+xml;base64,PD94bWwgdmVyc[...]+Cg=='
+```
+
+Alternatively, you can set the logo as a URL:
+
+```yaml
+FRONTEND_LOGO: 'https://dorkingtownpartnership.co.uk/wp-content/uploads/2021/10/British-Red-Cross.jpeg'
+```
 
 :::info Syntax
 Please ensure your value starts with **data:image** and ends with **==**.
