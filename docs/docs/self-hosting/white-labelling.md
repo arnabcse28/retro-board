@@ -4,7 +4,7 @@ When self-hosting your own instance of Retrospected, you have the possibility of
 
 As an example, we can easily re-brand Retrospected to fit with the British Red Cross colours:
 
-![An example of White-Labelling](/img/self-hosting/white-labelling-example-1.png)
+![An example of White-Labelling](/img/self-hosting/white-labelling-example-2.png)
 
 ## What can I configure
 
@@ -18,6 +18,8 @@ You have the ability to change 4 details:
 ## How can I configure it
 
 All the following are to be set in the `docker-compose.yml` file, in the `frontend` section.
+
+Alternatively, you can set this up using the docker-compose editor [here](quick-start).
 
 ### Configure the Primary and Secondary colours
 
@@ -40,7 +42,7 @@ Do the same for the secondary colour, with 14 other colours.
 Example:
 
 ```yaml
-FRONTEND_SECONDARY_COLOR: '#e0f2f1,#b2dfdb,#80cbc4,#4db6ac,#26a69a,#009688,#00897b,#00796b,#00695c,#004d40,#a7ffeb,#64ffda,#1de9b6,#00bfa5'
+FRONTEND_SECONDARY_COLOR: '#e8f5e9,#c8e6c9,#a5d6a7,#81c784,#66bb6a,#4caf50,#43a047,#388e3c,#2e7d32,#1b5e20,#b9f6ca,#69f0ae,#00e676,#00c853'
 ```
 
 ### Configure the Header colours

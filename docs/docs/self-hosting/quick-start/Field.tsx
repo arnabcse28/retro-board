@@ -4,6 +4,7 @@ import styles from './Field.module.css';
 export type FieldProps = {
   label: string;
   description?: string;
+  placeholder?: string;
 };
 
 type InputFieldProps = FieldProps & {
@@ -31,11 +32,13 @@ export function InputField({
   label,
   description,
   number,
+  placeholder: placholder,
   onChange,
 }: InputFieldProps) {
   return (
     <Field label={label} description={description}>
       <input
+        placeholder={placholder}
         className={styles.input}
         value={value}
         onKeyPress={number ? onlyNumbers : onlyAlpha}

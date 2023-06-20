@@ -26,6 +26,11 @@ type ComposeViewSettings = {
   smtpUser: string;
   smtpPassword: string;
   smtpSender: string;
+  primaryColours: string;
+  secondaryColours: string;
+  primaryHeaderColour: string;
+  secondaryHeaderColour: string;
+  logo: string;
 };
 
 type ComposeViewProps = {
@@ -36,6 +41,10 @@ function p(condition: boolean, key: string, value: string, number = false) {
   return condition
     ? `      ${key}: ${number ? value : "'" + value + "'"}`
     : null;
+}
+
+function d(value: string) {
+  return value ? `'${value}'` : '# Not provided. Using defaults.';
 }
 
 export default function ComposeView({
@@ -61,6 +70,11 @@ export default function ComposeView({
     smtpUser,
     smtpPassword,
     smtpSender,
+    primaryColours,
+    secondaryColours,
+    primaryHeaderColour,
+    secondaryHeaderColour,
+    logo,
   },
 }: ComposeViewProps) {
   const optionals = [
@@ -86,6 +100,12 @@ services:
     ports:
       - '${port}:80'
     restart: unless-stopped
+    environment:
+      FRONTEND_PRIMARY_COLOURS: ${d(primaryColours)}
+      FRONTEND_SECONDARY_COLOURS: ${d(secondaryColours)}
+      FRONTEND_PRIMARY_HEADER_COLOUR: ${d(primaryHeaderColour)}
+      FRONTEND_SECONDARY_HEADER_COLOUR: ${d(secondaryHeaderColour)}
+      FRONTEND_LOGO: ${d(logo)}
     logging:
       driver: 'json-file'
       options:

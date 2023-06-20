@@ -62,6 +62,23 @@ export default function Editor() {
     ''
   );
   const [smtpSender, setSmtpSender] = usePersistedState('smtp-sender', '');
+  const [primaryColours, setPrimaryColours] = usePersistedState(
+    'primary-colours',
+    ''
+  );
+  const [secondaryColours, setSecondaryColours] = usePersistedState(
+    'secondary-colours',
+    ''
+  );
+  const [primaryHeaderColour, setPrimaryHeaderColour] = usePersistedState(
+    'primary-header-colour',
+    ''
+  );
+  const [secondaryHeaderColour, setSecondaryHeaderColour] = usePersistedState(
+    'secondary-header-colour',
+    ''
+  );
+  const [logo, setLogo] = usePersistedState('logo', '');
 
   useEffect(() => {
     if (isBrowser) {
@@ -242,6 +259,49 @@ export default function Editor() {
           ) : null}
         </div>
       </Accordion>
+      <Accordion title="White-Labelling & Customisation">
+        <p>
+          More documentation here:{' '}
+          <a href="./white-labelling">white-labelling documentation</a>.
+        </p>
+        <div className={styles.settings}>
+          <InputField
+            label="Primary Colours"
+            description="Comma-separated list of 14 primary colours"
+            placeholder="#ffebee,#ffcdd2,#ef9a9a,#e57373,#ef5350,#f44336,#e53935,#d32f2f,#c62828,#b71c1c,#ff8a80,#ff5252,#ff1744,#d50000"
+            value={primaryColours}
+            onChange={setPrimaryColours}
+          />
+          <InputField
+            label="Secondary Colours"
+            description="Comma-separated list of 14 secondary colours"
+            placeholder="#ffebee,#ffcdd2,#ef9a9a,#e57373,#ef5350,#f44336,#e53935,#d32f2f,#c62828,#b71c1c,#ff8a80,#ff5252,#ff1744,#d50000"
+            value={secondaryColours}
+            onChange={setSecondaryColours}
+          />
+          <InputField
+            label="Primary Header Colour"
+            description="The colour of the header background"
+            placeholder="#000000"
+            value={primaryHeaderColour}
+            onChange={setPrimaryHeaderColour}
+          />
+          <InputField
+            label="Secondary Header Colour"
+            description="The colour of the header text"
+            placeholder="#ffffff"
+            value={secondaryHeaderColour}
+            onChange={setSecondaryHeaderColour}
+          />
+          <InputField
+            label="Logo URL or Data URI"
+            description="The URL to the logo to use in the header. Or use a data URI."
+            placeholder="https://example.com/logo.png"
+            value={logo}
+            onChange={setLogo}
+          />
+        </div>
+      </Accordion>
       <h3>Your customised docker-compose file:</h3>
 
       <ComposeView
@@ -267,6 +327,11 @@ export default function Editor() {
           smtpUser,
           smtpPassword,
           smtpSender,
+          primaryColours,
+          secondaryColours,
+          primaryHeaderColour,
+          secondaryHeaderColour,
+          logo,
         }}
       />
       <h1>2 - Run Docker</h1>
