@@ -1,6 +1,14 @@
+---
+sidebar_position: 1.2
+---
+
 # 🎨 White-Labelling
 
 When self-hosting your own instance of Retrospected, you have the possibility of customising the colours and the logo so they are more in line with your company's branding.
+
+:::info This is optional
+White-Labelling, or customising colours and logo, is entirely optional. You can skip this section if you don't need it.
+:::
 
 As an example, we can easily re-brand Retrospected to fit with the British Red Cross colours:
 
@@ -11,7 +19,7 @@ As an example, we can easily re-brand Retrospected to fit with the British Red C
 You have the ability to change 4 details:
 
 - The Primary colour (this is the colour of most components, purple by default)
-- The Secodary colour (this is the colour of some secondary components, like buttons, pink by default)
+- The Secondary colour (this is the colour of some secondary components, like buttons, pink by default)
 - The Header colour (by default, it takes the primary colour, but you can choose something else)
 - The Logo
 

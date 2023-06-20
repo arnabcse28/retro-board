@@ -32,13 +32,13 @@ export function InputField({
   label,
   description,
   number,
-  placeholder: placholder,
+  placeholder,
   onChange,
 }: InputFieldProps) {
   return (
     <Field label={label} description={description}>
       <input
-        placeholder={placholder}
+        placeholder={placeholder}
         className={styles.input}
         value={value}
         onKeyPress={number ? onlyNumbers : onlyAlpha}

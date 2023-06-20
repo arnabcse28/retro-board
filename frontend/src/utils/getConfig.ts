@@ -70,8 +70,6 @@ function getConfig(): Config {
     config.DEFAULT_LANGUAGE = 'en-GB';
   }
 
-  console.log('Config', config);
-
   return config;
 }
 

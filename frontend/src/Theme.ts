@@ -29,7 +29,6 @@ function convertToColor(
   value: string,
   defaultColor: PaletteColorOptions
 ): PaletteColorOptions {
-  console.log('COnverting', value);
   const parts = value.split(',');
   if (parts.length !== 14) {
     return defaultColor;
