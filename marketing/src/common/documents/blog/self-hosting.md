@@ -30,9 +30,17 @@ Here are some key features:
 
 - **Data Control**: Retain full control over your retrospective data, ensuring it remains within your organization's boundaries.
 - **Enhanced Security**: Leverage your existing security measures and infrastructure, reinforcing the security of your retrospective data. Use your own SSO mechanism via Google OAuth, Github, Okta...
-- **Customization Options**: [Customise your instance](https://docs.retrospected.com/docs/self-hosting/white-labelling) with the logo and colors of your organization. Primary and secondary colours, in addition to the header colours and logo, can be customized.
+- **Customisation Options**: [Customise your instance](https://docs.retrospected.com/docs/self-hosting/white-labelling) with the logo and colors of your organization. Primary and secondary colours, in addition to the header colours and logo, can be customized.
 - **Lifetime updates**: You will be receiving updates at the same time as the online version.
-  Dedicated Admin Panel: Manage your users via a dedicated Admin Panel
+- **Dedicated Admin Panel**: Manage your users via a dedicated Admin Panel
+
+# Customisation
+
+You can customise the **look-and-feel** of your self-instance easily. You can change the **logo**, the **primary** and secondary **colors**, and the **header colors**.
+
+![White-Labelling example](/assets/blog/self-hosting/white-label.png,1024x768)
+
+This is available directly from our [Docker configuration tool](https://docs.retrospected.com/docs/self-hosting/quick-start/), or can be done manually using the [documentation](https://docs.retrospected.com/docs/self-hosting/white-labelling).
 
 # Benefits for Enterprises
 

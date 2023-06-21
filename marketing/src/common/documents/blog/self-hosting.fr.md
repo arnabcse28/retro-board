@@ -12,7 +12,7 @@ dropcap: 'false'
 
 # Votre hébergement, vos serveurs
 
-L'édition auto-hébergée de Retrospected vous permet d'héberger les données de vos rétrospectives sur vos serveurs\*\*. Avec notre solution auto-hébergée, vous pouvez profiter d'un contrôle complet, de la confidentialité, de la sécurité et de la personalisation tout en tirant parti de la puissance de Retrospected.
+L'édition auto-hébergée de Retrospected vous permet d'héberger les données de vos rétrospectives sur **vos serveurs**. Avec notre solution auto-hébergée, vous pouvez profiter d'un **contrôle complet**, de la **confidentialité**, de la **sécurité** et de la **personalisation** tout en tirant parti de la puissance de Retrospected.
 
 ![Votre propre nuage privé](/assets/blog/self-hosting/private-cloud.svg,1024x768)
 
@@ -32,7 +32,15 @@ Voici quelques caractéristiques clés :
 - **Sécurité renforcée** : Tirez parti de vos mesures de sécurité et de votre infrastructure existantes, renforçant ainsi la sécurité de vos données rétrospectives. Utilisez votre propre mécanisme SSO via Google OAuth, Github, Okta...
 - **Options de personnalisation** : [Personalisez votre logiciel](https://docs.retrospected.com/docs/self-hosting/white-labelling) avec votre logo, et les couleurs de votre entreprise.
 - **Mises à jour à vie** : Vous recevrez les mises à jour en même temps que la version en ligne.
-  Panneau d'administration dédié : Gérez vos utilisateurs via un panneau d'administration dédié
+- **Panneau d'administration dédié** : Gérez vos utilisateurs via un panneau d'administration dédié
+
+# Personalisation
+
+Vous pouvez personaliser l'interface de votre instance. Vous pouvez changer le **logo**, les **couleurs primaires** et **secondaires**, ainsi que l'en-tête.
+
+![White-Labelling example](/assets/blog/self-hosting/white-label.png,1024x768)
+
+Ceci est disponible directement depuis notre [outil de configuration Docker](https://docs.retrospected.com/docs/self-hosting/quick-start/), ou peut être fait manuellement en utilisant la [documentation](https://docs.retrospected.com/docs/self-hosting/white-labelling).
 
 # Avantages pour les entreprises
 
@@ -50,17 +58,17 @@ Les instances auto-hébergées fournissent un [panneau d'administration] (https:
 
 Vous pouvez, à l'aide de ce panneau :
 
-- créer de nouveaux utilisateurs
-- Modifier les mots de passe (pour les comptes avec mot de passe)
-- Fusionner des utilisateurs (par exemple, si un utilisateur crée un compte anonyme, puis un compte normal, et souhaite les fusionner)
-- Supprimer des utilisateurs
-- Afficher le nombre d'utilisateurs actuellement connectés à une rétrospective
+- **Créer** de nouveaux utilisateurs
+- **Modifier** les mots de passe (pour les comptes avec mot de passe)
+- **Fusionner** des utilisateurs (par exemple, si un utilisateur crée un compte anonyme, puis un compte normal, et souhaite les fusionner)
+- **Supprimer** des utilisateurs
+- **Afficher** le nombre d'utilisateurs actuellement connectés à une rétrospective
 
 # Installation et configuration transparentes
 
 Le déploiement de Retrospected Self-Hosting Edition ne pourrait être plus simple :
 
-- **Installation facile** : Notre [documentation interactive](https://docs.retrospected.com/docs/self-hosting/quick-start/) vous aidera à configurer Retrospect sur vos propres serveurs en 5 minutes, à l'aide de Docker Compose.
+- **Installation facile** : Notre [documentation interactive](https://docs.retrospected.com/docs/self-hosting/quick-start/) vous aidera à configurer Retrospected sur vos propres serveurs en 5 minutes, à l'aide de Docker Compose.
 - **Support technique** pour votre installation : Nous proposons un appel facultatif de 30 minutes avec notre équipe d'assistance experte pour vous aider pendant l'installation.
 - **Documentation** : Notre [documentation](https://docs.retrospected.com) est également là pour vous aider tout au long du processus.
 

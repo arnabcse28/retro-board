@@ -12,6 +12,7 @@ import Heading from '@/common/components/Heading';
 import analytics from './modified.svg';
 import Section, { Grid, Figure, Content, Features } from './analytics.style';
 import { useTranslation } from 'next-i18next';
+import NextLink from 'next/link';
 
 const AnalyticsTool = () => {
   const { t } = useTranslation();
@@ -38,12 +39,12 @@ const AnalyticsTool = () => {
                 </li>
               ))}
             </Features>
-            <Link href={t('SelfHosted.button.link')} className="explore">
+            <NextLink href="/blog/self-hosting" className="explore">
               <Button
                 title={t('SelfHosted.button.label')!}
                 icon={<Icon icon={ic_keyboard_arrow_right} size={24} />}
               />
-            </Link>
+            </NextLink>
           </Content>
         </Grid>
       </Container>

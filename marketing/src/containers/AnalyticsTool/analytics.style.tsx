@@ -166,6 +166,7 @@ export const Features = styled.ul`
   gap: 15px;
   display: grid;
   margin-top: 30px;
+  margin-bottom: 30px;
   text-align: left;
   @media only screen and (max-width: 480px) {
     gap: 10px;
