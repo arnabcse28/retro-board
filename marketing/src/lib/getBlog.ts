@@ -19,6 +19,7 @@ export type BlogMetadata = {
   slug: string;
   file: string;
   lang: string;
+  keywords: string;
   dropcap: boolean;
 };
 

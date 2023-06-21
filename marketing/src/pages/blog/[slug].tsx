@@ -41,6 +41,7 @@ export default function Blog({ document, legals }: Props) {
         <meta name="description" content={document.subtitle} />
         <meta name="author" content={document.author} />
         <meta name="date" content={document.date} />
+        <meta name="keywords" content={document.keywords} />
 
         <meta property="og:title" content={document.title} key="og:title" />
         <meta property="og:type" content="article" key="og:type" />
