@@ -2,17 +2,17 @@
 slug: 'self-hosting'
 lang: 'en'
 title: 'Self-Hosting Edition'
-subtitle: 'Retrospected on your premises'
+subtitle: 'Retrospected sur vos serveurs'
 author: 'Antoine Jaussoin'
 date: '2023-06-07'
-keywords: 'self-hosting,self-hosted,security'
+keywords: 'self-hosting,self-hosted,auto-hébergement,auto-hébergé,sécurité,on-premises,personnalisation'
 cover: '/assets/blog/self-hosting/private-cloud.svg'
 dropcap: 'false'
 ---
 
 # Votre hébergement, vos serveurs
 
-L'édition auto-hébergée de Retrospected vous permet d'héberger les données de vos rétrospectives sur **vos serveurs**. Avec notre solution auto-hébergée, vous pouvez profiter d'un **contrôle complet**, de la **confidentialité**, de la **sécurité** et de la **personalisation** tout en tirant parti de la puissance de Retrospected.
+L'édition auto-hébergée de Retrospected vous permet d'héberger les données de vos rétrospectives sur **vos serveurs**. Avec notre solution auto-hébergée, vous pouvez profiter d'un **contrôle complet**, de la **confidentialité**, de la **sécurité** et de la **personnalisation** tout en tirant parti de la puissance de Retrospected.
 
 ![Votre propre nuage privé](/assets/blog/self-hosting/private-cloud.svg,1024x768)
 
@@ -34,7 +34,7 @@ Voici quelques caractéristiques clés :
 - **Mises à jour à vie** : Vous recevrez les mises à jour en même temps que la version en ligne.
 - **Panneau d'administration dédié** : Gérez vos utilisateurs via un panneau d'administration dédié
 
-# Personalisation
+# Personnalisation
 
 Vous pouvez personaliser l'interface de votre instance. Vous pouvez changer le **logo**, les **couleurs primaires** et **secondaires**, ainsi que l'en-tête.
 
