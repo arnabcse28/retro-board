@@ -1,206 +1,206 @@
 {
-	"SEO": {
-		"title": "Retrospect",
-		"description": "Gratis Real-time Agile Retrospective Board voor technische teams"
-	},
-	"404": {
-		"heading": "404",
-		"text": "Oopsie daisy, the page you are looking for does not exist.",
-		"link": "Bring me back to safety!"
-	},
-	"Banner": {
-		"heading": "Je zal je eerste **retro** nooit vergeten**.",
-		"text": "Real-time, collaborative retrospectives done right. In seconds.",
-		"tagline": "*Geen creditcard nodig",
-		"subscribeToday": "Probeer het gratis",
-		"demo": "1-Click Demo"
-	},
-	"Nav": {
-		"home": "Startpagina",
-		"howTo": "Waarom ons?",
-		"features": "Eigenschappen",
-		"testimonial": "Beoordelingen",
-		"pricing": "Prijsstelling",
-		"faq": "FAQ",
-		"subscribe": "Abonneren",
-		"login": "Aanmelden"
-	},
-	"Clients": {
-		"main": "Doe mee met honderden bedrijven die ons product gebruiken"
-	},
-	"HowItWorks": {
-		"heading": "We zijn anders omdat...",
-		"1": {
-			"title": "We zijn snel",
-			"text": "Je kunt je retro met één klik starten."
-		},
-		"2": {
-			"title": "We zijn meertalig",
-			"text": "Onze app is beschikbaar in 15 talen!"
-		},
-		"3": {
-			"title": "We zijn aanpasbaar",
-			"text": "U kunt de app aanpassen aan uw behoeften. Kolommen, stemmen, emojis, u kunt het noemen."
-		},
-		"4": {
-			"title": "We kunnen zelf gehost zijn",
-			"text": "Als u volledige controle over uw gegevens wilt, kunt u zelf Retrospecten uitvoeren."
-		}
-	},
-	"Testimonials": {
-		"heading": "Wat mensen over ons zeggen",
-		"1": {
-			"author": "Frank Becker",
-			"designation": "Delivery Team Group & Holding/Transport - Deutsche Bahn",
-			"quote": "The easiest way to manage many retrospectives with many teams to optimize themselves. Flawless integration with AzureAD and easy migration from local users to AzureAD users. Nice and not overloaded features."
-		}
-	},
-	"Pricing": {
-		"heading": "Ontdek onze spannende prijzen",
-		"weAccept": "We accepteren ook Euros en Britse ponden",
-		"monthly": "maandelijks",
-		"yearly": "Jaarlijks",
-		"perMonth": " / maand",
-		"perYear": " / jaar",
-		"currency": "$",
-		"subscribe": "Nu abonneren",
-		"switchToYearly": "Switch to Yearly and get one month free!",
-		"switchedToYearly": "Well done, you will get one month free every year",
-		"login": "Nu inloggen",
-		"basic": {
-			"title": "Eenvoudig",
-			"price": 0,
-			"plus": "Jouw gratis optie",
-			"features": [
-				"Onbeperkte Retrospectieven",
-				"Volledige aanpassing",
-				"Giphy integratie",
-				"Anonieme accounts",
-				"40 berichten"
-			]
-		},
-		"pro": {
-			"title": "Pro",
-			"price": "12.9",
-			"plus": "Alles van Basic, plus:",
-			"features": [
-				"Onbeperkt aantal berichten",
-				"Volledige data-encryptie",
-				"Privé sessies",
-				"20 gebruikers"
-			]
-		},
-		"unlimited": {
-			"title": "Onbeperkt",
-			"price": "49.95",
-			"plus": "Alles van Pro, plus:",
-			"features": [
-				"Onbeperkt Pro-Accounts",
-				"Alle gebruikers van uw domein zijn automatisch Pro"
-			]
-		},
-		"hosted": {
-			"title": "Zelf gehost",
-			"price": 649,
-			"plus": "Alles van ongelimiteerd, plus:",
-			"features": [
-				"Beheerfunctie van gebruikers",
-				"Alle gebruikers zijn Pro-gebruikers",
-				"Levenslange updates",
-				"Geweldige documentatie"
-			]
-		}
-	},
-	"SelfHosted": {
-		"slogan": "Eigen hosting",
-		"title": "Retrospecteerd op uw werkplaats",
-		"desc": "Houd de volledige controle over uw gegevens door self-hosting Retrospected te houden. Eenmalige kosten, onbeperkte updates. Start snel onze geweldige documentatie in een handomdraai.",
-		"features": [
-			"Volledige controles: jouw gegevens blijven op je werkplaats",
-			"Makkelijk te installeren",
-			"Beheer paneel",
-			"Alle gebruikers zijn Pro",
-			"Gratis updates, voor altijd"
-		],
-		"button": {
-			"link": "https://docs.retrospected.com",
-			"label": "Ontdek onze documentatie"
-		}
-	},
-	"Features": {
-		"heading": "Start een retrospectief in seconden",
-		"description": "Het starten of deelnemen aan een retro is zo eenvoudig als 1, 2, 3. Het is wrijvingsloos.",
-		"1": {
-			"title": "Responsief",
-			"description": "Retrospected werkt in alle formaten van je iPhone tot een 4K-monitor."
-		},
-		"2": {
-			"title": "Aanpasbaar",
-			"description": "Retrospected is zeer aanpasbaar. U kunt de kolommen, het stemsysteem aanpassen, de timer etc."
-		},
-		"3": {
-			"title": "Beveiligen",
-			"description": "Er zijn 2 beveiligingsfuncties voor Pro-gebruikers: de mogelijkheid om de inhoud lokaal (in browser) te versleutelen en de mogelijkheid om een sessie te vergrendelen zodat het alleen kan worden gezien door specifieke gebruikers."
-		},
-		"4": {
-			"title": "Meertaligheid",
-			"description": "Retrospected komt met 15 talen."
-		}
-	},
-	"Newsfeed": {
-		"heading": "Wat is er nieuw in Retrospected"
-	},
-	"FAQ": {
-		"heading": "Veelgestelde vragen (FAQ's)",
-		"data": [
-			{
-				"question": "Hoe worden betalingen behandeld?",
-				"answer": "Betalingen worden afgehandeld door onze partner, Stripe. Er wordt geen betalingsinformatie opgeslagen door Retrospected."
-			},
-			{
-				"question": "Geef je in sommige gevallen gratis Pro-licenties?",
-				"answer": "Als u dit product als liefdadigheid gebruikt, of u bent in opleiding, stuur ons een e-mail en we regelen een gratis licentie voor u. Contacteer ons."
-			},
-			{
-				"question": "Zal ik meer betalen voor sommige functies?",
-				"answer": "We hebben slechts 2 tiers: Gratis en Pro. Alle functies zijn ontgrendeld wanneer u zich abonneert op een Pro-account."
-			},
-			{
-				"question": "Is het mogelijk jaarlijks te betalen?",
-				"answer": "U kan! Selecteer deze optie bij het afrekenen en u krijgt één maand gratis per jaar."
-			},
-			{
-				"question": "Kan ik mijn abonnement annuleren?",
-				"answer": "Ja. Het abonnement kan op elk gewenst moment worden gestopt en zal eindigen aan het einde van uw huidige factureringsmaand."
-			},
-			{
-				"question": "Is er een limiet?",
-				"answer": "Er is geen limiet aan de hoeveelheid opgeslagen gegevens, afhankelijk van het beleid voor eerlijk gebruik. Voor gratis accounts bent u beperkt tot 40 posts."
-			}
-		]
-	},
-	"CTA": {
-		"heading": "Start nu een Retrospectief",
-		"description": "Sluit je aan bij de duizenden gebruikers die al Retrospected gebruiken",
-		"button": "Start een Retrospectief",
-		"hint": "Dit zal je leven veranderen!"
-	},
-	"Footer": {
-		"legal": "Juridische voorwerpen",
-		"copyright": "Copyright © 2023 - Retrospected Ltd. Alle rechten voorbehouden.",
-		"about": "We maken software met Liefe, uit Londen, VK",
-		"various": "Various",
-		"documentation": "Documentation"
-	},
-	"Contact": {
-		"title": "Contact informatie",
-		"address": "Retrospected Ltd, Londen, VK",
-		"phone": "+44 (niet gebruikt voor nu)",
-		"openingTime": "7 Dagen - 8am - 10.00 uur",
-		"email": "support@retrospected.com"
-	},
-	"Integration": {
-		"heading": "Integraties",
-		"description": "Integreert met Retrospecten met de gereedschappen die je al gebruikt."
-	}
+  "SEO": {
+    "title": "Retrospect",
+    "description": "Gratis Real-time Agile Retrospective Board voor technische teams"
+  },
+  "404": {
+    "heading": "404",
+    "text": "Oopsie daisy, the page you are looking for does not exist.",
+    "link": "Bring me back to safety!"
+  },
+  "Banner": {
+    "heading": "Je zal je eerste **retro** nooit vergeten**.",
+    "text": "Real-time, collaborative retrospectives done right. In seconds.",
+    "tagline": "*Geen creditcard nodig",
+    "subscribeToday": "Probeer het gratis",
+    "demo": "1-Click Demo"
+  },
+  "Nav": {
+    "home": "Startpagina",
+    "howTo": "Waarom ons?",
+    "features": "Eigenschappen",
+    "testimonial": "Beoordelingen",
+    "pricing": "Prijsstelling",
+    "faq": "FAQ",
+    "subscribe": "Abonneren",
+    "login": "Aanmelden"
+  },
+  "Clients": {
+    "main": "Doe mee met honderden bedrijven die ons product gebruiken"
+  },
+  "HowItWorks": {
+    "heading": "We zijn anders omdat...",
+    "1": {
+      "title": "We zijn snel",
+      "text": "Je kunt je retro met één klik starten."
+    },
+    "2": {
+      "title": "We zijn meertalig",
+      "text": "Onze app is beschikbaar in 15 talen!"
+    },
+    "3": {
+      "title": "We zijn aanpasbaar",
+      "text": "U kunt de app aanpassen aan uw behoeften. Kolommen, stemmen, emojis, u kunt het noemen."
+    },
+    "4": {
+      "title": "We kunnen zelf gehost zijn",
+      "text": "Als u volledige controle over uw gegevens wilt, kunt u zelf Retrospecten uitvoeren."
+    }
+  },
+  "Testimonials": {
+    "heading": "Wat mensen over ons zeggen",
+    "1": {
+      "author": "Frank Becker",
+      "designation": "Delivery Team Group & Holding/Transport - Deutsche Bahn",
+      "quote": "The easiest way to manage many retrospectives with many teams to optimize themselves. Flawless integration with AzureAD and easy migration from local users to AzureAD users. Nice and not overloaded features."
+    }
+  },
+  "Pricing": {
+    "heading": "Ontdek onze spannende prijzen",
+    "weAccept": "We accepteren ook Euros en Britse ponden",
+    "monthly": "maandelijks",
+    "yearly": "Jaarlijks",
+    "perMonth": " / maand",
+    "perYear": " / jaar",
+    "currency": "$",
+    "subscribe": "Nu abonneren",
+    "switchToYearly": "Switch to Yearly and get one month free!",
+    "switchedToYearly": "Well done, you will get one month free every year",
+    "login": "Nu inloggen",
+    "basic": {
+      "title": "Eenvoudig",
+      "price": 0,
+      "plus": "Jouw gratis optie",
+      "features": [
+        "Onbeperkte Retrospectieven",
+        "Volledige aanpassing",
+        "Giphy integratie",
+        "Anonieme accounts",
+        "40 berichten"
+      ]
+    },
+    "pro": {
+      "title": "Pro",
+      "price": "12.9",
+      "plus": "Alles van Basic, plus:",
+      "features": [
+        "Onbeperkt aantal berichten",
+        "Volledige data-encryptie",
+        "Privé sessies",
+        "20 gebruikers"
+      ]
+    },
+    "unlimited": {
+      "title": "Onbeperkt",
+      "price": "49.95",
+      "plus": "Alles van Pro, plus:",
+      "features": [
+        "Onbeperkt Pro-Accounts",
+        "Alle gebruikers van uw domein zijn automatisch Pro"
+      ]
+    },
+    "hosted": {
+      "title": "Zelf gehost",
+      "price": 599,
+      "plus": "Alles van ongelimiteerd, plus:",
+      "features": [
+        "Beheerfunctie van gebruikers",
+        "Alle gebruikers zijn Pro-gebruikers",
+        "Levenslange updates",
+        "Geweldige documentatie"
+      ]
+    }
+  },
+  "SelfHosted": {
+    "slogan": "Eigen hosting",
+    "title": "Retrospecteerd op uw werkplaats",
+    "desc": "Houd de volledige controle over uw gegevens door self-hosting Retrospected te houden. Eenmalige kosten, onbeperkte updates. Start snel onze geweldige documentatie in een handomdraai.",
+    "features": [
+      "Volledige controles: jouw gegevens blijven op je werkplaats",
+      "Makkelijk te installeren",
+      "Beheer paneel",
+      "Alle gebruikers zijn Pro",
+      "Gratis updates, voor altijd"
+    ],
+    "button": {
+      "link": "https://docs.retrospected.com",
+      "label": "Ontdek onze documentatie"
+    }
+  },
+  "Features": {
+    "heading": "Start een retrospectief in seconden",
+    "description": "Het starten of deelnemen aan een retro is zo eenvoudig als 1, 2, 3. Het is wrijvingsloos.",
+    "1": {
+      "title": "Responsief",
+      "description": "Retrospected werkt in alle formaten van je iPhone tot een 4K-monitor."
+    },
+    "2": {
+      "title": "Aanpasbaar",
+      "description": "Retrospected is zeer aanpasbaar. U kunt de kolommen, het stemsysteem aanpassen, de timer etc."
+    },
+    "3": {
+      "title": "Beveiligen",
+      "description": "Er zijn 2 beveiligingsfuncties voor Pro-gebruikers: de mogelijkheid om de inhoud lokaal (in browser) te versleutelen en de mogelijkheid om een sessie te vergrendelen zodat het alleen kan worden gezien door specifieke gebruikers."
+    },
+    "4": {
+      "title": "Meertaligheid",
+      "description": "Retrospected komt met 15 talen."
+    }
+  },
+  "Newsfeed": {
+    "heading": "Wat is er nieuw in Retrospected"
+  },
+  "FAQ": {
+    "heading": "Veelgestelde vragen (FAQ's)",
+    "data": [
+      {
+        "question": "Hoe worden betalingen behandeld?",
+        "answer": "Betalingen worden afgehandeld door onze partner, Stripe. Er wordt geen betalingsinformatie opgeslagen door Retrospected."
+      },
+      {
+        "question": "Geef je in sommige gevallen gratis Pro-licenties?",
+        "answer": "Als u dit product als liefdadigheid gebruikt, of u bent in opleiding, stuur ons een e-mail en we regelen een gratis licentie voor u. Contacteer ons."
+      },
+      {
+        "question": "Zal ik meer betalen voor sommige functies?",
+        "answer": "We hebben slechts 2 tiers: Gratis en Pro. Alle functies zijn ontgrendeld wanneer u zich abonneert op een Pro-account."
+      },
+      {
+        "question": "Is het mogelijk jaarlijks te betalen?",
+        "answer": "U kan! Selecteer deze optie bij het afrekenen en u krijgt één maand gratis per jaar."
+      },
+      {
+        "question": "Kan ik mijn abonnement annuleren?",
+        "answer": "Ja. Het abonnement kan op elk gewenst moment worden gestopt en zal eindigen aan het einde van uw huidige factureringsmaand."
+      },
+      {
+        "question": "Is er een limiet?",
+        "answer": "Er is geen limiet aan de hoeveelheid opgeslagen gegevens, afhankelijk van het beleid voor eerlijk gebruik. Voor gratis accounts bent u beperkt tot 40 posts."
+      }
+    ]
+  },
+  "CTA": {
+    "heading": "Start nu een Retrospectief",
+    "description": "Sluit je aan bij de duizenden gebruikers die al Retrospected gebruiken",
+    "button": "Start een Retrospectief",
+    "hint": "Dit zal je leven veranderen!"
+  },
+  "Footer": {
+    "legal": "Juridische voorwerpen",
+    "copyright": "Copyright © 2023 - Retrospected Ltd. Alle rechten voorbehouden.",
+    "about": "We maken software met Liefe, uit Londen, VK",
+    "various": "Various",
+    "documentation": "Documentation"
+  },
+  "Contact": {
+    "title": "Contact informatie",
+    "address": "Retrospected Ltd, Londen, VK",
+    "phone": "+44 (niet gebruikt voor nu)",
+    "openingTime": "7 Dagen - 8am - 10.00 uur",
+    "email": "support@retrospected.com"
+  },
+  "Integration": {
+    "heading": "Integraties",
+    "description": "Integreert met Retrospecten met de gereedschappen die je al gebruikt."
+  }
 }

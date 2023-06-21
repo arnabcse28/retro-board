@@ -35,7 +35,7 @@ export const selfHostedPlan: InternalProduct = {
   seats: null,
   eur: 59900,
   gbp: 49900,
-  usd: 64900,
+  usd: 59900,
   paymentsUrls: {
     eur: config.STRIPE_SELF_HOSTED_URL_EUR,
     gbp: config.STRIPE_SELF_HOSTED_URL_GBP,

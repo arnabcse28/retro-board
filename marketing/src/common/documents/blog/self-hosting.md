@@ -12,7 +12,7 @@ dropcap: 'false'
 
 # Own hosting, own servers, own privacy
 
-_Retrospected Self-Hosting Edition_ allows you to **host your retrospective data on your servers** for ultimate privacy and control. With our self-hosted solution, you can enjoy complete control, privacy, and security while leveraging the power of Retrospected.
+_Retrospected Self-Hosting Edition_ allows you to **host your retrospective data on your servers** for ultimate privacy and control. With our self-hosted solution, you can enjoy complete control, privacy, security and customisation while leveraging the power of Retrospected.
 
 ![Your own private cloud](/assets/blog/self-hosting/private-cloud.svg,1024x768)
 
@@ -29,8 +29,8 @@ _Retrospected Self-Hosting Edition_ offers a comprehensive set of features, empo
 Here are some key features:
 
 - **Data Control**: Retain full control over your retrospective data, ensuring it remains within your organization's boundaries.
-- **Enhanced Security**: Leverage your existing security measures and infrastructure, reinforcing the security of your retrospective data.
-- **Customization Options**: Tailor Retrospected to align with your specific security and privacy policies, ensuring compliance with regulations. Use your own SSO mechanism via Google OAuth, Github, Okta...
+- **Enhanced Security**: Leverage your existing security measures and infrastructure, reinforcing the security of your retrospective data. Use your own SSO mechanism via Google OAuth, Github, Okta...
+- **Customization Options**: [Customise your instance](https://docs.retrospected.com/docs/self-hosting/white-labelling) with the logo and colors of your organization. Primary and secondary colours, in addition to the header colours and logo, can be customized.
 - **Lifetime updates**: You will be receiving updates at the same time as the online version.
   Dedicated Admin Panel: Manage your users via a dedicated Admin Panel
 
@@ -62,11 +62,11 @@ Deploying Retrospected Self-Hosting Edition cannot be more simple:
 
 - **Easy Installation**: Our [interactive documentation](https://docs.retrospected.com/docs/self-hosting/quick-start/) will help you configure Retrospect on your own servers in 5 minutes, using Docker Compose.
 - **Technical Support** for your installation: We offer an optional 30-minute call with our expert support team to assist you during the installation.
-- **Documentation**: Our world-class [documentation](https://docs.retrospected.com) is also here to help you along the way.
+- **Documentation**: Our [documentation](https://docs.retrospected.com) is also here to help you along the way.
 
 # Pricing and Licensing
 
-**One-time cost of $649, free updates forever**.
+**One-time cost of $599, free updates forever**.
 
 You can try Retrospected Self-Hosting Edition today, for free, no payment required. Simply follow the setup steps on our [documentation](https://docs.retrospected.com/docs/self-hosting/quick-start/).
 

@@ -38,7 +38,7 @@ Retrospected pricing:
 - Free version has all features except private sessions and encrypted sessions and is limited to 40 posts per user
 - Pro Team: same as free, but can be used by up to 20 users and have private sessions and encrypted sessions, cost 12.90 USD/month
 - Pro Unlimited: same as Pro, but doesn't have a user limit, cost 49.95 USD/month
-- Self-hosted version: same as Pro Unlimited, unlimited updates, one-time fee, 649.00 USD
+- Self-hosted version: same as Pro Unlimited, unlimited updates, one-time fee, 599.00 USD
 - 30-day trial version of the Pro version
 
 When you are responding to questions:
