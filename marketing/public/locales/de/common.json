@@ -9,8 +9,8 @@
     "link": "Zurück!"
   },
   "Banner": {
-    "heading": "A **simple** & **powerful** app for **efficient** online retros.",
-    "text": "**Level up** your team with a **modern** and **easy-to-use** retrospective tool. Highly **customizable**, multi-language, use online or on-premises… Make your sprints as **impactful** as possible!",
+    "heading": "Deine erste **Retro** wirst du **nie vergessen**.",
+    "text": "Bieten Sie Ihrem Team **kontinuierliche Verbesserungen** mit einem **modernen** und **einfach zu bedienenden** Retrospektiv-Tool.",
     "tagline": "*Keine Kreditkarte nötig",
     "subscribeToday": "Kostenlos probieren",
     "demo": "1-Klick Demo"
@@ -24,7 +24,7 @@
     "faq": "Häufig gestellte Fragen",
     "subscribe": "Abonnieren",
     "login": "Login",
-    "selfhosting": "Self-Hosting"
+    "selfhosting": "Selbsthosting"
   },
   "Clients": {
     "main": "Werden auch Sie Mitglied der Hunderten von Unternehmen, die Retrospected bereits nutzen"
@@ -36,16 +36,16 @@
       "text": "Mit nur einem Klick eine Retrospektive starten."
     },
     "2": {
-      "title": "Multilingual interface",
+      "title": "Unser mehrsprachiger Support",
       "text": "Unsere App ist in 15 Sprachen erhältlich!"
     },
     "3": {
-      "title": "Customisation options",
+      "title": "Unsere Anpassungsoptionen",
       "text": "Sie können die App an Ihre Bedürfnisse anpassen. Spalten, Abstimmungen, Emojis, egal was."
     },
     "4": {
-      "title": "Self-hosting",
-      "text": "If you want complete control of your data, you can host Retrospected on your premises."
+      "title": "Unsere Möglichkeit zum Selbsthosting",
+      "text": "Für eine vollständige Kontrolle über Ihre Daten können Sie Retrospected selbst hosten."
     }
   },
   "Testimonials": {
@@ -125,7 +125,7 @@
       "Kostenlose Updates, für immer"
     ],
     "button": {
-      "label": "Learn more"
+      "label": "Entdecken Sie unsere Dokumentation"
     }
   },
   "Features": {
