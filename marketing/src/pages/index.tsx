@@ -19,7 +19,8 @@ import { useTranslation } from 'next-i18next';
 import { getAllLegalDocuments, LegalDocumentMetadata } from '@/lib/getLegal';
 import { MenuItem } from '@/types';
 import Layout from '@/containers/Layout/Layout';
-import { BlogMetadata, getAllBlogs, getAllBlogsForLocale } from '@/lib/getBlog';
+import { BlogMetadata, getAllBlogsForLocale } from '@/lib/getBlog';
+import { Callback } from '@/containers/Callback/Callback';
 
 type HomePageProps = {
   legals: LegalDocumentMetadata[];
@@ -50,6 +51,7 @@ export default function HomePage({ legals, blogs, locale }: HomePageProps) {
       </CombinedSection>
       <Faq />
       <CallToAction />
+      <Callback />
     </Layout>
   );
 }

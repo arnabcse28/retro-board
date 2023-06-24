@@ -97,6 +97,12 @@ This will run a demo version, which you can turn into a fully licenced version b
 
 ## Versions History
 
+### Version 5.2.0
+
+- [⭐️ Self-Hosting] Adding [white-labelling customisation](https://docs.retrospected.com/docs/self-hosting/white-labelling) options to Self-Hosted instances
+- New page explaining what Self-Hosted is and what it can do for you
+- New callback button on the marketing website
+
 ### Version 5.1.2 (hotfix)
 
 - Fix odd bug crashing the side-panel in certain circumstances
