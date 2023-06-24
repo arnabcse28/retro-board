@@ -10,10 +10,15 @@ export function Callback() {
   return (
     <Container href={LINK} target="_blank">
       <Icon src={phoneIcon} alt="phone" height={20} />
-      <span>{t('Callback.message')}</span>
+      <Text>{t('Callback.message')}</Text>
     </Container>
   );
 }
+
+const Text = styled.span`
+  display: none;
+  visibility: hidden;
+`;
 
 const Container = styled.a`
   font-size: 12px;
@@ -30,6 +35,10 @@ const Container = styled.a`
   color: white;
   :hover {
     background-color: hsl(350, 100%, 55%);
+    ${Text} {
+      display: inline;
+      visibility: visible;
+    }
   }
   cursor: pointer;
   z-index: 1000;
