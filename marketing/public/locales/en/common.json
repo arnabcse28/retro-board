@@ -125,7 +125,6 @@
       "Free updates, forever"
     ],
     "button": {
-      "link": "/blog/self-hosting",
       "label": "Learn more"
     }
   },
@@ -204,5 +203,8 @@
   "Integration": {
     "heading": "Integrations",
     "description": "Retrospected integrates with the tools you already use."
+  },
+  "Callback": {
+    "message": "Request a free 30-min demo"
   }
 }

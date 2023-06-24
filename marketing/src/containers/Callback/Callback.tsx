@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 import phoneIcon from './phone.svg';
 import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
 
 export function Callback() {
+  const { t } = useTranslation();
   return (
     <Container href="https://forms.gle/tKpjtu1rLk9qqTBE7" target="_blank">
       <Icon src={phoneIcon} alt="phone" height={20} />
-      <span>Request a free 30-min demo</span>
+      <span>{t('Callback.message')}</span>
     </Container>
   );
 }

@@ -9,8 +9,8 @@
     "link": "Tirez-moi de là !"
   },
   "Banner": {
-    "heading": "Vous n'**oublierez jamais** votre première **rétro**.",
-    "text": "Soutenez la **collaboration** et l'**amélioration continue** de vos équipes avec une plateforme **moderne** et **intuitive**.",
+    "heading": "Une app **simple** et **puissante** pour des rétros en ligne **efficaces**.",
+    "text": "**Boostez** le niveau de votre équipe avec des retrospéctives **modernes** et un outil **facile à utiliser**. **Personnalisable**, multi-langues, utilisez en ligne ou auto-hébergé… Donnez à vos sprints l'**impact** qu'ils méritent !",
     "tagline": "*Aucune carte bancaire demandée",
     "subscribeToday": "Essayez gratuitement",
     "demo": "Démo en 1 clic"
@@ -23,7 +23,8 @@
     "pricing": "Tarifs",
     "faq": "FAQ",
     "subscribe": "S'abonner",
-    "login": "Connexion"
+    "login": "Connexion",
+    "selfhosting": "Auto-Hébergement"
   },
   "Clients": {
     "main": "Des centaines d'entreprises utilisent Retrospected"
@@ -35,16 +36,16 @@
       "text": "Commencez une rétrospective en un clic."
     },
     "2": {
-      "title": "Notre interface multilingue",
+      "title": "Interface multilingue",
       "text": "Utilisez Retrospected dans l'une des 15 langues disponibles (dont le Français)."
     },
     "3": {
-      "title": "Notre app personnalisable",
+      "title": "Options de personnalisation",
       "text": "Personnalisez l'application à vos besoins : colonnes, votes, émoticônes, etc."
     },
     "4": {
-      "title": "Héberger Retrospected sur vos serveurs (ou les nôtres)",
-      "text": "Si vous voulez un contrôle total de vos données, vous pouvez héberger Retrospected."
+      "title": "Auto-Hébergement",
+      "text": "Si vous voulez un contrôle total de vos données, vous pouvez héberger Retrospected sur vos serveurs."
     }
   },
   "Testimonials": {
@@ -124,8 +125,7 @@
       "Mises à jour gratuites, pour toujours"
     ],
     "button": {
-      "link": "https://docs.retrospected.com",
-      "label": "Découvrez notre documentation"
+      "label": "En savoir plus"
     }
   },
   "Features": {
@@ -203,5 +203,8 @@
   "Integration": {
     "heading": "Intégrations",
     "description": "Retrospected s'intègre avec les outils que vous utilisez déjà."
+  },
+  "Callback": {
+    "message": "Demandez une démo gratuite de 30 min"
   }
 }

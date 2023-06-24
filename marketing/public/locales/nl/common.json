@@ -9,8 +9,8 @@
     "link": "Bring me back to safety!"
   },
   "Banner": {
-    "heading": "Je zal je eerste **retro** nooit vergeten**.",
-    "text": "Real-time, collaborative retrospectives done right. In seconds.",
+    "heading": "A **simple** & **powerful** app for **efficient** online retros.",
+    "text": "**Level up** your team with a **modern** and **easy-to-use** retrospective tool. Highly **customizable**, multi-language, use online or on-premises… Make your sprints as **impactful** as possible!",
     "tagline": "*Geen creditcard nodig",
     "subscribeToday": "Probeer het gratis",
     "demo": "1-Click Demo"
@@ -23,7 +23,8 @@
     "pricing": "Prijsstelling",
     "faq": "FAQ",
     "subscribe": "Abonneren",
-    "login": "Aanmelden"
+    "login": "Aanmelden",
+    "selfhosting": "Self-Hosting"
   },
   "Clients": {
     "main": "Doe mee met honderden bedrijven die ons product gebruiken"
@@ -35,16 +36,16 @@
       "text": "Je kunt je retro met één klik starten."
     },
     "2": {
-      "title": "We zijn meertalig",
+      "title": "Multilingual interface",
       "text": "Onze app is beschikbaar in 15 talen!"
     },
     "3": {
-      "title": "We zijn aanpasbaar",
+      "title": "Customisation options",
       "text": "U kunt de app aanpassen aan uw behoeften. Kolommen, stemmen, emojis, u kunt het noemen."
     },
     "4": {
-      "title": "We kunnen zelf gehost zijn",
-      "text": "Als u volledige controle over uw gegevens wilt, kunt u zelf Retrospecten uitvoeren."
+      "title": "Self-hosting",
+      "text": "If you want complete control of your data, you can host Retrospected on your premises."
     }
   },
   "Testimonials": {
@@ -67,6 +68,7 @@
     "switchToYearly": "Switch to Yearly and get one month free!",
     "switchedToYearly": "Well done, you will get one month free every year",
     "login": "Nu inloggen",
+    "free": "Free",
     "basic": {
       "title": "Eenvoudig",
       "price": 0,
@@ -123,8 +125,8 @@
       "Gratis updates, voor altijd"
     ],
     "button": {
-      "link": "https://docs.retrospected.com",
-      "label": "Ontdek onze documentatie"
+      "link": "/blog/self-hosting",
+      "label": "Learn more"
     }
   },
   "Features": {
@@ -202,5 +204,8 @@
   "Integration": {
     "heading": "Integraties",
     "description": "Integreert met Retrospecten met de gereedschappen die je al gebruikt."
+  },
+  "Callback": {
+    "message": "Request a free 30-min demo"
   }
 }
