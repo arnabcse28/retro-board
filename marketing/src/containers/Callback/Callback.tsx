@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 import phoneIcon from './phone.svg';
 import Image from 'next/image';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
+
+const LINK = 'https://forms.gle/tKpjtu1rLk9qqTBE7';
 
 export function Callback() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
   return (
-    <Container href="https://forms.gle/tKpjtu1rLk9qqTBE7" target="_blank">
+    <Container href={LINK} target="_blank">
       <Icon src={phoneIcon} alt="phone" height={20} />
       <span>{t('Callback.message')}</span>
     </Container>
