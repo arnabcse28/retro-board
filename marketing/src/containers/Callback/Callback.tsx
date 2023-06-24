@@ -44,7 +44,7 @@ const Container = styled.a`
   z-index: 1000;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
-  @media (max-width: 767px) {
+  @media (max-width: 450px) {
     width: 100%;
     bottom: 0;
     margin: 0;
@@ -52,6 +52,11 @@ const Container = styled.a`
     left: 0;
     border-radius: 0;
     box-shadow: none;
+
+    ${Text} {
+      display: inline;
+      visibility: visible;
+    }
   }
 `;
 

@@ -88,11 +88,11 @@ const Banner = () => {
             />
             <NextImage
               src={screenshot}
-              alt="dashboard"
+              alt="Screenshot of Retrospected"
               priority
               placeholder="blur"
               fill
-              quality={50}
+              quality={30}
             />
           </Figure>
         </BannerContentWrapper>
