@@ -38,7 +38,7 @@ Here are some key features:
 
 You can customise the **look-and-feel** of your self-instance easily. You can change the **logo**, the **primary** and secondary **colors**, and the **header colors**.
 
-![White-Labelling example](/assets/blog/self-hosting/white-label.png,1024x768)
+![White-Labelling example](/assets/blog/self-hosting/white-label-2.jpeg,1024x768)
 
 This is available directly from our [Docker configuration tool](https://docs.retrospected.com/docs/self-hosting/quick-start/), or can be done manually using the [documentation](https://docs.retrospected.com/docs/self-hosting/white-labelling).
 
