@@ -40,7 +40,7 @@ Vous pouvez personnaliser l'interface de votre instance : changer le **logo**, l
 
 # Panneau d'administration
 
-La version _Self-Hosted Edition_ fournit un [panneau d'administration] (https://docs.retrospected.com/docs/self-hosting/admin) pour gérer simplement vos utilisateurs :
+La version _Self-Hosted Edition_ fournit un [panneau d'administration](https://docs.retrospected.com/docs/self-hosting/admin) pour gérer simplement vos utilisateurs :
 
 - **Créer** de nouveaux utilisateurs
 - **Modifier** les mots de passe (pour les comptes avec mot de passe)
