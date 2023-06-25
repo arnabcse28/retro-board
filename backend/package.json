@@ -1,6 +1,6 @@
 {
   "name": "@retrospected/backend",
-  "version": "5.1.2",
+  "version": "5.2.0",
   "license": "GNU GPLv3",
   "private": true,
   "type": "module",
