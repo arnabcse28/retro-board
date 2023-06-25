@@ -97,6 +97,10 @@ This will run a demo version, which you can turn into a fully licenced version b
 
 ## Versions History
 
+### Version 5.2.2 (hotfix)
+
+- Improving documentation
+
 ### Version 5.2.1 (hotfix)
 
 - Header logo bug fix
