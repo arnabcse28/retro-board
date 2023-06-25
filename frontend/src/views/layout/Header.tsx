@@ -46,7 +46,7 @@ export function Header() {
         </IconButton>
         <MainTitle onClick={goToHome} data-cy="header-home-button">
           <img
-            src={config ? config.LOGO : logoIcon}
+            src={config.LOGO ? config.LOGO : logoIcon}
             alt="Retrospected Icon"
             height="30"
           />

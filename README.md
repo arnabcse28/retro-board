@@ -97,6 +97,10 @@ This will run a demo version, which you can turn into a fully licenced version b
 
 ## Versions History
 
+### Version 5.2.1 (hotfix)
+
+- Header logo bug fix
+
 ### Version 5.2.0
 
 - [⭐️ Self-Hosting] Adding [white-labelling customisation](https://docs.retrospected.com/docs/self-hosting/white-labelling) options to Self-Hosted instances
