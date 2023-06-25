@@ -27,7 +27,24 @@ You have the ability to change 4 details:
 
 All the following are to be set in the `docker-compose.yml` file, in the `frontend` section.
 
-Alternatively, you can set this up using the docker-compose editor [here](quick-start).
+Alternatively, you can set this up using the docker-compose editor [here](/docs/self-hosting/quick-start).
+
+The `frontend` section of your `docker-compose.yml` file would look similar to this:
+
+```yaml
+frontend:
+  image: retrospected/frontend:latest
+  depends_on:
+    - backend
+  ports:
+    - '80:80' # Change the first 80 to whatever port you want to access Retrospected from
+  environment:
+    FRONTEND_PRIMARY_COLOR: '#ffebee,#ffcdd2,#ef9a9a,#e57373,#ef5350,#f44336,#e53935,#d32f2f,#c62828,#b71c1c,#ff8a80,#ff5252,#ff1744,#d50000'
+    FRONTEND_SECONDARY_COLOR: '#e8f5e9,#c8e6c9,#a5d6a7,#81c784,#66bb6a,#4caf50,#43a047,#388e3c,#2e7d32,#1b5e20,#b9f6ca,#69f0ae,#00e676,#00c853'
+    FRONTEND_HEADER_PRIMARY_COLOR: '#FFFFFF'
+    FRONTEND_HEADER_SECONDARY_COLOR: '#000000'
+    FRONTEND_LOGO: 'https://acme.com/your-icon.jpg'
+```
 
 ### Configure the Primary and Secondary colours
 
