@@ -1,3 +1,4 @@
+import useEventListener from '@use-it/event-listener';
 import styled from 'styled-components';
 
 type YouTubePlayerProps = {
@@ -6,6 +7,10 @@ type YouTubePlayerProps = {
 };
 
 export function YouTubePlayer({ onClose, url }: YouTubePlayerProps) {
+  const handleEsc = (event: KeyboardEvent) => {
+    if (event.code === 'Escape') onClose();
+  };
+  useEventListener('keydown', handleEsc);
   return (
     <Player>
       <HeaderContainer>

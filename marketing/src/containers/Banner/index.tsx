@@ -154,11 +154,11 @@ const PlayOverlay = styled.div`
   text-align: center;
   font-size: 3rem;
   > svg {
-    fill: grey;
+    fill: #ccc;
   }
   &:hover {
     svg {
-      fill: black !important;
+      fill: #777 !important;
     }
   }
   z-index: 1;
