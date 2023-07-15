@@ -29,7 +29,8 @@
     "login": "ログイン",
     "searchNoMatch": "検索に一致する回顧展が見つかりませんでした ({{search}})。",
     "proNotSetupWarning": "Proチームアカウントを購読しているため、19人の同僚にProアカウントを付与することができます。 サブスクリプションに追加することで、Pro版にもなります。 アカウントページに行き、メールアドレス(「チーム」セクション)を追加してください。",
-    "proNotSetupWarningAction": "アカウントページに移動"
+    "proNotSetupWarningAction": "アカウントページに移動",
+    "discover": "後退しているものを発見"
   },
   "PreviousGame": {
     "createdBy": "作成者:",

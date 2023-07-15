@@ -29,7 +29,8 @@
     "login": "Logowanie",
     "searchNoMatch": "Nie mogliśmy znaleźć retrospektywnego pasującego do Twojego wyszukiwania ({{search}}).",
     "proNotSetupWarning": "Zasubskrybowałeś konto Pro Team, co oznacza, że możesz przyznać 19 innym kolegom konto Pro. Aby dodać je do subskrypcji, aby mogli zostać również Pro, przejdź na stronę swojego konta i dodaj ich e-maile (sekcja \"Twój Zespół\").",
-    "proNotSetupWarningAction": "Przejdź do strony konta"
+    "proNotSetupWarningAction": "Przejdź do strony konta",
+    "discover": "Odkryj przekreślone"
   },
   "PreviousGame": {
     "createdBy": "Utworzony przez",

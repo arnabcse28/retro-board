@@ -29,7 +29,8 @@
     "login": "Connexion",
     "searchNoMatch": "Nous n'avons pu trouver une retrospective correspondant à votre recherche ({{search}}).",
     "proNotSetupWarning": "Vous avez souscrit à un compte Pro Team, ce qui signifie que vous pouvez accorder à 19 autres collègues un compte Pro. Pour les ajouter à votre abonnement afin qu'ils puissent bénéficier de ses avantages, veuillez vous rendre sur la page \"Mon compte\" et ajouter leurs e-mails dans la section « Votre équipe ».",
-    "proNotSetupWarningAction": "Aller à la page \"Mon compte\""
+    "proNotSetupWarningAction": "Aller à la page \"Mon compte\"",
+    "discover": "Découvrez Retrospected"
   },
   "PreviousGame": {
     "createdBy": "Créé par",

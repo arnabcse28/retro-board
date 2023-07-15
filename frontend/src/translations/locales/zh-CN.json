@@ -29,7 +29,8 @@
     "login": "登录",
     "searchNoMatch": "我们找不到匹配您搜索的 ({{search}} )的追溯。",
     "proNotSetupWarning": "您已经订阅了专业团队账户，这意味着您可以授予其他19位同事专业版账户。 将他们添加到您的订阅，这样他们也可以成为专业版。 请转到您的帐户页面并添加他们的电子邮件('您的团队'部分)。",
-    "proNotSetupWarningAction": "转到帐户页面"
+    "proNotSetupWarningAction": "转到帐户页面",
+    "discover": "发现回顾过的"
   },
   "PreviousGame": {
     "createdBy": "创建者",

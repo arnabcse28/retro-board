@@ -29,7 +29,8 @@
     "login": "",
     "searchNoMatch": "",
     "proNotSetupWarning": "",
-    "proNotSetupWarningAction": ""
+    "proNotSetupWarningAction": "",
+    "discover": ""
   },
   "PreviousGame": {
     "createdBy": "由...製作",

@@ -29,7 +29,8 @@
     "login": "Belépés",
     "searchNoMatch": "",
     "proNotSetupWarning": "",
-    "proNotSetupWarningAction": ""
+    "proNotSetupWarningAction": "",
+    "discover": ""
   },
   "PreviousGame": {
     "createdBy": "Készítette",

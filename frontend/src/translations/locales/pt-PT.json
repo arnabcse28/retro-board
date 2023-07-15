@@ -29,7 +29,8 @@
     "login": "Conectar-se",
     "searchNoMatch": "Não foi possível encontrar um retrospectivo correspondente à sua pesquisa ({{search}}).",
     "proNotSetupWarning": "Você se inscreveu em uma conta de equipe Pro, o que significa que você pode conceder uma conta Pro a 19 outros colegas. Para adicioná-los à sua assinatura para que possam se tornar o Pro. por favor, acesse a página da sua Conta e adicione os e-mails deles (seção 'Sua Equipe').",
-    "proNotSetupWarningAction": "Ir para a página da Conta"
+    "proNotSetupWarningAction": "Ir para a página da Conta",
+    "discover": "Descubra Retrospecionado"
   },
   "PreviousGame": {
     "createdBy": "Criado Por",

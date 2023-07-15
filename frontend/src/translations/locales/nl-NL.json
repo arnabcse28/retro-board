@@ -29,7 +29,8 @@
     "login": "Aanmelden",
     "searchNoMatch": "We konden geen terugwerkende kracht vinden die overeenkomt met uw zoekopdracht ({{search}}).",
     "proNotSetupWarning": "U heeft zich geabonneerd op een Pro-teamaccount, wat betekent dat u 19 andere collega's een Pro-account kunt geven. Om ze toe te voegen aan uw abonnement zodat ze ook Pro kunnen worden, Ga naar uw accountpagina en voeg hun e-mails toe ('Uw team' sectie).",
-    "proNotSetupWarningAction": "Ga naar Account pagina"
+    "proNotSetupWarningAction": "Ga naar Account pagina",
+    "discover": "Ontdek Retrospecten"
   },
   "PreviousGame": {
     "createdBy": "Aangemaakt door",

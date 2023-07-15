@@ -29,7 +29,8 @@
     "login": "Anmelden",
     "searchNoMatch": "Wir konnten keine Retrospektive finden, die Ihrer Suche entspricht ({{search}}).",
     "proNotSetupWarning": "Sie haben ein Pro-Team-Konto abonniert, was bedeutet, dass Sie 19 anderen Kollegen ein Pro-Konto gewähren können. Um sie Ihrem Abonnement hinzuzufügen, damit sie auch Pro werden können gehen Sie bitte auf Ihre Account-Seite und fügen Sie ihre E-Mails hinzu ('Ihr Team').",
-    "proNotSetupWarningAction": "Gehe zur Kontoseite"
+    "proNotSetupWarningAction": "Gehe zur Kontoseite",
+    "discover": "Entdecke Retrospected"
   },
   "PreviousGame": {
     "createdBy": "Erstellt von",

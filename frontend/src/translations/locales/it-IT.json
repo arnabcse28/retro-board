@@ -29,7 +29,8 @@
     "login": "Accedi",
     "searchNoMatch": "Non siamo riusciti a trovare una retrospettiva corrispondente alla tua ricerca ({{search}}).",
     "proNotSetupWarning": "Hai sottoscritto un account Pro Team, il che significa che puoi concedere ad altri 19 colleghi un account Pro. Per aggiungerli al tuo abbonamento in modo che possano diventare anche Pro, vai alla pagina del tuo Account e aggiungi le loro email (sezione 'Il tuo Team').",
-    "proNotSetupWarningAction": "Vai alla pagina Account"
+    "proNotSetupWarningAction": "Vai alla pagina Account",
+    "discover": "Scopri Retrospetto"
   },
   "PreviousGame": {
     "createdBy": "Creato da",
