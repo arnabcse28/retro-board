@@ -160,7 +160,23 @@ function Home() {
               </Alert>
             ) : null}
           </>
-        ) : null}
+        ) : (
+          <>
+            <PreviousContainer>
+              <SubHeader>{t('Home.discover')}</SubHeader>
+            </PreviousContainer>
+            <VideoContainer>
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/B14Gtm2Z_70"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </VideoContainer>
+          </>
+        )}
       </Page>
     </>
   );
@@ -212,6 +228,18 @@ const LaunchButtons = styled.div`
     > *:last-child {
       margin-top: 40px;
     }
+  }
+`;
+
+const VideoContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  > iframe {
+    width: min(800px, 100%);
+    aspect-ratio: 800/450;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   }
 `;
 
