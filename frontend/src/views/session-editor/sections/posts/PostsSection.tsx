@@ -120,7 +120,7 @@ function PostsSection({ options, onChange }: PostsSectionProps) {
       >
         <BooleanOption value={options.allowActions} onChange={setAllowAction} />
       </OptionItem>
-      {capabilities.disableRevealNames ? null : (
+      {capabilities.disableShowAuthor ? null : (
         <OptionItem
           label={t('Customize.allowAuthorVisible')!}
           help={t('Customize.allowAuthorVisibleHelp')!}

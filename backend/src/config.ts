@@ -127,8 +127,8 @@ const config: BackendConfig = {
   OPEN_AI_API_KEY: defaults('OPEN_AI_API_KEY', ''),
   OPEN_AI_FREE_LIMIT: defaultsNumber('OPEN_AI_FREE_LIMIT', 5),
   OPEN_AI_PAID_LIMIT: defaultsNumber('OPEN_AI_PAID_LIMIT', 100),
-  DISABLE_DATA_DELETION: defaultsBool('DISABLE_DATA_DELETION', false),
-  DISABLE_REVEAL_NAMES: defaultsBool('DISABLE_REVEAL_NAMES', false),
+  DISABLE_ACCOUNT_DELETION: defaultsBool('DISABLE_ACCOUNT_DELETION', false),
+  DISABLE_SHOW_AUTHOR: defaultsBool('DISABLE_SHOW_AUTHOR', false),
 };
 
 export default config;

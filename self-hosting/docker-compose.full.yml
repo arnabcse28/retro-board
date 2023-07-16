@@ -70,8 +70,8 @@ services:
       DISABLE_ANONYMOUS_LOGIN: 'false' # Set to true to disable anonymous accounts
       DISABLE_PASSWORD_LOGIN: 'false' # Set to true to disable password accounts (email accounts).
       DISABLE_PASSWORD_REGISTRATION: 'false' # Set to true to disable password accounts registration (but not login!)
-      DISABLE_DATA_DELETION: 'false' # Set to true to disable data deletion (GDPR)
-      DISABLE_REVEAL_NAMES: 'false' # Set to true to disable the ability to reveal names, even for board owners
+      DISABLE_ACCOUNT_DELETION: 'false' # Set to true to disable data deletion (GDPR)
+      DISABLE_SHOW_AUTHOR: 'false' # Set to true to disable the ability to reveal names, even for board owners
 
       # -- AI - Open AI: Set these to enable AI capabilities. This is optional. --
       OPEN_AI_API_KEY: '' # To activate AI capabilities, you need to get an API key from https://platform.openai.com/account/api-keys

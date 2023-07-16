@@ -67,8 +67,8 @@ export interface BackendCapabilities {
   disableAnonymous: boolean;
   disablePasswords: boolean;
   disablePasswordRegistration: boolean;
-  disableDataDeletion: boolean;
-  disableRevealNames: boolean;
+  disableAccountDeletion: boolean;
+  disableShowAuthor: boolean;
   ai: boolean;
 }
 

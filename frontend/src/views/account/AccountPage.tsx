@@ -238,7 +238,7 @@ function AccountPage() {
           </Section>
         ) : null}
 
-        {capabilities.disableDataDeletion ? null : (
+        {capabilities.disableAccountDeletion ? null : (
           <Section title={t('AccountPage.deleteAccount.title')!} danger>
             <Alert severity="error">
               {t('AccountPage.deleteAccount.warning')}

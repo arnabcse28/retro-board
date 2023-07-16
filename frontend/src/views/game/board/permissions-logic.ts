@@ -114,7 +114,7 @@ export function postPermissionLogic(
   const canDisplayDownVote = maxDownVotes !== null ? maxDownVotes > 0 : true;
   const canEdit = !readonly && isLoggedIn && isAuthor;
   const canDelete = !readonly && isLoggedIn && isAuthor;
-  const canShowAuthor = allowAuthorVisible && !capabilities.disableRevealNames;
+  const canShowAuthor = allowAuthorVisible && !capabilities.disableShowAuthor;
   const canUseGiphy = isLoggedIn && allowGiphy;
   const canReorder = !readonly && isLoggedIn && allowReordering;
   const canCreateGroup = !readonly && isLoggedIn && allowGrouping;
