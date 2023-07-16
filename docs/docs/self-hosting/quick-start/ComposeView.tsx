@@ -16,6 +16,8 @@ type ComposeViewSettings = {
   disableAnon: boolean;
   disablePassword: boolean;
   disableRegistration: boolean;
+  disableAccountDeletion: boolean;
+  disableShowAuthor: boolean;
   useSendgrid: boolean;
   useSmtp: boolean;
   sendgridKey: string;
@@ -60,6 +62,8 @@ export default function ComposeView({
     disableAnon,
     disablePassword,
     disableRegistration,
+    disableAccountDeletion,
+    disableShowAuthor,
     useSendgrid,
     useSmtp,
     sendgridKey,
@@ -81,6 +85,8 @@ export default function ComposeView({
     p(disableAnon, 'DISABLE_ANONYMOUS_LOGIN', 'true'),
     p(disablePassword, 'DISABLE_PASSWORD_LOGIN', 'true'),
     p(disableRegistration, 'DISABLE_PASSWORD_REGISTRATION', 'true'),
+    p(disableAccountDeletion, 'DISABLE_DATA_DELETION', 'true'),
+    p(disableShowAuthor, 'DISABLE_REVEAL_NAMES', 'true'),
     p(useSendgrid, 'SENDGRID_API_KEY', sendgridKey),
     p(useSendgrid, 'SENDGRID_SENDER', sendgridSender),
     p(useSmtp, 'MAIL_SMTP_HOST', smtpHost),

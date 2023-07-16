@@ -43,6 +43,14 @@ export default function Editor() {
   );
   const [disableRegistration, setDisablePasswordRegistration] =
     usePersistedState('disable-password-reg', false);
+  const [disableAccountDeletion, setDisableAccountDeletion] = usePersistedState(
+    'disable-delete-account',
+    false
+  );
+  const [disableShowAuthor, setDisableShowAuthor] = usePersistedState(
+    'disable-show-author',
+    false
+  );
   const [useSendgrid, setUseSendgrid] = usePersistedState(
     'use-sendgrid',
     false
@@ -175,6 +183,22 @@ export default function Editor() {
             toggleLabel="Disable Password Registration"
             value={disableRegistration || disablePassword}
             onChange={setDisablePasswordRegistration}
+          />
+          <FieldToggle
+            id="disable-delete-data"
+            label="Disable Delete Account (RGPD)?"
+            description="Users won't be able to delete their account or data."
+            toggleLabel="Disable Delete Account"
+            value={disableAccountDeletion}
+            onChange={setDisableAccountDeletion}
+          />
+          <FieldToggle
+            id="disable-show-author"
+            label="Disable the ability to show the author of a card"
+            description="The option to show the author of a card will not be available, for anyone, including the owner of a board."
+            toggleLabel="Disable Show Author"
+            value={disableShowAuthor}
+            onChange={setDisableShowAuthor}
           />
         </div>
       </Accordion>
@@ -317,6 +341,8 @@ export default function Editor() {
           disableAnon,
           disablePassword,
           disableRegistration,
+          disableAccountDeletion,
+          disableShowAuthor,
           useSendgrid,
           useSmtp,
           sendgridKey,
