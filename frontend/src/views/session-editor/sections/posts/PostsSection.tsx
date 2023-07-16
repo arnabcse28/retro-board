@@ -5,6 +5,7 @@ import { OptionItem } from '../OptionItem';
 import { useTranslation } from 'react-i18next';
 import BooleanOption from '../BooleanOption';
 import MaxPostsSlider from './MaxPostsSlider';
+import useBackendCapabilities from 'global/useBackendCapabilities';
 
 interface PostsSectionProps {
   options: SessionOptions;
@@ -13,6 +14,7 @@ interface PostsSectionProps {
 
 function PostsSection({ options, onChange }: PostsSectionProps) {
   const { t } = useTranslation();
+  const capabilities = useBackendCapabilities();
 
   const setAllowAction = useCallback(
     (value: boolean) => {
@@ -118,15 +120,17 @@ function PostsSection({ options, onChange }: PostsSectionProps) {
       >
         <BooleanOption value={options.allowActions} onChange={setAllowAction} />
       </OptionItem>
-      <OptionItem
-        label={t('Customize.allowAuthorVisible')!}
-        help={t('Customize.allowAuthorVisibleHelp')!}
-      >
-        <BooleanOption
-          value={options.allowAuthorVisible}
-          onChange={setAllowAuthorVisible}
-        />
-      </OptionItem>
+      {capabilities.disableRevealNames ? null : (
+        <OptionItem
+          label={t('Customize.allowAuthorVisible')!}
+          help={t('Customize.allowAuthorVisibleHelp')!}
+        >
+          <BooleanOption
+            value={options.allowAuthorVisible}
+            onChange={setAllowAuthorVisible}
+          />
+        </OptionItem>
+      )}
       <OptionItem
         label={t('Customize.newPostsFirst')!}
         help={t('Customize.newPostsFirstHelp')!}

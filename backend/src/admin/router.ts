@@ -47,6 +47,8 @@ export default function getRouter(io: Server) {
       disableAnonymous: config.DISABLE_ANONYMOUS_LOGIN,
       disablePasswords: config.DISABLE_PASSWORD_LOGIN,
       disablePasswordRegistration: config.DISABLE_PASSWORD_REGISTRATION,
+      disableDataDeletion: config.DISABLE_DATA_DELETION,
+      disableRevealNames: config.DISABLE_REVEAL_NAMES,
       ai: !!config.OPEN_AI_API_KEY,
       oAuth: {
         google: !!config.GOOGLE_KEY && !!config.GOOGLE_SECRET,

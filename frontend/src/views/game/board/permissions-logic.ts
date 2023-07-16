@@ -1,4 +1,4 @@
-import { Post, Session, User, VoteType } from 'common';
+import { BackendCapabilities, Post, Session, User, VoteType } from 'common';
 import some from 'lodash/some';
 
 export interface SessionUserPermissions {
@@ -53,6 +53,7 @@ export interface PostUserPermissions {
 export function postPermissionLogic(
   post: Post,
   session: Session | null,
+  capabilities: BackendCapabilities,
   user: User | null,
   readonly: boolean
 ): PostUserPermissions {
@@ -113,7 +114,7 @@ export function postPermissionLogic(
   const canDisplayDownVote = maxDownVotes !== null ? maxDownVotes > 0 : true;
   const canEdit = !readonly && isLoggedIn && isAuthor;
   const canDelete = !readonly && isLoggedIn && isAuthor;
-  const canShowAuthor = allowAuthorVisible;
+  const canShowAuthor = allowAuthorVisible && !capabilities.disableRevealNames;
   const canUseGiphy = isLoggedIn && allowGiphy;
   const canReorder = !readonly && isLoggedIn && allowReordering;
   const canCreateGroup = !readonly && isLoggedIn && allowGrouping;

@@ -238,28 +238,30 @@ function AccountPage() {
           </Section>
         ) : null}
 
-        <Section title={t('AccountPage.deleteAccount.title')!} danger>
-          <Alert severity="error">
-            {t('AccountPage.deleteAccount.warning')}
-          </Alert>
+        {capabilities.disableDataDeletion ? null : (
+          <Section title={t('AccountPage.deleteAccount.title')!} danger>
+            <Alert severity="error">
+              {t('AccountPage.deleteAccount.warning')}
+            </Alert>
 
-          <Button
-            color="error"
-            variant="contained"
-            onClick={handleDeleteModalOpen}
-            style={{ marginTop: 20 }}
-            data-cy="delete-account-button"
-          >
-            {t('AccountPage.deleteAccount.deleteData')}
-          </Button>
+            <Button
+              color="error"
+              variant="contained"
+              onClick={handleDeleteModalOpen}
+              style={{ marginTop: 20 }}
+              data-cy="delete-account-button"
+            >
+              {t('AccountPage.deleteAccount.deleteData')}
+            </Button>
 
-          <DeleteModal
-            open={deleteModalOpen}
-            user={user}
-            onDelete={handleDeleteModalClose}
-            onClose={handleDeleteModalClose}
-          />
-        </Section>
+            <DeleteModal
+              open={deleteModalOpen}
+              user={user}
+              onDelete={handleDeleteModalClose}
+              onClose={handleDeleteModalClose}
+            />
+          </Section>
+        )}
       </Page>
     </>
   );
