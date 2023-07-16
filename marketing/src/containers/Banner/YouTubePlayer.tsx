@@ -64,6 +64,7 @@ const Player = styled.div`
   aspect-ratio: 800/450;
   padding: 0;
   margin: 0;
+  background-color: black;
   iframe {
     padding: 0;
     margin: 0;
