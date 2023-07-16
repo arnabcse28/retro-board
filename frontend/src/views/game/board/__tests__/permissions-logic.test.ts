@@ -10,6 +10,7 @@ import {
   VoteType,
   defaultOptions,
   VoteExtract,
+  BackendCapabilities,
 } from 'common';
 import { v4 } from 'uuid';
 
@@ -29,6 +30,28 @@ const anotherUser: User = {
   ...userBase,
   id: '2',
   name: 'Another User',
+};
+
+const capabilities: BackendCapabilities = {
+  adminEmail: 'admin@acme.com',
+  ai: false,
+  disableAccountDeletion: false,
+  disableAnonymous: false,
+  disablePasswordRegistration: false,
+  disablePasswords: false,
+  disableShowAuthor: false,
+  emailAvailable: true,
+  licenced: true,
+  oAuth: {
+    github: false,
+    google: false,
+    microsoft: false,
+    okta: false,
+    slack: false,
+    twitter: false,
+  },
+  selfHosted: false,
+  slackClientId: 'xxx',
 };
 
 function buildVotes(type: VoteType, users: User[], post: Post): VoteExtract[] {
@@ -161,7 +184,7 @@ describe('Posts Permission Logic', () => {
   it('When using default rules, a user on its own post', () => {
     const p = post(currentUser);
     const s = session(defaultOptions, p);
-    const result = postPermissionLogic(p, s, currentUser, false);
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
     expect(result.canCreateAction).toBe(true);
     expect(result.canEdit).toBe(true);
     expect(result.canDelete).toBe(true);
@@ -174,7 +197,7 @@ describe('Posts Permission Logic', () => {
   it('When using default rules, a user on its own post, but set to readonly', () => {
     const p = post(currentUser);
     const s = session(defaultOptions, p);
-    const result = postPermissionLogic(p, s, currentUser, true);
+    const result = postPermissionLogic(p, s, capabilities, currentUser, true);
     expect(result.canCreateAction).toBe(false);
     expect(result.canEdit).toBe(false);
     expect(result.canDelete).toBe(false);
@@ -187,7 +210,7 @@ describe('Posts Permission Logic', () => {
   it('When using default rules, a non-logged in user', () => {
     const p = post(currentUser);
     const s = session(defaultOptions, p);
-    const result = postPermissionLogic(p, s, null, false);
+    const result = postPermissionLogic(p, s, capabilities, null, false);
     expect(result.canCreateAction).toBe(false);
     expect(result.canEdit).toBe(false);
     expect(result.canDelete).toBe(false);
@@ -200,7 +223,7 @@ describe('Posts Permission Logic', () => {
   it('When using default rules, a user on another users post', () => {
     const p = post(anotherUser);
     const s = session(defaultOptions, p);
-    const result = postPermissionLogic(p, s, currentUser, false);
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
     expect(result.canCreateAction).toBe(true);
     expect(result.canEdit).toBe(false);
     expect(result.canDelete).toBe(false);
@@ -213,7 +236,7 @@ describe('Posts Permission Logic', () => {
   it('When using default rules, a user on another users post but already voted', () => {
     const p = post(anotherUser, [currentUser]);
     const s = session(defaultOptions, p);
-    const result = postPermissionLogic(p, s, currentUser, false);
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
     expect(result.canCreateAction).toBe(true);
     expect(result.canEdit).toBe(false);
     expect(result.canDelete).toBe(false);
@@ -234,7 +257,7 @@ describe('Posts Permission Logic', () => {
       p1,
       p2
     );
-    const result = postPermissionLogic(p2, s, currentUser, false);
+    const result = postPermissionLogic(p2, s, capabilities, currentUser, false);
     expect(result.canCreateAction).toBe(true);
     expect(result.canEdit).toBe(false);
     expect(result.canDelete).toBe(false);
@@ -255,7 +278,7 @@ describe('Posts Permission Logic', () => {
       p2,
       p3
     );
-    const result = postPermissionLogic(p3, s, currentUser, false);
+    const result = postPermissionLogic(p3, s, capabilities, currentUser, false);
     expect(result.canCreateAction).toBe(true);
     expect(result.canEdit).toBe(false);
     expect(result.canDelete).toBe(false);
@@ -274,7 +297,7 @@ describe('Posts Permission Logic', () => {
       },
       p
     );
-    const result = postPermissionLogic(p, s, currentUser, false);
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
     expect(result.canCreateAction).toBe(false);
     expect(result.canEdit).toBe(false);
     expect(result.canDelete).toBe(false);
@@ -293,7 +316,7 @@ describe('Posts Permission Logic', () => {
       },
       p
     );
-    const result = postPermissionLogic(p, s, currentUser, false);
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
     expect(result.canCreateAction).toBe(false);
     expect(result.canEdit).toBe(false);
     expect(result.canDelete).toBe(false);
@@ -312,7 +335,7 @@ describe('Posts Permission Logic', () => {
       },
       p
     );
-    const result = postPermissionLogic(p, s, currentUser, false);
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
     expect(result.canCreateAction).toBe(true);
     expect(result.canEdit).toBe(true);
     expect(result.canDelete).toBe(true);
@@ -331,7 +354,7 @@ describe('Posts Permission Logic', () => {
       },
       p
     );
-    const result = postPermissionLogic(p, s, currentUser, false);
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
     expect(result.canCreateAction).toBe(true);
     expect(result.canEdit).toBe(false);
     expect(result.canDelete).toBe(false);
@@ -351,7 +374,7 @@ describe('Posts Permission Logic', () => {
       },
       p
     );
-    const result = postPermissionLogic(p, s, currentUser, false);
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
     expect(result.canCreateAction).toBe(true);
     expect(result.canEdit).toBe(false);
     expect(result.canDelete).toBe(false);
@@ -371,7 +394,7 @@ describe('Posts Permission Logic', () => {
       },
       p
     );
-    const result = postPermissionLogic(p, s, currentUser, false);
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
     expect(result.canCreateAction).toBe(true);
     expect(result.canEdit).toBe(false);
     expect(result.canDelete).toBe(false);
@@ -391,7 +414,7 @@ describe('Posts Permission Logic', () => {
       },
       p
     );
-    const result = postPermissionLogic(p, s, currentUser, false);
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
     expect(result.canCreateAction).toBe(true);
     expect(result.canEdit).toBe(false);
     expect(result.canDelete).toBe(false);
@@ -410,7 +433,7 @@ describe('Posts Permission Logic', () => {
       },
       p
     );
-    const result = postPermissionLogic(p, s, currentUser, false);
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
     expect(result.canUseGiphy).toBe(true);
   });
 
@@ -423,7 +446,7 @@ describe('Posts Permission Logic', () => {
       },
       p
     );
-    const result = postPermissionLogic(p, s, currentUser, false);
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
     expect(result.canUseGiphy).toBe(false);
   });
 
@@ -436,7 +459,7 @@ describe('Posts Permission Logic', () => {
       },
       p
     );
-    const result = postPermissionLogic(p, s, currentUser, false);
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
     expect(result.canReorder).toBe(true);
   });
 
@@ -449,7 +472,7 @@ describe('Posts Permission Logic', () => {
       },
       p
     );
-    const result = postPermissionLogic(p, s, currentUser, false);
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
     expect(result.canReorder).toBe(false);
   });
 
@@ -462,7 +485,7 @@ describe('Posts Permission Logic', () => {
       },
       p
     );
-    const result = postPermissionLogic(p, s, currentUser, false);
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
     expect(result.canCreateGroup).toBe(true);
   });
 
@@ -475,7 +498,7 @@ describe('Posts Permission Logic', () => {
       },
       p
     );
-    const result = postPermissionLogic(p, s, currentUser, false);
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
     expect(result.canCreateGroup).toBe(false);
   });
 
@@ -488,7 +511,7 @@ describe('Posts Permission Logic', () => {
       },
       p
     );
-    const result = postPermissionLogic(p, s, currentUser, false);
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
     expect(result.isBlurred).toBe(false);
   });
 
@@ -501,7 +524,7 @@ describe('Posts Permission Logic', () => {
       },
       p
     );
-    const result = postPermissionLogic(p, s, currentUser, false);
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
     expect(result.isBlurred).toBe(true);
   });
 
@@ -514,7 +537,7 @@ describe('Posts Permission Logic', () => {
       },
       p
     );
-    const result = postPermissionLogic(p, s, currentUser, false);
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
     expect(result.isBlurred).toBe(false);
   });
 
@@ -527,7 +550,7 @@ describe('Posts Permission Logic', () => {
       },
       p
     );
-    const result = postPermissionLogic(p, s, currentUser, false);
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
     expect(result.canCancelVote).toBe(true);
   });
 
@@ -541,7 +564,7 @@ describe('Posts Permission Logic', () => {
       },
       p
     );
-    const result = postPermissionLogic(p, s, currentUser, false);
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
     expect(result.canCancelVote).toBe(false);
   });
 
@@ -554,7 +577,7 @@ describe('Posts Permission Logic', () => {
       },
       p
     );
-    const result = postPermissionLogic(p, s, currentUser, false);
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
     expect(result.canCancelVote).toBe(false);
   });
 });

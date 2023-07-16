@@ -1,6 +1,7 @@
 import { PropsWithChildren, useEffect } from 'react';
 import { render, RenderOptions, RenderResult } from '@testing-library/react';
-import { FullUser, Session, defaultOptions } from 'common';
+import { vi } from 'vitest';
+import { BackendCapabilities, FullUser, Session, defaultOptions } from 'common';
 import {
   DragDropContext,
   Droppable,
@@ -57,10 +58,46 @@ export const initialSession: Session = {
   demo: false,
 };
 
+const capabilities: BackendCapabilities = {
+  adminEmail: 'admin@acme.com',
+  ai: false,
+  disableAccountDeletion: false,
+  disableAnonymous: false,
+  disablePasswordRegistration: false,
+  disablePasswords: false,
+  disableShowAuthor: false,
+  emailAvailable: true,
+  licenced: true,
+  oAuth: {
+    github: false,
+    google: false,
+    microsoft: false,
+    okta: false,
+    slack: false,
+    twitter: false,
+  },
+  selfHosted: false,
+  slackClientId: 'xxx',
+};
+// fetchBackendCapabilities
+vi.mock('../api/index', () => {
+  return {
+    fetchBackendCapabilities: () => {
+      return Promise.resolve(capabilities);
+    },
+  };
+});
+
 export function AllTheProviders({ children }: PropsWithChildren<{}>) {
   return (
-    <RecoilRoot initializeState={(snap) => snap.set(userState, user)}>
+    <RecoilRoot
+      initializeState={(snap) => {
+        snap.set(userState, user);
+      }}
+    >
+      {/* <I18nextProvider i18n={i18n}> */}
       <Inner>{children}</Inner>
+      {/* </I18nextProvider> */}
     </RecoilRoot>
   );
 }

@@ -61,6 +61,23 @@ post.votes = [
 ];
 
 describe('Post', () => {
+  it('Initialise stuff', () => {
+    renderWithRouter(
+      <PostItem
+        post={post}
+        index={1}
+        onEditGiphy={noop}
+        onDelete={noop}
+        onDislike={noop}
+        onEdit={noop}
+        onLike={noop}
+        onEditAction={noop}
+        onCancelVotes={noop}
+        color="#123456"
+        search=""
+      />
+    );
+  });
   it('Should properly display the post content', () => {
     const { getByLabelText } = renderWithRouter(
       <PostItem
