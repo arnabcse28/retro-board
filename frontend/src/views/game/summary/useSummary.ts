@@ -1,4 +1,4 @@
-import { Post, PostGroup, Session, User } from 'common';
+import { BackendCapabilities, Post, PostGroup, Session, User } from 'common';
 import sortBy from 'lodash/sortBy';
 import flattenDeep from 'lodash/flattenDeep';
 import { ColumnContent } from '../types';
@@ -8,17 +8,21 @@ import { postPermissionLogic } from '../board/permissions-logic';
 import { useMemo } from 'react';
 import useUser from '../../../state/user/useUser';
 import useSession from '../useSession';
+import useBackendCapabilities from 'global/useBackendCapabilities';
 
 export function useSummary(columns: ColumnContent[]): Stats {
   const { session } = useSession();
   const user = useUser();
+  const capabilities = useBackendCapabilities();
 
   const results = useMemo(() => {
     return {
-      columns: columns.map((c) => calculateColumn(c, user, session)),
+      columns: columns.map((c) =>
+        calculateColumn(c, user, session, capabilities)
+      ),
       actions: buildActions(columns),
     };
-  }, [columns, user, session]);
+  }, [columns, user, session, capabilities]);
 
   return results;
 }
@@ -26,23 +30,31 @@ export function useSummary(columns: ColumnContent[]): Stats {
 function calculateColumn(
   column: ColumnContent,
   user: User | null,
-  session: Session | null
+  session: Session | null,
+  capabilities: BackendCapabilities
 ): ColumnStats {
   const posts: ColumnStatsItem[] = column.posts.map((p) =>
-    postToItem(p, user, session)
+    postToItem(p, user, session, capabilities)
   );
   const groups: ColumnStatsItem[] = column.groups
     .filter((g) => !!g.posts.length)
-    .map((g) => groupToItem(g, user, session));
+    .map((g) => groupToItem(g, user, session, capabilities));
   return { items: sortBy([...posts, ...groups], sortingFunction), column };
 }
 
 function postToItem(
   post: Post,
   user: User | null,
-  session: Session | null
+  session: Session | null,
+  capabilities: BackendCapabilities
 ): ColumnStatsItem {
-  const permissions = postPermissionLogic(post, session, user, false);
+  const permissions = postPermissionLogic(
+    post,
+    session,
+    capabilities,
+    user,
+    false
+  );
   return {
     id: post.id,
     content: post.content,
@@ -58,7 +70,8 @@ function postToItem(
 function groupToItem(
   group: PostGroup,
   user: User | null,
-  session: Session | null
+  session: Session | null,
+  capabilities: BackendCapabilities
 ): ColumnStatsItem {
   return {
     id: group.id,
@@ -66,7 +79,7 @@ function groupToItem(
     user: group.user,
     type: 'group',
     children: sortBy(
-      group.posts.map((p) => postToItem(p, user, session)),
+      group.posts.map((p) => postToItem(p, user, session, capabilities)),
       sortingFunction
     ),
     likes: countVotesForGroup(group, 'like'),
