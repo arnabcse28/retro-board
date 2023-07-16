@@ -80,10 +80,7 @@ const Banner = () => {
                 </Subscribe>
               </Buttons>
             </BannerContent>
-            <Figure
-              className="animate__animated animate__fadeInUp animate__fast"
-              // style={{ position: 'relative' }}
-            >
+            <Figure className="animate__animated animate__fadeInUp animate__fast">
               <NextImage
                 alt="Background image"
                 src={dashboardPattern}
@@ -150,7 +147,7 @@ const PlayOverlay = styled.div`
   width: 100px;
   height: 100px;
   top: calc(50% - 50px);
-  left: calc(50%);
+  left: calc(50% - 50px);
   text-align: center;
   font-size: 3rem;
   > svg {
@@ -158,7 +155,7 @@ const PlayOverlay = styled.div`
   }
   &:hover {
     svg {
-      fill: #777 !important;
+      fill: #ff4361 !important;
     }
   }
   z-index: 1;
