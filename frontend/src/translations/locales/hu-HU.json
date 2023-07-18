@@ -473,7 +473,7 @@
     "lockDescription": "A munkamenet priváttá tételére készül. Csak a jelenlegi résztvevők (az alábbiakban felsorolva) férhetnek hozzá ehhez a munkamenethez, miután lezárták.",
     "cancelButton": "Megszünteti",
     "sessionLockedTitle": "Ez a munkamenet privát.",
-    "sessionLockedDescription": "Kérd meg a moderátort, hogy oldja fel, hogy csatlakozhasson. Ezután frissítse ezt az oldalt.",
+    "sessionLockedDescription": "",
     "sessionNonProTitle": "Ez a munkamenet csak a Pro felhasználók számára érhető el",
     "sessionNonProDescription": "Ez a munkamenet csak a Pro felhasználók számára elérhető funkciókat használja. Kérje meg a moderátort vagy az előfizetés tulajdonosát, hogy adjon Pro-fiókot.",
     "sessionIsPublic": "Ez az ülés nyilvános és bárki számára elérhető.",

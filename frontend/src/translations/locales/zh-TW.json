@@ -473,7 +473,7 @@
     "lockDescription": "您即將將會話設為私有。鎖定後，只有當前參與者（如下所列）才能訪問此會話。",
     "cancelButton": "取消",
     "sessionLockedTitle": "本次會議是私人的。",
-    "sessionLockedDescription": "請要求其版主解鎖，以便您加入。然後，刷新此頁面。",
+    "sessionLockedDescription": "",
     "sessionNonProTitle": "此會話僅供專業用戶訪問",
     "sessionNonProDescription": "此會話使用僅適用於 Pro 用戶的功能。請要求版主或訂閱持有人給您一個 Pro 帳戶。",
     "sessionIsPublic": "此會話是公開的，任何人都可以訪問。",
