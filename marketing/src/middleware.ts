@@ -1,5 +1,5 @@
 import { addYears } from 'date-fns';
-import { ResponseCookie } from 'next/dist/server/web/spec-extension/cookies';
+import { ResponseCookie } from 'next/dist/compiled/@edge-runtime/cookies';
 import { NextResponse, NextRequest } from 'next/server';
 import parse from 'url-parse';
 

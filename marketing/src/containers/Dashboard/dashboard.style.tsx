@@ -90,7 +90,7 @@ export const Description = styled.div`
   }
 `;
 
-export const ReactTabs = styled(Tabs)`
+export const ReactTabs = styled(Tabs as any)`
   > nav {
     text-align: center;
     margin-bottom: 15px;

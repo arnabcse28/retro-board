@@ -9,7 +9,7 @@ export function Callback() {
   const { t } = useTranslation('common');
   return (
     <Container href={LINK} target="_blank">
-      <Icon src={phoneIcon} alt="phone" height={20} />
+      <Image src={phoneIcon} alt="phone" height={20} />
       <Text>{t('Callback.message')}</Text>
     </Container>
   );
@@ -59,5 +59,3 @@ const Container = styled.a`
     }
   }
 `;
-
-const Icon = styled(Image)``;

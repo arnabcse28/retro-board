@@ -19,7 +19,7 @@ export default function Page404() {
   );
 }
 
-const Background = styled(Image)`
+const Background = styled(Image as any)`
   opacity: 0.5;
   position: fixed;
   top: 0;
@@ -57,7 +57,7 @@ const Description = styled.p`
   text-align: center;
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(Link as any)`
   padding-top: 20px;
   text-align: center;
   color: #e91e63;
