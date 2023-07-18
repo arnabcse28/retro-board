@@ -1,6 +1,19 @@
-export default function isSearchMatch(
+import { Post } from 'common';
+import { postPermissionLogic } from './board/permissions-logic';
+import { useCallback } from 'react';
+import useBackendCapabilities from 'global/useBackendCapabilities';
+import useUser from 'state/user/useUser';
+import useSession from './useSession';
+
+type SearchPredicate = (post: Post) => boolean;
+
+function match(value: string, search: string) {
+  return value.toLocaleLowerCase().includes(search.toLocaleLowerCase());
+}
+
+export function searchLogic(
   content: string,
-  userName: string | null,
+  user: string | null,
   search: string,
   blurred: boolean
 ) {
@@ -10,11 +23,35 @@ export default function isSearchMatch(
   if (blurred) {
     return false;
   }
+  return match(content, search) || match(user || '', search);
+}
 
-  return (
-    content.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
-    (userName
-      ? userName.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-      : false)
+export function useSearch(search: string): SearchPredicate {
+  const capabilities = useBackendCapabilities();
+  const user = useUser();
+  const { session } = useSession();
+
+  const predicate = useCallback(
+    (post: Post) => {
+      if (!search) {
+        return true;
+      }
+      const permissions = postPermissionLogic(
+        post,
+        session,
+        capabilities,
+        user,
+        false
+      );
+      return searchLogic(
+        post.content,
+        post.user.name,
+        search,
+        permissions.isBlurred
+      );
+    },
+    [capabilities, user, session, search]
   );
+
+  return predicate;
 }

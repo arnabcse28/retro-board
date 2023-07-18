@@ -20,9 +20,9 @@ import SpeedDial from './SpeedDial';
 import { useSummary } from './useSummary';
 import { ColumnStats, ColumnStatsItem, ActionItem } from './types';
 import useCrypto from '../../../crypto/useCrypto';
-import isSearchMatch from '../is-search-match';
 import { Box } from '@mui/system';
 import { usePostUserPermissionsNullable } from '../board/usePostUserPermissions';
+import { useSearch } from '../is-search-match';
 
 interface SummaryModeProps {
   columns: ColumnContent[];
@@ -34,7 +34,7 @@ interface SectionProps {
   search: string;
 }
 
-const Section = ({ stats, search }: SectionProps) => {
+function Section({ stats, search }: SectionProps) {
   const { t } = useTranslation();
 
   return (
@@ -58,14 +58,14 @@ const Section = ({ stats, search }: SectionProps) => {
       </Card>
     </Box>
   );
-};
+}
 
 interface GroupSummaryProps {
   group: ColumnStatsItem;
   search: string;
 }
 
-const GroupSummary = ({ group, search }: GroupSummaryProps) => {
+function GroupSummary({ group, search }: GroupSummaryProps) {
   const { decrypt } = useCrypto();
   return (
     <GroupContainer>
@@ -79,7 +79,7 @@ const GroupSummary = ({ group, search }: GroupSummaryProps) => {
       <PostsList items={group.children} search={search} />
     </GroupContainer>
   );
-};
+}
 
 const GroupContainer = styled.div`
   border-left: 1px dashed ${colors.grey[500]};
@@ -100,37 +100,31 @@ interface PostsListProps {
   search: string;
 }
 
-const PostsList = ({ items, search }: PostsListProps) => {
+function PostsList({ items, search }: PostsListProps) {
+  const searchPredicate = useSearch(search);
   return (
     <div>
-      {items.map((item) =>
-        item.type === 'post' ? (
-          <PostLine item={item} key={item.id} search={search} />
-        ) : (
-          <GroupSummary group={item} key={item.id} search={search} />
-        )
-      )}
+      {items
+        .filter((item) => (item.post ? searchPredicate(item.post) : true))
+        .map((item) =>
+          item.type === 'post' ? (
+            <PostLine item={item} key={item.id} />
+          ) : (
+            <GroupSummary group={item} key={item.id} search={search} />
+          )
+        )}
     </div>
   );
-};
+}
 
 interface PostLineProps {
   item: ColumnStatsItem;
-  search: string;
 }
 
-const PostLine = ({ item, search }: PostLineProps) => {
+function PostLine({ item }: PostLineProps) {
   const { decrypt } = useCrypto();
   const permissions = usePostUserPermissionsNullable(item.post);
   const canShowAuthor = permissions && permissions.canShowAuthor;
-  const higlighted =
-    search &&
-    isSearchMatch(
-      item.content,
-      item.user ? item.user.name : null,
-      search,
-      false
-    );
   return (
     <PostLineContainer>
       <Typography component="div">
@@ -139,10 +133,7 @@ const PostLine = ({ item, search }: PostLineProps) => {
             <PositiveNumber>+{item.likes}</PositiveNumber>&nbsp;
             <NegativeNumber>-{item.dislikes}</NegativeNumber>
           </Score>
-          <PostContent
-            aria-label="post content"
-            style={{ fontWeight: higlighted ? 'bold' : 'normal' }}
-          >
+          <PostContent aria-label="post content">
             {decrypt(item.content)}
           </PostContent>
           {canShowAuthor ? <Author>(by {item.post?.user.name})</Author> : null}
@@ -150,7 +141,7 @@ const PostLine = ({ item, search }: PostLineProps) => {
       </Typography>
     </PostLineContainer>
   );
-};
+}
 
 const PostLineContainer = styled.div`
   :hover {
@@ -191,7 +182,7 @@ interface ActionsListProps {
   actions: ActionItem[];
 }
 
-const ActionsList = ({ actions }: ActionsListProps) => {
+function ActionsList({ actions }: ActionsListProps) {
   const theme = useTheme();
   const { t } = useTranslation();
   const { decrypt } = useCrypto();
@@ -237,9 +228,9 @@ const ActionsList = ({ actions }: ActionsListProps) => {
       </Grid>
     </Grid>
   );
-};
+}
 
-const SummaryMode = ({ columns, search }: SummaryModeProps) => {
+export function SummaryMode({ columns, search }: SummaryModeProps) {
   const stats = useSummary(columns);
   return (
     <Page>
@@ -254,7 +245,7 @@ const SummaryMode = ({ columns, search }: SummaryModeProps) => {
       </SpeedDialContainer>
     </Page>
   );
-};
+}
 
 const SpeedDialContainer = styled.div`
   position: fixed;
@@ -262,5 +253,3 @@ const SpeedDialContainer = styled.div`
   right: 20px;
   z-index: 3;
 `;
-
-export default SummaryMode;

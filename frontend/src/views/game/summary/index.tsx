@@ -6,7 +6,7 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { ColumnContent } from '../types';
 import { Page } from '../../../components/Page';
-import SummaryMode from './SummaryMode';
+import { SummaryMode } from './SummaryMode';
 
 interface SummaryModeProps {
   columns: ColumnContent[];

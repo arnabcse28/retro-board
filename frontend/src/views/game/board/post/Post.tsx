@@ -37,14 +37,12 @@ import { trackEvent } from '../../../../track';
 import useCrypto from '../../../../crypto/useCrypto';
 import { getLorem } from './lorem';
 import useCanDecrypt from '../../../../crypto/useCanDecrypt';
-import isSearchMatch from '../../is-search-match';
 import { useConfirm } from 'material-ui-confirm';
 
 interface PostItemProps {
   index: number;
   post: Post;
   color: string;
-  search: string;
   onLike: () => void;
   onDislike: () => void;
   onCancelVotes: () => void;
@@ -72,7 +70,6 @@ const PostItem = ({
   index,
   post,
   color,
-  search,
   onLike,
   onDislike,
   onCancelVotes,
@@ -162,13 +159,6 @@ const PostItem = ({
     return isBlurred ? generateLoremIpsum(post.content) : decrypt(post.content);
   }, [decrypt, isBlurred, post.content]);
 
-  const faded = !isSearchMatch(
-    post.content,
-    canShowAuthor ? post.user.name : null,
-    search,
-    isBlurred
-  );
-
   return (
     <>
       <Draggable
@@ -177,11 +167,7 @@ const PostItem = ({
         isDragDisabled={!canReorder}
       >
         {(provided: DraggableProvided) => (
-          <PostCard
-            elevation={search ? (faded ? 0 : 3) : 2}
-            ref={provided.innerRef}
-            {...provided.draggableProps}
-          >
+          <PostCard ref={provided.innerRef} {...provided.draggableProps}>
             {isBlurred ? (
               <Tooltip title="Cards from other people will be shown when the moderator chooses to reveal them.">
                 <BlurOverlay />
@@ -248,7 +234,7 @@ const PostItem = ({
               </CardContent>
             )}
             <ActionsBar
-              color={faded ? colors.grey[100] : color}
+              color={color}
               rightActions={
                 <>
                   {giphyImageUrl && (

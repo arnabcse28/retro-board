@@ -75,7 +75,6 @@ describe('Post', () => {
         onEditAction={noop}
         onCancelVotes={noop}
         color="#123456"
-        search=""
       />
     );
   });
@@ -92,7 +91,6 @@ describe('Post', () => {
         onEditAction={noop}
         onCancelVotes={noop}
         color="#123456"
-        search=""
       />
     );
     const display = getByLabelText(/post content/i);
@@ -115,7 +113,6 @@ describe('Post', () => {
         onEditAction={noop}
         onCancelVotes={noop}
         color="#123456"
-        search=""
       />
     );
     const deleteButton = queryByText(/delete/i);
@@ -158,7 +155,6 @@ describe('Post', () => {
         onLike={noop}
         onCancelVotes={noop}
         color="#123456"
-        search=""
       />
     );
     const editableLabel = getByLabelText(/Post content/i);
@@ -193,7 +189,6 @@ describe('Post', () => {
         onLike={noop}
         onCancelVotes={noop}
         color="#123456"
-        search=""
       />
     );
     const editableLabel = getByLabelText(/post content/i);

@@ -19,6 +19,7 @@ import { ColumnContent } from '../types';
 import useCrypto from '../../../crypto/useCrypto';
 import useQuota from '../../../hooks/useQuota';
 import useSessionUserPermissions from './useSessionUserPermissions';
+import { useSearch } from '../is-search-match';
 
 interface ColumnProps {
   column: ColumnContent;
@@ -62,6 +63,7 @@ const Column: React.FC<ColumnProps> = ({
   const { encrypt } = useCrypto();
   const permissions = useSessionUserPermissions();
   const { increment } = useQuota();
+  const searchPredicate = useSearch(search);
   const onContentChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => setContent(e.target.value),
     [setContent]
@@ -142,7 +144,6 @@ const Column: React.FC<ColumnProps> = ({
                 index={index}
                 key={post.id}
                 post={post}
-                search={search}
                 color={color}
                 onLike={() => onLike(post)}
                 onDislike={() => onDislike(post)}
@@ -186,12 +187,11 @@ const Column: React.FC<ColumnProps> = ({
             draggingOver={dropSnapshot.isDraggingOver}
             draggingColor={column.color}
           >
-            {posts.map((post, index) => (
+            {posts.filter(searchPredicate).map((post, index) => (
               <PostItem
                 index={index}
                 key={post.id}
                 post={post}
-                search={search}
                 color={color}
                 onLike={() => onLike(post)}
                 onDislike={() => onDislike(post)}

@@ -18,7 +18,7 @@ import { Dashboard, List, CloudOff } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import useGame from './game/useGame';
 import Board from './game/board/Board';
-import SummaryMode from './game/summary/SummaryMode';
+import { SummaryMode } from './game/summary/SummaryMode';
 import useColumns from './game/useColumns';
 import NoContent from '../components/NoContent';
 import useCrypto from '../crypto/useCrypto';
