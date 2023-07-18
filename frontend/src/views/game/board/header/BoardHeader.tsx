@@ -150,7 +150,7 @@ function BoardHeader({
               value={decrypt(session.name)}
               centered
               onChange={handleRenameSession}
-              readOnly={!isLoggedIn || !canDecrypt}
+              readOnly={!isLoggedIn || !canDecrypt || !permissions.canEditTitle}
             />
           </Typography>
         </Title>

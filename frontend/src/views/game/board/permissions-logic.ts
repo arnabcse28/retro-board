@@ -4,6 +4,8 @@ import some from 'lodash/some';
 export interface SessionUserPermissions {
   canCreatePost: boolean;
   canCreateGroup: boolean;
+  canEditTitle: boolean;
+  canReorderPosts: boolean;
   hasReachedMaxPosts: boolean;
 }
 
@@ -13,23 +15,38 @@ export function sessionPermissionLogic(
   canDecrypt: boolean,
   readonly: boolean
 ): SessionUserPermissions {
-  const numberOfPosts =
-    session && user
-      ? session.posts.filter((p) => p.user.id === user.id).length
-      : 0;
+  if (!session || !user) {
+    return {
+      canCreatePost: false,
+      canCreateGroup: false,
+      canEditTitle: false,
+      canReorderPosts: false,
+      hasReachedMaxPosts: false,
+    };
+  }
+  const isOwner = user.id === session.createdBy.id;
+  const numberOfPosts = session.posts.filter(
+    (p) => p.user.id === user.id
+  ).length;
 
   const hasReachedMaxPosts =
-    !!session &&
     session.options.maxPosts !== null &&
     session.options.maxPosts <= numberOfPosts;
-  const canCreatePost =
-    !!user && canDecrypt && !readonly && !hasReachedMaxPosts;
+  const canCreatePost = canDecrypt && !readonly && !hasReachedMaxPosts;
   const canCreateGroup =
-    canCreatePost && !!session && session.options.allowGrouping;
+    canCreatePost &&
+    session.options.allowGrouping &&
+    (isOwner || !session.options.restrictGroupingToOwner);
+  const canEditTitle =
+    !readonly && (isOwner || !session.options.restrictTitleEditToOwner);
+  const canReorderPosts =
+    !readonly && (isOwner || !session.options.restrictReorderingToOwner);
 
   return {
     canCreatePost,
     canCreateGroup,
+    canEditTitle,
+    canReorderPosts,
     hasReachedMaxPosts,
   };
 }
@@ -45,7 +62,6 @@ export interface PostUserPermissions {
   canShowAuthor: boolean;
   canUseGiphy: boolean;
   canReorder: boolean;
-  canCreateGroup: boolean;
   canCancelVote: boolean;
   isBlurred: boolean;
 }
@@ -69,7 +85,6 @@ export function postPermissionLogic(
       canDisplayDownVote: false,
       canDisplayUpVote: false,
       canReorder: false,
-      canCreateGroup: false,
       canCancelVote: false,
       isBlurred: false,
     };
@@ -82,9 +97,9 @@ export function postPermissionLogic(
     allowMultipleVotes,
     allowAuthorVisible,
     allowGiphy,
-    allowGrouping,
     allowReordering,
     allowCancelVote,
+    restrictReorderingToOwner,
     blurCards,
   } = session.options;
 
@@ -92,6 +107,7 @@ export function postPermissionLogic(
   const canCreateAction = !readonly && isLoggedIn && allowActions;
   const userId = user ? user.id : -1;
   const isAuthor = user ? user.id === post.user.id : false;
+  const isOwner = user ? user.id === session.createdBy.id : false;
   const canPotentiallyVote =
     !readonly && isLoggedIn && allowSelfVoting ? true : !isAuthor;
   const hasVoted = some(post.votes, (u) => u.userId === userId);
@@ -116,8 +132,11 @@ export function postPermissionLogic(
   const canDelete = !readonly && isLoggedIn && isAuthor;
   const canShowAuthor = allowAuthorVisible && !capabilities.disableShowAuthor;
   const canUseGiphy = isLoggedIn && allowGiphy;
-  const canReorder = !readonly && isLoggedIn && allowReordering;
-  const canCreateGroup = !readonly && isLoggedIn && allowGrouping;
+  const canReorder =
+    !readonly &&
+    isLoggedIn &&
+    allowReordering &&
+    (isOwner || !restrictReorderingToOwner);
   const canCancelVote = !readonly && hasVoted && allowCancelVote;
   const isBlurred = blurCards && !isAuthor;
 
@@ -131,7 +150,6 @@ export function postPermissionLogic(
     canDelete,
     canShowAuthor,
     canUseGiphy,
-    canCreateGroup,
     canReorder,
     canCancelVote,
     isBlurred,

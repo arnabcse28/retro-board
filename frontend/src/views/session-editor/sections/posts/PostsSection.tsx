@@ -96,11 +96,50 @@ function PostsSection({ options, onChange }: PostsSectionProps) {
     [onChange, options]
   );
 
+  const setRestrictReorderingToOwner = useCallback(
+    (value: boolean) => {
+      onChange({
+        ...options,
+        restrictReorderingToOwner: value,
+      });
+    },
+    [onChange, options]
+  );
+
+  const setRestrictGroupingToOwner = useCallback(
+    (value: boolean) => {
+      onChange({
+        ...options,
+        restrictGroupingToOwner: value,
+      });
+    },
+    [onChange, options]
+  );
+
+  const setRestrictTitleEditToOwner = useCallback(
+    (value: boolean) => {
+      onChange({
+        ...options,
+        restrictTitleEditToOwner: value,
+      });
+    },
+    [onChange, options]
+  );
+
   return (
     <SettingCategory
       title={t('Customize.postCategory')!}
       subtitle={t('Customize.postCategorySub')!}
     >
+      <OptionItem
+        label={t('Customize.restrictTitleEditToOwner')!}
+        help={t('Customize.restrictTitleEditToOwnerHelp')!}
+      >
+        <BooleanOption
+          value={options.restrictTitleEditToOwner}
+          onChange={setRestrictTitleEditToOwner}
+        />
+      </OptionItem>
       <OptionItem
         label={t('Customize.maxPosts')!}
         help={t('Customize.maxPostsHelp')!}
@@ -150,12 +189,30 @@ function PostsSection({ options, onChange }: PostsSectionProps) {
         />
       </OptionItem>
       <OptionItem
+        label={t('Customize.restrictReorderingToOwner')!}
+        help={t('Customize.restrictReorderingToOwnerHelp')!}
+      >
+        <BooleanOption
+          value={options.restrictReorderingToOwner}
+          onChange={setRestrictReorderingToOwner}
+        />
+      </OptionItem>
+      <OptionItem
         label={t('Customize.allowGrouping')!}
         help={t('Customize.allowGroupingHelp')!}
       >
         <BooleanOption
           value={options.allowGrouping}
           onChange={setAllowGrouping}
+        />
+      </OptionItem>
+      <OptionItem
+        label={t('Customize.restrictGroupingToOwner')!}
+        help={t('Customize.restrictGroupingToOwnerHelp')!}
+      >
+        <BooleanOption
+          value={options.restrictGroupingToOwner}
+          onChange={setRestrictGroupingToOwner}
         />
       </OptionItem>
       <OptionItem

@@ -171,7 +171,11 @@ const Column: React.FC<ColumnProps> = ({
           </Group>
         ))}
       </Groups>
-      <Droppable droppableId={'column#' + column.index} isCombineEnabled>
+      <Droppable
+        droppableId={'column#' + column.index}
+        isCombineEnabled
+        isDropDisabled={permissions.canReorderPosts}
+      >
         {(
           dropProvided: DroppableProvided,
           dropSnapshot: DroppableStateSnapshot
@@ -236,7 +240,8 @@ const PostsWrapper = styled.div<{
   draggingOver: boolean;
   draggingColor: string;
 }>`
-  background-color: ${(props) => props.draggingOver ? props.draggingColor : 'unset'};
+  background-color: ${(props) =>
+    props.draggingOver ? props.draggingColor : 'unset'};
   flex: 1;
   min-height: 100px;
 `;

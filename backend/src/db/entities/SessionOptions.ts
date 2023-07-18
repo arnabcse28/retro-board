@@ -30,6 +30,12 @@ export default class SessionOptionsEntity {
   public allowCancelVote: boolean;
   @Column({ default: true })
   public allowTimer: boolean;
+  @Column({ default: false })
+  public restrictTitleEditToOwner: boolean;
+  @Column({ default: false })
+  public restrictReorderingToOwner: boolean;
+  @Column({ default: false })
+  public restrictGroupingToOwner: boolean;
   @Column({ type: 'numeric', default: 15 * 60 })
   public timerDuration: number;
   @Column({ default: true })
@@ -63,6 +69,10 @@ export default class SessionOptionsEntity {
     this.allowTimer = optionsWithDefault.allowTimer;
     this.timerDuration = optionsWithDefault.timerDuration;
     this.readonlyOnTimerEnd = optionsWithDefault.readonlyOnTimerEnd;
+    this.restrictTitleEditToOwner = optionsWithDefault.restrictTitleEditToOwner;
+    this.restrictReorderingToOwner =
+      optionsWithDefault.restrictReorderingToOwner;
+    this.restrictGroupingToOwner = optionsWithDefault.restrictGroupingToOwner;
   }
 }
 

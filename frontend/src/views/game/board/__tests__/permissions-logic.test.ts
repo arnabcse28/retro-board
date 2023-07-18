@@ -476,32 +476,6 @@ describe('Posts Permission Logic', () => {
     expect(result.canReorder).toBe(false);
   });
 
-  it('When allowing grouping', () => {
-    const p = post(anotherUser, [currentUser, currentUser, currentUser]);
-    const s = session(
-      {
-        ...defaultOptions,
-        allowGrouping: true,
-      },
-      p
-    );
-    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
-    expect(result.canCreateGroup).toBe(true);
-  });
-
-  it('When disallowing grouping', () => {
-    const p = post(anotherUser, [currentUser, currentUser, currentUser]);
-    const s = session(
-      {
-        ...defaultOptions,
-        allowGrouping: false,
-      },
-      p
-    );
-    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
-    expect(result.canCreateGroup).toBe(false);
-  });
-
   it('When cards are not blurred, for another user card', () => {
     const p = post(anotherUser, [currentUser]);
     const s = session(
