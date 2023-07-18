@@ -49,6 +49,7 @@ export const initialSession: Session = {
     id: 'John Doe',
     name: 'John Doe',
     photo: null,
+    email: null,
   },
   options: {
     ...defaultOptions,

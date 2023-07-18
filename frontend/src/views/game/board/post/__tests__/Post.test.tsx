@@ -15,6 +15,7 @@ const u = (name: string): User => ({
   name,
   id: name,
   photo: null,
+  email: null,
 });
 
 const renderWithRouter = (children: React.ReactNode) =>

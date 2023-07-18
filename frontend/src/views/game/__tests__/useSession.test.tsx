@@ -14,7 +14,7 @@ function post(id: string): Post {
     giphy: null,
     group: null,
     rank: '0',
-    user: { id: '1', name: 'danièle', photo: 'bl' },
+    user: { id: '1', name: 'danièle', photo: 'bl', email: null },
   };
 }
 

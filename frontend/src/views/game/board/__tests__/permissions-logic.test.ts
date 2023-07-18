@@ -18,6 +18,7 @@ const userBase: User = {
   photo: null,
   id: '0',
   name: 'name',
+  email: null,
 };
 
 const currentUser: User = {

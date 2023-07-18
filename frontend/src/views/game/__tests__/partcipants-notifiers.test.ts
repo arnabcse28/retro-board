@@ -11,6 +11,7 @@ function p(id: string, online = true): Participant {
     name: id,
     online,
     photo: '',
+    email: null,
   };
 }
 

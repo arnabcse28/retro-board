@@ -1,5 +1,4 @@
-import { User } from '@sentry/types';
-import { Post, PostGroup } from 'common';
+import { Post, PostGroup, User } from 'common';
 import { ColumnContent } from '../types';
 
 export interface Stats {
