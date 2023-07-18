@@ -380,7 +380,7 @@ function useGame(sessionId: string) {
         if (debug) {
           console.log('Receive unauthorized');
         }
-        setUnauthorised(payload.type);
+        setUnauthorised(payload.type, payload.session);
       }
     );
 

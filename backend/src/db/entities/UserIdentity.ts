@@ -93,6 +93,7 @@ export class UserEntity {
       id: this.id,
       name: this.name,
       photo: this.photo,
+      email: this.email,
     };
   }
 }

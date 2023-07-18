@@ -1,4 +1,4 @@
-import { AccessErrorType, Participant, Session } from 'common';
+import { Participant, Session, UnauthorizedAccessPayload } from 'common';
 import { atom } from 'recoil';
 
 export const ParticipantsState = atom<Participant[]>({
@@ -6,14 +6,9 @@ export const ParticipantsState = atom<Participant[]>({
   default: [],
 });
 
-export const UnauthorisedState = atom<boolean>({
+export const UnauthorisedState = atom<UnauthorizedAccessPayload | null>({
   key: 'UNAUTHORISED',
-  default: false,
-});
-
-export const UnauthorisedReasonState = atom<AccessErrorType | undefined>({
-  key: 'ACCESS_ERROR_TYPE',
-  default: undefined,
+  default: null,
 });
 
 export const SessionState = atom<Session | null>({

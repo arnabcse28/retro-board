@@ -62,7 +62,7 @@ export default class SessionView {
     this.id = id;
     this.name = name;
     this.created = new Date();
-    this.createdBy = { id: '0', name: '', photo: '' };
+    this.createdBy = { id: '0', name: '', photo: '', email: null };
     this.encrypted = null;
     this.locked = false;
     this.numberOfActions = 0;

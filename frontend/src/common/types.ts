@@ -122,6 +122,7 @@ export interface Product {
 export interface User extends Entity {
   name: string;
   photo: string | null;
+  email: string | null;
 }
 
 export interface UserIdentity extends Entity {

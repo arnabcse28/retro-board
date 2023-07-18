@@ -4,6 +4,7 @@ import {
   StripeLocales,
   AccessErrorType,
   CoachMessage,
+  Session,
 } from './types.js';
 
 export interface RegisterPayload {
@@ -49,9 +50,10 @@ export interface CreateSessionPayload {
   encryptedCheck?: string;
 }
 
-export interface UnauthorizedAccessPayload {
+export type UnauthorizedAccessPayload = {
   type?: AccessErrorType;
-}
+  session?: Session;
+};
 
 export interface SelfHostedCheckPayload {
   key: string;

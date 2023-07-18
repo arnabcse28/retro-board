@@ -47,7 +47,7 @@ function GamePage() {
   const columns = useColumns();
   const { decrypt } = useCrypto();
   const [search, setSearch] = useState('');
-  const { unauthorised, unauthorisedReason } = useUnauthorised();
+  const { unauthorised } = useUnauthorised();
   const rootUrl = `/game/${gameId}${hash}`;
   const summaryUrl = `/game/${gameId}/summary${hash}`;
 
@@ -87,7 +87,24 @@ function GamePage() {
   }
 
   if (unauthorised) {
-    return <Unauthorized reason={unauthorisedReason} />;
+    if (unauthorised.type === 'locked') {
+      return (
+        <NoContent
+          title={t('Private.sessionLockedTitle')}
+          subtitle={
+            t('Private.sessionLockedDescription', {
+              moderator: unauthorised.session
+                ? unauthorised.session.createdBy.name
+                : 'unknown',
+              email: unauthorised.session?.createdBy.email
+                ? unauthorised.session.createdBy.email
+                : 'no email',
+            })!
+          }
+        />
+      );
+    }
+    return <Unauthorized reason={unauthorised.type} />;
   }
 
   if (!session) {

@@ -1,38 +1,31 @@
-import { AccessErrorType } from 'common';
+import { AccessErrorType, Session, UnauthorizedAccessPayload } from 'common';
 import { useCallback } from 'react';
 import { useRecoilState } from 'recoil';
-import { UnauthorisedReasonState, UnauthorisedState } from './state';
+import { UnauthorisedState } from './state';
 
 interface UseUnauthorised {
-  unauthorised: boolean;
-  unauthorisedReason?: AccessErrorType;
-  setUnauthorised: (reason?: AccessErrorType) => void;
+  unauthorised: UnauthorizedAccessPayload | null;
+  setUnauthorised: (reason?: AccessErrorType, session?: Session) => void;
   resetUnauthorised: () => void;
 }
 
 export default function useUnauthorised(): UseUnauthorised {
   const [unauthorised, setUnauthorisedValue] =
     useRecoilState(UnauthorisedState);
-  const [unauthorisedReason, setReason] = useRecoilState(
-    UnauthorisedReasonState
-  );
 
   const setUnauthorised = useCallback(
-    (reason?: AccessErrorType) => {
-      setUnauthorisedValue(true);
-      setReason(reason);
+    (reason?: AccessErrorType, session?: Session) => {
+      setUnauthorisedValue({ type: reason, session });
     },
-    [setUnauthorisedValue, setReason]
+    [setUnauthorisedValue]
   );
 
   const resetUnauthorised = useCallback(() => {
-    setUnauthorisedValue(false);
-    setReason(undefined);
-  }, [setUnauthorisedValue, setReason]);
+    setUnauthorisedValue(null);
+  }, [setUnauthorisedValue]);
 
   return {
     unauthorised,
-    unauthorisedReason,
     setUnauthorised,
     resetUnauthorised,
   };

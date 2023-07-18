@@ -167,6 +167,7 @@ export default (io: Server) => {
             : {
                 id: socket,
                 name: `(Spectator #${i})`,
+                email: null,
                 photo: null,
                 pro: null,
               }
@@ -372,6 +373,10 @@ export default (io: Server) => {
         log(chalk`{red User not allowed, session locked}`);
         const payload: UnauthorizedAccessPayload = {
           type: userAllowed.reason,
+          session:
+            userAllowed.reason === 'locked'
+              ? sessionEntity.toJson()
+              : undefined,
         };
         sendToSelf<UnauthorizedAccessPayload>(
           socket,
