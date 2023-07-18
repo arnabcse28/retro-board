@@ -145,6 +145,7 @@ const EndControlsContainer = styled.div`
 const UsersContainer = styled.div`
   grid-area: users;
   padding-left: 10px;
+  overflow-x: scroll;
 `;
 
 const TimerContainer = styled.div`

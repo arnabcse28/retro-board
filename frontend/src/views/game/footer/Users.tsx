@@ -7,6 +7,7 @@ import useSession from '../useSession';
 export default function Users() {
   const { participants } = useParticipants();
   const { session } = useSession();
+
   return (
     <AvatarGroup
       max={50}
