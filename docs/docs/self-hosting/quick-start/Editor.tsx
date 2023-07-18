@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import ComposeView from './ComposeView';
 import { InputField } from './Field';
 import styles from './Editor.module.css';
-import randomWords from 'random-words';
+import { generate } from 'random-words';
 import queryString from 'query-string';
 import RunDetails from './RunDetails';
 import useIsBrowser from '@docusaurus/useIsBrowser';
@@ -11,7 +11,7 @@ import { FieldToggle } from './Toggle';
 import { Accordion } from './Accordion';
 
 function getRandomPassword() {
-  return randomWords(4).join('-');
+  return generate(4).join('-');
 }
 
 export default function Editor() {
