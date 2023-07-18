@@ -134,7 +134,7 @@ const Banner = () => {
       </Section>
       {showVideo ? (
         <YouTubePlayer
-          url="https://www.youtube.com/embed/B14Gtm2Z_70"
+          url="https://www.youtube.com/embed/fadANgqPaw0"
           onClose={() => setShowVideo(false)}
         />
       ) : null}
