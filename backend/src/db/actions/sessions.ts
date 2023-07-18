@@ -78,7 +78,7 @@ export async function createSession(
                     ...c,
                     id: v4(),
                     author: { id: author.id },
-                  } as ColumnDefinition)
+                  }) as ColumnDefinition
               )
             : [],
         },

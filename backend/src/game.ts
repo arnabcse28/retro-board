@@ -761,9 +761,7 @@ export default (io: Server) => {
         } catch (rejection) {
           // https://stackoverflow.com/questions/22110010/node-socket-io-anything-to-prevent-flooding/23548884
           console.error(
-            chalk`${d()} {red Websocket has been rate limited for user {yellow ${
-              ids?.identityId
-            }} and SID {yellow ${sid}}}`
+            chalk`${d()} {red Websocket has been rate limited for user {yellow ${ids?.identityId}} and SID {yellow ${sid}}}`
           );
           throttledManualReport('websocket is being throttled', undefined);
           socket.emit(RECEIVE_RATE_LIMITED);

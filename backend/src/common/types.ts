@@ -189,11 +189,11 @@ export type AdminStats = {
   clients: number;
 };
 
-export type CoachRole = 'user' | 'assistant' | 'system';
+export type CoachRole = 'user' | 'assistant' | 'system' | 'function';
 
 export type CoachMessage = {
   role: CoachRole;
-  content: string;
+  content?: string;
 };
 
 export type TrackingEvent =

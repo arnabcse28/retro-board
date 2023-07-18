@@ -57,7 +57,7 @@ export async function dialog(
   const chat = await getAiChatSession(chatId, user, systemMessage);
   const api = new OpenAIApi(configure());
   const response = await api.createChatCompletion({
-    model: 'gpt-3.5-turbo',
+    model: 'gpt-4',
     messages: [systemMessage, ...messages],
   });
   const answer = response.data.choices[0].message!;
