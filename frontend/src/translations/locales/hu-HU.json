@@ -26,7 +26,7 @@
     "welcome": "",
     "anonWarning": "",
     "howDoesThatWork": "Hogyan működik?",
-    "login": "",
+    "login": "Belépés",
     "searchNoMatch": "",
     "proNotSetupWarning": "",
     "proNotSetupWarningAction": ""
@@ -110,6 +110,12 @@
     "allowGroupingHelp": "Csoportok létrehozásának engedélyezése a bejegyzések csoportosításához",
     "allowReordering": "Újrarendelés engedélyezése",
     "allowReorderingHelp": "A bejegyzések átrendezésének engedélyezése fogd és vidd módszerrel",
+    "restrictTitleEditToOwner": "",
+    "restrictTitleEditToOwnerHelp": "",
+    "restrictReorderingToOwner": "",
+    "restrictReorderingToOwnerHelp": "",
+    "restrictGroupingToOwner": "",
+    "restrictGroupingToOwnerHelp": "",
     "blurCards": "Kártyák elmosódása",
     "blurCardsHelp": "A kártyák tartalma elmosódik, amíg a moderátor fel nem fedi a tartalmat",
     "template": "Sablon",
@@ -184,7 +190,7 @@
   "Clients": {
     "header": "Jelenleg itt van:",
     "joined": "{{users}} csatlakozott.",
-    "left": "{{users}} maradt."
+    "left": "{{users}} távozott."
   },
   "Join": {
     "welcome": "Üdv, ez itt a Retrospected",
@@ -222,7 +228,7 @@
     "passwordField": "Jelszó",
     "nameField": "Az Ön neve (megjelenítési célból)",
     "noAuthWarning": "",
-    "or": "",
+    "or": "vagy",
     "passwordScoreWords": [
       "gyenge",
       "gyenge",
@@ -271,7 +277,7 @@
     "copySuccessful": "Sikeresen másolta az összefoglalót a vágólapra"
   },
   "SessionName": {
-    "defaultSessionName": "Retrospektívám"
+    "defaultSessionName": "Retro"
   },
   "Invite": {
     "inviteButton": "Meghívás",
@@ -492,13 +498,13 @@
     "stopTimerTitle": "",
     "stopTimerDescription": "",
     "stopTimerButton": "",
-    "stopTimerCancelButton": ""
+    "stopTimerCancelButton": "Megszünteti"
   },
   "Ai": {
     "title": "",
     "info": "",
     "disabledAnonymous": "",
-    "close": "",
+    "close": "Bezárás",
     "paidLimitWarning": "",
     "freeLimitWarning": "",
     "genericError": "",
