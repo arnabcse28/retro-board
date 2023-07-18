@@ -174,7 +174,7 @@ const Column: React.FC<ColumnProps> = ({
       <Droppable
         droppableId={'column#' + column.index}
         isCombineEnabled
-        isDropDisabled={permissions.canReorderPosts}
+        isDropDisabled={!permissions.canReorderPosts}
       >
         {(
           dropProvided: DroppableProvided,
