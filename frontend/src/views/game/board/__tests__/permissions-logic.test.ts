@@ -178,6 +178,40 @@ describe('Session Permission Logic', () => {
     expect(result.canCreateGroup).toBe(false);
     expect(result.hasReachedMaxPosts).toBe(false);
   });
+
+  it('When restricting grouping to owner', () => {
+    const s = session({
+      ...defaultOptions,
+      allowGrouping: true,
+      restrictGroupingToOwner: true,
+    });
+    const result = sessionPermissionLogic(s, currentUser, true, false);
+    expect(result.canCreateGroup).toBe(true);
+    const forAnotherUser = sessionPermissionLogic(s, anotherUser, true, false);
+    expect(forAnotherUser.canCreateGroup).toBe(false);
+  });
+
+  it('When restricting editing the title to owner', () => {
+    const s = session({
+      ...defaultOptions,
+      restrictTitleEditToOwner: true,
+    });
+    const result = sessionPermissionLogic(s, currentUser, true, false);
+    expect(result.canEditTitle).toBe(true);
+    const forAnotherUser = sessionPermissionLogic(s, anotherUser, true, false);
+    expect(forAnotherUser.canEditTitle).toBe(false);
+  });
+
+  it('When restricting re-ordering to owner', () => {
+    const s = session({
+      ...defaultOptions,
+      restrictReorderingToOwner: true,
+    });
+    const result = sessionPermissionLogic(s, currentUser, true, false);
+    expect(result.canReorderPosts).toBe(true);
+    const forAnotherUser = sessionPermissionLogic(s, anotherUser, true, false);
+    expect(forAnotherUser.canReorderPosts).toBe(false);
+  });
 });
 
 describe('Posts Permission Logic', () => {
@@ -553,5 +587,75 @@ describe('Posts Permission Logic', () => {
     );
     const result = postPermissionLogic(p, s, capabilities, currentUser, false);
     expect(result.canCancelVote).toBe(false);
+  });
+
+  it('By default it should not show authors', () => {
+    const p = post(anotherUser, [currentUser]);
+    const s = session(
+      {
+        ...defaultOptions,
+      },
+      p
+    );
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
+    expect(result.canShowAuthor).toBe(false);
+  });
+
+  it('If show author is enabled', () => {
+    const p = post(anotherUser, [currentUser]);
+    const s = session(
+      {
+        ...defaultOptions,
+        allowAuthorVisible: true,
+      },
+      p
+    );
+    const result = postPermissionLogic(p, s, capabilities, currentUser, false);
+    expect(result.canShowAuthor).toBe(true);
+  });
+
+  it('If show author is restricted across the board', () => {
+    const p = post(anotherUser, [currentUser]);
+    const s = session(
+      {
+        ...defaultOptions,
+        allowAuthorVisible: true,
+      },
+      p
+    );
+    const c: BackendCapabilities = {
+      ...capabilities,
+      disableShowAuthor: true,
+    };
+    const result = postPermissionLogic(p, s, c, currentUser, false);
+    expect(result.canShowAuthor).toBe(false);
+  });
+
+  it('Can re-order if restricted to owner and not owner', () => {
+    const p = post(anotherUser, [currentUser]);
+    const s = session(
+      {
+        ...defaultOptions,
+        allowReordering: true,
+        restrictReorderingToOwner: true,
+      },
+      p
+    );
+    const forOwner = postPermissionLogic(
+      p,
+      s,
+      capabilities,
+      currentUser,
+      false
+    );
+    expect(forOwner.canReorder).toBe(true);
+    const forAnotherUser = postPermissionLogic(
+      p,
+      s,
+      capabilities,
+      anotherUser,
+      false
+    );
+    expect(forAnotherUser.canReorder).toBe(false);
   });
 });
