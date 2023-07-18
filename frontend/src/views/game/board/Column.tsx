@@ -126,51 +126,57 @@ const Column: React.FC<ColumnProps> = ({
         ) : null}
       </Add>
       <Groups>
-        {groups.map((group) => (
-          <Group
-            key={group.id}
-            group={group}
-            readonly={false}
-            onEditLabel={(label) =>
-              onEditGroup({
-                ...group,
-                label,
-              })
-            }
-            onDelete={() => onDeleteGroup(group)}
-          >
-            {group.posts.map((post, index) => (
-              <PostItem
-                index={index}
-                key={post.id}
-                post={post}
-                color={color}
-                onLike={() => onLike(post)}
-                onDislike={() => onDislike(post)}
-                onDelete={() => onDelete(post)}
-                onCancelVotes={() => onCancelVotes(post)}
-                onEdit={(content) =>
-                  onEdit({
-                    ...post,
-                    content,
-                  })
-                }
-                onEditAction={(action) =>
-                  onEdit({
-                    ...post,
-                    action,
-                  })
-                }
-                onEditGiphy={(giphy) =>
-                  onEdit({
-                    ...post,
-                    giphy,
-                  })
-                }
-              />
-            ))}
-          </Group>
-        ))}
+        {groups.map((group) => {
+          const posts = group.posts.filter(searchPredicate);
+          if (posts.length === 0) {
+            return null;
+          }
+          return (
+            <Group
+              key={group.id}
+              group={group}
+              readonly={false}
+              onEditLabel={(label) =>
+                onEditGroup({
+                  ...group,
+                  label,
+                })
+              }
+              onDelete={() => onDeleteGroup(group)}
+            >
+              {posts.map((post, index) => (
+                <PostItem
+                  index={index}
+                  key={post.id}
+                  post={post}
+                  color={color}
+                  onLike={() => onLike(post)}
+                  onDislike={() => onDislike(post)}
+                  onDelete={() => onDelete(post)}
+                  onCancelVotes={() => onCancelVotes(post)}
+                  onEdit={(content) =>
+                    onEdit({
+                      ...post,
+                      content,
+                    })
+                  }
+                  onEditAction={(action) =>
+                    onEdit({
+                      ...post,
+                      action,
+                    })
+                  }
+                  onEditGiphy={(giphy) =>
+                    onEdit({
+                      ...post,
+                      giphy,
+                    })
+                  }
+                />
+              ))}
+            </Group>
+          );
+        })}
       </Groups>
       <Droppable
         droppableId={'column#' + column.index}
