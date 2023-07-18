@@ -132,6 +132,13 @@ function PostsSection({ options, onChange }: PostsSectionProps) {
       subtitle={t('Customize.postCategorySub')!}
     >
       <OptionItem
+        label={t('Customize.maxPosts')!}
+        help={t('Customize.maxPostsHelp')!}
+        wide
+      >
+        <MaxPostsSlider value={options.maxPosts} onChange={setMaxPosts} />
+      </OptionItem>
+      <OptionItem
         label={t('Customize.restrictTitleEditToOwner')!}
         help={t('Customize.restrictTitleEditToOwnerHelp')!}
       >
@@ -139,13 +146,6 @@ function PostsSection({ options, onChange }: PostsSectionProps) {
           value={options.restrictTitleEditToOwner}
           onChange={setRestrictTitleEditToOwner}
         />
-      </OptionItem>
-      <OptionItem
-        label={t('Customize.maxPosts')!}
-        help={t('Customize.maxPostsHelp')!}
-        wide
-      >
-        <MaxPostsSlider value={options.maxPosts} onChange={setMaxPosts} />
       </OptionItem>
       <OptionItem
         label={t('Customize.blurCards')!}
