@@ -22,7 +22,7 @@ export const defaultOptions: SessionOptions = {
   restrictGroupingToOwner: false,
 };
 
-export const defaultSession: Omit<Session, 'createdBy'> = {
+export const defaultSession: Omit<Session, 'createdBy' | 'moderator'> = {
   id: '',
   columns: [
     { id: '', index: 0, label: '', type: 'well', color: '', icon: null },

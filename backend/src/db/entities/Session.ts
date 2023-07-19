@@ -28,9 +28,12 @@ export default class SessionEntity {
   @Column({ nullable: true, type: 'character varying' })
   @Index()
   public name: string | null;
-  @ManyToOne(() => UserEntity, { eager: true, cascade: true, nullable: false })
+  @ManyToOne(() => UserEntity, { eager: true, cascade: true, nullable: true })
   @Index()
   public createdBy: UserEntity;
+  @ManyToOne(() => UserEntity, { eager: true, cascade: true, nullable: true })
+  @Index()
+  public moderator: UserEntity;
   @OneToMany(() => PostEntity, (post) => post.session, {
     cascade: true,
     nullable: false,
@@ -80,6 +83,7 @@ export default class SessionEntity {
       columns:
         this.columns === undefined ? [] : this.columns.map((c) => c.toJson()),
       createdBy: this.createdBy.toJson(),
+      moderator: this.moderator.toJson(),
       groups:
         this.groups === undefined ? [] : this.groups.map((g) => g.toJson()),
       id: this.id,
@@ -105,6 +109,7 @@ export default class SessionEntity {
     this.id = id;
     this.name = name;
     this.createdBy = createdBy;
+    this.moderator = createdBy;
     this.options = new SessionOptionsEntity(options);
     this.encrypted = null;
     this.locked = false;

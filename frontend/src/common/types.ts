@@ -8,6 +8,7 @@ export interface Session extends PostContainer, Entity {
   encrypted: string | null;
   locked: boolean;
   createdBy: User;
+  moderator: User;
   ready: string[];
   timer: Date | null;
   demo: boolean;
@@ -189,11 +190,11 @@ export type AdminStats = {
   clients: number;
 };
 
-export type CoachRole = 'user' | 'assistant' | 'system';
+export type CoachRole = 'user' | 'assistant' | 'system' | 'function';
 
 export type CoachMessage = {
   role: CoachRole;
-  content: string;
+  content?: string;
 };
 
 export type TrackingEvent =

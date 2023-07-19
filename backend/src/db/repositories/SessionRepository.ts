@@ -26,7 +26,7 @@ export default getBaseRepository(SessionEntity).extend({
     }
   },
   async saveFromJson(
-    session: Omit<JsonSession, 'createdBy'>,
+    session: Omit<JsonSession, 'createdBy' | 'moderator'>,
     authorId: string
   ): Promise<JsonSession> {
     const sessionWithoutPosts = {
@@ -34,6 +34,7 @@ export default getBaseRepository(SessionEntity).extend({
       posts: undefined,
       columns: undefined,
       createdBy: { id: authorId },
+      moderator: { id: authorId },
     };
     delete sessionWithoutPosts.posts;
     delete sessionWithoutPosts.columns;

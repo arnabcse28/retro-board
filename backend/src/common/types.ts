@@ -8,6 +8,7 @@ export interface Session extends PostContainer, Entity {
   encrypted: string | null;
   locked: boolean;
   createdBy: User;
+  moderator: User;
   ready: string[];
   timer: Date | null;
   demo: boolean;

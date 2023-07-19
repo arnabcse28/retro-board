@@ -93,6 +93,7 @@ const session = (options: SessionOptions, ...posts: Post[]): Session => ({
   posts,
   columns: [],
   createdBy: currentUser,
+  moderator: currentUser,
   options: {
     ...options,
   },

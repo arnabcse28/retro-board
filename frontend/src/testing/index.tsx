@@ -51,6 +51,12 @@ export const initialSession: Session = {
     photo: null,
     email: null,
   },
+  moderator: {
+    id: 'John Doe',
+    name: 'John Doe',
+    photo: null,
+    email: null,
+  },
   options: {
     ...defaultOptions,
   },
