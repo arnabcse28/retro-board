@@ -25,7 +25,7 @@ export async function getAiChatSession(
       return chat;
     }
     const user = await getUser(userView.id);
-    if (user && systemMessage.content) {
+    if (user) {
       const newChat = new AiChatEntity(id, user);
       await repository.save(newChat);
       const messageRepository = manager.withRepository(AiChatMessageRepository);
@@ -46,12 +46,9 @@ export async function getAiChatSession(
 
 export async function recordAiChatMessage(
   role: CoachRole,
-  content: string | undefined,
+  content: string,
   chat: AiChatEntity
 ): Promise<void> {
-  if (!content) {
-    return;
-  }
   return await transaction(async (manager) => {
     const repository = manager.withRepository(AiChatMessageRepository);
     await repository.save(new AiChatMessageEntity(v4(), chat, content, role));

@@ -34,7 +34,7 @@ export const SectionHeading = styled.div`
   }
 `;
 
-export const RcCollapse = styled(Collapse as any)`
+export const RcCollapse = styled(Collapse)`
   background-color: transparent;
   border: 0;
   display: grid;
