@@ -97,6 +97,21 @@ This will run a demo version, which you can turn into a fully licenced version b
 
 ## Versions History
 
+### Version 5.3.0
+
+- [⭐️ Self-Hosting] new features:
+  - Option to disable data deletion (GDPR)
+  - Option to disable "Show Author" globally
+- New retrospective options:
+  - Option to restrict editing the title of a session to the moderator
+  - Option to restrict ordering and grouping to the moderator
+- When accessing a private session that you don't have access to, it will now show the name of the moderator.
+- Search functionality has been improved: it will now only show matching cards
+- 🐛 Bug fix: when there are too many users connected, the "I'm ready button" would become hidden. This is now fixed.
+- The Agile Coach is now using Chat GPT 4, which is much more powerful
+- A new explanatory video has been added to the marketing website, and the app itself.
+- ⏫ Upgrading dependencies
+
 ### Version 5.2.2 (hotfix)
 
 - Improving documentation
