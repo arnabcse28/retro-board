@@ -2,7 +2,7 @@ name: 'Alpha Build'
 
 on:
   push:
-    branches: [v523/video]
+    branches: [v523/release]
 
 jobs:
   frontend:
