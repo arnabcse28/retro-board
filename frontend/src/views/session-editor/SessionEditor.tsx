@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
-import { SessionOptions } from 'common';
+import { useState, useEffect, useCallback, useMemo } from 'react';
+import { Session, SessionOptions } from 'common';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -16,56 +16,59 @@ import { ColumnSettings } from '../../state/types';
 import TemplateSection from './sections/template/TemplateSection';
 import PostsSection from './sections/posts/PostsSection';
 import VotingSection from './sections/votes/VotingSection';
-import { extrapolate, hasChanged } from '../../state/columns';
+import { extrapolate, toColumnDefinitions } from '../../state/columns';
 import TimerSection from './sections/timer/TimerSection';
 import BoardSection from './sections/board/BoardSection';
 
 interface SessionEditorProps {
   open: boolean;
-  options: SessionOptions;
-  columns: ColumnSettings[];
-  edit?: boolean;
-  onChange: (
-    options: SessionOptions,
-    columns: ColumnSettings[],
-    makeDefault: boolean
-  ) => void;
+  session: Session;
+  onChange: (session: Session, makeDefault: boolean) => void;
   onClose: () => void;
 }
 
 function SessionEditor({
   open,
-  options: incomingOptions,
-  columns,
-  edit = false,
+  session: originalSession,
   onChange,
   onClose,
 }: SessionEditorProps) {
   const { t } = useTranslation();
   const fullScreen = useMediaQuery('(max-width:600px)');
   const [isDefaultTemplate, toggleIsDefaultTemplate] = useToggle(false);
-  const [definitions, setDefinitions] = useState<ColumnSettings[]>(columns);
-  const [options, setOptions] = useState(incomingOptions);
+  const [session, setSession] = useState(originalSession);
+  // const [definitions, setDefinitions] = useState<ColumnSettings[]>(columns);
+  // const [options, setOptions] = useState(incomingOptions);
   const [currentTab, setCurrentTab] = useState('template');
 
-  useEffect(() => {
-    const extrapolatedColumns = columns.map((c) => extrapolate(c, t));
-    setDefinitions(extrapolatedColumns);
-  }, [columns, t]);
+  // useEffect(() => {
+  //   const extrapolatedColumns = session.columns.map((c) => extrapolate(c, t));
+  //   setDefinitions(extrapolatedColumns);
+  // }, [session.columns, t]);
+
+  const extrapolatedColumns = useMemo(() => {
+    const extrapolatedColumns = session.columns.map((c) => extrapolate(c, t));
+    return extrapolatedColumns;
+  }, [session.columns, t]);
 
   useEffect(() => {
-    setOptions(incomingOptions);
-  }, [incomingOptions]);
+    setSession(originalSession);
+  }, [originalSession]);
 
   const handleCreate = useCallback(() => {
-    const definitionsToPersist = hasChanged(columns, definitions, t)
-      ? definitions
-      : columns;
-    onChange(options, definitionsToPersist, isDefaultTemplate);
-  }, [onChange, options, definitions, isDefaultTemplate, columns, t]);
+    onChange(session, isDefaultTemplate);
+  }, [onChange, isDefaultTemplate, session]);
 
   const handleTab = useCallback((_: React.ChangeEvent<{}>, value: string) => {
     setCurrentTab(value);
+  }, []);
+
+  const handleOptionsChange = useCallback((options: SessionOptions) => {
+    setSession((prev) => ({ ...prev, options }));
+  }, []);
+
+  const handleColumnsChanged = useCallback((columns: ColumnSettings[]) => {
+    setSession((prev) => ({ ...prev, columns: toColumnDefinitions(columns) }));
   }, []);
 
   return (
@@ -97,19 +100,34 @@ function SessionEditor({
       </AppBar>
       <DialogContent>
         {currentTab === 'template' ? (
-          <TemplateSection columns={definitions} onChange={setDefinitions} />
+          <TemplateSection
+            columns={extrapolatedColumns}
+            onChange={handleColumnsChanged}
+          />
         ) : null}
         {currentTab === 'board' ? (
-          <BoardSection options={options} onChange={setOptions} />
+          <BoardSection
+            options={session.options}
+            onChange={handleOptionsChange}
+          />
         ) : null}
         {currentTab === 'posts' ? (
-          <PostsSection options={options} onChange={setOptions} />
+          <PostsSection
+            options={session.options}
+            onChange={handleOptionsChange}
+          />
         ) : null}
         {currentTab === 'voting' ? (
-          <VotingSection options={options} onChange={setOptions} />
+          <VotingSection
+            options={session.options}
+            onChange={handleOptionsChange}
+          />
         ) : null}
         {currentTab === 'timer' ? (
-          <TimerSection options={options} onChange={setOptions} />
+          <TimerSection
+            options={session.options}
+            onChange={handleOptionsChange}
+          />
         ) : null}
       </DialogContent>
       <DialogActions>
@@ -126,7 +144,7 @@ function SessionEditor({
           {t('Generic.cancel')}
         </Button>
         <Button onClick={handleCreate} color="primary" variant="contained">
-          {edit ? t('Customize.editButton') : t('Customize.startButton')}
+          {t('Customize.editButton')}
         </Button>
       </DialogActions>
     </Dialog>

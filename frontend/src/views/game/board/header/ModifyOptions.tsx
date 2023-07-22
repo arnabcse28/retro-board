@@ -1,8 +1,7 @@
 import { useState, useCallback } from 'react';
 import Button from '@mui/material/Button';
 import SessionEditor from '../../../session-editor/SessionEditor';
-import { ColumnSettings } from '../../../../state/types';
-import { SessionOptions, ColumnDefinition } from 'common';
+import { SessionOptions, ColumnDefinition, Session } from 'common';
 import { toColumnDefinitions } from '../../../../state/columns';
 import { trackEvent } from '../../../../track';
 import { Settings } from '@mui/icons-material';
@@ -30,26 +29,22 @@ function ModifyOptions({
   const small = useMediaQuery('(max-width: 500px)');
 
   const handleChange = useCallback(
-    (
-      updatedOptions: SessionOptions,
-      updatedColumns: ColumnSettings[],
-      saveAsTemplate: boolean
-    ) => {
+    (modifiedSession: Session, saveAsTemplate: boolean) => {
       setOpen(false);
       if (!session) {
         return;
       }
       const { options, columns } = session;
-      if (options !== updatedOptions) {
-        onEditOptions(updatedOptions);
+      if (options !== modifiedSession.options) {
+        onEditOptions(modifiedSession.options);
         trackEvent('game/session/edit-options');
       }
-      if (columns !== updatedColumns) {
-        onEditColumns(toColumnDefinitions(updatedColumns));
+      if (columns !== modifiedSession.columns) {
+        onEditColumns(toColumnDefinitions(modifiedSession.columns));
         trackEvent('game/session/edit-columns');
       }
       if (saveAsTemplate) {
-        onSaveTemplate(updatedOptions, toColumnDefinitions(updatedColumns));
+        onSaveTemplate(modifiedSession.options, modifiedSession.columns);
         trackEvent('custom-modal/template/set-defaut');
       }
     },
@@ -59,8 +54,6 @@ function ModifyOptions({
   if (!session) {
     return null;
   }
-
-  const { options, columns } = session;
 
   return (
     <>
@@ -80,10 +73,8 @@ function ModifyOptions({
       )}
       {open ? (
         <SessionEditor
-          edit
           open={open}
-          columns={columns}
-          options={options}
+          session={session}
           onClose={() => setOpen(false)}
           onChange={handleChange}
         />
