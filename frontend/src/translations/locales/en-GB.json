@@ -72,6 +72,8 @@
     "title": "Customise your Session",
     "timerCategory": "Timer",
     "timerCategorySub": "Set the timer for the session",
+    "boardCategory": "Board",
+    "boardCategorySub": "Customise board settings",
     "allowTimer": "Allow Timer",
     "allowTimerHelp": "Display a timer at the bottom of the screen",
     "timerDuration": "Timer Duration",

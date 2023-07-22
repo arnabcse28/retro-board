@@ -116,16 +116,6 @@ function PostsSection({ options, onChange }: PostsSectionProps) {
     [onChange, options]
   );
 
-  const setRestrictTitleEditToOwner = useCallback(
-    (value: boolean) => {
-      onChange({
-        ...options,
-        restrictTitleEditToOwner: value,
-      });
-    },
-    [onChange, options]
-  );
-
   return (
     <SettingCategory
       title={t('Customize.postCategory')!}
@@ -137,15 +127,6 @@ function PostsSection({ options, onChange }: PostsSectionProps) {
         wide
       >
         <MaxPostsSlider value={options.maxPosts} onChange={setMaxPosts} />
-      </OptionItem>
-      <OptionItem
-        label={t('Customize.restrictTitleEditToOwner')!}
-        help={t('Customize.restrictTitleEditToOwnerHelp')!}
-      >
-        <BooleanOption
-          value={options.restrictTitleEditToOwner}
-          onChange={setRestrictTitleEditToOwner}
-        />
       </OptionItem>
       <OptionItem
         label={t('Customize.blurCards')!}
