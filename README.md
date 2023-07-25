@@ -97,6 +97,10 @@ This will run a demo version, which you can turn into a fully licenced version b
 
 ## Versions History
 
+### Version 5.3.1 (hotfix)
+
+- 🐛 Adding a group was not working in the previous version. This is now fixed.
+
 ### Version 5.3.0
 
 - [⭐️ Self-Hosting] new features:

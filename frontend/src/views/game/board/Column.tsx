@@ -128,7 +128,7 @@ const Column: React.FC<ColumnProps> = ({
       <Groups>
         {groups.map((group) => {
           const posts = group.posts.filter(searchPredicate);
-          if (posts.length === 0) {
+          if (search && posts.length === 0) {
             return null;
           }
           return (
