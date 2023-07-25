@@ -70,6 +70,7 @@ function GamePage() {
     onRenameSession,
     onEditOptions,
     onEditColumns,
+    onChangeSession,
     onSaveTemplate,
     onLockSession,
     onUserReady,
@@ -203,6 +204,7 @@ function GamePage() {
                 onEditColumns={onEditColumns}
                 onSaveTemplate={onSaveTemplate}
                 onLockSession={onLockSession}
+                onChangeSession={onChangeSession}
               />
             }
           />

@@ -2,6 +2,7 @@ import {
   ColumnDefinition,
   Post,
   PostGroup,
+  Session,
   SessionOptions,
   User,
   VoteExtract,
@@ -61,6 +62,11 @@ export interface WsDeleteGroupPayload {
 export interface WsSaveTemplatePayload {
   columns: ColumnDefinition[];
   options: SessionOptions;
+}
+
+export interface WsSaveSessionSettingsPayload {
+  session: Session;
+  saveAsTemplate: boolean;
 }
 
 export interface WsUserReadyPayload {

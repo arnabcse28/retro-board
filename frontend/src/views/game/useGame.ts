@@ -26,6 +26,7 @@ import {
   WsCancelVotesPayload,
   WsReceiveCancelVotesPayload,
   WsReceiveTimerStartPayload,
+  WsSaveSessionSettingsPayload,
 } from 'common';
 import { v4 } from 'uuid';
 import find from 'lodash/find';
@@ -131,6 +132,7 @@ function useGame(sessionId: string) {
     resetSession,
     editOptions,
     editColumns,
+    editSessionSettings,
     lockSession,
     userReady,
     cancelVotes,
@@ -767,6 +769,20 @@ function useGame(sessionId: string) {
     [send, editColumns]
   );
 
+  const onChangeSession = useCallback(
+    (session: Session, saveAsTemplate: boolean) => {
+      if (send) {
+        editSessionSettings(session);
+        send<WsSaveSessionSettingsPayload>(Actions.SAVE_SESSION_SETTINGS, {
+          session,
+          saveAsTemplate,
+        });
+        trackAction(Actions.SAVE_SESSION_SETTINGS);
+      }
+    },
+    [send, editSessionSettings]
+  );
+
   const onSaveTemplate = useCallback(
     (options: SessionOptions, columns: ColumnDefinition[]) => {
       if (send) {
@@ -832,6 +848,7 @@ function useGame(sessionId: string) {
     onRenameSession,
     onEditOptions,
     onEditColumns,
+    onChangeSession,
     onSaveTemplate,
     onLockSession,
     reconnect,

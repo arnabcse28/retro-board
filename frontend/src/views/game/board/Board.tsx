@@ -1,6 +1,12 @@
 import { useCallback } from 'react';
 import styled from '@emotion/styled';
-import { Post, PostGroup, SessionOptions, ColumnDefinition } from 'common';
+import {
+  Post,
+  PostGroup,
+  SessionOptions,
+  ColumnDefinition,
+  Session,
+} from 'common';
 import {
   DragDropContext,
   DropResult,
@@ -44,6 +50,7 @@ interface GameModeProps {
   onDeleteGroup: (group: PostGroup) => void;
   onEditOptions: (options: SessionOptions) => void;
   onEditColumns: (columns: ColumnDefinition[]) => void;
+  onChangeSession: (session: Session, saveAsTemplate: boolean) => void;
   onSaveTemplate: (
     options: SessionOptions,
     columns: ColumnDefinition[]
@@ -87,6 +94,7 @@ function GameMode({
   onEditOptions,
   onEditColumns,
   onSaveTemplate,
+  onChangeSession,
   onLockSession,
   columns,
   options,
@@ -140,9 +148,7 @@ function GameMode({
         </ClosableAlert>
       ) : null}
       <BoardHeader
-        onEditColumns={onEditColumns}
-        onEditOptions={onEditOptions}
-        onSaveTemplate={onSaveTemplate}
+        onChangeSession={onChangeSession}
         onLockSession={onLockSession}
         onRenameSession={onRenameSession}
       />

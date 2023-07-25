@@ -1,16 +1,19 @@
-export interface Session extends PostContainer, Entity {
+export interface SessionSettings {
   name: string | null;
+  moderator: User;
+  options: SessionOptions;
+  columns: ColumnDefinition[];
+  locked: boolean;
+  timer: Date | null;
+}
+
+export interface Session extends SessionSettings, PostContainer, Entity {
   posts: Post[];
   groups: PostGroup[];
-  columns: ColumnDefinition[];
   messages: Message[];
-  options: SessionOptions;
   encrypted: string | null;
-  locked: boolean;
   createdBy: User;
-  moderator: User;
   ready: string[];
-  timer: Date | null;
   demo: boolean;
 }
 
@@ -212,6 +215,7 @@ export type TrackingEvent =
   | 'home/load-previous'
   | 'game/session/edit-options'
   | 'game/session/edit-columns'
+  | 'game/session/save-options'
   | 'game/session/reset'
   | 'game/session/disconnect'
   | 'game/session/unexpected-disconnection'

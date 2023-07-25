@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import styled from '@emotion/styled';
-import { SessionOptions, ColumnDefinition } from 'common';
+import { SessionOptions, Session, SessionSettings } from 'common';
 import Typography from '@mui/material/Typography';
 import { makeStyles } from '@mui/styles';
 import { useTranslation } from 'react-i18next';
@@ -27,12 +27,7 @@ import ClosableAlert from 'components/ClosableAlert';
 
 interface BoardHeaderProps {
   onRenameSession: (name: string) => void;
-  onEditOptions: (options: SessionOptions) => void;
-  onEditColumns: (columns: ColumnDefinition[]) => void;
-  onSaveTemplate: (
-    options: SessionOptions,
-    columns: ColumnDefinition[]
-  ) => void;
+  onChangeSession: (session: SessionSettings, saveAsTemplate: boolean) => void;
   onLockSession: (locked: boolean) => void;
 }
 
@@ -46,9 +41,7 @@ const useStyles = makeStyles({
 });
 
 function BoardHeader({
-  onEditOptions,
-  onEditColumns,
-  onSaveTemplate,
+  onChangeSession,
   onLockSession,
   onRenameSession,
 }: BoardHeaderProps) {
@@ -74,9 +67,9 @@ function BoardHeader({
         ...session.options,
         blurCards: false,
       };
-      onEditOptions(modifiedOptions);
+      onChangeSession({ ...session, options: modifiedOptions }, false);
     }
-  }, [onEditOptions, session]);
+  }, [onChangeSession, session]);
 
   const handleRenameSession = useCallback(
     (name: string) => {
@@ -130,11 +123,7 @@ function BoardHeader({
         <LeftOptions>
           {canReveal ? <RevealButton onClick={handleReveal} /> : null}
           {canModifyOptions ? (
-            <ModifyOptions
-              onEditOptions={onEditOptions}
-              onEditColumns={onEditColumns}
-              onSaveTemplate={onSaveTemplate}
-            />
+            <ModifyOptions onChange={onChangeSession} session={session} />
           ) : null}
         </LeftOptions>
         <Title>
