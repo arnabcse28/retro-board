@@ -24,6 +24,7 @@ import {
   WsCancelVotesPayload,
   WsReceiveCancelVotesPayload,
   WsReceiveTimerStartPayload,
+  WsSaveSessionSettingsPayload,
 } from './common/index.js';
 import { RateLimiterMemory } from 'rate-limiter-flexible';
 import chalk from 'chalk-template';
@@ -98,6 +99,7 @@ const {
   RECEIVE_OPTIONS,
   EDIT_COLUMNS,
   RECEIVE_COLUMNS,
+  SAVE_SESSION_SETTINGS,
   SAVE_TEMPLATE,
   LOCK_SESSION,
   RECEIVE_LOCK_SESSION,
@@ -606,6 +608,30 @@ export default (io: Server) => {
     }
   };
 
+  const onSaveSessionSettings = async (
+    userIds: UserIds | null,
+    sessionId: string,
+    data: WsSaveSessionSettingsPayload,
+    socket: Socket
+  ) => {
+    await updateOptions(sessionId, data.session.options);
+    await updateColumns(sessionId, data.session.columns);
+    if (checkUser(userIds, socket) && data.saveAsTemplate) {
+      await saveTemplate(
+        userIds.userId,
+        data.session.columns,
+        data.session.options
+      );
+    }
+    sendToAllOrError<ColumnDefinition[]>(
+      socket,
+      sessionId,
+      RECEIVE_COLUMNS,
+      'cannot_save_columns',
+      columns
+    );
+  };
+
   const onLockSession = async (
     _userIds: UserIds | null,
     sessionId: string,
@@ -702,6 +728,7 @@ export default (io: Server) => {
       { type: EDIT_OPTIONS, handler: onEditOptions, onlyAuthor: true },
       { type: EDIT_COLUMNS, handler: onEditColumns, onlyAuthor: true },
       { type: SAVE_TEMPLATE, handler: onSaveTemplate, onlyAuthor: true },
+      { type: SAVE_SESSION_SETTINGS, handler: onSaveSessionSettings },
       { type: LOCK_SESSION, handler: onLockSession, onlyAuthor: true },
     ];
 
