@@ -6,6 +6,7 @@ import {
   VoteExtract,
   SessionOptions,
   Message,
+  SessionSettings,
 } from 'common';
 import { findIndex } from 'lodash';
 import { useCallback } from 'react';
@@ -27,7 +28,7 @@ interface UseSession {
   deletePostGroup: (groupId: string) => void;
   editOptions: (options: SessionOptions) => void;
   editColumns: (columns: ColumnDefinition[]) => void;
-  editSessionSettings: (updated: Session) => void;
+  editSessionSettings: (updated: SessionSettings) => void;
   lockSession: (locked: boolean) => void;
   userReady: (userId: string, ready?: boolean) => void;
   cancelVotes: (postId: string, userId: string) => void;
@@ -263,10 +264,10 @@ export default function useSession(): UseSession {
   );
 
   const editSessionSettings = useCallback(
-    (updated: Session) => {
+    (updated: SessionSettings) => {
       setSession((session) =>
         !session
-          ? updated
+          ? null
           : {
               ...session,
               name: updated.name,

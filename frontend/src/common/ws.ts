@@ -2,8 +2,8 @@ import {
   ColumnDefinition,
   Post,
   PostGroup,
-  Session,
   SessionOptions,
+  SessionSettings,
   User,
   VoteExtract,
   VoteType,
@@ -65,7 +65,7 @@ export interface WsSaveTemplatePayload {
 }
 
 export interface WsSaveSessionSettingsPayload {
-  session: Session;
+  settings: SessionSettings;
   saveAsTemplate: boolean;
 }
 

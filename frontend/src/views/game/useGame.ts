@@ -12,7 +12,7 @@ import {
   WsPostUpdatePayload,
   WsDeletePostPayload,
   WsDeleteGroupPayload,
-  WsNameData,
+  // WsNameData,
   WsSaveTemplatePayload,
   VoteExtract,
   WsReceiveLikeUpdatePayload,
@@ -27,6 +27,7 @@ import {
   WsReceiveCancelVotesPayload,
   WsReceiveTimerStartPayload,
   WsSaveSessionSettingsPayload,
+  SessionSettings,
 } from 'common';
 import { v4 } from 'uuid';
 import find from 'lodash/find';
@@ -736,45 +737,45 @@ function useGame(sessionId: string) {
     [user, send, updatePost, allowCancelVotes]
   );
 
-  const onRenameSession = useCallback(
-    (name: string) => {
-      if (send) {
-        renameSession(name);
-        send<WsNameData>(Actions.RENAME_SESSION, { name });
-        trackAction(Actions.RENAME_SESSION);
-      }
-    },
-    [send, renameSession]
-  );
+  // const onRenameSession = useCallback(
+  //   (name: string) => {
+  //     if (send) {
+  //       renameSession(name);
+  //       send<WsNameData>(Actions.RENAME_SESSION, { name });
+  //       trackAction(Actions.RENAME_SESSION);
+  //     }
+  //   },
+  //   [send, renameSession]
+  // );
 
-  const onEditOptions = useCallback(
-    (options: SessionOptions) => {
-      if (send) {
-        editOptions(options);
-        send<SessionOptions>(Actions.EDIT_OPTIONS, options);
-        trackAction(Actions.EDIT_OPTIONS);
-      }
-    },
-    [send, editOptions]
-  );
+  // const onEditOptions = useCallback(
+  //   (options: SessionOptions) => {
+  //     if (send) {
+  //       editOptions(options);
+  //       send<SessionOptions>(Actions.EDIT_OPTIONS, options);
+  //       trackAction(Actions.EDIT_OPTIONS);
+  //     }
+  //   },
+  //   [send, editOptions]
+  // );
 
-  const onEditColumns = useCallback(
-    (columns: ColumnDefinition[]) => {
-      if (send) {
-        editColumns(columns);
-        send<ColumnDefinition[]>(Actions.EDIT_COLUMNS, columns);
-        trackAction(Actions.EDIT_COLUMNS);
-      }
-    },
-    [send, editColumns]
-  );
+  // const onEditColumns = useCallback(
+  //   (columns: ColumnDefinition[]) => {
+  //     if (send) {
+  //       editColumns(columns);
+  //       send<ColumnDefinition[]>(Actions.EDIT_COLUMNS, columns);
+  //       trackAction(Actions.EDIT_COLUMNS);
+  //     }
+  //   },
+  //   [send, editColumns]
+  // );
 
   const onChangeSession = useCallback(
-    (session: Session, saveAsTemplate: boolean) => {
+    (settings: SessionSettings, saveAsTemplate: boolean) => {
       if (send) {
-        editSessionSettings(session);
+        editSessionSettings(settings);
         send<WsSaveSessionSettingsPayload>(Actions.SAVE_SESSION_SETTINGS, {
-          session,
+          settings,
           saveAsTemplate,
         });
         trackAction(Actions.SAVE_SESSION_SETTINGS);
@@ -845,9 +846,9 @@ function useGame(sessionId: string) {
     onDeletePostGroup,
     onLike,
     onCancelVotes,
-    onRenameSession,
-    onEditOptions,
-    onEditColumns,
+    // onRenameSession,
+    // onEditOptions,
+    // onEditColumns,
     onChangeSession,
     onSaveTemplate,
     onLockSession,

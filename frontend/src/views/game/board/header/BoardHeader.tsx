@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import styled from '@emotion/styled';
-import { SessionOptions, Session, SessionSettings } from 'common';
+import { SessionOptions, SessionSettings } from 'common';
 import Typography from '@mui/material/Typography';
 import { makeStyles } from '@mui/styles';
 import { useTranslation } from 'react-i18next';
@@ -24,9 +24,9 @@ import useSessionUserPermissions from '../useSessionUserPermissions';
 import useIsDisabled from '../../../../hooks/useIsDisabled';
 import { useShouldLockSession } from 'views/game/useTimer';
 import ClosableAlert from 'components/ClosableAlert';
+import { toSessionSettings } from 'state/utils';
 
 interface BoardHeaderProps {
-  onRenameSession: (name: string) => void;
   onChangeSession: (session: SessionSettings, saveAsTemplate: boolean) => void;
   onLockSession: (locked: boolean) => void;
 }
@@ -40,11 +40,7 @@ const useStyles = makeStyles({
   },
 });
 
-function BoardHeader({
-  onChangeSession,
-  onLockSession,
-  onRenameSession,
-}: BoardHeaderProps) {
+function BoardHeader({ onChangeSession, onLockSession }: BoardHeaderProps) {
   const { t } = useTranslation();
   const classes = useStyles();
   const [key] = useEncryptionKey();
@@ -73,9 +69,14 @@ function BoardHeader({
 
   const handleRenameSession = useCallback(
     (name: string) => {
-      onRenameSession(encrypt(name));
+      if (session) {
+        onChangeSession(
+          { ...toSessionSettings(session), name: encrypt(name) },
+          false
+        );
+      }
     },
-    [onRenameSession, encrypt]
+    [onChangeSession, encrypt, session]
   );
 
   if (!session) {

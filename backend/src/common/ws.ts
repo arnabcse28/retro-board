@@ -2,8 +2,8 @@ import {
   ColumnDefinition,
   Post,
   PostGroup,
-  Session,
   SessionOptions,
+  SessionSettings,
   User,
   VoteExtract,
   VoteType,
@@ -65,7 +65,7 @@ export interface WsSaveTemplatePayload {
 }
 
 export interface WsSaveSessionSettingsPayload {
-  session: Session;
+  settings: SessionSettings;
   saveAsTemplate: boolean;
 }
 
@@ -90,7 +90,8 @@ export type WsErrorType =
   | 'cannot_record_chat_message'
   | 'cannot_cancel_votes'
   | 'unknown_error'
-  | 'action_unauthorised';
+  | 'action_unauthorised'
+  | 'cannot_save_session_settings';
 
 export interface WsErrorPayload {
   type: WsErrorType;

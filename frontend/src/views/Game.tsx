@@ -29,6 +29,7 @@ import AckWarning from './game/AckWarning';
 import useUnauthorised from './game/useUnauthorised';
 import useSession from './game/useSession';
 import TimerProvider from './game/TimerProvider';
+import { toSessionSettings } from 'state/utils';
 
 interface RouteParams {
   gameId: string;
@@ -67,11 +68,11 @@ function GamePage() {
     onEditPostGroup,
     onLike,
     onCancelVotes,
-    onRenameSession,
-    onEditOptions,
-    onEditColumns,
+    // onRenameSession,
+    // onEditOptions,
+    // onEditColumns,
     onChangeSession,
-    onSaveTemplate,
+    // onSaveTemplate,
     onLockSession,
     onUserReady,
     onTimerStart,
@@ -199,10 +200,10 @@ function GamePage() {
                 onCancelVotes={onCancelVotes}
                 onDeleteGroup={onDeletePostGroup}
                 onEditGroup={onEditPostGroup}
-                onRenameSession={onRenameSession}
-                onEditOptions={onEditOptions}
-                onEditColumns={onEditColumns}
-                onSaveTemplate={onSaveTemplate}
+                // onRenameSession={onRenameSession}
+                // onEditOptions={onEditOptions}
+                // onEditColumns={onEditColumns}
+                // onSaveTemplate={onSaveTemplate}
                 onLockSession={onLockSession}
                 onChangeSession={onChangeSession}
               />
@@ -225,7 +226,9 @@ function GamePage() {
             onTimerReset={onTimerReset}
             onTimerStart={onTimerStart}
             onMessage={onChatMessage}
-            onConfigure={onEditOptions}
+            onConfigure={(options) =>
+              onChangeSession({ ...toSessionSettings(session), options }, false)
+            }
           />
         </ParticipantContainer>
       </div>
