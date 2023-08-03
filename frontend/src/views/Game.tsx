@@ -29,7 +29,6 @@ import AckWarning from './game/AckWarning';
 import useUnauthorised from './game/useUnauthorised';
 import useSession from './game/useSession';
 import TimerProvider from './game/TimerProvider';
-import { toSessionSettings } from 'state/utils';
 
 interface RouteParams {
   gameId: string;
@@ -226,9 +225,7 @@ function GamePage() {
             onTimerReset={onTimerReset}
             onTimerStart={onTimerStart}
             onMessage={onChatMessage}
-            onConfigure={(options) =>
-              onChangeSession({ ...toSessionSettings(session), options }, false)
-            }
+            onConfigure={(options) => onChangeSession({ options }, false)}
           />
         </ParticipantContainer>
       </div>

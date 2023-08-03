@@ -270,10 +270,10 @@ export default function useSession(): UseSession {
           ? null
           : {
               ...session,
-              name: updated.name,
-              options: updated.options,
-              columns: updated.columns,
-              locked: updated.locked,
+              name: checkUndefined(updated.name, session.name),
+              options: checkUndefined(updated.options, session.options),
+              columns: checkUndefined(updated.columns, session.columns),
+              locked: checkUndefined(updated.locked, session.locked),
             }
       );
     },
@@ -332,4 +332,11 @@ export default function useSession(): UseSession {
     userReady,
     cancelVotes,
   };
+}
+
+function checkUndefined<T>(value: T | undefined, defaultValue: T): T {
+  if (value === undefined) {
+    return defaultValue;
+  }
+  return value;
 }

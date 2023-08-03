@@ -24,7 +24,6 @@ import useSessionUserPermissions from '../useSessionUserPermissions';
 import useIsDisabled from '../../../../hooks/useIsDisabled';
 import { useShouldLockSession } from 'views/game/useTimer';
 import ClosableAlert from 'components/ClosableAlert';
-import { toSessionSettings } from 'state/utils';
 
 interface BoardHeaderProps {
   onChangeSession: (session: SessionSettings, saveAsTemplate: boolean) => void;
@@ -71,7 +70,9 @@ function BoardHeader({ onChangeSession, onLockSession }: BoardHeaderProps) {
     (name: string) => {
       if (session) {
         onChangeSession(
-          { ...toSessionSettings(session), name: encrypt(name) },
+          {
+            name: encrypt(name),
+          },
           false
         );
       }

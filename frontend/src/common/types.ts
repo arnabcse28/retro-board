@@ -1,4 +1,6 @@
-export interface SessionSettings {
+export type SessionSettings = Partial<AllSessionSettings>;
+
+interface AllSessionSettings {
   name: string | null;
   moderator: User;
   options: SessionOptions;
@@ -7,7 +9,7 @@ export interface SessionSettings {
   timer: Date | null;
 }
 
-export interface Session extends SessionSettings, PostContainer, Entity {
+export interface Session extends AllSessionSettings, PostContainer, Entity {
   posts: Post[];
   groups: PostGroup[];
   messages: Message[];

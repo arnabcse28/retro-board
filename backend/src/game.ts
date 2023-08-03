@@ -616,15 +616,26 @@ export default (io: Server) => {
     data: WsSaveSessionSettingsPayload,
     socket: Socket
   ) => {
-    await updateOptions(sessionId, data.settings.options);
-    await updateColumns(sessionId, data.settings.columns);
-    await updateName(sessionId, data.settings.name || '');
+    if (data.settings.options !== undefined) {
+      await updateOptions(sessionId, data.settings.options);
+    }
+
+    if (data.settings.columns !== undefined) {
+      await updateColumns(sessionId, data.settings.columns);
+    }
+
+    if (data.settings.name !== undefined) {
+      await updateName(sessionId, data.settings.name || '');
+    }
+
     if (checkUser(userIds, socket) && data.saveAsTemplate) {
-      await saveTemplate(
-        userIds.userId,
-        data.settings.columns,
-        data.settings.options
-      );
+      if (data.settings.columns && data.settings.options) {
+        await saveTemplate(
+          userIds.userId,
+          data.settings.columns,
+          data.settings.options
+        );
+      }
     }
     sendToAllOrError<SessionSettings>(
       socket,
