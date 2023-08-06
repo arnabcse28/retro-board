@@ -125,7 +125,9 @@
     "templateHelp": "Use a pre-defined set of columns",
     "numberOfColumns": "Number of columns",
     "numberOfColumnsHelp": "Set the number of columns",
-    "makeDefaultTemplate": "Make this my default template"
+    "makeDefaultTemplate": "Make this my default template",
+    "changeModerator": "Change the Moderator",
+    "changeModeratorHelp": "Change the moderator of this session. The moderator can edit the session settings"
   },
   "PostBoard": {
     "customQuestion": "Custom Column",
