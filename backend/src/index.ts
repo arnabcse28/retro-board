@@ -59,6 +59,7 @@ import {
   getIdentityByUsername,
   associateUserWithAdWordsCampaign,
   TrackingInfo,
+  getRelatedUsers,
 } from './db/actions/users.js';
 import { isLicenced } from './security/is-licenced.js';
 import rateLimit from 'express-rate-limit';
@@ -563,6 +564,15 @@ db().then(() => {
         res.status(500).send();
       }
     }
+  });
+
+  app.get('/api/users', heavyLoadLimiter, async (req, res) => {
+    const user = await getUserViewFromRequest(req);
+    if (user) {
+      const users = await getRelatedUsers(user.id);
+      return res.status(200).send(users);
+    }
+    return res.status(401).send('Not logged in');
   });
 
   app.post('/api/validate', heavyLoadLimiter, async (req, res) => {

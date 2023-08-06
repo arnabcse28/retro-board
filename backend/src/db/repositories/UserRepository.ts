@@ -19,4 +19,21 @@ export default getBaseRepository(UserEntity).extend({
     }
     return null;
   },
+  async getRelatedUsersIds(userId: string): Promise<string[]> {
+    const ids: Array<{ id: string }> = await this.query(
+      `
+    select distinct u2.id from users u
+	left join visitors v on v.users_id = u.id
+	left join sessions s on v.sessions_id = s.id
+	left join visitors v2 on v2.sessions_id = s.id
+	left join users u2 on v2.users_id = u2.id
+	where 
+		u.id = $1 and
+		u2.email is not null
+    `,
+      [userId]
+    );
+    console.log('Ids: ', ids);
+    return ids.map((i) => i.id);
+  },
 });

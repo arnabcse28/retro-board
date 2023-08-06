@@ -1,5 +1,5 @@
 import { UserEntity, UserView } from '../entities/index.js';
-import { EntityManager, Not } from 'typeorm';
+import { EntityManager, In, Not } from 'typeorm';
 import {
   UserIdentityRepository,
   UserRepository,
@@ -86,6 +86,15 @@ export async function getUserViewInner(
     user.pro = true;
   }
   return user || null;
+}
+
+export async function getRelatedUsers(userId: string): Promise<UserView[]> {
+  return await transaction(async (manager) => {
+    const userRepository = manager.withRepository(UserRepository);
+    const ids = await userRepository.getRelatedUsersIds(userId);
+    const userViewRepository = manager.getRepository(UserView);
+    return userViewRepository.findBy({ id: In(ids) });
+  });
 }
 
 export async function getPasswordIdentity(
