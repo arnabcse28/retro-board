@@ -1,6 +1,6 @@
 export type SessionSettings = Partial<AllSessionSettings>;
 
-interface AllSessionSettings {
+export interface AllSessionSettings {
   name: string | null;
   moderator: User;
   options: SessionOptions;

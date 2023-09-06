@@ -1,15 +1,15 @@
 import { useState, useCallback } from 'react';
 import Button from '@mui/material/Button';
 import SessionEditor from '../../../session-editor/SessionEditor';
-import { Session } from 'common';
+import { AllSessionSettings, SessionSettings } from 'common';
 import { trackEvent } from '../../../../track';
 import { Settings } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import { IconButton, useMediaQuery } from '@mui/material';
 
 interface ModifyOptionsProps {
-  session: Session;
-  onChange: (session: Session, saveAsTemplate: boolean) => void;
+  session: AllSessionSettings;
+  onChange: (session: SessionSettings, saveAsTemplate: boolean) => void;
 }
 
 function ModifyOptions({ session, onChange }: ModifyOptionsProps) {
@@ -19,13 +19,21 @@ function ModifyOptions({ session, onChange }: ModifyOptionsProps) {
   const small = useMediaQuery('(max-width: 500px)');
 
   const handleChange = useCallback(
-    (modifiedSession: Session, saveAsTemplate: boolean) => {
+    (modifiedSession: AllSessionSettings, saveAsTemplate: boolean) => {
       setOpen(false);
       if (!session) {
         return;
       }
       trackEvent('game/session/save-options');
-      onChange(modifiedSession, saveAsTemplate);
+      onChange(
+        {
+          columns: modifiedSession.columns,
+          moderator: modifiedSession.moderator,
+          timer: modifiedSession.timer,
+          options: modifiedSession.options,
+        },
+        saveAsTemplate
+      );
       // const { options, columns } = session;
       // if (options !== modifiedSession.options) {
       //   onEditOptions(modifiedSession.options);

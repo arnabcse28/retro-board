@@ -1,23 +1,47 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import SettingCategory from '../SettingCategory';
 import { useTranslation } from 'react-i18next';
-import { SessionOptions } from 'common';
+import { AllSessionSettings, User } from 'common';
 import { OptionItem } from '../OptionItem';
 import BooleanOption from '../BooleanOption';
+import { fetchUsers } from './api';
+import { UserSelector } from './UserSelector';
 
 interface BoardSectionProps {
-  options: SessionOptions;
-  onChange: (options: SessionOptions) => void;
+  options: AllSessionSettings;
+  onChange: (options: AllSessionSettings) => void;
 }
 
 function BoardSection({ options, onChange }: BoardSectionProps) {
   const { t } = useTranslation();
+  const [users, setUsers] = useState<User[]>([]);
+
+  useEffect(() => {
+    async function load() {
+      const users = await fetchUsers();
+      setUsers(users);
+    }
+    load();
+  }, []);
 
   const setRestrictTitleEditToOwner = useCallback(
     (value: boolean) => {
       onChange({
         ...options,
-        restrictTitleEditToOwner: value,
+        options: {
+          ...options.options,
+          restrictTitleEditToOwner: value,
+        },
+      });
+    },
+    [onChange, options]
+  );
+
+  const setModerator = useCallback(
+    (user: User) => {
+      onChange({
+        ...options,
+        moderator: user,
       });
     },
     [onChange, options]
@@ -33,8 +57,18 @@ function BoardSection({ options, onChange }: BoardSectionProps) {
         help={t('Customize.restrictTitleEditToOwnerHelp')!}
       >
         <BooleanOption
-          value={options.restrictTitleEditToOwner}
+          value={options.options.restrictTitleEditToOwner}
           onChange={setRestrictTitleEditToOwner}
+        />
+      </OptionItem>
+      <OptionItem
+        label={t('Customize.changeModerator')!}
+        help={t('Customize.changeModeratorHelp')!}
+      >
+        <UserSelector
+          onSelect={setModerator}
+          options={users}
+          moderatorId={options.moderator.id}
         />
       </OptionItem>
     </SettingCategory>

@@ -274,6 +274,7 @@ export default function useSession(): UseSession {
               options: checkUndefined(updated.options, session.options),
               columns: checkUndefined(updated.columns, session.columns),
               locked: checkUndefined(updated.locked, session.locked),
+              moderator: checkUndefined(updated.moderator, session.moderator),
             }
       );
     },

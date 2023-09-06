@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { Session, SessionOptions } from 'common';
+import { AllSessionSettings, SessionOptions } from 'common';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -22,8 +22,8 @@ import BoardSection from './sections/board/BoardSection';
 
 interface SessionEditorProps {
   open: boolean;
-  session: Session;
-  onChange: (session: Session, makeDefault: boolean) => void;
+  session: AllSessionSettings;
+  onChange: (session: AllSessionSettings, makeDefault: boolean) => void;
   onClose: () => void;
 }
 
@@ -67,6 +67,10 @@ function SessionEditor({
     setSession((prev) => ({ ...prev, options }));
   }, []);
 
+  const handleSettingsChange = useCallback((options: AllSessionSettings) => {
+    setSession(options);
+  }, []);
+
   const handleColumnsChanged = useCallback((columns: ColumnSettings[]) => {
     setSession((prev) => ({ ...prev, columns: toColumnDefinitions(columns) }));
   }, []);
@@ -106,10 +110,7 @@ function SessionEditor({
           />
         ) : null}
         {currentTab === 'board' ? (
-          <BoardSection
-            options={session.options}
-            onChange={handleOptionsChange}
-          />
+          <BoardSection options={session} onChange={handleSettingsChange} />
         ) : null}
         {currentTab === 'posts' ? (
           <PostsSection

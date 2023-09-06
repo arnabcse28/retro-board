@@ -372,6 +372,32 @@ export async function updateName(
   });
 }
 
+export async function updateModerator(
+  sessionId: string,
+  moderatorId: string
+): Promise<boolean> {
+  return await transaction(async (manager) => {
+    try {
+      const sessionRepository = manager.withRepository(SessionRepository);
+      const session = await sessionRepository.findOne({
+        where: { id: sessionId },
+      });
+      if (session) {
+        await sessionRepository.save({
+          ...session,
+          moderator: {
+            id: moderatorId,
+          },
+        });
+        return true;
+      }
+      return false;
+    } catch {
+      return false;
+    }
+  });
+}
+
 export async function getSessionWithVisitors(
   sessionId: string
 ): Promise<SessionEntity | null> {

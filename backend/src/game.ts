@@ -52,6 +52,7 @@ import {
   doesSessionExists,
   wasSessionCreatedBy,
   toggleReady,
+  updateModerator,
 } from './db/actions/sessions.js';
 import { getUser, getUserView } from './db/actions/users.js';
 import {
@@ -626,6 +627,11 @@ export default (io: Server) => {
 
     if (data.settings.name !== undefined) {
       await updateName(sessionId, data.settings.name || '');
+    }
+
+    if (data.settings.moderator !== undefined) {
+      console.log('Going to update moderator to ', data.settings.moderator.id);
+      await updateModerator(sessionId, data.settings.moderator.id);
     }
 
     if (checkUser(userIds, socket) && data.saveAsTemplate) {
