@@ -37,14 +37,7 @@ function SessionEditor({
   const fullScreen = useMediaQuery('(max-width:600px)');
   const [isDefaultTemplate, toggleIsDefaultTemplate] = useToggle(false);
   const [session, setSession] = useState(originalSession);
-  // const [definitions, setDefinitions] = useState<ColumnSettings[]>(columns);
-  // const [options, setOptions] = useState(incomingOptions);
   const [currentTab, setCurrentTab] = useState('template');
-
-  // useEffect(() => {
-  //   const extrapolatedColumns = session.columns.map((c) => extrapolate(c, t));
-  //   setDefinitions(extrapolatedColumns);
-  // }, [session.columns, t]);
 
   const extrapolatedColumns = useMemo(() => {
     const extrapolatedColumns = session.columns.map((c) => extrapolate(c, t));

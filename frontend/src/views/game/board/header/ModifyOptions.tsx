@@ -34,19 +34,6 @@ function ModifyOptions({ session, onChange }: ModifyOptionsProps) {
         },
         saveAsTemplate
       );
-      // const { options, columns } = session;
-      // if (options !== modifiedSession.options) {
-      //   onEditOptions(modifiedSession.options);
-      //   trackEvent('game/session/edit-options');
-      // }
-      // if (columns !== modifiedSession.columns) {
-      //   onEditColumns(toColumnDefinitions(modifiedSession.columns));
-      //   trackEvent('game/session/edit-columns');
-      // }
-      // if (saveAsTemplate) {
-      //   onSaveTemplate(modifiedSession.options, modifiedSession.columns);
-      //   trackEvent('custom-modal/template/set-defaut');
-      // }
     },
     [onChange, session]
   );
