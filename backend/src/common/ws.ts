@@ -1,8 +1,6 @@
 import {
-  ColumnDefinition,
   Post,
   PostGroup,
-  SessionOptions,
   SessionSettings,
   User,
   VoteExtract,
@@ -17,10 +15,6 @@ export interface WebsocketMessage<T> {
 
 export interface WsUserData {
   user: User;
-}
-
-export interface WsNameData {
-  name: string;
 }
 
 export interface WsPostUpdatePayload {
@@ -57,11 +51,6 @@ export interface WsCancelVotesPayload {
 
 export interface WsDeleteGroupPayload {
   groupId: string;
-}
-
-export interface WsSaveTemplatePayload {
-  columns: ColumnDefinition[];
-  options: SessionOptions;
 }
 
 export interface WsSaveSessionSettingsPayload {

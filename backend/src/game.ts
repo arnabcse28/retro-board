@@ -3,19 +3,15 @@ import {
   Post,
   PostGroup,
   Participant,
-  // ColumnDefinition,
   UnauthorizedAccessPayload,
   WsUserData,
-  // WsNameData,
   WsLikeUpdatePayload,
   WsPostUpdatePayload,
   WsDeletePostPayload,
   WsDeleteGroupPayload,
-  // WsSaveTemplatePayload,
   WsReceiveLikeUpdatePayload,
   WsErrorType,
   Session,
-  // SessionOptions,
   WsErrorPayload,
   WebsocketMessage,
   WsGroupUpdatePayload,
@@ -93,16 +89,9 @@ const {
   DELETE_POST_GROUP,
   EDIT_POST_GROUP,
   RECEIVE_CLIENT_LIST,
-  // RECEIVE_SESSION_NAME,
   JOIN_SESSION,
-  // RENAME_SESSION,
   LEAVE_SESSION,
-  // EDIT_OPTIONS,
-  // RECEIVE_OPTIONS,
-  // EDIT_COLUMNS,
-  // RECEIVE_COLUMNS,
   SAVE_SESSION_SETTINGS,
-  // SAVE_TEMPLATE,
   LOCK_SESSION,
   RECEIVE_LOCK_SESSION,
   RECEIVE_UNAUTHORIZED,
@@ -393,22 +382,6 @@ export default (io: Server) => {
     }
   };
 
-  // const onRenameSession = async (
-  //   _userIds: UserIds | null,
-  //   sessionId: string,
-  //   data: WsNameData,
-  //   socket: Socket
-  // ) => {
-  //   const success = await updateName(sessionId, data.name);
-  //   sendToAllOrError<string>(
-  //     socket,
-  //     sessionId,
-  //     RECEIVE_SESSION_NAME,
-  //     'cannot_rename_session',
-  //     success ? data.name : null
-  //   );
-  // };
-
   const onLeaveSession = async (
     _userIds: UserIds | null,
     sessionId: string,
@@ -568,49 +541,6 @@ export default (io: Server) => {
     }
   };
 
-  // const onEditOptions = async (
-  //   _userIds: UserIds | null,
-  //   sessionId: string,
-  //   data: SessionOptions,
-  //   socket: Socket
-  // ) => {
-  //   const options = await updateOptions(sessionId, data);
-  //   sendToAllOrError<SessionOptions>(
-  //     socket,
-  //     sessionId,
-  //     RECEIVE_OPTIONS,
-  //     'cannot_save_options',
-  //     options
-  //   );
-  // };
-
-  // const onEditColumns = async (
-  //   _userIds: UserIds | null,
-  //   sessionId: string,
-  //   data: ColumnDefinition[],
-  //   socket: Socket
-  // ) => {
-  //   const columns = await updateColumns(sessionId, data);
-  //   sendToAllOrError<ColumnDefinition[]>(
-  //     socket,
-  //     sessionId,
-  //     RECEIVE_COLUMNS,
-  //     'cannot_save_columns',
-  //     columns
-  //   );
-  // };
-
-  // const onSaveTemplate = async (
-  //   userIds: UserIds | null,
-  //   _sessionId: string,
-  //   data: WsSaveTemplatePayload,
-  //   socket: Socket
-  // ) => {
-  //   if (checkUser(userIds, socket)) {
-  //     await saveTemplate(userIds.userId, data.columns, data.options);
-  //   }
-  // };
-
   const onSaveSessionSettings = async (
     userIds: UserIds | null,
     sessionId: string,
@@ -742,12 +672,8 @@ export default (io: Server) => {
 
       { type: JOIN_SESSION, handler: onJoinSession },
       { type: REQUEST_BOARD, handler: onRequestBoard },
-      // { type: RENAME_SESSION, handler: onRenameSession },
       { type: LEAVE_SESSION, handler: onLeaveSession },
       { type: USER_READY, handler: onUserReady },
-      // { type: EDIT_OPTIONS, handler: onEditOptions, onlyAuthor: true },
-      // { type: EDIT_COLUMNS, handler: onEditColumns, onlyAuthor: true },
-      // { type: SAVE_TEMPLATE, handler: onSaveTemplate, onlyAuthor: true },
       { type: SAVE_SESSION_SETTINGS, handler: onSaveSessionSettings },
       { type: LOCK_SESSION, handler: onLockSession, onlyAuthor: true },
     ];

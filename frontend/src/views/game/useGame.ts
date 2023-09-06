@@ -4,16 +4,12 @@ import {
   Post,
   PostGroup,
   VoteType,
-  SessionOptions,
-  ColumnDefinition,
   Participant,
   UnauthorizedAccessPayload,
   WsLikeUpdatePayload,
   WsPostUpdatePayload,
   WsDeletePostPayload,
   WsDeleteGroupPayload,
-  // WsNameData,
-  WsSaveTemplatePayload,
   VoteExtract,
   WsReceiveLikeUpdatePayload,
   WsErrorPayload,
@@ -289,20 +285,6 @@ function useGame(sessionId: string) {
       setStatus('connected');
     });
 
-    socket.on(Actions.RECEIVE_OPTIONS, (options: SessionOptions) => {
-      if (debug) {
-        console.log('Receive updated options: ', options);
-      }
-      editOptions(options);
-    });
-
-    socket.on(Actions.RECEIVE_COLUMNS, (columns: ColumnDefinition[]) => {
-      if (debug) {
-        console.log('Receive updated columns: ', columns);
-      }
-      editColumns(columns);
-    });
-
     socket.on(Actions.RECEIVE_CLIENT_LIST, (participants: Participant[]) => {
       if (debug) {
         console.log('Receive participants list: ', participants);
@@ -361,13 +343,6 @@ function useGame(sessionId: string) {
         console.log('Receive edit group: ', group);
       }
       updatePostGroup(group);
-    });
-
-    socket.on(Actions.RECEIVE_SESSION_NAME, (name: string) => {
-      if (debug) {
-        console.log('Receive session name: ', name);
-      }
-      renameSession(name);
     });
 
     socket.on(Actions.RECEIVE_LOCK_SESSION, (locked: boolean) => {
@@ -737,39 +712,6 @@ function useGame(sessionId: string) {
     [user, send, updatePost, allowCancelVotes]
   );
 
-  // const onRenameSession = useCallback(
-  //   (name: string) => {
-  //     if (send) {
-  //       renameSession(name);
-  //       send<WsNameData>(Actions.RENAME_SESSION, { name });
-  //       trackAction(Actions.RENAME_SESSION);
-  //     }
-  //   },
-  //   [send, renameSession]
-  // );
-
-  // const onEditOptions = useCallback(
-  //   (options: SessionOptions) => {
-  //     if (send) {
-  //       editOptions(options);
-  //       send<SessionOptions>(Actions.EDIT_OPTIONS, options);
-  //       trackAction(Actions.EDIT_OPTIONS);
-  //     }
-  //   },
-  //   [send, editOptions]
-  // );
-
-  // const onEditColumns = useCallback(
-  //   (columns: ColumnDefinition[]) => {
-  //     if (send) {
-  //       editColumns(columns);
-  //       send<ColumnDefinition[]>(Actions.EDIT_COLUMNS, columns);
-  //       trackAction(Actions.EDIT_COLUMNS);
-  //     }
-  //   },
-  //   [send, editColumns]
-  // );
-
   const onChangeSession = useCallback(
     (settings: SessionSettings, saveAsTemplate: boolean) => {
       if (send) {
@@ -782,19 +724,6 @@ function useGame(sessionId: string) {
       }
     },
     [send, editSessionSettings]
-  );
-
-  const onSaveTemplate = useCallback(
-    (options: SessionOptions, columns: ColumnDefinition[]) => {
-      if (send) {
-        send<WsSaveTemplatePayload>(Actions.SAVE_TEMPLATE, {
-          options,
-          columns,
-        });
-        trackAction(Actions.SAVE_TEMPLATE);
-      }
-    },
-    [send]
   );
 
   const onLockSession = useCallback(
@@ -846,11 +775,7 @@ function useGame(sessionId: string) {
     onDeletePostGroup,
     onLike,
     onCancelVotes,
-    // onRenameSession,
-    // onEditOptions,
-    // onEditColumns,
     onChangeSession,
-    onSaveTemplate,
     onLockSession,
     reconnect,
     onUserReady,
