@@ -33,7 +33,6 @@ export default getBaseRepository(UserEntity).extend({
     `,
       [userId]
     );
-    console.log('Ids: ', ids);
     return ids.map((i) => i.id);
   },
 });
