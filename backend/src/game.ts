@@ -131,7 +131,7 @@ const s = (str: string) => chalk`{blue ${str.replace('retrospected/', '')}}`;
 
 export default (io: Server) => {
   const users: Users = {};
-  const d = () => chalk`{yellow [${moment().format('HH:mm:ss')}]} `;
+  const d = () => chalk`{yellow [${moment().format('D/M HH:mm:ss')}]} `;
 
   const getRoom = (sessionId: string) => `board-${sessionId}`;
 
