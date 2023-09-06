@@ -560,7 +560,6 @@ export default (io: Server) => {
     }
 
     if (data.settings.moderator !== undefined) {
-      console.log('Going to update moderator to ', data.settings.moderator.id);
       await updateModerator(sessionId, data.settings.moderator.id);
     }
 

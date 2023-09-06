@@ -67,11 +67,7 @@ function GamePage() {
     onEditPostGroup,
     onLike,
     onCancelVotes,
-    // onRenameSession,
-    // onEditOptions,
-    // onEditColumns,
     onChangeSession,
-    // onSaveTemplate,
     onLockSession,
     onUserReady,
     onTimerStart,
@@ -199,10 +195,6 @@ function GamePage() {
                 onCancelVotes={onCancelVotes}
                 onDeleteGroup={onDeletePostGroup}
                 onEditGroup={onEditPostGroup}
-                // onRenameSession={onRenameSession}
-                // onEditOptions={onEditOptions}
-                // onEditColumns={onEditColumns}
-                // onSaveTemplate={onSaveTemplate}
                 onLockSession={onLockSession}
                 onChangeSession={onChangeSession}
               />
