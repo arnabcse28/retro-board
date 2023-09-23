@@ -13,13 +13,13 @@ services:
         max-size: '50m'
 
   postgres:
-    image: postgres:11.6
+    image: postgres:16
     hostname: postgres
     ports:
       - '5432:5432'
     environment:
       POSTGRES_USER: postgres # Must be the same as DB_USER below
-      POSTGRES_PASSWORD: postgres # Must be the same as DB_PASSWORD below
+      POSTGRES_PASSWORD: postgres # Must be the password provided to the backend
       POSTGRES_DB: retroboard # Must be the same as DB_NAME below
     volumes:
       - database_dev:/var/lib/postgresql/data
@@ -30,13 +30,13 @@ services:
         max-size: '50m'
 
   pgadmin:
-    image: dpage/pgadmin4:4.15 # use biarms/pgadmin4 on ARM
+    image: dpage/pgadmin4:latest
     depends_on:
       - postgres
     ports:
       - '5433:80' # Change 8080 to whatever port you want to access pgAdmin from
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: admin
     volumes:
       - pgadmin_dev:/var/lib/pgadmin
