@@ -72,7 +72,7 @@
     "title": "Personalisieren Sie die Sitzung",
     "timerCategory": "Timer",
     "timerCategorySub": "Timer für die Sitzung festlegen",
-    "boardCategory": "Brett",
+    "boardCategory": "Board",
     "boardCategorySub": "Board-Einstellungen anpassen",
     "allowTimer": "Timer erlauben",
     "allowTimerHelp": "Timer am unteren Bildschirmrand anzeigen",
@@ -236,13 +236,7 @@
     "nameField": "Ihr Name (für Anzeigezwecke)",
     "noAuthWarning": "Ihr Administrator hat alle Login-Möglichkeiten (OAuth, Passwort) deaktiviert. Bitten Sie Ihren Administrator, mindestens eine wieder zu aktivieren.",
     "or": "oder",
-    "passwordScoreWords": [
-      "schwach",
-      "schwach",
-      "nicht ganz",
-      "gut",
-      "stark"
-    ],
+    "passwordScoreWords": ["schwach", "schwach", "nicht ganz", "gut", "stark"],
     "skipAndAnonLogin": "Anonym verwenden"
   },
   "AccountLogin": {

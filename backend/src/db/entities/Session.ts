@@ -28,7 +28,7 @@ export default class SessionEntity {
   @Column({ nullable: true, type: 'character varying' })
   @Index()
   public name: string | null;
-  @ManyToOne(() => UserEntity, { eager: true, cascade: true, nullable: true })
+  @ManyToOne(() => UserEntity, { eager: true, cascade: true, nullable: false })
   @Index()
   public createdBy: UserEntity;
   @ManyToOne(() => UserEntity, { eager: true, cascade: true, nullable: true })
