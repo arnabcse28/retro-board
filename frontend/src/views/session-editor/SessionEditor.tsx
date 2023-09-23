@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { AllSessionSettings, SessionOptions } from 'common';
+import { AllSessionSettings, SessionOptions, User } from 'common';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -22,50 +22,52 @@ import BoardSection from './sections/board/BoardSection';
 
 interface SessionEditorProps {
   open: boolean;
-  session: AllSessionSettings;
-  onChange: (session: AllSessionSettings, makeDefault: boolean) => void;
+  owner: User;
+  settings: AllSessionSettings;
+  onChange: (settings: AllSessionSettings, makeDefault: boolean) => void;
   onClose: () => void;
 }
 
 function SessionEditor({
   open,
-  session: originalSession,
+  owner,
+  settings: originalSettings,
   onChange,
   onClose,
 }: SessionEditorProps) {
   const { t } = useTranslation();
   const fullScreen = useMediaQuery('(max-width:600px)');
   const [isDefaultTemplate, toggleIsDefaultTemplate] = useToggle(false);
-  const [session, setSession] = useState(originalSession);
+  const [settings, setSettings] = useState(originalSettings);
   const [currentTab, setCurrentTab] = useState('template');
 
   const extrapolatedColumns = useMemo(() => {
-    const extrapolatedColumns = session.columns.map((c) => extrapolate(c, t));
+    const extrapolatedColumns = settings.columns.map((c) => extrapolate(c, t));
     return extrapolatedColumns;
-  }, [session.columns, t]);
+  }, [settings.columns, t]);
 
   useEffect(() => {
-    setSession(originalSession);
-  }, [originalSession]);
+    setSettings(originalSettings);
+  }, [originalSettings]);
 
   const handleCreate = useCallback(() => {
-    onChange(session, isDefaultTemplate);
-  }, [onChange, isDefaultTemplate, session]);
+    onChange(settings, isDefaultTemplate);
+  }, [onChange, isDefaultTemplate, settings]);
 
   const handleTab = useCallback((_: React.ChangeEvent<{}>, value: string) => {
     setCurrentTab(value);
   }, []);
 
   const handleOptionsChange = useCallback((options: SessionOptions) => {
-    setSession((prev) => ({ ...prev, options }));
+    setSettings((prev) => ({ ...prev, options }));
   }, []);
 
   const handleSettingsChange = useCallback((options: AllSessionSettings) => {
-    setSession(options);
+    setSettings(options);
   }, []);
 
   const handleColumnsChanged = useCallback((columns: ColumnSettings[]) => {
-    setSession((prev) => ({ ...prev, columns: toColumnDefinitions(columns) }));
+    setSettings((prev) => ({ ...prev, columns: toColumnDefinitions(columns) }));
   }, []);
 
   return (
@@ -103,23 +105,27 @@ function SessionEditor({
           />
         ) : null}
         {currentTab === 'board' ? (
-          <BoardSection options={session} onChange={handleSettingsChange} />
+          <BoardSection
+            owner={owner}
+            options={settings}
+            onChange={handleSettingsChange}
+          />
         ) : null}
         {currentTab === 'posts' ? (
           <PostsSection
-            options={session.options}
+            options={settings.options}
             onChange={handleOptionsChange}
           />
         ) : null}
         {currentTab === 'voting' ? (
           <VotingSection
-            options={session.options}
+            options={settings.options}
             onChange={handleOptionsChange}
           />
         ) : null}
         {currentTab === 'timer' ? (
           <TimerSection
-            options={session.options}
+            options={settings.options}
             onChange={handleOptionsChange}
           />
         ) : null}

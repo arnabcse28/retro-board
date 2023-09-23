@@ -6,13 +6,16 @@ import { OptionItem } from '../OptionItem';
 import BooleanOption from '../BooleanOption';
 import { fetchUsers } from './api';
 import { UserSelector } from './UserSelector';
+import CustomAvatar from 'components/Avatar';
+import styled from '@emotion/styled';
 
 interface BoardSectionProps {
+  owner: User;
   options: AllSessionSettings;
   onChange: (options: AllSessionSettings) => void;
 }
 
-function BoardSection({ options, onChange }: BoardSectionProps) {
+function BoardSection({ options, owner, onChange }: BoardSectionProps) {
   const { t } = useTranslation();
   const [users, setUsers] = useState<User[]>([]);
 
@@ -53,13 +56,13 @@ function BoardSection({ options, onChange }: BoardSectionProps) {
       subtitle={t('Customize.boardCategorySub')!}
     >
       <OptionItem
-        label={t('Customize.restrictTitleEditToOwner')!}
-        help={t('Customize.restrictTitleEditToOwnerHelp')!}
+        label={t('Customize.owner')!}
+        help={t('Customize.ownerHelp')!}
       >
-        <BooleanOption
-          value={options.options.restrictTitleEditToOwner}
-          onChange={setRestrictTitleEditToOwner}
-        />
+        <Line>
+          <span>{owner.name}</span>
+          <CustomAvatar user={owner} style={{ height: 30, width: 30 }} />
+        </Line>
       </OptionItem>
       <OptionItem
         label={t('Customize.changeModerator')!}
@@ -71,8 +74,23 @@ function BoardSection({ options, onChange }: BoardSectionProps) {
           moderatorId={options.moderator.id}
         />
       </OptionItem>
+      <OptionItem
+        label={t('Customize.restrictTitleEditToOwner')!}
+        help={t('Customize.restrictTitleEditToOwnerHelp')!}
+      >
+        <BooleanOption
+          value={options.options.restrictTitleEditToOwner}
+          onChange={setRestrictTitleEditToOwner}
+        />
+      </OptionItem>
     </SettingCategory>
   );
 }
+
+const Line = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
 
 export default BoardSection;

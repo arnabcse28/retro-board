@@ -1,44 +1,45 @@
 import { useState, useCallback } from 'react';
 import Button from '@mui/material/Button';
 import SessionEditor from '../../../session-editor/SessionEditor';
-import { AllSessionSettings, SessionSettings } from 'common';
+import { AllSessionSettings, SessionSettings, User } from 'common';
 import { trackEvent } from '../../../../track';
 import { Settings } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import { IconButton, useMediaQuery } from '@mui/material';
 
 interface ModifyOptionsProps {
-  session: AllSessionSettings;
-  onChange: (session: SessionSettings, saveAsTemplate: boolean) => void;
+  settings: AllSessionSettings;
+  owner: User;
+  onChange: (settings: SessionSettings, saveAsTemplate: boolean) => void;
 }
 
-function ModifyOptions({ session, onChange }: ModifyOptionsProps) {
+function ModifyOptions({ settings, owner, onChange }: ModifyOptionsProps) {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
 
   const small = useMediaQuery('(max-width: 500px)');
 
   const handleChange = useCallback(
-    (modifiedSession: AllSessionSettings, saveAsTemplate: boolean) => {
+    (modifiedSettings: AllSessionSettings, saveAsTemplate: boolean) => {
       setOpen(false);
-      if (!session) {
+      if (!settings) {
         return;
       }
       trackEvent('game/session/save-options');
       onChange(
         {
-          columns: modifiedSession.columns,
-          moderator: modifiedSession.moderator,
-          timer: modifiedSession.timer,
-          options: modifiedSession.options,
+          columns: modifiedSettings.columns,
+          moderator: modifiedSettings.moderator,
+          timer: modifiedSettings.timer,
+          options: modifiedSettings.options,
         },
         saveAsTemplate
       );
     },
-    [onChange, session]
+    [onChange, settings]
   );
 
-  if (!session) {
+  if (!settings) {
     return null;
   }
 
@@ -61,7 +62,8 @@ function ModifyOptions({ session, onChange }: ModifyOptionsProps) {
       {open ? (
         <SessionEditor
           open={open}
-          session={session}
+          owner={owner}
+          settings={settings}
           onClose={() => setOpen(false)}
           onChange={handleChange}
         />

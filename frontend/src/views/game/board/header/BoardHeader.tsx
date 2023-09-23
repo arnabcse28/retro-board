@@ -125,7 +125,11 @@ function BoardHeader({ onChangeSession, onLockSession }: BoardHeaderProps) {
         <LeftOptions>
           {canReveal ? <RevealButton onClick={handleReveal} /> : null}
           {canModifyOptions ? (
-            <ModifyOptions onChange={onChangeSession} session={session} />
+            <ModifyOptions
+              onChange={onChangeSession}
+              owner={session.createdBy}
+              settings={session}
+            />
           ) : null}
         </LeftOptions>
         <Title>
