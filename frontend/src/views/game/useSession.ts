@@ -1,10 +1,8 @@
 import {
-  ColumnDefinition,
   Post,
   PostGroup,
   Session,
   VoteExtract,
-  SessionOptions,
   Message,
   SessionSettings,
 } from 'common';
@@ -15,7 +13,6 @@ import { SessionState } from './state';
 
 interface UseSession {
   session: Session | null;
-  renameSession: (name: string) => void;
   resetSession: () => void;
   receivePost: (post: Post) => void;
   receivePostGroup: (postGroup: PostGroup) => void;
@@ -26,8 +23,6 @@ interface UseSession {
   receiveVote: (postId: string, vote: VoteExtract) => void;
   deletePost: (postId: string) => void;
   deletePostGroup: (groupId: string) => void;
-  editOptions: (options: SessionOptions) => void;
-  editColumns: (columns: ColumnDefinition[]) => void;
   editSessionSettings: (updated: SessionSettings) => void;
   lockSession: (locked: boolean) => void;
   userReady: (userId: string, ready?: boolean) => void;
@@ -36,20 +31,6 @@ interface UseSession {
 
 export default function useSession(): UseSession {
   const [session, setSession] = useRecoilState(SessionState);
-
-  const renameSession = useCallback(
-    (name: string) => {
-      setSession((session) =>
-        !session
-          ? session
-          : {
-              ...session,
-              name,
-            }
-      );
-    },
-    [setSession]
-  );
 
   const resetSession = useCallback(() => {
     setSession(null);
@@ -235,33 +216,6 @@ export default function useSession(): UseSession {
     },
     [setSession]
   );
-  const editOptions = useCallback(
-    (options: SessionOptions) => {
-      setSession((session) =>
-        !session
-          ? session
-          : {
-              ...session,
-              options,
-            }
-      );
-    },
-    [setSession]
-  );
-
-  const editColumns = useCallback(
-    (columns: ColumnDefinition[]) => {
-      setSession((session) =>
-        !session
-          ? session
-          : {
-              ...session,
-              columns,
-            }
-      );
-    },
-    [setSession]
-  );
 
   const editSessionSettings = useCallback(
     (updated: SessionSettings) => {
@@ -315,7 +269,6 @@ export default function useSession(): UseSession {
 
   return {
     session,
-    renameSession,
     resetSession,
     receiveBoard,
     receivePost,
@@ -326,8 +279,6 @@ export default function useSession(): UseSession {
     updatePostGroup,
     deletePost,
     deletePostGroup,
-    editColumns,
-    editOptions,
     editSessionSettings,
     lockSession,
     userReady,
