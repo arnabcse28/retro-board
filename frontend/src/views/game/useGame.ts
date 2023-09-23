@@ -24,6 +24,7 @@ import {
   WsReceiveTimerStartPayload,
   WsSaveSessionSettingsPayload,
   SessionSettings,
+  AllSessionSettings,
 } from 'common';
 import { v4 } from 'uuid';
 import find from 'lodash/find';
@@ -414,6 +415,16 @@ function useGame(sessionId: string) {
       }
       setTimer(null);
     });
+
+    socket.on(
+      Actions.RECEIVE_SESSION_SETTINGS,
+      (payload: Partial<AllSessionSettings>) => {
+        if (debug) {
+          console.log('Receive session settings', payload);
+        }
+        editSessionSettings(payload);
+      }
+    );
   }, [
     socket,
     status,
@@ -440,6 +451,7 @@ function useGame(sessionId: string) {
     userReady,
     cancelVotes,
     setTimer,
+    editSessionSettings,
     userId,
   ]);
 
