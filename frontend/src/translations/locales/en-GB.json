@@ -82,7 +82,7 @@
     "lockOnTimerEndHelp": "Lock the session (make it read-only) when the timer ends",
     "votingCategory": "Voting",
     "votingCategorySub": "Set the rules about likes and dislikes",
-    "postCategory": "Post settings",
+    "postCategory": "Posts",
     "postCategorySub": "Set the rules about what a user can do when creating or viewing a post",
     "customTemplateCategory": "Column Template",
     "customTemplateCategorySub": "Select a template and customize your columns",
@@ -127,7 +127,9 @@
     "numberOfColumnsHelp": "Set the number of columns",
     "makeDefaultTemplate": "Make this my default template",
     "changeModerator": "Change the Moderator",
-    "changeModeratorHelp": "Change the moderator of this session. The moderator can edit the session settings"
+    "changeModeratorHelp": "Change the moderator of this session. The moderator can edit the session settings",
+    "owner": "Owner",
+    "ownerHelp": "The owner of the session is the person who created it. This cannot be changed."
   },
   "PostBoard": {
     "customQuestion": "Custom Column",
