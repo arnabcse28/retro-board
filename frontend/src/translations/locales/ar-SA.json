@@ -72,6 +72,8 @@
     "title": "تخصيص الجلسة الخاصة بك",
     "timerCategory": "المؤقت",
     "timerCategorySub": "تعيين المؤقت للدورة",
+    "boardCategory": "المجلس",
+    "boardCategorySub": "تخصيص إعدادات اللوحة",
     "allowTimer": "السماح بالتوقيت",
     "allowTimerHelp": "عرض المؤقت في الجزء السفلي من الشاشة",
     "timerDuration": "مدة المؤقت",
@@ -80,7 +82,7 @@
     "lockOnTimerEndHelp": "قفل الجلسة (قم بقراءتها فقط) عند انتهاء المؤقت",
     "votingCategory": "التصويت",
     "votingCategorySub": "تعيين القواعد حول الإعجاب و عدم الإعجاب",
-    "postCategory": "إعدادات النشر",
+    "postCategory": "المشاركات",
     "postCategorySub": "تعيين القواعد حول ما يمكن للمستخدم أن يفعله عند إنشاء أو عرض مشاركة",
     "customTemplateCategory": "قالب العمود",
     "customTemplateCategorySub": "حدد قالب وقم بتخصيص الأعمدة الخاصة بك",
@@ -123,7 +125,11 @@
     "templateHelp": "استخدام مجموعة محددة مسبقاً من الأعمدة",
     "numberOfColumns": "عدد الأعمدة",
     "numberOfColumnsHelp": "تعيين عدد الأعمدة",
-    "makeDefaultTemplate": "اجعل هذا قالبي الافتراضي"
+    "makeDefaultTemplate": "اجعل هذا قالبي الافتراضي",
+    "changeModerator": "تغيير المشرف",
+    "changeModeratorHelp": "تغيير مشرف هذه الجلسة. يمكن للمشرف تعديل إعدادات الجلسة",
+    "owner": "المالك",
+    "ownerHelp": "مالك الجلسة هو الشخص الذي أنشأها. هذا لا يمكن تغييره."
   },
   "PostBoard": {
     "customQuestion": "عمود مخصص",

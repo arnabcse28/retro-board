@@ -72,6 +72,8 @@
     "title": "自定義您的會話",
     "timerCategory": "",
     "timerCategorySub": "",
+    "boardCategory": "",
+    "boardCategorySub": "",
     "allowTimer": "",
     "allowTimerHelp": "",
     "timerDuration": "",
@@ -80,7 +82,7 @@
     "lockOnTimerEndHelp": "",
     "votingCategory": "表決",
     "votingCategorySub": "設定好惡規則",
-    "postCategory": "帖子設置",
+    "postCategory": "",
     "postCategorySub": "設置用戶在創建或查看帖子時可以做什麼的規則",
     "customTemplateCategory": "列模板",
     "customTemplateCategorySub": "",
@@ -123,7 +125,11 @@
     "templateHelp": "使用一組預定義的列",
     "numberOfColumns": "列數",
     "numberOfColumnsHelp": "設置列數",
-    "makeDefaultTemplate": "將此作為我的默認模板"
+    "makeDefaultTemplate": "將此作為我的默認模板",
+    "changeModerator": "",
+    "changeModeratorHelp": "",
+    "owner": "",
+    "ownerHelp": ""
   },
   "PostBoard": {
     "customQuestion": "自定義列",

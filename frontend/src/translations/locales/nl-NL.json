@@ -72,6 +72,8 @@
     "title": "Sessie aanpassen",
     "timerCategory": "Timer",
     "timerCategorySub": "Zet de timer voor de sessie",
+    "boardCategory": "Bord",
+    "boardCategorySub": "Aanpassen board instellingen",
     "allowTimer": "Timer toestaan",
     "allowTimerHelp": "Toon een timer aan de onderkant van het scherm",
     "timerDuration": "Timer duur",
@@ -80,7 +82,7 @@
     "lockOnTimerEndHelp": "Vergrendel de sessie (maak het alleen-lezen) wanneer de timer eindigt",
     "votingCategory": "Stemmen",
     "votingCategorySub": "Instellen regels voor stemmen",
-    "postCategory": "Retropunten instellingen",
+    "postCategory": "Berichten",
     "postCategorySub": "Instellen regels wat een gebruiker kan doen wanneer hij reageert op een retropunt",
     "customTemplateCategory": "Kolommen template",
     "customTemplateCategorySub": "Selecteer een sjabloon en pas uw kolommen aan",
@@ -123,7 +125,11 @@
     "templateHelp": "Gebruik een vooringestelde set kolommen",
     "numberOfColumns": "Aantal kolommen",
     "numberOfColumnsHelp": "Stel het aantal kolommen in",
-    "makeDefaultTemplate": "Stel in als mijn standaard template"
+    "makeDefaultTemplate": "Stel in als mijn standaard template",
+    "changeModerator": "Wijzig de moderator",
+    "changeModeratorHelp": "De moderator van deze sessie wijzigen. De moderator kan de sessie-instellingen bewerken",
+    "owner": "Eigenaar",
+    "ownerHelp": "De eigenaar van de sessie is de persoon die de sessie heeft gemaakt. Dit kan niet worden gewijzigd."
   },
   "PostBoard": {
     "customQuestion": "Aangepast kolom",

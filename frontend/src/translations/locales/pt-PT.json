@@ -72,6 +72,8 @@
     "title": "Personalize sua sessão",
     "timerCategory": "Cronômetro",
     "timerCategorySub": "Definir o temporizador para a sessão",
+    "boardCategory": "Tabuleiro",
+    "boardCategorySub": "Personalizar configurações do board",
     "allowTimer": "Permitir Temporizador",
     "allowTimerHelp": "Exibir um cronômetro na parte inferior da tela",
     "timerDuration": "Duração do temporizador",
@@ -80,7 +82,7 @@
     "lockOnTimerEndHelp": "Bloquear a sessão (torná-la somente leitura) quando o timer terminar",
     "votingCategory": "Votação",
     "votingCategorySub": "Definir regras sobre curtidas e não curtidas",
-    "postCategory": "Configurações de postagem",
+    "postCategory": "Postagens",
     "postCategorySub": "Defina as regras sobre o que um usuário pode fazer ao criar ou visualizar uma postagem",
     "customTemplateCategory": "Modelo de coluna",
     "customTemplateCategorySub": "Selecione um modelo e personalize suas colunas",
@@ -123,7 +125,11 @@
     "templateHelp": "Usar um conjunto de colunas pré-definidas",
     "numberOfColumns": "Número de colunas",
     "numberOfColumnsHelp": "Definir o número de colunas",
-    "makeDefaultTemplate": "Tornar este meu modelo padrão"
+    "makeDefaultTemplate": "Tornar este meu modelo padrão",
+    "changeModerator": "Alterar o Moderador",
+    "changeModeratorHelp": "Alterar o moderador desta sessão. O moderador pode editar as configurações da sessão",
+    "owner": "Proprietário",
+    "ownerHelp": "O proprietário da sessão é a pessoa que a criou. Isto não pode ser alterado."
   },
   "PostBoard": {
     "customQuestion": "Coluna personalizada",

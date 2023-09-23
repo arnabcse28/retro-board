@@ -72,6 +72,8 @@
     "title": "自定义您的会话",
     "timerCategory": "定时器",
     "timerCategorySub": "设置会话计时器",
+    "boardCategory": "棋盘",
+    "boardCategorySub": "自定义棋盘设置",
     "allowTimer": "允许计时器",
     "allowTimerHelp": "在屏幕底部显示计时器",
     "timerDuration": "计时器持续时间",
@@ -80,7 +82,7 @@
     "lockOnTimerEndHelp": "当计时器结束时锁定会话(只读)",
     "votingCategory": "表 决",
     "votingCategorySub": "设置关于喜欢和不喜欢的规则",
-    "postCategory": "帖子设置",
+    "postCategory": "员额",
     "postCategorySub": "设置用户在创建或查看帖子时可以做什么的规则",
     "customTemplateCategory": "列模板",
     "customTemplateCategorySub": "选择模板并自定义您的列",
@@ -123,7 +125,11 @@
     "templateHelp": "使用预定义的列集",
     "numberOfColumns": "列数",
     "numberOfColumnsHelp": "设置列数",
-    "makeDefaultTemplate": "将此设置为我的默认模板"
+    "makeDefaultTemplate": "将此设置为我的默认模板",
+    "changeModerator": "更改版主",
+    "changeModeratorHelp": "更改此会话的主持人。主持人可以编辑会话设置",
+    "owner": "所有者",
+    "ownerHelp": "会话的所有者是创建者。无法更改。"
   },
   "PostBoard": {
     "customQuestion": "自定义列",

@@ -72,6 +72,8 @@
     "title": "Personalizza il tuo gioco!",
     "timerCategory": "Timer",
     "timerCategorySub": "Imposta il timer per la sessione",
+    "boardCategory": "Tavola",
+    "boardCategorySub": "Personalizza le impostazioni della scheda",
     "allowTimer": "Consenti Timer",
     "allowTimerHelp": "Mostra un timer nella parte inferiore dello schermo",
     "timerDuration": "Durata Timer",
@@ -80,7 +82,7 @@
     "lockOnTimerEndHelp": "Blocca la sessione (fai in sola lettura) quando il timer finisce",
     "votingCategory": "Votazione",
     "votingCategorySub": "Imposta tutte le regole relative a \"mi piace\" e \"non mi piace\"",
-    "postCategory": "Impostazioni del Post",
+    "postCategory": "Post",
     "postCategorySub": "Imposta le azioni che l'utente può fare quando crea o vede un post ",
     "customTemplateCategory": "Template di Colonna",
     "customTemplateCategorySub": "Seleziona un modello e personalizza le tue colonne",
@@ -123,7 +125,11 @@
     "templateHelp": "Usa un set di colonne predefinito",
     "numberOfColumns": "Numbero di colonne",
     "numberOfColumnsHelp": "Imposta il numero di colonne",
-    "makeDefaultTemplate": "Rendi questo template quello di default"
+    "makeDefaultTemplate": "Rendi questo template quello di default",
+    "changeModerator": "Cambia il moderatore",
+    "changeModeratorHelp": "Cambia il moderatore di questa sessione. Il moderatore può modificare le impostazioni della sessione",
+    "owner": "Proprietario",
+    "ownerHelp": "Il proprietario della sessione è la persona che l'ha creata. Questo non può essere modificato."
   },
   "PostBoard": {
     "customQuestion": "Colonna personalizzata",

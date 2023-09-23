@@ -72,6 +72,8 @@
     "title": "A munkamenet testreszabása",
     "timerCategory": "",
     "timerCategorySub": "",
+    "boardCategory": "",
+    "boardCategorySub": "",
     "allowTimer": "",
     "allowTimerHelp": "",
     "timerDuration": "",
@@ -80,7 +82,7 @@
     "lockOnTimerEndHelp": "",
     "votingCategory": "Szavazás",
     "votingCategorySub": "Állítsd be a tetszésnyilvánításokra és a nemtetszésekre vonatkozó szabályokat",
-    "postCategory": "Hozzászólás beállításai",
+    "postCategory": "",
     "postCategorySub": "Állítsa be a szabályokat arra vonatkozóan, hogy a felhasználó mit tehet bejegyzés létrehozásakor vagy megtekintésekor",
     "customTemplateCategory": "Oszlop sablon",
     "customTemplateCategorySub": "",
@@ -123,7 +125,11 @@
     "templateHelp": "Használjon előre meghatározott oszlopkészletet",
     "numberOfColumns": "Oszlopok száma",
     "numberOfColumnsHelp": "Állítsa be az oszlopok számát",
-    "makeDefaultTemplate": "Legyen ez az alapértelmezett sablonom"
+    "makeDefaultTemplate": "Legyen ez az alapértelmezett sablonom",
+    "changeModerator": "",
+    "changeModeratorHelp": "",
+    "owner": "",
+    "ownerHelp": ""
   },
   "PostBoard": {
     "customQuestion": "Egyéni oszlop",

@@ -72,6 +72,8 @@
     "title": "Personalisieren Sie die Sitzung",
     "timerCategory": "Timer",
     "timerCategorySub": "Timer für die Sitzung festlegen",
+    "boardCategory": "Brett",
+    "boardCategorySub": "Board-Einstellungen anpassen",
     "allowTimer": "Timer erlauben",
     "allowTimerHelp": "Timer am unteren Bildschirmrand anzeigen",
     "timerDuration": "Timer-Dauer",
@@ -80,7 +82,7 @@
     "lockOnTimerEndHelp": "Sitzung sperren (nur lesen) wenn der Timer endet",
     "votingCategory": "Abstimmung",
     "votingCategorySub": "Setze die Abstimmregeln",
-    "postCategory": "Beitragseinstellungen",
+    "postCategory": "Beiträge",
     "postCategorySub": "Stelle ein, wie Nutzer mit Beiträgen interagieren können",
     "customTemplateCategory": "Spaltenkonfiguration",
     "customTemplateCategorySub": "Wählen Sie eine Vorlage aus und passen Sie Ihre Spalten an",
@@ -123,7 +125,11 @@
     "templateHelp": "Nutze ein vordefiniertes Spaltenset",
     "numberOfColumns": "Anzahl an Spalten",
     "numberOfColumnsHelp": "Setze die Anzahl an Spalten",
-    "makeDefaultTemplate": "Diese Standardvorlage erstellen"
+    "makeDefaultTemplate": "Diese Standardvorlage erstellen",
+    "changeModerator": "Moderator ändern",
+    "changeModeratorHelp": "Moderator dieser Sitzung ändern. Der Moderator kann die Sitzungseinstellungen bearbeiten",
+    "owner": "Besitzer",
+    "ownerHelp": "Der Besitzer der Sitzung ist die Person, die sie erstellt hat. Dies kann nicht geändert werden."
   },
   "PostBoard": {
     "customQuestion": "Eigene Spalte",

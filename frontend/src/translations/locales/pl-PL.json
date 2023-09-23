@@ -72,6 +72,8 @@
     "title": "Dostosuj swoją sesję",
     "timerCategory": "Timer",
     "timerCategorySub": "Ustaw czasomierz dla sesji",
+    "boardCategory": "Tablica",
+    "boardCategorySub": "Dostosuj ustawienia tablicy",
     "allowTimer": "Zezwalaj na Timer",
     "allowTimerHelp": "Wyświetlaj licznik na dole ekranu",
     "timerDuration": "Czas trwania zegara",
@@ -80,7 +82,7 @@
     "lockOnTimerEndHelp": "Zablokuj sesję (utwórz tylko do odczytu) po zakończeniu timera",
     "votingCategory": "Głosowanie",
     "votingCategorySub": "Ustaw reguły dotyczące polubień i polubień",
-    "postCategory": "Ustawienia postów",
+    "postCategory": "Posty",
     "postCategorySub": "Ustaw reguły co użytkownik może zrobić podczas tworzenia lub przeglądania wpisu",
     "customTemplateCategory": "Szablon kolumny",
     "customTemplateCategorySub": "Wybierz szablon i dostosuj swoje kolumny",
@@ -123,7 +125,11 @@
     "templateHelp": "Użyj predefiniowanego zestawu kolumn",
     "numberOfColumns": "Liczba kolumn",
     "numberOfColumnsHelp": "Ustaw liczbę kolumn",
-    "makeDefaultTemplate": "Ustaw ten domyślny szablon"
+    "makeDefaultTemplate": "Ustaw ten domyślny szablon",
+    "changeModerator": "Zmień moderatora",
+    "changeModeratorHelp": "Zmień moderatora tej sesji. Moderator może edytować ustawienia sesji",
+    "owner": "Właściciel",
+    "ownerHelp": "Właścicielem sesji jest osoba, która ją stworzyła. Nie można tego zmienić."
   },
   "PostBoard": {
     "customQuestion": "Kolumna niestandardowa",

@@ -72,6 +72,8 @@
     "title": "セッションをカスタマイズ",
     "timerCategory": "タイマー",
     "timerCategorySub": "セッションのタイマーを設定する",
+    "boardCategory": "ボード",
+    "boardCategorySub": "ボードの設定をカスタマイズ",
     "allowTimer": "タイマーを許可",
     "allowTimerHelp": "画面下部にタイマーを表示する",
     "timerDuration": "タイマー時間",
@@ -80,7 +82,7 @@
     "lockOnTimerEndHelp": "タイマーが終了したときにセッションをロックする",
     "votingCategory": "投票",
     "votingCategorySub": "「いいね」と「嫌い」に関するルールを設定",
-    "postCategory": "投稿設定",
+    "postCategory": "投稿",
     "postCategorySub": "投稿を作成または表示する際にユーザができることに関するルールを設定します",
     "customTemplateCategory": "列テンプレート",
     "customTemplateCategorySub": "テンプレートを選択し、列をカスタマイズします",
@@ -123,7 +125,11 @@
     "templateHelp": "あらかじめ定義された列のセットを使用",
     "numberOfColumns": "列数",
     "numberOfColumnsHelp": "列数を設定",
-    "makeDefaultTemplate": "これをデフォルトのテンプレートにする"
+    "makeDefaultTemplate": "これをデフォルトのテンプレートにする",
+    "changeModerator": "モデレーターの変更",
+    "changeModeratorHelp": "このセッションのモデレータを変更します。モデレータはセッションの設定を編集できます。",
+    "owner": "所有者",
+    "ownerHelp": "セッションの所有者はそれを作成した人です。これは変更できません。"
   },
   "PostBoard": {
     "customQuestion": "カスタム列",

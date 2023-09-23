@@ -72,6 +72,8 @@
     "title": "Personaliza tu sesión",
     "timerCategory": "Temporizador",
     "timerCategorySub": "Establecer el temporizador de la sesión",
+    "boardCategory": "Tablero",
+    "boardCategorySub": "Personalizar ajustes del tablero",
     "allowTimer": "Permitir temporizador",
     "allowTimerHelp": "Mostrar un temporizador en la parte inferior de la pantalla",
     "timerDuration": "Duración del temporizador",
@@ -80,7 +82,7 @@
     "lockOnTimerEndHelp": "Bloquear la sesión (hacer sólo lectura) cuando finalice el temporizador",
     "votingCategory": "Votaciones",
     "votingCategorySub": "Establecer las reglas sobre \"me gusta\" y \"me gusta\"",
-    "postCategory": "Ajustes de publicación",
+    "postCategory": "Mensajes",
     "postCategorySub": "Establecer las reglas sobre lo que un usuario puede hacer al crear o ver un mensaje",
     "customTemplateCategory": "Plantilla de columna",
     "customTemplateCategorySub": "Seleccione una plantilla y personalice sus columnas",
@@ -123,7 +125,11 @@
     "templateHelp": "Usar un conjunto predefinido de columnas",
     "numberOfColumns": "Número de columnas",
     "numberOfColumnsHelp": "Establecer el número de columnas",
-    "makeDefaultTemplate": "Hacer esta mi plantilla predeterminada"
+    "makeDefaultTemplate": "Hacer esta mi plantilla predeterminada",
+    "changeModerator": "Cambiar el moderador",
+    "changeModeratorHelp": "Cambiar el moderador de esta sesión. El moderador puede editar la configuración de la sesión",
+    "owner": "Propietario",
+    "ownerHelp": "El propietario de la sesión es la persona que la creó. Esto no se puede cambiar."
   },
   "PostBoard": {
     "customQuestion": "Columna personalizada",

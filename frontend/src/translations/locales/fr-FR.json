@@ -72,6 +72,8 @@
     "title": "Nouvelle session personalisée",
     "timerCategory": "Minuteur",
     "timerCategorySub": "Régler le minuteur pour la session",
+    "boardCategory": "Board",
+    "boardCategorySub": "Personnalisez les paramètres de la rétro",
     "allowTimer": "Utiliser le minuteur",
     "allowTimerHelp": "Afficher un minuteur en bas de l'écran",
     "timerDuration": "Durée du minuteur",
@@ -80,7 +82,7 @@
     "lockOnTimerEndHelp": "Verrouiller la session (lecture seule) quand le minuteur se termine",
     "votingCategory": "Votes",
     "votingCategorySub": "Règles concernant les votes",
-    "postCategory": "Options des posts",
+    "postCategory": "Posts",
     "postCategorySub": "Règles concernant ce qu'un utilisateur peut faire sur un post",
     "customTemplateCategory": "Colonnes personalisées",
     "customTemplateCategorySub": "Sélectionnez un modèle et personnalisez vos colonnes",
@@ -123,7 +125,11 @@
     "templateHelp": "Sélectionnez un jeu de colonnes prédéfini",
     "numberOfColumns": "Nombre de colonnes",
     "numberOfColumnsHelp": "Réglez le nombre de colonnes",
-    "makeDefaultTemplate": "En faire mes réglages par défaut"
+    "makeDefaultTemplate": "En faire mes réglages par défaut",
+    "changeModerator": "Changer le modérateur",
+    "changeModeratorHelp": "Changer le modérateur de cette session. Le modérateur peut modifier les paramètres de la session.",
+    "owner": "Propriétaire",
+    "ownerHelp": "Le propriétaire de la session est la personne qui l'a créée. Cela ne peut être changé."
   },
   "PostBoard": {
     "customQuestion": "Colonne personnalisée",
