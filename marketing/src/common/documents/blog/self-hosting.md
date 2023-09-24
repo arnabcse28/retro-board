@@ -1,8 +1,8 @@
 ---
 slug: 'self-hosting'
 lang: 'en'
-title: 'Self-Hosting Edition'
-subtitle: 'Retrospected on your premises'
+title: 'Retrospected: Self-hosted retrospectives. Own your data.'
+subtitle: 'Retrospected Self-Hosted Edition allows you to host your retrospective data on your servers for ultimate privacy and control. Our on-premise solution provides complete control, privacy, security, and customization while leveraging the power of Retrospected.'
 author: 'Antoine Jaussoin'
 date: '2023-06-07'
 keywords: 'self-hosting,self-hosted,security'
