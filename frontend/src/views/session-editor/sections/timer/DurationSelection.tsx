@@ -16,6 +16,7 @@ type DurationSelectionProps = {
 };
 
 const marks: Mark[] = [
+  { value: 1, label: '1m' },
   { value: 15, label: '15m' },
   { value: 30, label: '30m' },
   { value: 45, label: '45m' },
@@ -29,7 +30,7 @@ export default function DurationSelection({
   const handleChange = useCallback(
     (_event: Event, value: number | number[]) => {
       // Allows testing on a small duration in development mode
-      if (!isProduction() && value === 5) {
+      if (!isProduction() && value === 1) {
         onChange(10);
         return;
       }
@@ -43,9 +44,9 @@ export default function DurationSelection({
         value={duration / 60}
         onChange={handleChange}
         marks={marks}
-        min={5}
+        min={1}
         max={60}
-        step={5}
+        step={1}
       />
     </Container>
   );
