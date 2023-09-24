@@ -252,7 +252,7 @@
     ><span class="hljs-attr">version:</span> <span class="hljs-string" style="color: rgb(166, 226, 46);">'3'</span>
 <span class="hljs-attr">services:</span>
 <span class="hljs-attr">  postgres:</span>
-<span class="hljs-attr">    image:</span> postgres:<span class="hljs-number">11.6</span>
+<span class="hljs-attr">    image:</span> postgres:<span class="hljs-number">16</span>
 <span class="hljs-attr">    hostname:</span> postgres
 <span class="hljs-attr">    environment:</span>
 <span class="hljs-comment" style="color: rgb(117, 113, 94);">      # Only change the Database password below BEFORE running for the first time. Once the database</span>
@@ -288,7 +288,7 @@
 <span class="hljs-attr">        max-size:</span> <span class="hljs-string" style="color: rgb(166, 226, 46);">'50m'</span>
 
 <span class="hljs-attr">  pgadmin:</span>
-<span class="hljs-attr">    image:</span> dpage/pgadmin4:<span class="hljs-number">4.15</span> <span class="hljs-comment" style="color: rgb(117, 113, 94);"># use biarms/pgadmin4 on ARM</span>
+<span class="hljs-attr">    image:</span> dpage/pgadmin4:<span class="hljs-number">16</span> <span class="hljs-comment" style="color: rgb(117, 113, 94);"></span>
 <span class="hljs-attr">    depends_on:</span>
 <span class="hljs-bullet" style="color: rgb(166, 226, 46);">      -</span> postgres
 <span class="hljs-attr">    ports:</span>

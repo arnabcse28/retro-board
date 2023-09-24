@@ -150,7 +150,7 @@ services:
         max-size: '50m'
 
   postgres:
-    image: postgres:11.6
+    image: postgres:16
     hostname: postgres
     environment:
       #  -- Change Recommended --
@@ -168,7 +168,7 @@ services:
         max-size: '50m'
 
   pgadmin:
-    image: dpage/pgadmin4:4.15 # use biarms/pgadmin4 on ARM
+    image: dpage/pgadmin4:latest
     depends_on:
       - postgres
     ports:

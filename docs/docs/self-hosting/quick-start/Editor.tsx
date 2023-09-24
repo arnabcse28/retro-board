@@ -32,7 +32,6 @@ export default function Editor() {
   const [email, setEmail] = usePersistedState('email', 'your@email.com');
   const [port, setPort] = usePersistedState('port', '80');
   const [pgPort, setPgPort] = usePersistedState('pg-port', '81');
-  const [isArm, setIsArm] = usePersistedState('is-arm', false);
   const [disableAnon, setDisableAnon] = usePersistedState(
     'disable-anon',
     false
@@ -151,14 +150,6 @@ export default function Editor() {
             description="Web server session secret. This can be anything."
             value={sessionSecret}
             onChange={setSessionSecret}
-          />
-          <FieldToggle
-            id="arm-toggle"
-            label="Deploying on ARM?"
-            description="Only check this if you are deploying on an ARM-based server."
-            toggleLabel="ARM server"
-            value={isArm}
-            onChange={setIsArm}
           />
           <FieldToggle
             id="disable-anon-toggle"
@@ -337,7 +328,6 @@ export default function Editor() {
           email,
           port,
           pgPort,
-          arm: isArm,
           disableAnon,
           disablePassword,
           disableRegistration,

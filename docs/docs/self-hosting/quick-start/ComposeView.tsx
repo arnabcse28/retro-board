@@ -12,7 +12,6 @@ type ComposeViewSettings = {
   licence: string;
   port: string;
   pgPort: string;
-  arm: boolean;
   disableAnon: boolean;
   disablePassword: boolean;
   disableRegistration: boolean;
@@ -58,7 +57,6 @@ export default function ComposeView({
     sessionSecret,
     port,
     pgPort,
-    arm,
     disableAnon,
     disablePassword,
     disableRegistration,
@@ -135,7 +133,7 @@ ${optionals.join('\n')}
         max-size: '50m'
   
   postgres:
-    image: postgres:11.6
+    image: postgres:16
     hostname: postgres
     environment:
       POSTGRES_PASSWORD: '${dbPassword}'
@@ -150,7 +148,7 @@ ${optionals.join('\n')}
         max-size: '50m'
 
   pgadmin:
-    image: ${!arm ? 'dpage/pgadmin4:4.15' : 'biarms/pgadmin4'}
+    image: dpage/pgadmin4:latest
     depends_on:
       - postgres
     ports:

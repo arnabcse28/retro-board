@@ -130,19 +130,26 @@
       <h4>Quick Start</h4>
       <p>
         You can be up and running in 5 minutes by using your personalised
-        <b>docker-compose</b> file below.<br>
+        <b>docker-compose</b> file below.<br />
         Alternatively, if you would like to customise it or get more details
         about the installation, please visit our
-        <a href="https://docs.retrospected.com/docs/self-hosting/quick-start?email={{email}}&amp;licence={{key}}">documentation website</a>.<br>
+        <a
+          href="https://docs.retrospected.com/docs/self-hosting/quick-start?email={{email}}&amp;licence={{key}}"
+          >documentation website</a
+        >.<br />
         You will also find useful information about
-        <a href="https://docs.retrospected.com/docs/self-hosting/backup">backup</a>,
-        <a href="https://docs.retrospected.com/docs/self-hosting/pgadmin">database management</a>, etc.
+        <a href="https://docs.retrospected.com/docs/self-hosting/backup"
+          >backup</a
+        >,
+        <a href="https://docs.retrospected.com/docs/self-hosting/pgadmin"
+          >database management</a
+        >, etc.
       </p>
     </div>
 
     <p style="margin-top: 30px"></p>
 
-    <hr>
+    <hr />
 
     <h2>Quick Start</h2>
 
@@ -175,7 +182,8 @@
         <li>
           <span class="optional">
             Optional: Change the various passwords, ports and other
-            settings.</span>
+            settings.</span
+          >
         </li>
         <li>
           In the same directory, do
@@ -204,7 +212,9 @@
       </p>
       <p>
         You can also access
-        <a href="https://docs.retrospected.com/docs/self-hosting/pgadmin">PGAdmin</a>, which will give you access to your database. PGAdmin is available on
+        <a href="https://docs.retrospected.com/docs/self-hosting/pgadmin"
+          >PGAdmin</a
+        >, which will give you access to your database. PGAdmin is available on
         port 1801 (by default), and you can use the following credentials if you
         didn't modify the defaults:
       </p>
@@ -215,28 +225,34 @@
       <p>
         If you want more configuration options, have a look at our
         <span class="file">docker-compose.yml</span>
-        <a href="https://docs.retrospected.com/docs/self-hosting/quick-start?email={{email}}&amp;licence={{key}}">editor here</a>.
+        <a
+          href="https://docs.retrospected.com/docs/self-hosting/quick-start?email={{email}}&amp;licence={{key}}"
+          >editor here</a
+        >.
       </p>
     </section>
 
     <p>Let us know if you have any issue, we'll be happy to help!</p>
     <p class="team">The Retrospected Team</p>
 
-    <hr class="footer">
+    <hr class="footer" />
 
     <p>Your <span class="file">docker-compose.yml</span> file:</p>
 
     <!-- DOCKER COMPOSE FILE -->
-    <pre class="hljs" style="
+    <pre
+      class="hljs"
+      style="
         display: block;
         overflow-x: auto;
         padding: 0.5em;
         background-color: rgb(39, 40, 34);
         color: rgb(221, 221, 221);
-      "><span class="hljs-attr">version:</span> <span class="hljs-string" style="color: rgb(166, 226, 46);">'3'</span>
+      "
+    ><span class="hljs-attr">version:</span> <span class="hljs-string" style="color: rgb(166, 226, 46);">'3'</span>
 <span class="hljs-attr">services:</span>
 <span class="hljs-attr">  postgres:</span>
-<span class="hljs-attr">    image:</span> postgres:<span class="hljs-number">11.6</span>
+<span class="hljs-attr">    image:</span> postgres:<span class="hljs-number">16</span>
 <span class="hljs-attr">    hostname:</span> postgres
 <span class="hljs-attr">    environment:</span>
 <span class="hljs-comment" style="color: rgb(117, 113, 94);">      # Only change the Database password below BEFORE running for the first time. Once the database</span>
@@ -272,7 +288,7 @@
 <span class="hljs-attr">        max-size:</span> <span class="hljs-string" style="color: rgb(166, 226, 46);">'50m'</span>
 
 <span class="hljs-attr">  pgadmin:</span>
-<span class="hljs-attr">    image:</span> dpage/pgadmin4:<span class="hljs-number">4.15</span> <span class="hljs-comment" style="color: rgb(117, 113, 94);"># use biarms/pgadmin4 on ARM</span>
+<span class="hljs-attr">    image:</span> dpage/pgadmin4:<span class="hljs-number">latest</span> <span class="hljs-comment" style="color: rgb(117, 113, 94);"></span>
 <span class="hljs-attr">    depends_on:</span>
 <span class="hljs-bullet" style="color: rgb(166, 226, 46);">      -</span> postgres
 <span class="hljs-attr">    ports:</span>
@@ -317,6 +333,5 @@
     <!-- DOCKER COMPOSE FILE END -->
 
     <!-- SEND GRID END -->
-    </body>
-    
-    </html>
+  </body>
+</html>
