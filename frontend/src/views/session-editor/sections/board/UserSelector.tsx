@@ -20,22 +20,26 @@ export function UserSelector({
   }, [options, moderatorId]);
 
   return (
-    <Autocomplete
-      size="small"
-      disablePortal
-      options={options}
-      value={selected}
-      disableClearable={options.length > 0}
-      onChange={(_, value) => onSelect(value as User)}
-      sx={{ width: 300 }}
-      renderInput={(params) => <TextField {...params} value={selected?.name} />}
-      renderOption={(props, option) => (
-        <span {...props}>
-          <UserItem user={option} />
-        </span>
-      )}
-      getOptionLabel={(option) => option.name}
-    />
+    <SelectorContainer>
+      <Autocomplete
+        size="small"
+        disablePortal
+        options={options}
+        value={selected}
+        disableClearable={options.length > 0}
+        onChange={(_, value) => onSelect(value as User)}
+        fullWidth
+        renderInput={(params) => (
+          <TextField {...params} value={selected?.name} />
+        )}
+        renderOption={(props, option) => (
+          <span {...props}>
+            <UserItem user={option} />
+          </span>
+        )}
+        getOptionLabel={(option) => option.name}
+      />
+    </SelectorContainer>
   );
 }
 
@@ -76,4 +80,17 @@ const Name = styled.div`
 const Email = styled.div`
   grid-area: email;
   color: ${colors.grey[500]};
+`;
+const SelectorContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  > * {
+    margin: 5px 0;
+  }
+
+  @media screen and (min-width: 600px) {
+    > * {
+      max-width: 300px;
+    }
+  }
 `;
