@@ -127,9 +127,9 @@
     "numberOfColumnsHelp": "Setze die Anzahl an Spalten",
     "makeDefaultTemplate": "Diese Standardvorlage erstellen",
     "changeModerator": "Moderator ändern",
-    "changeModeratorHelp": "Moderator dieser Sitzung ändern. Der Moderator kann die Sitzungseinstellungen bearbeiten",
+    "changeModeratorHelp": "Ändern Sie den Moderator dieser Sitzung. Der Moderator kann auch die Sitzungseinstellungen bearbeiten.",
     "owner": "Besitzer",
-    "ownerHelp": "Der Besitzer der Sitzung ist die Person, die sie erstellt hat. Dies kann nicht geändert werden."
+    "ownerHelp": "Der Besitzer der Sitzung ist die Person, die sie erstellt hat. Sie ist auch Moderator. Dies kann nicht geändert werden."
   },
   "PostBoard": {
     "customQuestion": "Eigene Spalte",

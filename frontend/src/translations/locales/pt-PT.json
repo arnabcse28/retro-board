@@ -127,9 +127,9 @@
     "numberOfColumnsHelp": "Definir o número de colunas",
     "makeDefaultTemplate": "Tornar este meu modelo padrão",
     "changeModerator": "Alterar o Moderador",
-    "changeModeratorHelp": "Alterar o moderador desta sessão. O moderador pode editar as configurações da sessão",
+    "changeModeratorHelp": "Alterar o moderador desta sessão. O moderador também pode editar as configurações da sessão.",
     "owner": "Proprietário",
-    "ownerHelp": "O proprietário da sessão é a pessoa que a criou. Isto não pode ser alterado."
+    "ownerHelp": "O proprietário da sessão é a pessoa que a criou. Eles também são um moderador. Isso não pode ser alterado."
   },
   "PostBoard": {
     "customQuestion": "Coluna personalizada",

@@ -127,9 +127,9 @@
     "numberOfColumnsHelp": "列数を設定",
     "makeDefaultTemplate": "これをデフォルトのテンプレートにする",
     "changeModerator": "モデレーターの変更",
-    "changeModeratorHelp": "このセッションのモデレータを変更します。モデレータはセッションの設定を編集できます。",
+    "changeModeratorHelp": "このセッションのモデレータを変更します。モデレータはセッション設定を編集することもできます。",
     "owner": "所有者",
-    "ownerHelp": "セッションの所有者はそれを作成した人です。これは変更できません。"
+    "ownerHelp": "セッションの所有者は、それを作成した人です。また、モデレータです。変更することはできません。"
   },
   "PostBoard": {
     "customQuestion": "カスタム列",

@@ -127,9 +127,9 @@
     "numberOfColumnsHelp": "Stel het aantal kolommen in",
     "makeDefaultTemplate": "Stel in als mijn standaard template",
     "changeModerator": "Wijzig de moderator",
-    "changeModeratorHelp": "De moderator van deze sessie wijzigen. De moderator kan de sessie-instellingen bewerken",
+    "changeModeratorHelp": "De moderator van deze sessie wijzigen. De moderator kan ook de sessie-instellingen bewerken.",
     "owner": "Eigenaar",
-    "ownerHelp": "De eigenaar van de sessie is de persoon die de sessie heeft gemaakt. Dit kan niet worden gewijzigd."
+    "ownerHelp": "De eigenaar van de sessie is de persoon die de sessie heeft gemaakt. Ze zijn ook een moderator. Dit kan niet worden gewijzigd."
   },
   "PostBoard": {
     "customQuestion": "Aangepast kolom",

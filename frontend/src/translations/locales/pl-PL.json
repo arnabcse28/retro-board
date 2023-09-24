@@ -127,9 +127,9 @@
     "numberOfColumnsHelp": "Ustaw liczbę kolumn",
     "makeDefaultTemplate": "Ustaw ten domyślny szablon",
     "changeModerator": "Zmień moderatora",
-    "changeModeratorHelp": "Zmień moderatora tej sesji. Moderator może edytować ustawienia sesji",
+    "changeModeratorHelp": "Zmień moderatora tej sesji. Moderator może również edytować ustawienia sesji.",
     "owner": "Właściciel",
-    "ownerHelp": "Właścicielem sesji jest osoba, która ją stworzyła. Nie można tego zmienić."
+    "ownerHelp": "Właścicielem sesji jest osoba, która ją stworzyła. Są również moderatorem. Nie można tego zmienić."
   },
   "PostBoard": {
     "customQuestion": "Kolumna niestandardowa",

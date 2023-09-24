@@ -117,7 +117,7 @@
     "restrictTitleEditToOwnerHelp": "Seul le modérateur d'une rétrospective est en mesure de changer son titre",
     "restrictReorderingToOwner": "Limiter la réorganisation (drag-and-drop) des posts au modérateur",
     "restrictReorderingToOwnerHelp": "Seul le modérateur d'une rétrospective est en mesure de réorganiser les posts",
-    "restrictGroupingToOwner": "Limiter la réorganisation (drag-and-drop) des posts au modérateur",
+    "restrictGroupingToOwner": "Limiter la réorganisation (drag-and-drop) des groupes au modérateur",
     "restrictGroupingToOwnerHelp": "Seul le modérateur d'une rétrospective peut créer et réordonner des groupes",
     "blurCards": "Flouter",
     "blurCardsHelp": "Les posts sont floutés, jusqu'à ce qu'un modérateur révèle les posts",
@@ -129,7 +129,7 @@
     "changeModerator": "Changer le modérateur",
     "changeModeratorHelp": "Changer le modérateur de cette session. Le modérateur peut modifier les paramètres de la session.",
     "owner": "Propriétaire",
-    "ownerHelp": "Le propriétaire de la session est la personne qui l'a créée. Cela ne peut être changé."
+    "ownerHelp": "Le propriétaire de la session est la personne qui l'a créée. Il est aussi modérateur par défaut. Cela ne peut être changé."
   },
   "PostBoard": {
     "customQuestion": "Colonne personnalisée",

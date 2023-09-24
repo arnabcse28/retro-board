@@ -127,9 +127,9 @@
     "numberOfColumnsHelp": "设置列数",
     "makeDefaultTemplate": "将此设置为我的默认模板",
     "changeModerator": "更改版主",
-    "changeModeratorHelp": "更改此会话的主持人。主持人可以编辑会话设置",
+    "changeModeratorHelp": "更改此会话的主持人。主持人也可以编辑会话设置。",
     "owner": "所有者",
-    "ownerHelp": "会话的所有者是创建者。无法更改。"
+    "ownerHelp": "会话的所有者是创建者。他们也是版主。这不能改变。"
   },
   "PostBoard": {
     "customQuestion": "自定义列",
