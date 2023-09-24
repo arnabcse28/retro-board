@@ -36,16 +36,16 @@ describe('useSession', () => {
     expect(context.current.session).not.toBe(null);
   });
 
-  // describe('Renaming a session', () => {
-  //   it('Should rename the session correctly', () => {
-  //     const context = render();
-  //     expect(context.current.session?.name).toBe('My Retro');
-  //     act(() => {
-  //       context.current.renameSession('Something else');
-  //     });
-  //     expect(context.current.session?.name).toBe('Something else');
-  //   });
-  // });
+  describe('Renaming a session', () => {
+    it('Should rename the session correctly', () => {
+      const context = render();
+      expect(context.current.session?.name).toBe('My Retro');
+      act(() => {
+        context.current.editSessionSettings({ name: 'Something else' });
+      });
+      expect(context.current.session?.name).toBe('Something else');
+    });
+  });
 
   describe('Resetting a session', () => {
     it('Should set the session to null', () => {
