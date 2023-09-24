@@ -24,7 +24,9 @@ export function sessionPermissionLogic(
       hasReachedMaxPosts: false,
     };
   }
-  const isOwner = user.id === session.createdBy.id;
+  const isModerator = user.id === session.moderator.id;
+  const isOwner = isModerator || user.id === session.createdBy.id;
+
   const numberOfPosts = session.posts.filter(
     (p) => p.user.id === user.id
   ).length;

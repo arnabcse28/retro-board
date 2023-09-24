@@ -127,9 +127,9 @@
     "numberOfColumnsHelp": "Set the number of columns",
     "makeDefaultTemplate": "Make this my default template",
     "changeModerator": "Change the Moderator",
-    "changeModeratorHelp": "Change the moderator of this session. The moderator can edit the session settings",
+    "changeModeratorHelp": "Change the moderator of this session. The moderator can also edit the session settings.",
     "owner": "Owner",
-    "ownerHelp": "The owner of the session is the person who created it. This cannot be changed."
+    "ownerHelp": "The owner of the session is the person who created it. They are also a moderator. This cannot be changed."
   },
   "PostBoard": {
     "customQuestion": "Custom Column",
