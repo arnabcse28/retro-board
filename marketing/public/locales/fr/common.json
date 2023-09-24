@@ -1,7 +1,7 @@
 {
   "SEO": {
     "title": "Retrospected",
-    "description": "Retrospectives gratuites et temps-réel pour équipes agiles"
+    "description": "Rétrospectives gratuites et temps-réel pour équipes agiles"
   },
   "404": {
     "heading": "404",
@@ -10,7 +10,7 @@
   },
   "Banner": {
     "heading": "Une app **simple** et **puissante** pour des rétros en ligne **efficaces**.",
-    "text": "**Boostez** le niveau de votre équipe avec des retrospéctives **modernes** et un outil **facile à utiliser**. **Personnalisable**, multi-langues, utilisez en ligne ou auto-hébergé… Donnez à vos sprints l'**impact** qu'ils méritent !",
+    "text": "**Boostez** le niveau de votre équipe avec des rétrospectives **modernes** et un outil **facile à utiliser**. **Personnalisable**, multi-langues, utilisez en ligne ou auto-hébergé… Donnez à vos sprints l'**impact** qu'ils méritent !",
     "tagline": "*Aucune carte bancaire demandée",
     "subscribeToday": "Essayez gratuitement",
     "demo": "Démo en 1 clic"
