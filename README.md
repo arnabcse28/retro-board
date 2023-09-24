@@ -97,6 +97,14 @@ This will run a demo version, which you can turn into a fully licenced version b
 
 ## Versions History
 
+### Version 5.4.0
+
+- Add the concept of a moderator, so the person creating the retro is not necessarily the person moderating it.
+- Upgrade the database to Postgres 16 (latest version)
+- Allow finer-grained timers.
+- Fix an issue with the left-hand-side panel layout (👏 Thanks to [@ruandev](https://github.com/ruandev) for the fix)
+- SEO optimizations
+
 ### Version 5.3.1 (hotfix)
 
 - 🐛 Adding a group was not working in the previous version. This is now fixed.
