@@ -67,6 +67,7 @@ function BoardSection({ options, owner, onChange }: BoardSectionProps) {
       <OptionItem
         label={t('Customize.changeModerator')!}
         help={t('Customize.changeModeratorHelp')!}
+        wide
       >
         <UserSelector
           onSelect={setModerator}
