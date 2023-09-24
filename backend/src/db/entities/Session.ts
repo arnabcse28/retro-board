@@ -31,7 +31,7 @@ export default class SessionEntity {
   @ManyToOne(() => UserEntity, { eager: true, cascade: true, nullable: false })
   @Index()
   public createdBy: UserEntity;
-  @ManyToOne(() => UserEntity, { eager: true, cascade: true, nullable: true })
+  @ManyToOne(() => UserEntity, { eager: true, cascade: true, nullable: false })
   @Index()
   public moderator: UserEntity;
   @OneToMany(() => PostEntity, (post) => post.session, {
