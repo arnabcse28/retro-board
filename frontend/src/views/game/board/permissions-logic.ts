@@ -38,11 +38,11 @@ export function sessionPermissionLogic(
   const canCreateGroup =
     canCreatePost &&
     session.options.allowGrouping &&
-    (isOwner || !session.options.restrictGroupingToOwner);
+    (isOwner || !session.options.restrictGroupingToModerator);
   const canEditTitle =
-    !readonly && (isOwner || !session.options.restrictTitleEditToOwner);
+    !readonly && (isOwner || !session.options.restrictTitleEditToModerator);
   const canReorderPosts =
-    !readonly && (isOwner || !session.options.restrictReorderingToOwner);
+    !readonly && (isOwner || !session.options.restrictReorderingToModerator);
 
   return {
     canCreatePost,
@@ -101,7 +101,7 @@ export function postPermissionLogic(
     allowGiphy,
     allowReordering,
     allowCancelVote,
-    restrictReorderingToOwner,
+    restrictReorderingToModerator: restrictReorderingToOwner,
     blurCards,
   } = session.options;
 

@@ -66,9 +66,9 @@ export interface SessionOptions {
   allowGrouping: boolean;
   allowReordering: boolean;
   allowCancelVote: boolean;
-  restrictTitleEditToOwner: boolean;
-  restrictReorderingToOwner: boolean;
-  restrictGroupingToOwner: boolean;
+  restrictTitleEditToModerator: boolean;
+  restrictReorderingToModerator: boolean;
+  restrictGroupingToModerator: boolean;
   blurCards: boolean;
   newPostsFirst: boolean;
   allowTimer: boolean;

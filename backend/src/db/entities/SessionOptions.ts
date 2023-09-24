@@ -31,11 +31,11 @@ export default class SessionOptionsEntity {
   @Column({ default: true })
   public allowTimer: boolean;
   @Column({ default: false })
-  public restrictTitleEditToOwner: boolean;
+  public restrictTitleEditToModerator: boolean;
   @Column({ default: false })
-  public restrictReorderingToOwner: boolean;
+  public restrictReorderingToModerator: boolean;
   @Column({ default: false })
-  public restrictGroupingToOwner: boolean;
+  public restrictGroupingToModerator: boolean;
   @Column({ type: 'numeric', default: 15 * 60 })
   public timerDuration: number;
   @Column({ default: true })
@@ -69,10 +69,12 @@ export default class SessionOptionsEntity {
     this.allowTimer = optionsWithDefault.allowTimer;
     this.timerDuration = optionsWithDefault.timerDuration;
     this.readonlyOnTimerEnd = optionsWithDefault.readonlyOnTimerEnd;
-    this.restrictTitleEditToOwner = optionsWithDefault.restrictTitleEditToOwner;
-    this.restrictReorderingToOwner =
-      optionsWithDefault.restrictReorderingToOwner;
-    this.restrictGroupingToOwner = optionsWithDefault.restrictGroupingToOwner;
+    this.restrictTitleEditToModerator =
+      optionsWithDefault.restrictTitleEditToModerator;
+    this.restrictReorderingToModerator =
+      optionsWithDefault.restrictReorderingToModerator;
+    this.restrictGroupingToModerator =
+      optionsWithDefault.restrictGroupingToModerator;
   }
 }
 

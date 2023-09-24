@@ -33,7 +33,7 @@ function BoardSection({ options, owner, onChange }: BoardSectionProps) {
         ...options,
         options: {
           ...options.options,
-          restrictTitleEditToOwner: value,
+          restrictTitleEditToModerator: value,
         },
       });
     },
@@ -79,7 +79,7 @@ function BoardSection({ options, owner, onChange }: BoardSectionProps) {
         help={t('Customize.restrictTitleEditToOwnerHelp')!}
       >
         <BooleanOption
-          value={options.options.restrictTitleEditToOwner}
+          value={options.options.restrictTitleEditToModerator}
           onChange={setRestrictTitleEditToOwner}
         />
       </OptionItem>

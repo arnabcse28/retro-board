@@ -17,9 +17,9 @@ export const defaultOptions: SessionOptions = {
   allowTimer: true,
   timerDuration: 15 * 60,
   readonlyOnTimerEnd: true,
-  restrictTitleEditToOwner: false,
-  restrictReorderingToOwner: false,
-  restrictGroupingToOwner: false,
+  restrictTitleEditToModerator: false,
+  restrictReorderingToModerator: false,
+  restrictGroupingToModerator: false,
 };
 
 export const defaultSession: Omit<Session, 'createdBy' | 'moderator'> = {

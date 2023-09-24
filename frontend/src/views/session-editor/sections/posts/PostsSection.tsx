@@ -100,7 +100,7 @@ function PostsSection({ options, onChange }: PostsSectionProps) {
     (value: boolean) => {
       onChange({
         ...options,
-        restrictReorderingToOwner: value,
+        restrictReorderingToModerator: value,
       });
     },
     [onChange, options]
@@ -110,7 +110,7 @@ function PostsSection({ options, onChange }: PostsSectionProps) {
     (value: boolean) => {
       onChange({
         ...options,
-        restrictGroupingToOwner: value,
+        restrictGroupingToModerator: value,
       });
     },
     [onChange, options]
@@ -174,7 +174,7 @@ function PostsSection({ options, onChange }: PostsSectionProps) {
         help={t('Customize.restrictReorderingToOwnerHelp')!}
       >
         <BooleanOption
-          value={options.restrictReorderingToOwner}
+          value={options.restrictReorderingToModerator}
           onChange={setRestrictReorderingToOwner}
         />
       </OptionItem>
@@ -192,7 +192,7 @@ function PostsSection({ options, onChange }: PostsSectionProps) {
         help={t('Customize.restrictGroupingToOwnerHelp')!}
       >
         <BooleanOption
-          value={options.restrictGroupingToOwner}
+          value={options.restrictGroupingToModerator}
           onChange={setRestrictGroupingToOwner}
         />
       </OptionItem>
