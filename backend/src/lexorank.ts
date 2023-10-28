@@ -1,4 +1,6 @@
-import { LexoRank } from 'lexorank';
+// import { LexoRank } from 'lexorank';
+
+const LexoRank: any = {};
 
 export function getMiddle(): string {
   return LexoRank.middle().toString();

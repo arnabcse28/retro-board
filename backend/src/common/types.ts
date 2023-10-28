@@ -282,3 +282,5 @@ export type StripeLocales =
   | 'no-NO'
   | 'uk-UA'
   | 'sv-S';
+
+export const stuff = {};

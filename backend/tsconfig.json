@@ -21,7 +21,8 @@
     "inlineSources": true,
     "sourceRoot": "/",
     "lib": ["es2015", "es2017", "dom", "ESNext"],
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "types": ["bun-types"]
   },
   "include": ["src", "./package.json"],
   "exclude": ["src/**/*.test.ts"]
